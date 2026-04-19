@@ -41,5 +41,8 @@ dist/
 OCI-Swift-SDK/
 .aider*
 
+# Go vendored SDK cache (use go modules instead)
+oci-go-sdk/
+
 # Claude Code
 .claude/
