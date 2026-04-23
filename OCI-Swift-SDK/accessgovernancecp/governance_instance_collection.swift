@@ -15,7 +15,7 @@ public struct GovernanceInstanceCollection: Codable, Sendable {
     // MARK: - Properties
     
     /// List of GovernanceInstances.
-    public var items: [GovernanceInstanceSummary]
+    public var items: [GovernanceInstanceSummary]?
     
     // MARK: - Coding Keys
     
@@ -25,7 +25,7 @@ public struct GovernanceInstanceCollection: Codable, Sendable {
     
     // MARK: - Initialization
     
-    public init(items: [GovernanceInstanceSummary]) {
+    public init(items: [GovernanceInstanceSummary]? = nil) {
         self.items = items
     }
     
@@ -35,7 +35,7 @@ public struct GovernanceInstanceCollection: Codable, Sendable {
     /// This function is being called during constructing API request process
     /// Not recommended for calling this function directly
     public func validateEnumValue() throws {
-        try items.forEach { try $0.validateEnumValue() }
+        try items?.forEach { try $0.validateEnumValue() }
     }
 }
 
