@@ -1,0 +1,72 @@
+// Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates. All rights reserved.
+// Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
+
+import Foundation
+
+public struct IntegrationInstanceSummary: Codable {
+    public var id: String
+    public var displayName: String
+    public var compartmentId: String
+    public var integrationInstanceType: IntegrationInstanceTypeEnum
+    public var isByol: Bool
+    public var instanceUrl: String
+    public var messagePacks: Int
+    public var timeCreated: Date?
+    public var timeUpdated: Date?
+    public var lifecycleState: IntegrationInstanceLifecycleStateEnum?
+    public var stateMessage: String?
+    public var freeformTags: [String: String]?
+    public var definedTags: [String: [String: Any]]?
+    public var isFileServerEnabled: Bool?
+    public var isVisualBuilderEnabled: Bool?
+    
+    public enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case displayName = "displayName"
+        case compartmentId = "compartmentId"
+        case integrationInstanceType = "integrationInstanceType"
+        case isByol = "isByol"
+        case instanceUrl = "instanceUrl"
+        case messagePacks = "messagePacks"
+        case timeCreated = "timeCreated"
+        case timeUpdated = "timeUpdated"
+        case lifecycleState = "lifecycleState"
+        case stateMessage = "stateMessage"
+        case freeformTags = "freeformTags"
+        case definedTags = "definedTags"
+        case isFileServerEnabled = "isFileServerEnabled"
+        case isVisualBuilderEnabled = "isVisualBuilderEnabled"
+    }
+    
+    public init(id: String,
+                displayName: String,
+                compartmentId: String,
+                integrationInstanceType: IntegrationInstanceTypeEnum,
+                isByol: Bool,
+                instanceUrl: String,
+                messagePacks: Int,
+                timeCreated: Date? = nil,
+                timeUpdated: Date? = nil,
+                lifecycleState: IntegrationInstanceLifecycleStateEnum? = nil,
+                stateMessage: String? = nil,
+                freeformTags: [String: String]? = nil,
+                definedTags: [String: [String: Any]]? = nil,
+                isFileServerEnabled: Bool? = nil,
+                isVisualBuilderEnabled: Bool? = nil) {
+        self.id = id
+        self.displayName = displayName
+        self.compartmentId = compartmentId
+        self.integrationInstanceType = integrationInstanceType
+        self.isByol = isByol
+        self.instanceUrl = instanceUrl
+        self.messagePacks = messagePacks
+        self.timeCreated = timeCreated
+        self.timeUpdated = timeUpdated
+        self.lifecycleState = lifecycleState
+        self.stateMessage = stateMessage
+        self.freeformTags = freeformTags
+        self.definedTags = definedTags
+        self.isFileServerEnabled = isFileServerEnabled
+        self.isVisualBuilderEnabled = isVisualBuilderEnabled
+    }
+}
