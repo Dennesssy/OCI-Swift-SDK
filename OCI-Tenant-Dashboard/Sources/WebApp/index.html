@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCI Tenant Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg viewBox="0 0 24 24" class="oci-logo">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <span>OCI Dashboard</span>
+                </div>
+                <div class="tenancy-selector">
+                    <select id="tenancySelect">
+                        <option value="">Loading...</option>
+                    </select>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-label">Home</span>
+                    <a href="#" class="nav-item active" data-view="dashboard">
+                        <span class="icon">⌘</span>
+                        Dashboard
+                    </a>
+                </div>
+                
+                <div class="nav-section">
+                    <span class="nav-label">Categories</span>
+                    <a href="#" class="nav-item" data-category="dev">
+                        <span class="icon dev">🚀</span>
+                        Developers
+                        <span class="badge" id="dev-count">0</span>
+                    </a>
+                    <a href="#" class="nav-item" data-category="enterprise">
+                        <span class="icon ent">🏢</span>
+                        Enterprise
+                        <span class="badge" id="ent-count">0</span>
+                    </a>
+                    <a href="#" class="nav-item" data-category="ai">
+                        <span class="icon ai">🤖</span>
+                        AI / ML
+                        <span class="badge" id="ai-count">0</span>
+                    </a>
+                    <a href="#" class="nav-item" data-category="security">
+                        <span class="icon sec">🔒</span>
+                        Security
+                        <span class="badge" id="sec-count">0</span>
+                    </a>
+                    <a href="#" class="nav-item" data-category="operations">
+                        <span class="icon ops">⚙️</span>
+                        Operations
+                        <span class="badge" id="ops-count">0</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">
+                    <span class="nav-label">Tools</span>
+                    <a href="#" class="nav-item" data-view="settings">
+                        <span class="icon">⚙️</span>
+                        Settings
+                    </a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="region-display">
+                    <span class="region-dot"></span>
+                    <span id="currentRegion">us-ashburn-1</span>
+                </div>
+                <div class="user-info">
+                    <span id="userEmail">user@example.com</span>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search services, resources...">
+                    <span class="search-shortcut">⌘K</span>
+                </div>
+                <div class="top-actions">
+                    <button class="btn-icon" id="refreshBtn" title="Refresh">
+                        <span>↻</span>
+                    </button>
+                    <button class="btn-icon" id="addCardBtn" title="Add Card">
+                        <span>+</span>
+                    </button>
+                    <button class="btn-icon" id="themeToggle" title="Toggle Theme">
+                        <span>◐</span>
+                    </button>
+                </div>
+            </header>
+            
+            <!-- Dashboard Grid -->
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <h1 id="viewTitle">Dashboard</h1>
+                    <div class="view-toggle">
+                        <button class="toggle-btn active" data-layout="grid">⊞ Grid</button>
+                        <button class="toggle-btn" data-layout="list">☰ List</button>
+                    </div>
+                </div>
+                
+                <!-- Cards Grid -->
+                <div class="cards-grid" id="cardsGrid">
+                    <!-- Cards will be injected here by JS -->
+                </div>
+                
+                <!-- Empty State -->
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <div class="empty-icon">📦</div>
+                    <h3>No cards yet</h3>
+                    <p>Add cards to your dashboard to get started</p>
+                    <button class="btn-primary" id="addFirstCard">Add Card</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Card Configuration Modal -->
+    <div class="modal" id="cardModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Configure Card</h3>
+                <button class="btn-close" id="closeModal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="card-preview" id="cardPreview"></div>
+                <div class="card-settings">
+                    <label>
+                        Refresh Interval
+                        <select id="refreshInterval">
+                            <option value="30">30 seconds</option>
+                            <option value="60" selected>1 minute</option>
+                            <option value="300">5 minutes</option>
+                            <option value="900">15 minutes</option>
+                        </select>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="showNotifications" checked>
+                        Show notifications
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelCard">Cancel</button>
+                <button class="btn-primary" id="saveCard">Save</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/bridge.js"></script>
+    <script src="js/services/compute.js"></script>
+    <script src="js/services/storage.js"></script>
+    <script src="js/services/database.js"></script>
+    <script src="js/services/ai.js"></script>
+    <script src="js/services/security.js"></script>
+    <script src="js/services/billing.js"></script>
+    <script src="js/services/iam.js"></script>
+    <script src="js/services/provisioning.js"></script>
+    <script src="js/services/notifications.js"></script>
+    <script src="js/services/secrets.js"></script>
+    <script src="js/services/limits.js"></script>
+    <script src="js/services/email.js"></script>
+    <script src="js/services/resources.js"></script>
+    <script src="js/dashboard/cards.js"></script>
+    <script src="js/dashboard/widgets.js"></script>
+    <script src="js/dashboard/layout.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

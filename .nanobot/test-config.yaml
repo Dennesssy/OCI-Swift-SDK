@@ -1,4 +1,0 @@
-id: test-agent
-name: Test Agent
-instructions: |
-  You are a test agent. Respond with "Hello from test agent" to any message.

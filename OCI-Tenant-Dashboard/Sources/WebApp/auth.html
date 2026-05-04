@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCI Authentication Setup</title>
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-header">
+            <svg viewBox="0 0 24 24" class="oci-logo">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            <h1>Connect to OCI</h1>
+            <p>Configure authentication to access your Oracle Cloud resources</p>
+        </div>
+        
+        <!-- Auth Method Tabs -->
+        <div class="auth-tabs">
+            <button class="tab-btn active" data-tab="apikey">API Key</button>
+            <button class="tab-btn" data-tab="session">Session Token</button>
+            <button class="tab-btn" data-tab="cloudshell">Cloud Shell</button>
+        </div>
+        
+        <!-- API Key Auth Form -->
+        <div class="auth-form active" id="apikey-form">
+            <div class="form-section">
+                <h3>User Credentials</h3>
+                
+                <div class="form-group">
+                    <label for="tenancyOCID">Tenancy OCID</label>
+                    <input type="text" id="tenancyOCID" placeholder="ocid1.tenancy.oc1..aaaaaaaa...">
+                    <span class="help">Found in OCI Console → Tenancy Details</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userOCID">User OCID</label>
+                    <input type="text" id="userOCID" placeholder="ocid1.user.oc1..aaaaaaaa...">
+                    <span class="help">Found in OCI Console → Identity → Users</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="region">Home Region</label>
+                    <select id="region">
+                        <option value="us-ashburn-1">US East (Ashburn)</option>
+                        <option value="us-phoenix-1">US West (Phoenix)</option>
+                        <option value="eu-frankfurt-1">Germany (Frankfurt)</option>
+                        <option value="eu-amsterdam-1">Netherlands (Amsterdam)</option>
+                        <option value="uk-london-1">UK (London)</option>
+                        <option value="ap-tokyo-1">Japan (Tokyo)</option>
+                        <option value="ap-sydney-1">Australia (Sydney)</option>
+                        <option value="ap-mumbai-1">India (Mumbai)</option>
+                        <option value="ca-toronto-1">Canada (Toronto)</option>
+                        <option value="sa-saopaulo-1">Brazil (Sao Paulo)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h3>API Key</h3>
+                
+                <div class="form-group">
+                    <label for="fingerprint">Key Fingerprint</label>
+                    <input type="text" id="fingerprint" placeholder="aa:bb:cc:dd:ee:ff:...">
+                    <span class="help">From your uploaded public key in OCI Console</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="privateKey">Private Key (PEM)</label>
+                    <textarea id="privateKey" rows="6" placeholder="-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA...
+-----END RSA PRIVATE KEY-----"></textarea>
+                    <span class="help">Contents of your ~/.oci/oci_api_key_private.pem file</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="passphrase">Passphrase (if encrypted)</label>
+                    <input type="password" id="passphrase" placeholder="Optional - only if key is encrypted">
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button class="btn-secondary" id="testConnection">Test Connection</button>
+                <button class="btn-primary" id="saveCredentials">Save & Connect</button>
+            </div>
+        </div>
+        
+        <!-- Session Token Form -->
+        <div class="auth-form" id="session-form">
+            <div class="form-section">
+                <h3>Session Token Authentication</h3>
+                
+                <div class="info-box">
+                    <p>Session tokens are generated via OCI CLI:</p>
+                    <code>oci iam auth create-token --name "Dashboard Token"</code>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sessionToken">Session Token</label>
+                    <textarea id="sessionToken" rows="4" placeholder="AQICAH... (token from oci cli)"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tokenRegion">Region</label>
+                    <select id="tokenRegion">
+                        <option value="us-ashburn-1">US East (Ashburn)</option>
+                        <option value="us-phoenix-1">US West (Phoenix)</option>
+                        <option value="eu-frankfurt-1">Germany (Frankfurt)</option>
+                        <option value="eu-amsterdam-1">Netherlands (Amsterdam)</option>
+                        <option value="uk-london-1">UK (London)</option>
+                        <option value="ap-tokyo-1">Japan (Tokyo)</option>
+                        <option value="ap-sydney-1">Australia (Sydney)</option>
+                        <option value="ap-mumbai-1">India (Mumbai)</option>
+                        <option value="ca-toronto-1">Canada (Toronto)</option>
+                        <option value="sa-saopaulo-1">Brazil (Sao Paulo)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button class="btn-primary" id="saveToken">Save & Connect</button>
+            </div>
+        </div>
+        
+        <!-- Cloud Shell Form -->
+        <div class="auth-form" id="cloudshell-form">
+            <div class="form-section">
+                <h3>Cloud Shell Delegation Token</h3>
+                
+                <div class="info-box">
+                    <p>When running in OCI Cloud Shell, authentication is automatic.</p>
+                    <p>If you have a delegation token from Cloud Shell:</p>
+                    <code>cat $OCI_CLI_AUTH_SECURITY_TOKEN_FILE</code>
+                </div>
+                
+                <div class="form-group">
+                    <label for="delegationToken">Delegation Token</label>
+                    <textarea id="delegationToken" rows="6" placeholder="Paste delegation token from Cloud Shell"></textarea>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button class="btn-primary" id="saveDelegation">Save & Connect</button>
+            </div>
+        </div>
+        
+        <!-- Status Messages -->
+        <div class="auth-status" id="authStatus"></div>
+        
+        <!-- Help Section -->
+        <div class="auth-help">
+            <h4>How to generate API keys:</h4>
+            <ol>
+                <li>Open Terminal on your Mac</li>
+                <li>Run: <code>mkdir ~/.oci && cd ~/.oci</code></li>
+                <li>Generate key: <code>openssl genrsa -out oci_api_key_private.pem 2048</code></li>
+                <li>Get public key: <code>openssl rsa -pubout -in oci_api_key_private.pem -out oci_api_key_public.pem</code></li>
+                <li>Get fingerprint: <code>openssl rsa -pubout -outform DER -in oci_api_key_private.pem | openssl md5 -c</code></li>
+                <li>Upload <strong>oci_api_key_public.pem</strong> to OCI Console → Identity → Users → API Keys</li>
+                <li>Copy the fingerprint shown in OCI Console</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script src="js/bridge.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
