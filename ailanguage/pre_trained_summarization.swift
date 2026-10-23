@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2026, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0.
@@ -18,7 +19,7 @@ import Foundation
 
 
 // PreTrainedSummarization Possible pre trained summarization model information
-public struct PreTrainedSummarization: Codable, Sendable {
+public struct PreTrainedSummarization: Codable, Sendable, ModelDetails {
     public var languageCode: String??
     public var version: String??
 
@@ -38,7 +39,7 @@ public struct PreTrainedSummarization: Codable, Sendable {
 
 extension PreTrainedSummarization: CustomStringConvertible {
     public var description: String {
-        return "PreTrainedSummarization(\n            languageCode: \(languageCode ?? "nil"),\n            version: \(version ?? "nil")\n        )"
+        return "PreTrainedSummarization(\n            languageCode: (optStr(languageCode)),\n            version: (optStr(version))\n        )"
     }
 }
 

@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -39,7 +40,7 @@ public struct BatchDetectLanguageSentimentsRequest: Codable, Sendable {
 
 extension BatchDetectLanguageSentimentsRequest: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectLanguageSentimentsRequest(\n            opcRequestId: \(opcRequestId ?? "nil"),\n            level: \(level ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "BatchDetectLanguageSentimentsRequest(\n            opcRequestId: (optStr(opcRequestId)),\n            level: (optStr(level)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -76,7 +77,7 @@ public struct BatchDetectLanguageSentimentsResponse: Codable, Sendable {
 
 extension BatchDetectLanguageSentimentsResponse: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectLanguageSentimentsResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "BatchDetectLanguageSentimentsResponse(\n            rawResponse: (optStr(rawResponse)),\n            opcRequestId: (optStr(opcRequestId))\n        )"
     }
 }
 
@@ -85,7 +86,6 @@ extension BatchDetectLanguageSentimentsResponse: CustomStringConvertible {
 // HTTPResponse implements the OCIResponse interface
 
 // BatchDetectLanguageSentimentsLevelEnum Enum with underlying type: string
-public typealias BatchDetectLanguageSentimentsLevelEnum = String
 
 // Set of constants representing the allowable values for BatchDetectLanguageSentimentsLevelEnum
 public enum BatchDetectLanguageSentimentsLevelEnum: String, Codable, Sendable {

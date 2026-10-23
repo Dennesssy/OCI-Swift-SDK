@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -66,7 +67,7 @@ public struct WorkRequestSummary: Codable, Sendable {
 
 extension WorkRequestSummary: CustomStringConvertible {
     public var description: String {
-        return "WorkRequestSummary(\n            operationType: \(operationType ?? "nil"),\n            status: \(status ?? "nil"),\n            id: \(id ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            percentComplete: \(percentComplete ?? "nil"),\n            timeAccepted: \(timeAccepted ?? "nil"),\n            resources: \(resources ?? "nil"),\n            timeStarted: \(timeStarted ?? "nil"),\n            timeFinished: \(timeFinished ?? "nil")\n        )"
+        return "WorkRequestSummary(\n            operationType: (optStr(operationType)),\n            status: (optStr(status)),\n            id: (optStr(id)),\n            compartmentId: (optStr(compartmentId)),\n            percentComplete: (optStr(percentComplete)),\n            timeAccepted: (optStr(timeAccepted)),\n            resources: (optStr(resources)),\n            timeStarted: (optStr(timeStarted)),\n            timeFinished: (optStr(timeFinished))\n        )"
     }
 }
 

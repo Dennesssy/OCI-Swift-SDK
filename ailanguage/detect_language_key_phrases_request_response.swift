@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -35,7 +36,7 @@ public struct DetectLanguageKeyPhrasesRequest: Codable, Sendable {
 
 extension DetectLanguageKeyPhrasesRequest: CustomStringConvertible {
     public var description: String {
-        return "DetectLanguageKeyPhrasesRequest(\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "DetectLanguageKeyPhrasesRequest(\n            opcRequestId: (optStr(opcRequestId)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -76,7 +77,7 @@ public struct DetectLanguageKeyPhrasesResponse: Codable, Sendable {
 
 extension DetectLanguageKeyPhrasesResponse: CustomStringConvertible {
     public var description: String {
-        return "DetectLanguageKeyPhrasesResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            sunset: \(sunset ?? "nil")\n        )"
+        return "DetectLanguageKeyPhrasesResponse(\n            rawResponse: (optStr(rawResponse)),\n            opcRequestId: (optStr(opcRequestId)),\n            sunset: (optStr(sunset))\n        )"
     }
 }
 

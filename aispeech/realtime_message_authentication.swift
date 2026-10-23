@@ -15,7 +15,6 @@ public typealias Unmarshalerrealtimemessageauthentication = realtimemessageauthe
 
 // MARK: - RealtimeMessageAuthenticationAuthenticationTypeEnum
 
-public typealias RealtimeMessageAuthenticationAuthenticationTypeEnum = String
 
 // MARK: - RealtimeMessageAuthenticationAuthenticationType
 

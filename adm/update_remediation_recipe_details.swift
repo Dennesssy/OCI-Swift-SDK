@@ -15,7 +15,7 @@ public struct UpdateRemediationRecipeDetails: Codable, Sendable {
     public var knowledgeBaseId: String?
     public var isRunTriggeredOnKbChange: Bool?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
     private enum CodingKeys: String, CodingKey {
         case displayName, scmConfiguration, verifyConfiguration, detectConfiguration, networkConfiguration
@@ -25,7 +25,7 @@ public struct UpdateRemediationRecipeDetails: Codable, Sendable {
     public init(displayName: String? = nil, scmConfiguration: ScmConfiguration? = nil, verifyConfiguration: VerifyConfiguration? = nil,
                 detectConfiguration: DetectConfiguration? = nil, networkConfiguration: NetworkConfiguration? = nil,
                 knowledgeBaseId: String? = nil, isRunTriggeredOnKbChange: Bool? = nil,
-                freeformTags: [String: String]? = nil, definedTags: [String: [String: Any]]? = nil) {
+                freeformTags: [String: String]? = nil, definedTags: [String: [String: JSONValue]]? = nil) {
         self.displayName = displayName; self.scmConfiguration = scmConfiguration; self.verifyConfiguration = verifyConfiguration
         self.detectConfiguration = detectConfiguration; self.networkConfiguration = networkConfiguration; self.knowledgeBaseId = knowledgeBaseId
         self.isRunTriggeredOnKbChange = isRunTriggeredOnKbChange; self.freeformTags = freeformTags; self.definedTags = definedTags

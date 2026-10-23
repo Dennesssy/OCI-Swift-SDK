@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -92,11 +93,6 @@ public struct JobSummary: Codable, Sendable {
     }
 }
 
-extension JobSummary: CustomStringConvertible {
-    public var description: String {
-        return "JobSummary(\n            id: \(id ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            description: \(description ?? "nil"),\n            lifecycleState: \(lifecycleState ?? "nil"),\n            lifecycleDetails: \(lifecycleDetails ?? "nil"),\n            percentComplete: \(percentComplete ?? "nil"),\n            totalDocuments: \(totalDocuments ?? "nil"),\n            pendingDocuments: \(pendingDocuments ?? "nil"),\n            completedDocuments: \(completedDocuments ?? "nil"),\n            failedDocuments: \(failedDocuments ?? "nil"),\n            warningsCount: \(warningsCount ?? "nil"),\n            createdBy: \(createdBy ?? "nil"),\n            timeAccepted: \(timeAccepted ?? "nil"),\n            timeStarted: \(timeStarted ?? "nil"),\n            timeCompleted: \(timeCompleted ?? "nil")\n        )"
-    }
-}
 
 
 

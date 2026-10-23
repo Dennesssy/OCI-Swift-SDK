@@ -51,7 +51,6 @@ extension RealtimeParameters: CustomStringConvertible {
 
 // MARK: - RealtimeParametersStabilizePartialResultsEnum
 
-public typealias RealtimeParametersStabilizePartialResultsEnum = String
 
 // MARK: - RealtimeParametersStabilizePartialResults
 
@@ -72,7 +71,6 @@ public extension RealtimeParametersStabilizePartialResults {
 
 // MARK: - RealtimeParametersModelDomainEnum
 
-public typealias RealtimeParametersModelDomainEnum = String
 
 // MARK: - RealtimeParametersModelDomain
 

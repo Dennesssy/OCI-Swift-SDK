@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -50,7 +51,7 @@ public struct SentimentSentence: Codable, Sendable {
 
 extension SentimentSentence: CustomStringConvertible {
     public var description: String {
-        return "SentimentSentence(\n            offset: \(offset ?? "nil"),\n            length: \(length ?? "nil"),\n            text: \(text ?? "nil"),\n            sentiment: \(sentiment ?? "nil"),\n            scores: \(scores ?? "nil")\n        )"
+        return "SentimentSentence(\n            offset: (optStr(offset)),\n            length: (optStr(length)),\n            text: (optStr(text)),\n            sentiment: (optStr(sentiment)),\n            scores: (optStr(scores))\n        )"
     }
 }
 

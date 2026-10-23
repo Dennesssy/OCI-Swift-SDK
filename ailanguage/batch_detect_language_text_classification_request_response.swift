@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -35,7 +36,7 @@ public struct BatchDetectLanguageTextClassificationRequest: Codable, Sendable {
 
 extension BatchDetectLanguageTextClassificationRequest: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectLanguageTextClassificationRequest(\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "BatchDetectLanguageTextClassificationRequest(\n            opcRequestId: (optStr(opcRequestId)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -72,7 +73,7 @@ public struct BatchDetectLanguageTextClassificationResponse: Codable, Sendable {
 
 extension BatchDetectLanguageTextClassificationResponse: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectLanguageTextClassificationResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "BatchDetectLanguageTextClassificationResponse(\n            rawResponse: (optStr(rawResponse)),\n            opcRequestId: (optStr(opcRequestId))\n        )"
     }
 }
 

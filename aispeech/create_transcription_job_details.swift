@@ -54,7 +54,6 @@ extension CreateTranscriptionJobDetails: CustomStringConvertible {
 
 // MARK: - CreateTranscriptionJobDetailsAdditionalTranscriptionFormatsEnum
 
-public typealias CreateTranscriptionJobDetailsAdditionalTranscriptionFormatsEnum = String
 
 // MARK: - CreateTranscriptionJobDetailsAdditionalTranscriptionFormatsSrt
 

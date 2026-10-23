@@ -84,7 +84,6 @@ extension ListCustomizationsResponse: CustomStringConvertible {
 
 // MARK: - ListCustomizationsSortOrderEnum
 
-public typealias ListCustomizationsSortOrderEnum = String
 
 // MARK: - ListCustomizationsSortOrder
 
@@ -103,7 +102,6 @@ public extension ListCustomizationsSortOrder {
 
 // MARK: - ListCustomizationsSortByEnum
 
-public typealias ListCustomizationsSortByEnum = String
 
 // MARK: - ListCustomizationsSortBy
 

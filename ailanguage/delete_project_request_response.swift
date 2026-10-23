@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2026, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0.
@@ -43,7 +44,7 @@ public struct DeleteProjectRequest: Codable, Sendable {
 
 extension DeleteProjectRequest: CustomStringConvertible {
     public var description: String {
-        return "DeleteProjectRequest(\n            projectId: \(projectId ?? "nil"),\n            ifMatch: \(ifMatch ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "DeleteProjectRequest(\n            projectId: (optStr(projectId)),\n            ifMatch: (optStr(ifMatch)),\n            opcRequestId: (optStr(opcRequestId)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -84,7 +85,7 @@ public struct DeleteProjectResponse: Codable, Sendable {
 
 extension DeleteProjectResponse: CustomStringConvertible {
     public var description: String {
-        return "DeleteProjectResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcWorkRequestId: \(opcWorkRequestId ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "DeleteProjectResponse(\n            rawResponse: (optStr(rawResponse)),\n            opcWorkRequestId: (optStr(opcWorkRequestId)),\n            opcRequestId: (optStr(opcRequestId))\n        )"
     }
 }
 

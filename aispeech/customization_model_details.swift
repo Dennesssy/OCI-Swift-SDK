@@ -30,7 +30,6 @@ extension CustomizationModelDetails: CustomStringConvertible {
 
 // MARK: - CustomizationModelDetailsDomainEnum
 
-public typealias CustomizationModelDetailsDomainEnum = String
 
 // MARK: - CustomizationModelDetailsDomain
 

@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -39,7 +40,7 @@ public struct CreateProjectRequest: Codable, Sendable {
 
 extension CreateProjectRequest: CustomStringConvertible {
     public var description: String {
-        return "CreateProjectRequest(\n            opcRetryToken: \(opcRetryToken ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "CreateProjectRequest(\n            opcRetryToken: (optStr(opcRetryToken)),\n            opcRequestId: (optStr(opcRequestId)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -84,7 +85,7 @@ public struct CreateProjectResponse: Codable, Sendable {
 
 extension CreateProjectResponse: CustomStringConvertible {
     public var description: String {
-        return "CreateProjectResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            etag: \(etag ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            opcWorkRequestId: \(opcWorkRequestId ?? "nil")\n        )"
+        return "CreateProjectResponse(\n            rawResponse: (optStr(rawResponse)),\n            etag: (optStr(etag)),\n            opcRequestId: (optStr(opcRequestId)),\n            opcWorkRequestId: (optStr(opcWorkRequestId))\n        )"
     }
 }
 

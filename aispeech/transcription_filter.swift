@@ -15,7 +15,6 @@ public typealias Unmarshalertranscriptionfilter = transcriptionfilter
 
 // MARK: - TranscriptionFilterTypeEnum
 
-public typealias TranscriptionFilterTypeEnum = String
 
 // MARK: - TranscriptionFilterTypeProfanity
 

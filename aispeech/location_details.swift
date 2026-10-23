@@ -24,7 +24,6 @@ public typealias Unmarshalerlocationdetails = locationdetails
 
 // MARK: - LocationDetailsLocationTypeEnum
 
-public typealias LocationDetailsLocationTypeEnum = String
 
 // MARK: - LocationDetailsLocationTypeObjectList
 

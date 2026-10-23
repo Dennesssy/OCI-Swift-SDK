@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -63,7 +64,7 @@ public struct ListWorkRequestsRequest: Codable, Sendable {
 
 extension ListWorkRequestsRequest: CustomStringConvertible {
     public var description: String {
-        return "ListWorkRequestsRequest(\n            compartmentId: \(compartmentId ?? "nil"),\n            workRequestId: \(workRequestId ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            page: \(page ?? "nil"),\n            limit: \(limit ?? "nil"),\n            resourceId: \(resourceId ?? "nil"),\n            sortOrder: \(sortOrder ?? "nil"),\n            sortBy: \(sortBy ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "ListWorkRequestsRequest(\n            compartmentId: (optStr(compartmentId)),\n            workRequestId: (optStr(workRequestId)),\n            opcRequestId: (optStr(opcRequestId)),\n            page: (optStr(page)),\n            limit: (optStr(limit)),\n            resourceId: (optStr(resourceId)),\n            sortOrder: (optStr(sortOrder)),\n            sortBy: (optStr(sortBy)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -104,7 +105,7 @@ public struct ListWorkRequestsResponse: Codable, Sendable {
 
 extension ListWorkRequestsResponse: CustomStringConvertible {
     public var description: String {
-        return "ListWorkRequestsResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            opcNextPage: \(opcNextPage ?? "nil")\n        )"
+        return "ListWorkRequestsResponse(\n            rawResponse: (optStr(rawResponse)),\n            opcRequestId: (optStr(opcRequestId)),\n            opcNextPage: (optStr(opcNextPage))\n        )"
     }
 }
 
@@ -113,7 +114,6 @@ extension ListWorkRequestsResponse: CustomStringConvertible {
 // HTTPResponse implements the OCIResponse interface
 
 // ListWorkRequestsSortOrderEnum Enum with underlying type: string
-public typealias ListWorkRequestsSortOrderEnum = String
 
 // Set of constants representing the allowable values for ListWorkRequestsSortOrderEnum
 public enum ListWorkRequestsSortOrderEnum: String, Codable, Sendable {
@@ -135,7 +135,6 @@ public extension ListWorkRequestsSortOrderEnum {
 // GetMappingListWorkRequestsSortOrderEnum performs case Insensitive comparison on enum value and return the desired enum
 
 // ListWorkRequestsSortByEnum Enum with underlying type: string
-public typealias ListWorkRequestsSortByEnum = String
 
 // Set of constants representing the allowable values for ListWorkRequestsSortByEnum
 public enum ListWorkRequestsSortByEnum: String, Codable, Sendable {

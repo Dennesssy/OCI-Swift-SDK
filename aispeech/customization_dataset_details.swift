@@ -24,7 +24,6 @@ public typealias Unmarshalercustomizationdatasetdetails = customizationdatasetde
 
 // MARK: - CustomizationDatasetDetailsDatasetTypeEnum
 
-public typealias CustomizationDatasetDetailsDatasetTypeEnum = String
 
 // MARK: - CustomizationDatasetDetailsDatasetType
 

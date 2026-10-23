@@ -69,7 +69,6 @@ extension TranscriptionTask: CustomStringConvertible {
 
 // MARK: - TranscriptionTaskLifecycleStateEnum
 
-public typealias TranscriptionTaskLifecycleStateEnum = String
 
 // MARK: - TranscriptionTaskLifecycleState
 

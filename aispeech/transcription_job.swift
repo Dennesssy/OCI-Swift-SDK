@@ -93,7 +93,6 @@ extension TranscriptionJob: CustomStringConvertible {
 
 // MARK: - TranscriptionJobAdditionalTranscriptionFormatsEnum
 
-public typealias TranscriptionJobAdditionalTranscriptionFormatsEnum = String
 
 // MARK: - TranscriptionJobAdditionalTranscriptionFormatsSrt
 
@@ -111,7 +110,6 @@ public extension TranscriptionJobAdditionalTranscriptionFormatsSrt {
 
 // MARK: - TranscriptionJobLifecycleStateEnum
 
-public typealias TranscriptionJobLifecycleStateEnum = String
 
 // MARK: - TranscriptionJobLifecycleState
 

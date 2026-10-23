@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -18,7 +19,7 @@ import Foundation
 
 
 // ObjectListDataset Data source details for object storage
-public struct ObjectListDataset: Codable, Sendable {
+public struct ObjectListDataset: Codable, Sendable, LocationDetails {
     public var namespaceName: String?
     public var bucketName: String?
     public var objectNames: [String]
@@ -42,7 +43,7 @@ public struct ObjectListDataset: Codable, Sendable {
 
 extension ObjectListDataset: CustomStringConvertible {
     public var description: String {
-        return "ObjectListDataset(\n            namespaceName: \(namespaceName ?? "nil"),\n            bucketName: \(bucketName ?? "nil"),\n            objectNames: \(objectNames ?? "nil")\n        )"
+        return "ObjectListDataset(\n            namespaceName: (optStr(namespaceName)),\n            bucketName: (optStr(bucketName)),\n            objectNames: (optStr(objectNames))\n        )"
     }
 }
 

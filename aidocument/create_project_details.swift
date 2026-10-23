@@ -28,7 +28,7 @@ public struct CreateProjectDetails: Codable, Sendable {
 
     /// Defined tags for this resource. Each key is predefined and scoped to a namespace.
     /// For example: `{"foo-namespace": {"bar-key": "value"}}`
-    public var definedtags: [String: [String: Any]]?
+    public var definedtags: [String: [String: JSONValue]]?
 
     private enum CodingKeys: String, CodingKey {
         case compartmentid = "compartmentId"
@@ -43,7 +43,7 @@ public struct CreateProjectDetails: Codable, Sendable {
         displayname: String?,
         description: String?,
         freeformtags: [String: String]? = nil,
-        definedtags: [String: [String: Any]]? = nil
+        definedtags: [String: [String: JSONValue]]? = nil
     ) {
         self.compartmentid = compartmentid
         self.displayname = displayname

@@ -84,7 +84,6 @@ extension ListTranscriptionTasksResponse: CustomStringConvertible {
 
 // MARK: - ListTranscriptionTasksSortOrderEnum
 
-public typealias ListTranscriptionTasksSortOrderEnum = String
 
 // MARK: - ListTranscriptionTasksSortOrder
 
@@ -103,7 +102,6 @@ public extension ListTranscriptionTasksSortOrder {
 
 // MARK: - ListTranscriptionTasksSortByEnum
 
-public typealias ListTranscriptionTasksSortByEnum = String
 
 // MARK: - ListTranscriptionTasksSortBy
 

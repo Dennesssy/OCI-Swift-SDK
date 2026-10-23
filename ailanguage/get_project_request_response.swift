@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -39,7 +40,7 @@ public struct GetProjectRequest: Codable, Sendable {
 
 extension GetProjectRequest: CustomStringConvertible {
     public var description: String {
-        return "GetProjectRequest(\n            projectId: \(projectId ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "GetProjectRequest(\n            projectId: (optStr(projectId)),\n            opcRequestId: (optStr(opcRequestId)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -80,7 +81,7 @@ public struct GetProjectResponse: Codable, Sendable {
 
 extension GetProjectResponse: CustomStringConvertible {
     public var description: String {
-        return "GetProjectResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            etag: \(etag ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "GetProjectResponse(\n            rawResponse: (optStr(rawResponse)),\n            etag: (optStr(etag)),\n            opcRequestId: (optStr(opcRequestId))\n        )"
     }
 }
 

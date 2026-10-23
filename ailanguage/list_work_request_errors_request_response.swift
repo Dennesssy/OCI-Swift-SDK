@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2026, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0.
@@ -55,7 +56,7 @@ public struct ListWorkRequestErrorsRequest: Codable, Sendable {
 
 extension ListWorkRequestErrorsRequest: CustomStringConvertible {
     public var description: String {
-        return "ListWorkRequestErrorsRequest(\n            workRequestId: \(workRequestId ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            page: \(page ?? "nil"),\n            limit: \(limit ?? "nil"),\n            sortOrder: \(sortOrder ?? "nil"),\n            sortBy: \(sortBy ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "ListWorkRequestErrorsRequest(\n            workRequestId: (optStr(workRequestId)),\n            opcRequestId: (optStr(opcRequestId)),\n            page: (optStr(page)),\n            limit: (optStr(limit)),\n            sortOrder: (optStr(sortOrder)),\n            sortBy: (optStr(sortBy)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -100,7 +101,7 @@ public struct ListWorkRequestErrorsResponse: Codable, Sendable {
 
 extension ListWorkRequestErrorsResponse: CustomStringConvertible {
     public var description: String {
-        return "ListWorkRequestErrorsResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            items: \(items ?? "nil"),\n            opcNextPage: \(opcNextPage ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "ListWorkRequestErrorsResponse(\n            rawResponse: (optStr(rawResponse)),\n            items: (optStr(items)),\n            opcNextPage: (optStr(opcNextPage)),\n            opcRequestId: (optStr(opcRequestId))\n        )"
     }
 }
 

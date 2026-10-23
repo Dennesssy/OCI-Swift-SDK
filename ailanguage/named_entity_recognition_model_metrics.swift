@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -66,7 +67,7 @@ public struct NamedEntityRecognitionModelMetrics: Codable, Sendable {
 
 extension NamedEntityRecognitionModelMetrics: CustomStringConvertible {
     public var description: String {
-        return "NamedEntityRecognitionModelMetrics(\n            microF1: \(microF1 ?? "nil"),\n            microPrecision: \(microPrecision ?? "nil"),\n            microRecall: \(microRecall ?? "nil"),\n            macroF1: \(macroF1 ?? "nil"),\n            macroPrecision: \(macroPrecision ?? "nil"),\n            macroRecall: \(macroRecall ?? "nil"),\n            weightedF1: \(weightedF1 ?? "nil"),\n            weightedPrecision: \(weightedPrecision ?? "nil"),\n            weightedRecall: \(weightedRecall ?? "nil")\n        )"
+        return "NamedEntityRecognitionModelMetrics(\n            microF1: (optStr(microF1)),\n            microPrecision: (optStr(microPrecision)),\n            microRecall: (optStr(microRecall)),\n            macroF1: (optStr(macroF1)),\n            macroPrecision: (optStr(macroPrecision)),\n            macroRecall: (optStr(macroRecall)),\n            weightedF1: (optStr(weightedF1)),\n            weightedPrecision: (optStr(weightedPrecision)),\n            weightedRecall: (optStr(weightedRecall))\n        )"
     }
 }
 

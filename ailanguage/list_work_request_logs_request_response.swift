@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -55,7 +56,7 @@ public struct ListWorkRequestLogsRequest: Codable, Sendable {
 
 extension ListWorkRequestLogsRequest: CustomStringConvertible {
     public var description: String {
-        return "ListWorkRequestLogsRequest(\n            workRequestId: \(workRequestId ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            page: \(page ?? "nil"),\n            limit: \(limit ?? "nil"),\n            sortOrder: \(sortOrder ?? "nil"),\n            sortBy: \(sortBy ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "ListWorkRequestLogsRequest(\n            workRequestId: (optStr(workRequestId)),\n            opcRequestId: (optStr(opcRequestId)),\n            page: (optStr(page)),\n            limit: (optStr(limit)),\n            sortOrder: (optStr(sortOrder)),\n            sortBy: (optStr(sortBy)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -96,7 +97,7 @@ public struct ListWorkRequestLogsResponse: Codable, Sendable {
 
 extension ListWorkRequestLogsResponse: CustomStringConvertible {
     public var description: String {
-        return "ListWorkRequestLogsResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcNextPage: \(opcNextPage ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "ListWorkRequestLogsResponse(\n            rawResponse: (optStr(rawResponse)),\n            opcNextPage: (optStr(opcNextPage)),\n            opcRequestId: (optStr(opcRequestId))\n        )"
     }
 }
 
@@ -105,7 +106,6 @@ extension ListWorkRequestLogsResponse: CustomStringConvertible {
 // HTTPResponse implements the OCIResponse interface
 
 // ListWorkRequestLogsSortOrderEnum Enum with underlying type: string
-public typealias ListWorkRequestLogsSortOrderEnum = String
 
 // Set of constants representing the allowable values for ListWorkRequestLogsSortOrderEnum
 public enum ListWorkRequestLogsSortOrderEnum: String, Codable, Sendable {
@@ -127,7 +127,6 @@ public extension ListWorkRequestLogsSortOrderEnum {
 // GetMappingListWorkRequestLogsSortOrderEnum performs case Insensitive comparison on enum value and return the desired enum
 
 // ListWorkRequestLogsSortByEnum Enum with underlying type: string
-public typealias ListWorkRequestLogsSortByEnum = String
 
 // Set of constants representing the allowable values for ListWorkRequestLogsSortByEnum
 public enum ListWorkRequestLogsSortByEnum: String, Codable, Sendable {

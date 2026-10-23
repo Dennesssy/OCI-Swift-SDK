@@ -24,7 +24,6 @@ public typealias Unmarshalerinputlocation = inputlocation
 
 // MARK: - InputLocationLocationTypeEnum
 
-public typealias InputLocationLocationTypeEnum = String
 
 // MARK: - InputLocationLocationType
 

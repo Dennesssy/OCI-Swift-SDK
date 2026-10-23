@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2026, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0.
@@ -58,7 +59,7 @@ public struct BatchDetectHealthEntityDetails: Codable, Sendable {
 
 extension BatchDetectHealthEntityDetails: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectHealthEntityDetails(\n            endpointId: \(endpointId ?? "nil"),\n            documents: \(documents ?? "nil"),\n            alias: \(alias ?? "nil"),\n            linkOntologies: \(linkOntologies ?? "nil"),\n            isDetectAssertions: \(isDetectAssertions ?? "nil"),\n            isDetectRelationships: \(isDetectRelationships ?? "nil"),\n            profile: \(profile ?? "nil")\n        )"
+        return "BatchDetectHealthEntityDetails(\n            endpointId: (optStr(endpointId)),\n            documents: (optStr(documents)),\n            alias: (optStr(alias)),\n            linkOntologies: (optStr(linkOntologies)),\n            isDetectAssertions: (optStr(isDetectAssertions)),\n            isDetectRelationships: (optStr(isDetectRelationships)),\n            profile: (optStr(profile))\n        )"
     }
 }
 

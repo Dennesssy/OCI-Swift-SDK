@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -75,7 +76,7 @@ public struct ListEndpointsRequest: Codable, Sendable {
 
 extension ListEndpointsRequest: CustomStringConvertible {
     public var description: String {
-        return "ListEndpointsRequest(\n            compartmentId: \(compartmentId ?? "nil"),\n            endpointId: \(endpointId ?? "nil"),\n            projectId: \(projectId ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            modelId: \(modelId ?? "nil"),\n            lifecycleState: \(lifecycleState ?? "nil"),\n            limit: \(limit ?? "nil"),\n            page: \(page ?? "nil"),\n            sortOrder: \(sortOrder ?? "nil"),\n            sortBy: \(sortBy ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "ListEndpointsRequest(\n            compartmentId: (optStr(compartmentId)),\n            endpointId: (optStr(endpointId)),\n            projectId: (optStr(projectId)),\n            displayName: (optStr(displayName)),\n            modelId: (optStr(modelId)),\n            lifecycleState: (optStr(lifecycleState)),\n            limit: (optStr(limit)),\n            page: (optStr(page)),\n            sortOrder: (optStr(sortOrder)),\n            sortBy: (optStr(sortBy)),\n            opcRequestId: (optStr(opcRequestId)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -116,7 +117,7 @@ public struct ListEndpointsResponse: Codable, Sendable {
 
 extension ListEndpointsResponse: CustomStringConvertible {
     public var description: String {
-        return "ListEndpointsResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            opcNextPage: \(opcNextPage ?? "nil")\n        )"
+        return "ListEndpointsResponse(\n            rawResponse: (optStr(rawResponse)),\n            opcRequestId: (optStr(opcRequestId)),\n            opcNextPage: (optStr(opcNextPage))\n        )"
     }
 }
 
@@ -125,7 +126,6 @@ extension ListEndpointsResponse: CustomStringConvertible {
 // HTTPResponse implements the OCIResponse interface
 
 // ListEndpointsSortOrderEnum Enum with underlying type: string
-public typealias ListEndpointsSortOrderEnum = String
 
 // Set of constants representing the allowable values for ListEndpointsSortOrderEnum
 public enum ListEndpointsSortOrderEnum: String, Codable, Sendable {
@@ -147,7 +147,6 @@ public extension ListEndpointsSortOrderEnum {
 // GetMappingListEndpointsSortOrderEnum performs case Insensitive comparison on enum value and return the desired enum
 
 // ListEndpointsSortByEnum Enum with underlying type: string
-public typealias ListEndpointsSortByEnum = String
 
 // Set of constants representing the allowable values for ListEndpointsSortByEnum
 public enum ListEndpointsSortByEnum: String, Codable, Sendable {

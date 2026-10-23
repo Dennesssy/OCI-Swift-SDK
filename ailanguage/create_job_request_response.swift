@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -39,7 +40,7 @@ public struct CreateJobRequest: Codable, Sendable {
 
 extension CreateJobRequest: CustomStringConvertible {
     public var description: String {
-        return "CreateJobRequest(\n            opcRetryToken: \(opcRetryToken ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "CreateJobRequest(\n            opcRetryToken: (optStr(opcRetryToken)),\n            opcRequestId: (optStr(opcRequestId)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -84,7 +85,7 @@ public struct CreateJobResponse: Codable, Sendable {
 
 extension CreateJobResponse: CustomStringConvertible {
     public var description: String {
-        return "CreateJobResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            etag: \(etag ?? "nil"),\n            opcWorkRequestId: \(opcWorkRequestId ?? "nil")\n        )"
+        return "CreateJobResponse(\n            rawResponse: (optStr(rawResponse)),\n            opcRequestId: (optStr(opcRequestId)),\n            etag: (optStr(etag)),\n            opcWorkRequestId: (optStr(opcWorkRequestId))\n        )"
     }
 }
 

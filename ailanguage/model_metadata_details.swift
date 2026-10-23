@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -52,7 +53,7 @@ public struct ModelMetadataDetails: Codable, Sendable {
 
 extension ModelMetadataDetails: CustomStringConvertible {
     public var description: String {
-        return "ModelMetadataDetails(\n            modelType: \(modelType ?? "nil"),\n            modelId: \(modelId ?? "nil"),\n            endpointId: \(endpointId ?? "nil"),\n            languageCode: \(languageCode ?? "nil"),\n            configuration: \(configuration ?? "nil")\n        )"
+        return "ModelMetadataDetails(\n            modelType: (optStr(modelType)),\n            modelId: (optStr(modelId)),\n            endpointId: (optStr(endpointId)),\n            languageCode: (optStr(languageCode)),\n            configuration: (optStr(configuration))\n        )"
     }
 }
 

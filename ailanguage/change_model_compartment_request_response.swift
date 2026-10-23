@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -47,7 +48,7 @@ public struct ChangeModelCompartmentRequest: Codable, Sendable {
 
 extension ChangeModelCompartmentRequest: CustomStringConvertible {
     public var description: String {
-        return "ChangeModelCompartmentRequest(\n            modelId: \(modelId ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            ifMatch: \(ifMatch ?? "nil"),\n            opcRetryToken: \(opcRetryToken ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "ChangeModelCompartmentRequest(\n            modelId: (optStr(modelId)),\n            opcRequestId: (optStr(opcRequestId)),\n            ifMatch: (optStr(ifMatch)),\n            opcRetryToken: (optStr(opcRetryToken)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -84,7 +85,7 @@ public struct ChangeModelCompartmentResponse: Codable, Sendable {
 
 extension ChangeModelCompartmentResponse: CustomStringConvertible {
     public var description: String {
-        return "ChangeModelCompartmentResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "ChangeModelCompartmentResponse(\n            rawResponse: (optStr(rawResponse)),\n            opcRequestId: (optStr(opcRequestId))\n        )"
     }
 }
 

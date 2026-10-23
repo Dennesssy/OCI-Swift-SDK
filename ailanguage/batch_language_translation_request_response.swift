@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -35,7 +36,7 @@ public struct BatchLanguageTranslationRequest: Codable, Sendable {
 
 extension BatchLanguageTranslationRequest: CustomStringConvertible {
     public var description: String {
-        return "BatchLanguageTranslationRequest(\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "BatchLanguageTranslationRequest(\n            opcRequestId: (optStr(opcRequestId)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -72,7 +73,7 @@ public struct BatchLanguageTranslationResponse: Codable, Sendable {
 
 extension BatchLanguageTranslationResponse: CustomStringConvertible {
     public var description: String {
-        return "BatchLanguageTranslationResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "BatchLanguageTranslationResponse(\n            rawResponse: (optStr(rawResponse)),\n            opcRequestId: (optStr(opcRequestId))\n        )"
     }
 }
 

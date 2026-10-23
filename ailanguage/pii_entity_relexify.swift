@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2026, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0.
@@ -18,7 +19,7 @@ import Foundation
 
 
 // PiiEntityRelexify Possible PII entity relexify object.
-public struct PiiEntityRelexify: Codable, Sendable {
+public struct PiiEntityRelexify: Codable, Sendable, PiiEntityMasking {
     public var exclude: [String]?
     public var shouldDetect: Bool?
 
@@ -38,7 +39,7 @@ public struct PiiEntityRelexify: Codable, Sendable {
 
 extension PiiEntityRelexify: CustomStringConvertible {
     public var description: String {
-        return "PiiEntityRelexify(\n            exclude: \(exclude ?? "nil"),\n            shouldDetect: \(shouldDetect ?? "nil")\n        )"
+        return "PiiEntityRelexify(\n            exclude: (optStr(exclude)),\n            shouldDetect: (optStr(shouldDetect))\n        )"
     }
 }
 

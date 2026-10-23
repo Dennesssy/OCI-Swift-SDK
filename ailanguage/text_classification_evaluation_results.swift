@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -18,7 +19,7 @@ import Foundation
 
 
 // TextClassificationEvaluationResults Text Classification model testing and evaluation results
-public struct TextClassificationEvaluationResults: Codable, Sendable {
+public struct TextClassificationEvaluationResults: Codable, Sendable, EvaluationResults {
     public var metrics: TextClassificationModelMetrics??
     public var classMetrics: [ClassMetrics]?
     public var confusionMatrix: [String: ConfusionMatrixDetails]?
@@ -46,7 +47,7 @@ public struct TextClassificationEvaluationResults: Codable, Sendable {
 
 extension TextClassificationEvaluationResults: CustomStringConvertible {
     public var description: String {
-        return "TextClassificationEvaluationResults(\n            metrics: \(metrics ?? "nil"),\n            classMetrics: \(classMetrics ?? "nil"),\n            confusionMatrix: \(confusionMatrix ?? "nil"),\n            labels: \(labels ?? "nil")\n        )"
+        return "TextClassificationEvaluationResults(\n            metrics: (optStr(metrics)),\n            classMetrics: (optStr(classMetrics)),\n            confusionMatrix: (optStr(confusionMatrix)),\n            labels: (optStr(labels))\n        )"
     }
 }
 

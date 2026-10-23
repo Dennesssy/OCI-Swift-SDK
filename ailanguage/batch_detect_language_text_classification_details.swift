@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2026, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0.
@@ -46,7 +47,7 @@ public struct BatchDetectLanguageTextClassificationDetails: Codable, Sendable {
 
 extension BatchDetectLanguageTextClassificationDetails: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectLanguageTextClassificationDetails(\n            documents: \(documents ?? "nil"),\n            alias: \(alias ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            endpointId: \(endpointId ?? "nil")\n        )"
+        return "BatchDetectLanguageTextClassificationDetails(\n            documents: (optStr(documents)),\n            alias: (optStr(alias)),\n            compartmentId: (optStr(compartmentId)),\n            endpointId: (optStr(endpointId))\n        )"
     }
 }
 

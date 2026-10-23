@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -30,8 +31,8 @@ public struct EndpointSummary: Codable, Sendable {
     public var lifecycleDetails: String??
     public var inferenceUnits: Int??
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
-    public var systemTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
+    public var systemTags: [String: [String: JSONValue]]?
 
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -61,8 +62,8 @@ public struct EndpointSummary: Codable, Sendable {
         lifecycleDetails: String?? = nil,
         inferenceUnits: Int?? = nil,
         freeformTags: [String: String]? = nil,
-        definedTags: [String: [String: Any]]? = nil,
-        systemTags: [String: [String: Any]]? = nil
+        definedTags: [String: [String: JSONValue]]? = nil,
+        systemTags: [String: [String: JSONValue]]? = nil
     ) {
         self.id = id
         self.displayName = displayName
@@ -80,11 +81,6 @@ public struct EndpointSummary: Codable, Sendable {
     }
 }
 
-extension EndpointSummary: CustomStringConvertible {
-    public var description: String {
-        return "EndpointSummary(\n            id: \(id ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            projectId: \(projectId ?? "nil"),\n            timeCreated: \(timeCreated ?? "nil"),\n            lifecycleState: \(lifecycleState ?? "nil"),\n            modelId: \(modelId ?? "nil"),\n            description: \(description ?? "nil"),\n            lifecycleDetails: \(lifecycleDetails ?? "nil"),\n            inferenceUnits: \(inferenceUnits ?? "nil"),\n            freeformTags: \(freeformTags ?? "nil"),\n            definedTags: \(definedTags ?? "nil"),\n            systemTags: \(systemTags ?? "nil")\n        )"
-    }
-}
 
 
 

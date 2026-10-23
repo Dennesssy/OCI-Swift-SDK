@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -18,7 +19,7 @@ import Foundation
 
 
 // LocationDetails Possible object storage location types
-public protocol LocationDetails {
+public protocol LocationDetails: Codable, Sendable {
 }
 
 
@@ -42,7 +43,7 @@ public struct locationdetails: Codable, Sendable {
 
 extension locationdetails: CustomStringConvertible {
     public var description: String {
-        return "locationdetails(\n            jsonData: \(jsonData ?? "nil"),\n            locationType: \(locationType ?? "nil")\n        )"
+        return "locationdetails(\n            jsonData: (optStr(jsonData)),\n            locationType: (optStr(locationType))\n        )"
     }
 }
 
@@ -57,7 +58,6 @@ extension locationdetails: CustomStringConvertible {
 // Not recommended for calling this function directly
 
 // LocationDetailsLocationTypeEnum Enum with underlying type: string
-public typealias LocationDetailsLocationTypeEnum = String
 
 // Set of constants representing the allowable values for LocationDetailsLocationTypeEnum
 public enum LocationDetailsLocationTypeEnum: String, Codable, Sendable {

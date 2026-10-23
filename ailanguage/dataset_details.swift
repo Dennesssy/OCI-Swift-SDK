@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -18,7 +19,7 @@ import Foundation
 
 
 // DatasetDetails Possible data set type
-public protocol DatasetDetails {
+public protocol DatasetDetails: Codable, Sendable {
 }
 
 
@@ -42,7 +43,7 @@ public struct datasetdetails: Codable, Sendable {
 
 extension datasetdetails: CustomStringConvertible {
     public var description: String {
-        return "datasetdetails(\n            jsonData: \(jsonData ?? "nil"),\n            datasetType: \(datasetType ?? "nil")\n        )"
+        return "datasetdetails(\n            jsonData: (optStr(jsonData)),\n            datasetType: (optStr(datasetType))\n        )"
     }
 }
 
@@ -57,7 +58,6 @@ extension datasetdetails: CustomStringConvertible {
 // Not recommended for calling this function directly
 
 // DatasetDetailsDatasetTypeEnum Enum with underlying type: string
-public typealias DatasetDetailsDatasetTypeEnum = String
 
 // Set of constants representing the allowable values for DatasetDetailsDatasetTypeEnum
 public enum DatasetDetailsDatasetTypeEnum: String, Codable, Sendable {

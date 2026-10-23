@@ -69,7 +69,6 @@ extension Customization: CustomStringConvertible {
 
 // MARK: - CustomizationLifecycleStateEnum
 
-public typealias CustomizationLifecycleStateEnum = String
 
 // MARK: - CustomizationLifecycleState
 

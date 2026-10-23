@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -18,7 +19,7 @@ import Foundation
 
 
 // NamedEntityRecognitionEvaluationResults Named entity recognition model testing and evaluation results
-public struct NamedEntityRecognitionEvaluationResults: Codable, Sendable {
+public struct NamedEntityRecognitionEvaluationResults: Codable, Sendable, EvaluationResults {
     public var metrics: NamedEntityRecognitionModelMetrics??
     public var entityMetrics: [EntityMetrics]?
     public var confusionMatrix: [String: ConfusionMatrixDetails]?
@@ -46,7 +47,7 @@ public struct NamedEntityRecognitionEvaluationResults: Codable, Sendable {
 
 extension NamedEntityRecognitionEvaluationResults: CustomStringConvertible {
     public var description: String {
-        return "NamedEntityRecognitionEvaluationResults(\n            metrics: \(metrics ?? "nil"),\n            entityMetrics: \(entityMetrics ?? "nil"),\n            confusionMatrix: \(confusionMatrix ?? "nil"),\n            labels: \(labels ?? "nil")\n        )"
+        return "NamedEntityRecognitionEvaluationResults(\n            metrics: (optStr(metrics)),\n            entityMetrics: (optStr(entityMetrics)),\n            confusionMatrix: (optStr(confusionMatrix)),\n            labels: (optStr(labels))\n        )"
     }
 }
 

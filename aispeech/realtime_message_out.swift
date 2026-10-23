@@ -15,7 +15,6 @@ public typealias Unmarshalerrealtimemessageout = realtimemessageout
 
 // MARK: - RealtimeMessageOutEventEnum
 
-public typealias RealtimeMessageOutEventEnum = String
 
 // MARK: - RealtimeMessageOutEventSendFinalResult
 

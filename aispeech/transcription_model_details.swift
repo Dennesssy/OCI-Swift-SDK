@@ -36,7 +36,6 @@ extension TranscriptionModelDetails: CustomStringConvertible {
 
 // MARK: - TranscriptionModelDetailsDomainEnum
 
-public typealias TranscriptionModelDetailsDomainEnum = String
 
 // MARK: - TranscriptionModelDetailsDomainGeneric
 
@@ -54,7 +53,6 @@ public extension TranscriptionModelDetailsDomainGeneric {
 
 // MARK: - TranscriptionModelDetailsLanguageCodeEnum
 
-public typealias TranscriptionModelDetailsLanguageCodeEnum = String
 
 // MARK: - TranscriptionModelDetailsLanguageCode
 

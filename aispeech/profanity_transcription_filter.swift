@@ -31,7 +31,6 @@ public typealias MarshalTypeProfanityTranscriptionFilter = ProfanityTranscriptio
 
 // MARK: - ProfanityTranscriptionFilterModeEnum
 
-public typealias ProfanityTranscriptionFilterModeEnum = String
 
 // MARK: - ProfanityTranscriptionFilterMode
 

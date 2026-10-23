@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -18,7 +19,7 @@ import Foundation
 
 
 // TestStrategy Possible strategy as testing and validation(optional) dataset.
-public protocol TestStrategy {
+public protocol TestStrategy: Codable, Sendable {
 }
 
 
@@ -42,7 +43,7 @@ public struct teststrategy: Codable, Sendable {
 
 extension teststrategy: CustomStringConvertible {
     public var description: String {
-        return "teststrategy(\n            jsonData: \(jsonData ?? "nil"),\n            strategyType: \(strategyType ?? "nil")\n        )"
+        return "teststrategy(\n            jsonData: (optStr(jsonData)),\n            strategyType: (optStr(strategyType))\n        )"
     }
 }
 
@@ -57,7 +58,6 @@ extension teststrategy: CustomStringConvertible {
 // Not recommended for calling this function directly
 
 // TestStrategyStrategyTypeEnum Enum with underlying type: string
-public typealias TestStrategyStrategyTypeEnum = String
 
 // Set of constants representing the allowable values for TestStrategyStrategyTypeEnum
 public enum TestStrategyStrategyTypeEnum: String, Codable, Sendable {

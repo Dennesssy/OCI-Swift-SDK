@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -18,7 +19,7 @@ import Foundation
 
 
 // PiiEntityMasking Mask recognized PII entities with different modes.
-public protocol PiiEntityMasking {
+public protocol PiiEntityMasking: Codable, Sendable {
 }
 
 
@@ -42,7 +43,7 @@ public struct piientitymasking: Codable, Sendable {
 
 extension piientitymasking: CustomStringConvertible {
     public var description: String {
-        return "piientitymasking(\n            jsonData: \(jsonData ?? "nil"),\n            mode: \(mode ?? "nil")\n        )"
+        return "piientitymasking(\n            jsonData: (optStr(jsonData)),\n            mode: (optStr(mode))\n        )"
     }
 }
 
@@ -57,7 +58,6 @@ extension piientitymasking: CustomStringConvertible {
 // Not recommended for calling this function directly
 
 // PiiEntityMaskingModeEnum Enum with underlying type: string
-public typealias PiiEntityMaskingModeEnum = String
 
 // Set of constants representing the allowable values for PiiEntityMaskingModeEnum
 public enum PiiEntityMaskingModeEnum: String, Codable, Sendable {

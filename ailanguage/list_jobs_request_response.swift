@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -67,7 +68,7 @@ public struct ListJobsRequest: Codable, Sendable {
 
 extension ListJobsRequest: CustomStringConvertible {
     public var description: String {
-        return "ListJobsRequest(\n            compartmentId: \(compartmentId ?? "nil"),\n            lifecycleState: \(lifecycleState ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            id: \(id ?? "nil"),\n            limit: \(limit ?? "nil"),\n            page: \(page ?? "nil"),\n            sortOrder: \(sortOrder ?? "nil"),\n            sortBy: \(sortBy ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "ListJobsRequest(\n            compartmentId: (optStr(compartmentId)),\n            lifecycleState: (optStr(lifecycleState)),\n            displayName: (optStr(displayName)),\n            id: (optStr(id)),\n            limit: (optStr(limit)),\n            page: (optStr(page)),\n            sortOrder: (optStr(sortOrder)),\n            sortBy: (optStr(sortBy)),\n            opcRequestId: (optStr(opcRequestId)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -108,7 +109,7 @@ public struct ListJobsResponse: Codable, Sendable {
 
 extension ListJobsResponse: CustomStringConvertible {
     public var description: String {
-        return "ListJobsResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            opcNextPage: \(opcNextPage ?? "nil")\n        )"
+        return "ListJobsResponse(\n            rawResponse: (optStr(rawResponse)),\n            opcRequestId: (optStr(opcRequestId)),\n            opcNextPage: (optStr(opcNextPage))\n        )"
     }
 }
 
@@ -117,7 +118,6 @@ extension ListJobsResponse: CustomStringConvertible {
 // HTTPResponse implements the OCIResponse interface
 
 // ListJobsSortOrderEnum Enum with underlying type: string
-public typealias ListJobsSortOrderEnum = String
 
 // Set of constants representing the allowable values for ListJobsSortOrderEnum
 public enum ListJobsSortOrderEnum: String, Codable, Sendable {
@@ -139,7 +139,6 @@ public extension ListJobsSortOrderEnum {
 // GetMappingListJobsSortOrderEnum performs case Insensitive comparison on enum value and return the desired enum
 
 // ListJobsSortByEnum Enum with underlying type: string
-public typealias ListJobsSortByEnum = String
 
 // Set of constants representing the allowable values for ListJobsSortByEnum
 public enum ListJobsSortByEnum: String, Codable, Sendable {

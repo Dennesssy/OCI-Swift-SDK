@@ -45,12 +45,12 @@ public struct RemediationRunSummary: Codable, Sendable {
     public var lifecycleState: RemediationRunLifecycleStateEnum
     public var remediationRunSource: RemediationRunRemediationRunSourceEnum
     public var freeformTags: [String: String]
-    public var definedTags: [String: [String: Any]]
+    public var definedTags: [String: [String: JSONValue]]
     public var displayName: String?
     public var timeStarted: Date?
     public var timeFinished: Date?
     public var currentStageType: RemediationRunStageTypeEnum?
-    public var systemTags: [String: [String: Any]]?
+    public var systemTags: [String: [String: JSONValue]]?
     
     private enum CodingKeys: String, CodingKey {
         case id, remediationRecipeId, timeCreated, timeUpdated, compartmentId, lifecycleState, remediationRunSource
@@ -60,9 +60,9 @@ public struct RemediationRunSummary: Codable, Sendable {
     public init(id: String, remediationRecipeId: String, timeCreated: Date, timeUpdated: Date,
                 compartmentId: String, lifecycleState: RemediationRunLifecycleStateEnum,
                 remediationRunSource: RemediationRunRemediationRunSourceEnum, freeformTags: [String: String],
-                definedTags: [String: [String: Any]], displayName: String? = nil, timeStarted: Date? = nil,
+                definedTags: [String: [String: JSONValue]], displayName: String? = nil, timeStarted: Date? = nil,
                 timeFinished: Date? = nil, currentStageType: RemediationRunStageTypeEnum? = nil,
-                systemTags: [String: [String: Any]]? = nil) {
+                systemTags: [String: [String: JSONValue]]? = nil) {
         self.id = id; self.remediationRecipeId = remediationRecipeId; self.timeCreated = timeCreated; self.timeUpdated = timeUpdated
         self.compartmentId = compartmentId; self.lifecycleState = lifecycleState; self.remediationRunSource = remediationRunSource
         self.freeformTags = freeformTags; self.definedTags = definedTags; self.displayName = displayName

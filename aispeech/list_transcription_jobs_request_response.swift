@@ -84,7 +84,6 @@ extension ListTranscriptionJobsResponse: CustomStringConvertible {
 
 // MARK: - ListTranscriptionJobsSortOrderEnum
 
-public typealias ListTranscriptionJobsSortOrderEnum = String
 
 // MARK: - ListTranscriptionJobsSortOrder
 
@@ -103,7 +102,6 @@ public extension ListTranscriptionJobsSortOrder {
 
 // MARK: - ListTranscriptionJobsSortByEnum
 
-public typealias ListTranscriptionJobsSortByEnum = String
 
 // MARK: - ListTranscriptionJobsSortBy
 

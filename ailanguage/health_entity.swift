@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2026, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0.
@@ -70,7 +71,7 @@ public struct HealthEntity: Codable, Sendable {
 
 extension HealthEntity: CustomStringConvertible {
     public var description: String {
-        return "HealthEntity(\n            offset: \(offset ?? "nil"),\n            length: \(length ?? "nil"),\n            text: \(text ?? "nil"),\n            type: \(type ?? "nil"),\n            score: \(score ?? "nil"),\n            id: \(id ?? "nil"),\n            subType: \(subType ?? "nil"),\n            category: \(category ?? "nil"),\n            assertions: \(assertions ?? "nil"),\n            matchedConcepts: \(matchedConcepts ?? "nil")\n        )"
+        return "HealthEntity(\n            offset: (optStr(offset)),\n            length: (optStr(length)),\n            text: (optStr(text)),\n            type: (optStr(type)),\n            score: (optStr(score)),\n            id: (optStr(id)),\n            subType: (optStr(subType)),\n            category: (optStr(category)),\n            assertions: (optStr(assertions)),\n            matchedConcepts: (optStr(matchedConcepts))\n        )"
     }
 }
 

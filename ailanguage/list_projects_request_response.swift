@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -67,7 +68,7 @@ public struct ListProjectsRequest: Codable, Sendable {
 
 extension ListProjectsRequest: CustomStringConvertible {
     public var description: String {
-        return "ListProjectsRequest(\n            compartmentId: \(compartmentId ?? "nil"),\n            lifecycleState: \(lifecycleState ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            limit: \(limit ?? "nil"),\n            page: \(page ?? "nil"),\n            projectId: \(projectId ?? "nil"),\n            sortOrder: \(sortOrder ?? "nil"),\n            sortBy: \(sortBy ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "ListProjectsRequest(\n            compartmentId: (optStr(compartmentId)),\n            lifecycleState: (optStr(lifecycleState)),\n            displayName: (optStr(displayName)),\n            limit: (optStr(limit)),\n            page: (optStr(page)),\n            projectId: (optStr(projectId)),\n            sortOrder: (optStr(sortOrder)),\n            sortBy: (optStr(sortBy)),\n            opcRequestId: (optStr(opcRequestId)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -108,7 +109,7 @@ public struct ListProjectsResponse: Codable, Sendable {
 
 extension ListProjectsResponse: CustomStringConvertible {
     public var description: String {
-        return "ListProjectsResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            opcNextPage: \(opcNextPage ?? "nil")\n        )"
+        return "ListProjectsResponse(\n            rawResponse: (optStr(rawResponse)),\n            opcRequestId: (optStr(opcRequestId)),\n            opcNextPage: (optStr(opcNextPage))\n        )"
     }
 }
 
@@ -117,7 +118,6 @@ extension ListProjectsResponse: CustomStringConvertible {
 // HTTPResponse implements the OCIResponse interface
 
 // ListProjectsSortOrderEnum Enum with underlying type: string
-public typealias ListProjectsSortOrderEnum = String
 
 // Set of constants representing the allowable values for ListProjectsSortOrderEnum
 public enum ListProjectsSortOrderEnum: String, Codable, Sendable {
@@ -139,7 +139,6 @@ public extension ListProjectsSortOrderEnum {
 // GetMappingListProjectsSortOrderEnum performs case Insensitive comparison on enum value and return the desired enum
 
 // ListProjectsSortByEnum Enum with underlying type: string
-public typealias ListProjectsSortByEnum = String
 
 // Set of constants representing the allowable values for ListProjectsSortByEnum
 public enum ListProjectsSortByEnum: String, Codable, Sendable {

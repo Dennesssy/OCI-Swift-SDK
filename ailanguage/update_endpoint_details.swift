@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -24,7 +25,7 @@ public struct UpdateEndpointDetails: Codable, Sendable {
     public var modelId: String??
     public var inferenceUnits: Int??
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
 
     enum CodingKeys: String, CodingKey {
         case displayName = "displayName"
@@ -41,7 +42,7 @@ public struct UpdateEndpointDetails: Codable, Sendable {
         modelId: String?? = nil,
         inferenceUnits: Int?? = nil,
         freeformTags: [String: String]? = nil,
-        definedTags: [String: [String: Any]]? = nil
+        definedTags: [String: [String: JSONValue]]? = nil
     ) {
         self.displayName = displayName
         self.description = description
@@ -52,11 +53,6 @@ public struct UpdateEndpointDetails: Codable, Sendable {
     }
 }
 
-extension UpdateEndpointDetails: CustomStringConvertible {
-    public var description: String {
-        return "UpdateEndpointDetails(\n            displayName: \(displayName ?? "nil"),\n            description: \(description ?? "nil"),\n            modelId: \(modelId ?? "nil"),\n            inferenceUnits: \(inferenceUnits ?? "nil"),\n            freeformTags: \(freeformTags ?? "nil"),\n            definedTags: \(definedTags ?? "nil")\n        )"
-    }
-}
 
 
 

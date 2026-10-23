@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -18,7 +19,7 @@ import Foundation
 
 
 // ClassificationType possible text classification modes
-public protocol ClassificationType {
+public protocol ClassificationType: Codable, Sendable {
 }
 
 
@@ -42,7 +43,7 @@ public struct classificationtype: Codable, Sendable {
 
 extension classificationtype: CustomStringConvertible {
     public var description: String {
-        return "classificationtype(\n            jsonData: \(jsonData ?? "nil"),\n            classificationMode: \(classificationMode ?? "nil")\n        )"
+        return "classificationtype(\n            jsonData: (optStr(jsonData)),\n            classificationMode: (optStr(classificationMode))\n        )"
     }
 }
 
@@ -57,7 +58,6 @@ extension classificationtype: CustomStringConvertible {
 // Not recommended for calling this function directly
 
 // ClassificationTypeClassificationModeEnum Enum with underlying type: string
-public typealias ClassificationTypeClassificationModeEnum = String
 
 // Set of constants representing the allowable values for ClassificationTypeClassificationModeEnum
 public enum ClassificationTypeClassificationModeEnum: String, Codable, Sendable {

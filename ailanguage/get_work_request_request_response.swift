@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -39,7 +40,7 @@ public struct GetWorkRequestRequest: Codable, Sendable {
 
 extension GetWorkRequestRequest: CustomStringConvertible {
     public var description: String {
-        return "GetWorkRequestRequest(\n            workRequestId: \(workRequestId ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "GetWorkRequestRequest(\n            workRequestId: (optStr(workRequestId)),\n            opcRequestId: (optStr(opcRequestId)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -80,7 +81,7 @@ public struct GetWorkRequestResponse: Codable, Sendable {
 
 extension GetWorkRequestResponse: CustomStringConvertible {
     public var description: String {
-        return "GetWorkRequestResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            etag: \(etag ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "GetWorkRequestResponse(\n            rawResponse: (optStr(rawResponse)),\n            etag: (optStr(etag)),\n            opcRequestId: (optStr(opcRequestId))\n        )"
     }
 }
 

@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2026, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0.
@@ -54,7 +55,7 @@ public struct Entity: Codable, Sendable {
 
 extension Entity: CustomStringConvertible {
     public var description: String {
-        return "Entity(\n            offset: \(offset ?? "nil"),\n            length: \(length ?? "nil"),\n            text: \(text ?? "nil"),\n            type: \(type ?? "nil"),\n            isPii: \(isPii ?? "nil"),\n            score: \(score ?? "nil")\n        )"
+        return "Entity(\n            offset: (optStr(offset)),\n            length: (optStr(length)),\n            text: (optStr(text)),\n            type: (optStr(type)),\n            isPii: (optStr(isPii)),\n            score: (optStr(score))\n        )"
     }
 }
 

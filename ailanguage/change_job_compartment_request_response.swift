@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -47,7 +48,7 @@ public struct ChangeJobCompartmentRequest: Codable, Sendable {
 
 extension ChangeJobCompartmentRequest: CustomStringConvertible {
     public var description: String {
-        return "ChangeJobCompartmentRequest(\n            jobId: \(jobId ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            ifMatch: \(ifMatch ?? "nil"),\n            opcRetryToken: \(opcRetryToken ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "ChangeJobCompartmentRequest(\n            jobId: (optStr(jobId)),\n            opcRequestId: (optStr(opcRequestId)),\n            ifMatch: (optStr(ifMatch)),\n            opcRetryToken: (optStr(opcRetryToken)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -84,7 +85,7 @@ public struct ChangeJobCompartmentResponse: Codable, Sendable {
 
 extension ChangeJobCompartmentResponse: CustomStringConvertible {
     public var description: String {
-        return "ChangeJobCompartmentResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "ChangeJobCompartmentResponse(\n            rawResponse: (optStr(rawResponse)),\n            opcRequestId: (optStr(opcRequestId))\n        )"
     }
 }
 

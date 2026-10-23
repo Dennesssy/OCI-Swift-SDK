@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -43,7 +44,7 @@ public struct DeleteJobRequest: Codable, Sendable {
 
 extension DeleteJobRequest: CustomStringConvertible {
     public var description: String {
-        return "DeleteJobRequest(\n            jobId: \(jobId ?? "nil"),\n            ifMatch: \(ifMatch ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "DeleteJobRequest(\n            jobId: (optStr(jobId)),\n            ifMatch: (optStr(ifMatch)),\n            opcRequestId: (optStr(opcRequestId)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -84,7 +85,7 @@ public struct DeleteJobResponse: Codable, Sendable {
 
 extension DeleteJobResponse: CustomStringConvertible {
     public var description: String {
-        return "DeleteJobResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcWorkRequestId: \(opcWorkRequestId ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "DeleteJobResponse(\n            rawResponse: (optStr(rawResponse)),\n            opcWorkRequestId: (optStr(opcWorkRequestId)),\n            opcRequestId: (optStr(opcRequestId))\n        )"
     }
 }
 

@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -43,7 +44,7 @@ public struct DetectLanguageEntitiesRequest: Codable, Sendable {
 
 extension DetectLanguageEntitiesRequest: CustomStringConvertible {
     public var description: String {
-        return "DetectLanguageEntitiesRequest(\n            opcRequestId: \(opcRequestId ?? "nil"),\n            modelVersion: \(modelVersion ?? "nil"),\n            isPii: \(isPii ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "DetectLanguageEntitiesRequest(\n            opcRequestId: (optStr(opcRequestId)),\n            modelVersion: (optStr(modelVersion)),\n            isPii: (optStr(isPii)),\n            requestMetadata: (optStr(requestMetadata))\n        )"
     }
 }
 
@@ -84,7 +85,7 @@ public struct DetectLanguageEntitiesResponse: Codable, Sendable {
 
 extension DetectLanguageEntitiesResponse: CustomStringConvertible {
     public var description: String {
-        return "DetectLanguageEntitiesResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            sunset: \(sunset ?? "nil")\n        )"
+        return "DetectLanguageEntitiesResponse(\n            rawResponse: (optStr(rawResponse)),\n            opcRequestId: (optStr(opcRequestId)),\n            sunset: (optStr(sunset))\n        )"
     }
 }
 
@@ -93,7 +94,6 @@ extension DetectLanguageEntitiesResponse: CustomStringConvertible {
 // HTTPResponse implements the OCIResponse interface
 
 // DetectLanguageEntitiesModelVersionEnum Enum with underlying type: string
-public typealias DetectLanguageEntitiesModelVersionEnum = String
 
 // Set of constants representing the allowable values for DetectLanguageEntitiesModelVersionEnum
 public enum DetectLanguageEntitiesModelVersionEnum: String, Codable, Sendable {

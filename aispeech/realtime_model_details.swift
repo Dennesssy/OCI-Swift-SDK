@@ -30,7 +30,6 @@ extension RealtimeModelDetails: CustomStringConvertible {
 
 // MARK: - RealtimeModelDetailsDomainEnum
 
-public typealias RealtimeModelDetailsDomainEnum = String
 
 // MARK: - RealtimeModelDetailsDomain
 

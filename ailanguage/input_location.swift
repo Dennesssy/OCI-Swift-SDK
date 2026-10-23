@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -21,7 +22,7 @@ import Foundation
 // For TXT only ObjectStoragePrefixLocation supported
 // For CSV only ObjectStorageFileNameLocation is supported
 // For this release only one file is supported for ObjectStorageFileNameLocation i.e CSV file type
-public protocol InputLocation {
+public protocol InputLocation: Codable, Sendable {
 }
 
 
@@ -45,7 +46,7 @@ public struct inputlocation: Codable, Sendable {
 
 extension inputlocation: CustomStringConvertible {
     public var description: String {
-        return "inputlocation(\n            jsonData: \(jsonData ?? "nil"),\n            locationType: \(locationType ?? "nil")\n        )"
+        return "inputlocation(\n            jsonData: (optStr(jsonData)),\n            locationType: (optStr(locationType))\n        )"
     }
 }
 
@@ -60,7 +61,6 @@ extension inputlocation: CustomStringConvertible {
 // Not recommended for calling this function directly
 
 // InputLocationLocationTypeEnum Enum with underlying type: string
-public typealias InputLocationLocationTypeEnum = String
 
 // Set of constants representing the allowable values for InputLocationLocationTypeEnum
 public enum InputLocationLocationTypeEnum: String, Codable, Sendable {

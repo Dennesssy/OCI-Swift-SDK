@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -50,7 +51,7 @@ public struct RelationEntity: Codable, Sendable {
 
 extension RelationEntity: CustomStringConvertible {
     public var description: String {
-        return "RelationEntity(\n            id: \(id ?? "nil"),\n            subjectId: \(subjectId ?? "nil"),\n            objectId: \(objectId ?? "nil"),\n            type: \(type ?? "nil"),\n            score: \(score ?? "nil")\n        )"
+        return "RelationEntity(\n            id: (optStr(id)),\n            subjectId: (optStr(subjectId)),\n            objectId: (optStr(objectId)),\n            type: (optStr(type)),\n            score: (optStr(score))\n        )"
     }
 }
 

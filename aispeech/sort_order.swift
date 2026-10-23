@@ -6,7 +6,6 @@ import Foundation
 
 // MARK: - SortOrderEnum
 
-public typealias SortOrderEnum = String
 
 // MARK: - SortOrder
 

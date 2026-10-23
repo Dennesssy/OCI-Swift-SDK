@@ -39,7 +39,6 @@ extension RealtimeMessageResultTranscriptionToken: CustomStringConvertible {
 
 // MARK: - RealtimeMessageResultTranscriptionTokenTypeEnum
 
-public typealias RealtimeMessageResultTranscriptionTokenTypeEnum = String
 
 // MARK: - RealtimeMessageResultTranscriptionTokenType
 
