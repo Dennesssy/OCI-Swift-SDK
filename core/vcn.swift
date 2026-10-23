@@ -18,7 +18,7 @@ import Foundation
 // MARK: - VcnLifecycleStateEnum
 
 /// Enum with underlying type: string
-public enum VcnLifecycleStateEnum: String, Sendable {
+public enum VcnLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case terminating = "TERMINATING"

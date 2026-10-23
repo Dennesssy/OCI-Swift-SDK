@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct StreamPool: Codable {
     public var name: String
@@ -11,7 +12,7 @@ public struct StreamPool: Codable {
     public var timeCreated: Date
     public var kafkaSettings: KafkaSettings?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
     public enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -31,7 +32,7 @@ public struct StreamPool: Codable {
                 timeCreated: Date,
                 kafkaSettings: KafkaSettings? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil) {
+                definedTags: [String: [String: JSONValue]]? = nil) {
         self.name = name
         self.id = id
         self.compartmentId = compartmentId

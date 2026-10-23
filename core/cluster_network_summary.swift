@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ClusterNetworkSummaryLifecycleStateEnum
 
-public enum ClusterNetworkSummaryLifecycleStateEnum: String, Sendable {
+public enum ClusterNetworkSummaryLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case scaling = "SCALING"
     case starting = "STARTING"

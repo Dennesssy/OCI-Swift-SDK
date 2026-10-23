@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListBillingSchedulesSortByEnum
 
-public enum ListBillingSchedulesSortByEnum: String, Sendable {
+public enum ListBillingSchedulesSortByEnum: String, Codable, Sendable {
     case orderNumber = "ORDERNUMBER"
     case timeInvoicing = "TIMEINVOICING"
 }

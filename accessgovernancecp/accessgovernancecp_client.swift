@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import OCICommon
 
 /// A client for AccessGovernanceCP
 public actor AccessGovernanceCPClient: Sendable {
@@ -37,7 +38,7 @@ public actor AccessGovernanceCPClient: Sendable {
         // Set region from config provider
         if let region = configProvider.region {
             self.region = region
-            setRegion(region)
+            self.host = Self.endpoint(for: region)
         }
         
         if self.host.isEmpty {
@@ -58,7 +59,7 @@ public actor AccessGovernanceCPClient: Sendable {
         // Set region from config provider
         if let region = configProvider.region {
             self.region = region
-            setRegion(region)
+            self.host = Self.endpoint(for: region)
         }
         
         if self.host.isEmpty {
@@ -76,7 +77,11 @@ public actor AccessGovernanceCPClient: Sendable {
         self.region = region
         // TODO: Implement endpoint construction based on region
         // Go: client.Host = common.StringToRegion(region).EndpointForTemplate("accessgovernancecp", "https://cp-prod.access-governance.{region}.oci.{secondLevelDomain}")
-        self.host = "https://cp-prod.access-governance.\(region).oci.oraclecloud.com"
+        self.host = Self.endpoint(for: region)
+    }
+
+    private static func endpoint(for region: String) -> String {
+        "https://cp-prod.access-governance.\(region).oci.oraclecloud.com"
     }
     
     // MARK: - API Methods
@@ -289,26 +294,5 @@ public actor AccessGovernanceCPClient: Sendable {
         )
         
         return response
-    }
-}
-
-// MARK: - Supporting Types
-
-/// Configuration provider protocol
-public protocol ConfigurationProvider: Sendable {
-    var region: String? { get }
-}
-
-/// Common utilities
-public enum Common: Sendable {
-    /// Checks if a service is enabled
-    public static func checkForEnabledServices(_ serviceName: String) -> Bool {
-        // TODO: Implement service check logic
-        return true
-    }
-    
-    /// Generates a retry token
-    public static func generateRetryToken() -> String {
-        return UUID().uuidString
     }
 }

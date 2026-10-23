@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - OperationTypeEnum
 
-public enum OperationTypeEnum: String, Sendable {
+public enum OperationTypeEnum: String, Codable, Sendable {
     case createMonitoredInstance = "CREATE_MONITORED_INSTANCE"
     case updateMonitoredInstance = "UPDATE_MONITORED_INSTANCE"
     case deleteMonitoredInstance = "DELETE_MONITORED_INSTANCE"
@@ -22,7 +22,7 @@ public extension OperationTypeEnum {
 
 // MARK: - OperationStatusEnum
 
-public enum OperationStatusEnum: String, Sendable {
+public enum OperationStatusEnum: String, Codable, Sendable {
     case accepted = "ACCEPTED"
     case inProgress = "IN_PROGRESS"
     case failed = "FAILED"

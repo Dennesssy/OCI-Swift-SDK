@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct OccAvailabilityCatalog: Codable {
     public var id: String
@@ -17,8 +18,8 @@ public struct OccAvailabilityCatalog: Codable {
     public var description: String?
     public var lifecycleDetails: String?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
-    public var systemTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
+    public var systemTags: [String: [String: JSONValue]]?
     public var details: [OccAvailabilitySummary]?
     
     public enum CodingKeys: String, CodingKey {
@@ -53,8 +54,8 @@ public struct OccAvailabilityCatalog: Codable {
                 description: String? = nil,
                 lifecycleDetails: String? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil,
-                systemTags: [String: [String: Any]]? = nil,
+                definedTags: [String: [String: JSONValue]]? = nil,
+                systemTags: [String: [String: JSONValue]]? = nil,
                 details: [OccAvailabilitySummary]? = nil) {
         self.id = id
         self.namespace = namespace

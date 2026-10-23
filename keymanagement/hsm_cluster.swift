@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum HsmClusterLifecycleStateEnum: String, Sendable {
+public enum HsmClusterLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case updating = "UPDATING"
@@ -47,7 +47,7 @@ public struct HsmHost: Codable, Sendable {
     public var hsmStatusDetails: String?
 }
 
-public enum HsmStatusEnum: String, Sendable {
+public enum HsmStatusEnum: String, Codable, Sendable {
     case pending = "PENDING"
     case active = "ACTIVE"
     case inactive = "INACTIVE"

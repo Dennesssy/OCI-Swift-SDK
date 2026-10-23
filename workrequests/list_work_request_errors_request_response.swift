@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListWorkRequestErrorsSortOrderEnum
 
-public enum ListWorkRequestErrorsSortOrderEnum: String, Sendable {
+public enum ListWorkRequestErrorsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

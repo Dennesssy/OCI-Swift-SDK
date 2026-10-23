@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - VnicLifecycleStateEnum
 
-public enum VnicLifecycleStateEnum: String, Sendable {
+public enum VnicLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case terminating = "TERMINATING"

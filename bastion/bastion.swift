@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct Bastion: Codable {
     public var bastionType: String
@@ -22,7 +23,7 @@ public struct Bastion: Codable {
     public var timeUpdated: Date?
     public var lifecycleDetails: String?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
     public enum CodingKeys: String, CodingKey {
         case bastionType = "bastionType"
@@ -64,7 +65,7 @@ public struct Bastion: Codable {
                 timeUpdated: Date? = nil,
                 lifecycleDetails: String? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil) {
+                definedTags: [String: [String: JSONValue]]? = nil) {
         self.bastionType = bastionType
         self.id = id
         self.name = name

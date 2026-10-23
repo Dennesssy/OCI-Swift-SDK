@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ImageLifecycleStateEnum
 
-public enum ImageLifecycleStateEnum: String, Sendable {
+public enum ImageLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case importing = "IMPORTING"
     case available = "AVAILABLE"

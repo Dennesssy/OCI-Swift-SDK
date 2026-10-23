@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum BucketPublicAccessTypeEnum: String, Sendable {
+public enum BucketPublicAccessTypeEnum: String, Codable, Sendable {
     case noPublicAccess = "NoPublicAccess"
     case objectRead = "ObjectRead"
     case objectReadWithoutList = "ObjectReadWithoutList"
@@ -18,7 +18,7 @@ public extension BucketPublicAccessTypeEnum {
     }
 }
 
-public enum BucketStorageTierEnum: String, Sendable {
+public enum BucketStorageTierEnum: String, Codable, Sendable {
     case standard = "Standard"
     case infrequentAccess = "InfrequentAccess"
     case archive = "Archive"
@@ -30,7 +30,7 @@ public extension BucketStorageTierEnum {
     }
 }
 
-public enum BucketVersioningEnum: String, Sendable {
+public enum BucketVersioningEnum: String, Codable, Sendable {
     case enabled = "Enabled"
     case suspended = "Suspended"
     case disabled = "Disabled"
@@ -72,7 +72,7 @@ public struct Bucket: Codable, Sendable {
     }
 }
 
-public enum BucketAutoTieringEnum: String, Sendable {
+public enum BucketAutoTieringEnum: String, Codable, Sendable {
     case disabled = "Disabled"
     case infrequentAccess = "InfrequentAccess"
 }

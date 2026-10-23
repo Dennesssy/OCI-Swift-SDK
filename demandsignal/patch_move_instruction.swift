@@ -46,7 +46,7 @@ public struct PatchMoveInstruction: Codable, Sendable, PatchInstruction {
 }
 
 // PatchMoveInstructionPositionEnum
-public enum PatchMoveInstructionPositionEnum: String, Sendable {
+public enum PatchMoveInstructionPositionEnum: String, Codable, Sendable {
     case at = "AT"
     case before = "BEFORE"
     case after = "AFTER"

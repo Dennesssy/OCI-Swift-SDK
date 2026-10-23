@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum ArchivalStateEnum: String, Sendable {
+public enum ArchivalStateEnum: String, Codable, Sendable {
     case standard = "Standard"
     case infrequentAccess = "InfrequentAccess"
     case archived = "Archived"

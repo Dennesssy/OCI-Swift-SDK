@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - SubnetLifecycleStateEnum
 
-public enum SubnetLifecycleStateEnum: String, Sendable {
+public enum SubnetLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case terminating = "TERMINATING"

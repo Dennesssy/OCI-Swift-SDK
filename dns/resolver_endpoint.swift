@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum ResolverEndpointTypeEnum: String, Sendable {
+public enum ResolverEndpointTypeEnum: String, Codable, Sendable {
     case vnic = "VNIC"
     case ip = "IP"
 }

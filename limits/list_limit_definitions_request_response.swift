@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListLimitDefinitionsSortByEnum
 
-public enum ListLimitDefinitionsSortByEnum: String, Sendable {
+public enum ListLimitDefinitionsSortByEnum: String, Codable, Sendable {
     case name = "name"
     case description = "description"
 }
@@ -19,7 +19,7 @@ public extension ListLimitDefinitionsSortByEnum {
 
 // MARK: - ListLimitDefinitionsSortOrderEnum
 
-public enum ListLimitDefinitionsSortOrderEnum: String, Sendable {
+public enum ListLimitDefinitionsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

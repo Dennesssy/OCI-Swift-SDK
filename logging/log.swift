@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum LogLifecycleStateEnum: String, Sendable {
+public enum LogLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case updating = "UPDATING"
@@ -37,7 +37,7 @@ public struct Log: Codable, Sendable {
     public var definedTags: [String: [String: Any]]?
 }
 
-public enum LogTypeEnum: String, Sendable {
+public enum LogTypeEnum: String, Codable, Sendable {
     case custom = "CUSTOM"
     case service = "SERVICE"
 }
@@ -102,7 +102,7 @@ public struct LogSource: Codable, Sendable {
     public var parameters: [String: String]?
 }
 
-public enum SourceTypeEnum: String, Sendable {
+public enum SourceTypeEnum: String, Codable, Sendable {
     case ociservice = "OCISERVICE"
 }
 
@@ -120,7 +120,7 @@ public struct LogParser: Codable, Sendable {
     public var isStructuredLogging: Bool?
 }
 
-public enum ParserTypeEnum: String, Sendable {
+public enum ParserTypeEnum: String, Codable, Sendable {
     case jsonParser = "JSON_PARSER"
     case csvParser = "CSV_PARSER"
     case none = "NONE"

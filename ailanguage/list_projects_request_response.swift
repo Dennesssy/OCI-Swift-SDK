@@ -120,7 +120,7 @@ extension ListProjectsResponse: CustomStringConvertible {
 public typealias ListProjectsSortOrderEnum = String
 
 // Set of constants representing the allowable values for ListProjectsSortOrderEnum
-public enum ListProjectsSortOrderEnum: String, Sendable {
+public enum ListProjectsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -142,7 +142,7 @@ public extension ListProjectsSortOrderEnum {
 public typealias ListProjectsSortByEnum = String
 
 // Set of constants representing the allowable values for ListProjectsSortByEnum
-public enum ListProjectsSortByEnum: String, Sendable {
+public enum ListProjectsSortByEnum: String, Codable, Sendable {
     case timecreated = "timeCreated"
     case displayname = "displayName"
 }

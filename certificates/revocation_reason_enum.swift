@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - RevocationReasonEnum
 
-public enum RevocationReasonEnum: String, Sendable {
+public enum RevocationReasonEnum: String, Codable, Sendable {
     case unspecified = "UNSPECIFIED"
     case keyCompromise = "KEY_COMPROMISE"
     case caCompromise = "CA_COMPROMISE"

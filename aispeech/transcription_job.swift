@@ -97,7 +97,7 @@ public typealias TranscriptionJobAdditionalTranscriptionFormatsEnum = String
 
 // MARK: - TranscriptionJobAdditionalTranscriptionFormatsSrt
 
-public enum TranscriptionJobAdditionalTranscriptionFormatsSrt: String, Sendable {
+public enum TranscriptionJobAdditionalTranscriptionFormatsSrt: String, Codable, Sendable {
     case  = "SRT"
 }
 
@@ -115,7 +115,7 @@ public typealias TranscriptionJobLifecycleStateEnum = String
 
 // MARK: - TranscriptionJobLifecycleState
 
-public enum TranscriptionJobLifecycleState: String, Sendable {
+public enum TranscriptionJobLifecycleState: String, Codable, Sendable {
     case accepted = "ACCEPTED"
     case inProgress = "IN_PROGRESS"
     case succeeded = "SUCCEEDED"

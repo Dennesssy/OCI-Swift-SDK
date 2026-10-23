@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - CrossConnectLifecycleStateEnum
 
-public enum CrossConnectLifecycleStateEnum: String, Sendable {
+public enum CrossConnectLifecycleStateEnum: String, Codable, Sendable {
     case pendingCustomer = "PENDING_CUSTOMER"
     case provisioned = "PROVISIONED"
     case pendingMaintenance = "PENDING_MAINTENANCE"

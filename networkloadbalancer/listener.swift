@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum ListenerProtocolEnum: String, Sendable {
+public enum ListenerProtocolEnum: String, Codable, Sendable {
     case tcp = "TCP"
     case udp = "UDP"
     case any = "ANY"
@@ -39,7 +39,7 @@ public struct ListenerRule: Codable, Sendable {
     public var conditions: [ListenerRuleCondition]?
 }
 
-public enum ListenerRuleActionEnum: String, Sendable {
+public enum ListenerRuleActionEnum: String, Codable, Sendable {
     case forwardToBackendSet = "FORWARD_TO_BACKENDSET"
 }
 
@@ -55,7 +55,7 @@ public struct ListenerRuleCondition: Codable, Sendable {
     public var operatorName: ListenerRuleConditionOperatorEnum?
 }
 
-public enum ListenerRuleConditionAttributeNameEnum: String, Sendable {
+public enum ListenerRuleConditionAttributeNameEnum: String, Codable, Sendable {
     case sourceIpAddress = "SOURCE_IP_ADDRESS"
     case sourceVlanId = "SOURCE_VLAN_ID"
 }
@@ -66,7 +66,7 @@ public extension ListenerRuleConditionAttributeNameEnum {
     }
 }
 
-public enum ListenerRuleConditionOperatorEnum: String, Sendable {
+public enum ListenerRuleConditionOperatorEnum: String, Codable, Sendable {
     case equals = "EQUALS"
     case notEquals = "NOT_EQUALS"
     case inList = "IN_LIST"

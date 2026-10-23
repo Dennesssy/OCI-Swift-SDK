@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum SnapshotLifecycleStateEnum: String, Sendable {
+public enum SnapshotLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case deleting = "DELETING"

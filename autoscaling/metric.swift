@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - MetricMetricTypeEnum
 
-public enum MetricMetricTypeEnum: String, Sendable {
+public enum MetricMetricTypeEnum: String, Codable, Sendable {
     case cpuUtilization = "CPU_UTILIZATION"
     case memoryUtilization = "MEMORY_UTILIZATION"
 }

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - GenericArtifactLifecycleStateEnum
 
-public enum GenericArtifactLifecycleStateEnum: String, Sendable {
+public enum GenericArtifactLifecycleStateEnum: String, Codable, Sendable {
     case available = "AVAILABLE"
     case deleting = "DELETING"
     case deleted = "DELETED"

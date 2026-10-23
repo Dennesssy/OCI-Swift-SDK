@@ -45,7 +45,7 @@ public struct VerifiedData: Codable, Sendable {
     public var isSignatureValid: Bool
 }
 
-public enum SigningAlgorithmEnum: String, Sendable {
+public enum SigningAlgorithmEnum: String, Codable, Sendable {
     case sha256RsaPkcsPss = "SHA_256_RSA_PKCS_PSS"
     case sha256RsaPkcs1V15 = "SHA_256_RSA_PKCS1_V1_5"
     case sha384RsaPkcsPss = "SHA_384_RSA_PKCS_PSS"
@@ -118,7 +118,7 @@ public struct UnwrappedKey: Codable, Sendable {
     }
 }
 
-public enum KeyEncryptionAlgorithmEnum: String, Sendable {
+public enum KeyEncryptionAlgorithmEnum: String, Codable, Sendable {
     case rsaOaepAes256 = "RSA_OAEP_AES_256_GCM"
     case rsaOaepSha256 = "RSA_OAEP_SHA256"
 }

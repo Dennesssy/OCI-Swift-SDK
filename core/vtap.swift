@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - VtapLifecycleStateEnum
 
-public enum VtapLifecycleStateEnum: String, Sendable {
+public enum VtapLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case terminating = "TERMINATING"
@@ -22,7 +22,7 @@ public extension VtapLifecycleStateEnum {
 
 // MARK: - VtapLifecycleStateDetailsEnum
 
-public enum VtapLifecycleStateDetailsEnum: String, Sendable {
+public enum VtapLifecycleStateDetailsEnum: String, Codable, Sendable {
     case running = "RUNNING"
     case stopped = "STOPPED"
 }
@@ -35,7 +35,7 @@ public extension VtapLifecycleStateDetailsEnum {
 
 // MARK: - VtapEncapsulationProtocolEnum
 
-public enum VtapEncapsulationProtocolEnum: String, Sendable {
+public enum VtapEncapsulationProtocolEnum: String, Codable, Sendable {
     case gre = "GRE"
     case vxlan = "VXLAN"
 }

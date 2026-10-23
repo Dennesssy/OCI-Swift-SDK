@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum BackupLocationTypeEnum: String, Sendable {
+public enum BackupLocationTypeEnum: String, Codable, Sendable {
     case objectStorage = "OBJECT_STORAGE"
     case uri = "URI"
 }

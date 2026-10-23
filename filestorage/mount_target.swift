@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum MountTargetLifecycleStateEnum: String, Sendable {
+public enum MountTargetLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case deleting = "DELETING"
@@ -75,7 +75,7 @@ public struct ClientOptions: Codable, Sendable {
     public var anonymousGid: Int?
 }
 
-public enum ClientOptionsAccessEnum: String, Sendable {
+public enum ClientOptionsAccessEnum: String, Codable, Sendable {
     case readWrite = "READ_WRITE"
     case readOnly = "READ_ONLY"
 }
@@ -86,7 +86,7 @@ public extension ClientOptionsAccessEnum {
     }
 }
 
-public enum ClientOptionsIdentitySquashEnum: String, Sendable {
+public enum ClientOptionsIdentitySquashEnum: String, Codable, Sendable {
     case none = "NONE"
     case root = "ROOT"
     case all = "ALL"

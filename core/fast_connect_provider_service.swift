@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - FastConnectProviderServicePrivatePeeringBgpManagementEnum
 
-public enum FastConnectProviderServicePrivatePeeringBgpManagementEnum: String, Sendable {
+public enum FastConnectProviderServicePrivatePeeringBgpManagementEnum: String, Codable, Sendable {
     case providerManaged = "PROVIDER_MANAGED"
     case oracleManaged = "ORACLE_MANAGED"
     case customerManaged = "CUSTOMER_MANAGED"
@@ -20,7 +20,7 @@ public extension FastConnectProviderServicePrivatePeeringBgpManagementEnum {
 
 // MARK: - FastConnectProviderServicePublicPeeringBgpManagementEnum
 
-public enum FastConnectProviderServicePublicPeeringBgpManagementEnum: String, Sendable {
+public enum FastConnectProviderServicePublicPeeringBgpManagementEnum: String, Codable, Sendable {
     case providerManaged = "PROVIDER_MANAGED"
     case oracleManaged = "ORACLE_MANAGED"
 }
@@ -33,7 +33,7 @@ public extension FastConnectProviderServicePublicPeeringBgpManagementEnum {
 
 // MARK: - FastConnectProviderServiceTypeEnum
 
-public enum FastConnectProviderServiceTypeEnum: String, Sendable {
+public enum FastConnectProviderServiceTypeEnum: String, Codable, Sendable {
     case layer2 = "LAYER2"
     case layer3 = "LAYER3"
 }

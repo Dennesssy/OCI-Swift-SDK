@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - PublicIpLifecycleStateEnum
 
-public enum PublicIpLifecycleStateEnum: String, Sendable {
+public enum PublicIpLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case assigned = "ASSIGNED"
@@ -24,7 +24,7 @@ public extension PublicIpLifecycleStateEnum {
 
 // MARK: - PublicIpLifetimeEnum
 
-public enum PublicIpLifetimeEnum: String, Sendable {
+public enum PublicIpLifetimeEnum: String, Codable, Sendable {
     case ephemeral = "EPHEMERAL"
     case reserved = "RESERVED"
 }
@@ -37,7 +37,7 @@ public extension PublicIpLifetimeEnum {
 
 // MARK: - PublicIpAssignedEntityTypeEnum
 
-public enum PublicIpAssignedEntityTypeEnum: String, Sendable {
+public enum PublicIpAssignedEntityTypeEnum: String, Codable, Sendable {
     case privateIp = "PRIVATE_IP"
     case natGateway = "NAT_GATEWAY"
 }

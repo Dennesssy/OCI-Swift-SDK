@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ExternalScmConfigurationExternalScmTypeEnum
 
-public enum ExternalScmConfigurationExternalScmTypeEnum: String, Sendable {
+public enum ExternalScmConfigurationExternalScmTypeEnum: String, Codable, Sendable {
     case gitHub = "GITHUB"
     case gitLab = "GITLAB"
 }

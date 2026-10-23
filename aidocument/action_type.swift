@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum ActionTypeEnum: String, Sendable {
+public enum ActionTypeEnum: String, Codable, Sendable {
     case actiontypecreated = "CREATED"
     case actiontypeupdated = "UPDATED"
     case actiontypedeleted = "DELETED"

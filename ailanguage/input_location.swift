@@ -63,7 +63,7 @@ extension inputlocation: CustomStringConvertible {
 public typealias InputLocationLocationTypeEnum = String
 
 // Set of constants representing the allowable values for InputLocationLocationTypeEnum
-public enum InputLocationLocationTypeEnum: String, Sendable {
+public enum InputLocationLocationTypeEnum: String, Codable, Sendable {
     case prefix = "OBJECT_STORAGE_PREFIX"
     case fileList = "OBJECT_STORAGE_FILE_LIST"
 }

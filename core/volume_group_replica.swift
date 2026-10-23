@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - VolumeGroupReplicaLifecycleStateEnum
 
-public enum VolumeGroupReplicaLifecycleStateEnum: String, Sendable {
+public enum VolumeGroupReplicaLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case activating = "ACTIVATING"

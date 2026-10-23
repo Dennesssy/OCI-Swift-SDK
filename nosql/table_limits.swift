@@ -22,7 +22,7 @@ public struct TableLimits: Codable, Sendable {
     }
 }
 
-public enum CapacityModeEnum: String, Sendable {
+public enum CapacityModeEnum: String, Codable, Sendable {
     case provisioned = "PROVISIONED"
     case onDemand = "ON_DEMAND"
 }

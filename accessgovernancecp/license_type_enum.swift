@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - LicenseTypeEnum
 
-public enum LicenseTypeEnum: String, Sendable {
+public enum LicenseTypeEnum: String, Codable, Sendable {
     case newLicense = "NEW_LICENSE"
     case bringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
     case agOracleWorkloads = "AG_ORACLE_WORKLOADS"

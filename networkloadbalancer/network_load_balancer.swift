@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum NetworkLoadBalancerLifecycleStateEnum: String, Sendable {
+public enum NetworkLoadBalancerLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case updating = "UPDATING"
     case active = "ACTIVE"
@@ -41,7 +41,7 @@ public struct NetworkLoadBalancer: Codable, Sendable {
     public var ipAddresses: [NetworkLoadBalancerIpAddress]?
 }
 
-public enum NlbIpVersionEnum: String, Sendable {
+public enum NlbIpVersionEnum: String, Codable, Sendable {
     case ipv4 = "IPV4"
     case ipv6 = "IPV6"
 }

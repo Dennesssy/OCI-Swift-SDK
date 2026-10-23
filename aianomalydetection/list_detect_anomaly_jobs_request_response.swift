@@ -84,7 +84,7 @@ extension ListDetectAnomalyJobsResponse: CustomStringConvertible {
 
 // ListDetectAnomalyJobsSortOrderEnum Enum with underlying type: string
 // MARK: - ListDetectAnomalyJobsSortOrderEnum
-public enum ListDetectAnomalyJobsSortOrderEnum: String, Sendable {
+public enum ListDetectAnomalyJobsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -96,7 +96,7 @@ public extension ListDetectAnomalyJobsSortOrderEnum {
 
 // ListDetectAnomalyJobsSortByEnum Enum with underlying type: string
 // MARK: - ListDetectAnomalyJobsSortByEnum
-public enum ListDetectAnomalyJobsSortByEnum: String, Sendable {
+public enum ListDetectAnomalyJobsSortByEnum: String, Codable, Sendable {
     case timecreated = "timeCreated"
     case displayname = "displayName"
 }

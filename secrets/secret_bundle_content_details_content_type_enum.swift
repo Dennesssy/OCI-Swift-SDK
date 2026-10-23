@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - SecretBundleContentDetailsContentTypeEnum
 
-public enum SecretBundleContentDetailsContentTypeEnum: String, Sendable {
+public enum SecretBundleContentDetailsContentTypeEnum: String, Codable, Sendable {
     case base64 = "BASE64"
 }
 

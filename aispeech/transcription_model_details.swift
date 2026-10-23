@@ -40,7 +40,7 @@ public typealias TranscriptionModelDetailsDomainEnum = String
 
 // MARK: - TranscriptionModelDetailsDomainGeneric
 
-public enum TranscriptionModelDetailsDomainGeneric: String, Sendable {
+public enum TranscriptionModelDetailsDomainGeneric: String, Codable, Sendable {
     case  = "GENERIC"
 }
 
@@ -58,7 +58,7 @@ public typealias TranscriptionModelDetailsLanguageCodeEnum = String
 
 // MARK: - TranscriptionModelDetailsLanguageCode
 
-public enum TranscriptionModelDetailsLanguageCode: String, Sendable {
+public enum TranscriptionModelDetailsLanguageCode: String, Codable, Sendable {
     case enUs = "en-US"
     case esEs = "es-ES"
     case ptBr = "pt-BR"

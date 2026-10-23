@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - DedicatedVmHostSummaryLifecycleStateEnum
 
-public enum DedicatedVmHostSummaryLifecycleStateEnum: String, Sendable {
+public enum DedicatedVmHostSummaryLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case updating = "UPDATING"

@@ -28,7 +28,7 @@ public typealias LocationDetailsLocationTypeEnum = String
 
 // MARK: - LocationDetailsLocationTypeObjectList
 
-public enum LocationDetailsLocationTypeObjectList: String, Sendable {
+public enum LocationDetailsLocationTypeObjectList: String, Codable, Sendable {
     case  = "OBJECT_LIST"
 }
 

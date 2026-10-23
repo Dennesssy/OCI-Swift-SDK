@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - DataKeyTypesEnum
 
-public enum DataKeyTypesEnum: String, Sendable {
+public enum DataKeyTypesEnum: String, Codable, Sendable {
     case private = "PRIVATE"
     case public = "PUBLIC"
 }

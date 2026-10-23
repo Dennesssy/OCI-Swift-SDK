@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ComputedUsageTypeEnum
 
-public enum ComputedUsageTypeEnum: String, Sendable {
+public enum ComputedUsageTypeEnum: String, Codable, Sendable {
     case promotion = "PROMOTION"
     case doNotBill = "DO_NOT_BILL"
     case usage = "USAGE"

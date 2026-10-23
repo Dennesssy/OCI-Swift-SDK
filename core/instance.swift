@@ -13,7 +13,7 @@ import Foundation
 // MARK: - InstanceLifecycleStateEnum
 
 /// Enum with underlying type: string
-public enum InstanceLifecycleStateEnum: String, Sendable {
+public enum InstanceLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case running = "RUNNING"
     case starting = "STARTING"
@@ -41,7 +41,7 @@ public extension InstanceLifecycleStateEnum {
 // MARK: - InstanceLaunchModeEnum
 
 /// Enum with underlying type: string
-public enum InstanceLaunchModeEnum: String, Sendable {
+public enum InstanceLaunchModeEnum: String, Codable, Sendable {
     case native = "NATIVE"
     case emulated = "EMULATED"
     case paravirtualized = "PARAVIRTUALIZED"

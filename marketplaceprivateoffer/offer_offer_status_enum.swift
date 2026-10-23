@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - OfferOfferStatusEnum
 
-public enum OfferOfferStatusEnum: String, Sendable {
+public enum OfferOfferStatusEnum: String, Codable, Sendable {
     case draft = "DRAFT"
     case pendingMarketplace = "PENDING_MARKETPLACE"
     case pendingBuyer = "PENDING_BUYER"

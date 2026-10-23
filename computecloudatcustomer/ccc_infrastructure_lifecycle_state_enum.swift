@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - CccInfrastructureLifecycleStateEnum
 
-public enum CccInfrastructureLifecycleStateEnum: String, Sendable {
+public enum CccInfrastructureLifecycleStateEnum: String, Codable, Sendable {
     case active = "ACTIVE"
     case needsAttention = "NEEDS_ATTENTION"
     case deleted = "DELETED"

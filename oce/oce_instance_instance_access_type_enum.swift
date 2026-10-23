@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - OceInstanceInstanceAccessTypeEnum
 
-public enum OceInstanceInstanceAccessTypeEnum: String, Sendable {
+public enum OceInstanceInstanceAccessTypeEnum: String, Codable, Sendable {
     case public = "PUBLIC"
     case private = "PRIVATE"
 }

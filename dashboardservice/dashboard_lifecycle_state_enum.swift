@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - DashboardLifecycleStateEnum
 
-public enum DashboardLifecycleStateEnum: String, Sendable {
+public enum DashboardLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case updating = "UPDATING"
     case active = "ACTIVE"

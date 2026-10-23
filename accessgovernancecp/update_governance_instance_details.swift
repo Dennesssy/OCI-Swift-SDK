@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import OCICommon
 
 /// The details of a GovernanceInstance to be updated.
 public struct UpdateGovernanceInstanceDetails: Codable, Sendable {
@@ -25,7 +26,7 @@ public struct UpdateGovernanceInstanceDetails: Codable, Sendable {
     
     /// Defined tags for this resource. Each key is predefined and scoped to a namespace.
     /// Example: `{"foo-namespace": {"bar-key": "value"}}`
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
     /// Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
     /// Example: `{"bar-key": "value"}`
@@ -47,7 +48,7 @@ public struct UpdateGovernanceInstanceDetails: Codable, Sendable {
         displayName: String? = nil,
         description: String? = nil,
         licenseType: LicenseTypeEnum? = nil,
-        definedTags: [String: [String: Any]]? = nil,
+        definedTags: [String: [String: JSONValue]]? = nil,
         freeformTags: [String: String]? = nil
     ) {
         self.displayName = displayName
@@ -78,8 +79,8 @@ public struct UpdateGovernanceInstanceDetails: Codable, Sendable {
 
 // MARK: - CustomStringConvertible
 
-extension UpdateGovernanceInstanceDetails: CustomStringConvertible {
-    public var description: String {
+extension UpdateGovernanceInstanceDetails: CustomDebugStringConvertible {
+    public var debugDescription: String {
         return """
         UpdateGovernanceInstanceDetails(
             displayName: \(displayName ?? "nil"),

@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum KeyVersionLifecycleStateEnum: String, Sendable {
+public enum KeyVersionLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case enabling = "ENABLING"
     case enabled = "ENABLED"

@@ -120,7 +120,7 @@ extension ListJobsResponse: CustomStringConvertible {
 public typealias ListJobsSortOrderEnum = String
 
 // Set of constants representing the allowable values for ListJobsSortOrderEnum
-public enum ListJobsSortOrderEnum: String, Sendable {
+public enum ListJobsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -142,7 +142,7 @@ public extension ListJobsSortOrderEnum {
 public typealias ListJobsSortByEnum = String
 
 // Set of constants representing the allowable values for ListJobsSortByEnum
-public enum ListJobsSortByEnum: String, Sendable {
+public enum ListJobsSortByEnum: String, Codable, Sendable {
     case timecreated = "timeCreated"
     case displayname = "displayName"
 }

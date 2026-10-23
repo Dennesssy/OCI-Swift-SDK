@@ -10,7 +10,7 @@ public typealias SortOrderEnum = String
 
 // MARK: - SortOrder
 
-public enum SortOrder: String, Sendable {
+public enum SortOrder: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

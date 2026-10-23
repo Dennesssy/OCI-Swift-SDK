@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum KeyLifecycleStateEnum: String, Sendable {
+public enum KeyLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case enabling = "ENABLING"
     case enabled = "ENABLED"
@@ -27,7 +27,7 @@ public extension KeyLifecycleStateEnum {
     }
 }
 
-public enum KeyAlgorithmEnum: String, Sendable {
+public enum KeyAlgorithmEnum: String, Codable, Sendable {
     case aes = "AES"
     case rsa = "RSA"
     case ecdsa = "ECDSA"
@@ -42,7 +42,7 @@ public extension KeyAlgorithmEnum {
     }
 }
 
-public enum KeyProtectionModeEnum: String, Sendable {
+public enum KeyProtectionModeEnum: String, Codable, Sendable {
     case hsm = "HSM"
     case software = "SOFTWARE"
     case externalHsm = "EXTERNAL_HSM"
@@ -112,7 +112,7 @@ public struct KeyShape: Codable, Sendable {
     public var curveId: KeyCurveIdEnum?
 }
 
-public enum KeyCurveIdEnum: String, Sendable {
+public enum KeyCurveIdEnum: String, Codable, Sendable {
     case nistP256 = "NIST_P256"
     case nistP384 = "NIST_P384"
     case nistP521 = "NIST_P521"

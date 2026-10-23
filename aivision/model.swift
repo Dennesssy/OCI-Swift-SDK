@@ -169,7 +169,7 @@ public struct Model: Codable, Sendable {
 // ModelModelTypeEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for ModelModelTypeEnum
-public enum ModelModelTypeEnum: String, Sendable {
+public enum ModelModelTypeEnum: String, Codable, Sendable {
     case imageClassification = "IMAGE_CLASSIFICATION"
     case objectDetection = "OBJECT_DETECTION"
 }
@@ -190,7 +190,7 @@ public extension ModelModelTypeEnum {
 // ModelLifecycleStateEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for ModelLifecycleStateEnum
-public enum ModelLifecycleStateEnum: String, Sendable {
+public enum ModelLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case updating = "UPDATING"
     case active = "ACTIVE"

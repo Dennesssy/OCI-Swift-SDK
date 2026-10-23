@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - OperationTypeEnum
 
-public enum OperationTypeEnum: String, Sendable {
+public enum OperationTypeEnum: String, Codable, Sendable {
     case activateResourceMonitoringPlugin = "ACTIVATE_RESOURCE_MONITORING_PLUGIN"
     case publishTopProcessesMetrics = "PUBLISH_TOP_PROCESSES_METRICS"
 }

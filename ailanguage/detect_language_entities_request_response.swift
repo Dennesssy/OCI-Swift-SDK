@@ -96,7 +96,7 @@ extension DetectLanguageEntitiesResponse: CustomStringConvertible {
 public typealias DetectLanguageEntitiesModelVersionEnum = String
 
 // Set of constants representing the allowable values for DetectLanguageEntitiesModelVersionEnum
-public enum DetectLanguageEntitiesModelVersionEnum: String, Sendable {
+public enum DetectLanguageEntitiesModelVersionEnum: String, Codable, Sendable {
     case v21 = "V2_1"
     case v11 = "V1_1"
 }

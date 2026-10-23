@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - IndicatorTypeEnum
 
-public enum IndicatorTypeEnum: String, Sendable {
+public enum IndicatorTypeEnum: String, Codable, Sendable {
     case domainName = "DOMAIN_NAME"
     case fileName = "FILE_NAME"
     case md5Hash = "MD5_HASH"

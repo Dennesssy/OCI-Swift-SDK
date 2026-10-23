@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum DimensionsUnitEnum: String, Sendable {
+public enum DimensionsUnitEnum: String, Codable, Sendable {
     case dimensionsunitpixel = "PIXEL"
     case dimensionsunitinch = "INCH"
 }

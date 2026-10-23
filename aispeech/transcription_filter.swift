@@ -19,7 +19,7 @@ public typealias TranscriptionFilterTypeEnum = String
 
 // MARK: - TranscriptionFilterTypeProfanity
 
-public enum TranscriptionFilterTypeProfanity: String, Sendable {
+public enum TranscriptionFilterTypeProfanity: String, Codable, Sendable {
     case  = "PROFANITY"
 }
 

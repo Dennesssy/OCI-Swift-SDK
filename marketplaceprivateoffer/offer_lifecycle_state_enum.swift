@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - OfferLifecycleStateEnum
 
-public enum OfferLifecycleStateEnum: String, Sendable {
+public enum OfferLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case updating = "UPDATING"
     case active = "ACTIVE"

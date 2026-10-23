@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - NetworkSecurityGroupLifecycleStateEnum
 
-public enum NetworkSecurityGroupLifecycleStateEnum: String, Sendable {
+public enum NetworkSecurityGroupLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case terminating = "TERMINATING"

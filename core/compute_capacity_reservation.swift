@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ComputeCapacityReservationLifecycleStateEnum
 
-public enum ComputeCapacityReservationLifecycleStateEnum: String, Sendable {
+public enum ComputeCapacityReservationLifecycleStateEnum: String, Codable, Sendable {
     case active = "ACTIVE"
     case creating = "CREATING"
     case updating = "UPDATING"

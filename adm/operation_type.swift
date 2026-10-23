@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - OperationTypeEnum
 
-public enum OperationTypeEnum: String, Sendable {
+public enum OperationTypeEnum: String, Codable, Sendable {
     case createRemediationRecipe = "CREATE_REMEDIATION_RECIPE"
     case deleteRemediationRecipe = "DELETE_REMEDIATION_RECIPE"
     case moveRemediationRecipe = "MOVE_REMEDIATION_RECIPE"

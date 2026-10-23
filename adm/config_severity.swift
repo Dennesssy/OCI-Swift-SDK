@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ConfigSeverityEnum
 
-public enum ConfigSeverityEnum: String, Sendable {
+public enum ConfigSeverityEnum: String, Codable, Sendable {
     case unset = "UNSET"
     case none = "NONE"
     case low = "LOW"

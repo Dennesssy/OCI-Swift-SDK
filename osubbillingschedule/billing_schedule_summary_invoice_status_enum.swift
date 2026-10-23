@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - BillingScheduleSummaryInvoiceStatusEnum
 
-public enum BillingScheduleSummaryInvoiceStatusEnum: String, Sendable {
+public enum BillingScheduleSummaryInvoiceStatusEnum: String, Codable, Sendable {
     case invoiced = "INVOICED"
     case notInvoiced = "NOT_INVOICED"
 }

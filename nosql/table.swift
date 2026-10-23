@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum TableLifecycleStateEnum: String, Sendable {
+public enum TableLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case updating = "UPDATING"
     case active = "ACTIVE"

@@ -6,7 +6,7 @@ import Foundation
 
 // OperationTypeEnum Enum with underlying type: string
 // MARK: - OperationTypeEnum
-public enum OperationTypeEnum: String, Sendable {
+public enum OperationTypeEnum: String, Codable, Sendable {
     case createModel = "CREATE_MODEL"
     case updateModel = "UPDATE_MODEL"
     case deleteModel = "DELETE_MODEL"

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - OperationStatusEnum
 
-public enum OperationStatusEnum: String, Sendable {
+public enum OperationStatusEnum: String, Codable, Sendable {
     case accepted = "ACCEPTED"
     case inProgress = "IN_PROGRESS"
     case failed = "FAILED"

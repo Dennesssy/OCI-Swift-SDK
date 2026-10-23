@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - VolumeBackupLifecycleStateEnum
 
-public enum VolumeBackupLifecycleStateEnum: String, Sendable {
+public enum VolumeBackupLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case available = "AVAILABLE"
     case terminating = "TERMINATING"
@@ -23,7 +23,7 @@ public extension VolumeBackupLifecycleStateEnum {
 
 // MARK: - VolumeBackupTypeEnum
 
-public enum VolumeBackupTypeEnum: String, Sendable {
+public enum VolumeBackupTypeEnum: String, Codable, Sendable {
     case full = "FULL"
     case incremental = "INCREMENTAL"
 }

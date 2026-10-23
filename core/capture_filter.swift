@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - CaptureFilterLifecycleStateEnum
 
-public enum CaptureFilterLifecycleStateEnum: String, Sendable {
+public enum CaptureFilterLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case updating = "UPDATING"
@@ -22,7 +22,7 @@ public extension CaptureFilterLifecycleStateEnum {
 
 // MARK: - CaptureFilterFilterTypeEnum
 
-public enum CaptureFilterFilterTypeEnum: String, Sendable {
+public enum CaptureFilterFilterTypeEnum: String, Codable, Sendable {
     case vtap = "VTAP"
     case flowlog = "FLOWLOG"
 }

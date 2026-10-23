@@ -108,7 +108,7 @@ extension ListWorkRequestLogsResponse: CustomStringConvertible {
 public typealias ListWorkRequestLogsSortOrderEnum = String
 
 // Set of constants representing the allowable values for ListWorkRequestLogsSortOrderEnum
-public enum ListWorkRequestLogsSortOrderEnum: String, Sendable {
+public enum ListWorkRequestLogsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -130,7 +130,7 @@ public extension ListWorkRequestLogsSortOrderEnum {
 public typealias ListWorkRequestLogsSortByEnum = String
 
 // Set of constants representing the allowable values for ListWorkRequestLogsSortByEnum
-public enum ListWorkRequestLogsSortByEnum: String, Sendable {
+public enum ListWorkRequestLogsSortByEnum: String, Codable, Sendable {
     case timecreated = "timeCreated"
     case displayname = "displayName"
 }

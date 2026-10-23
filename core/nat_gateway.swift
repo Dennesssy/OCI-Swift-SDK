@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - NatGatewayLifecycleStateEnum
 
-public enum NatGatewayLifecycleStateEnum: String, Sendable {
+public enum NatGatewayLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case terminating = "TERMINATING"

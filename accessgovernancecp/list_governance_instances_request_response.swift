@@ -7,7 +7,7 @@ import Foundation
 // MARK: - Enums
 
 /// Enum with underlying type: string
-public enum ListGovernanceInstancesSortOrderEnum: String, Sendable {
+public enum ListGovernanceInstancesSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -27,7 +27,7 @@ public extension ListGovernanceInstancesSortOrderEnum {
 }
 
 /// Enum with underlying type: string
-public enum ListGovernanceInstancesSortByEnum: String, Sendable {
+public enum ListGovernanceInstancesSortByEnum: String, Codable, Sendable {
     case timeCreated = "timeCreated"
     case displayName = "displayName"
     case timeUpdated = "timeUpdated"

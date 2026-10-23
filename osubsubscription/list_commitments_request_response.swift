@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListCommitmentsSortByEnum
 
-public enum ListCommitmentsSortByEnum: String, Sendable {
+public enum ListCommitmentsSortByEnum: String, Codable, Sendable {
     case timecreated = "TIMECREATED"
     case timestart = "TIMESTART"
 }
@@ -19,7 +19,7 @@ public extension ListCommitmentsSortByEnum {
 
 // MARK: - ListCommitmentsSortOrderEnum
 
-public enum ListCommitmentsSortOrderEnum: String, Sendable {
+public enum ListCommitmentsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

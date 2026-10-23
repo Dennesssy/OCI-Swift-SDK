@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - OceInstanceUpgradeScheduleEnum
 
-public enum OceInstanceUpgradeScheduleEnum: String, Sendable {
+public enum OceInstanceUpgradeScheduleEnum: String, Codable, Sendable {
     case upgradeImmediately = "UPGRADE_IMMEDIATELY"
     case delayedUpgrade = "DELAYED_UPGRADE"
 }

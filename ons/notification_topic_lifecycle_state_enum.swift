@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - NotificationTopicLifecycleStateEnum
 
-public enum NotificationTopicLifecycleStateEnum: String, Sendable {
+public enum NotificationTopicLifecycleStateEnum: String, Codable, Sendable {
     case active = "ACTIVE"
     case deleting = "DELETING"
     case creating = "CREATING"

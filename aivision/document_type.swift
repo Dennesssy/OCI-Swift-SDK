@@ -18,7 +18,7 @@ import Foundation
 // DocumentTypeEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for DocumentTypeEnum
-public enum DocumentTypeEnum: String, Sendable {
+public enum DocumentTypeEnum: String, Codable, Sendable {
     case invoice = "INVOICE"
     case receipt = "RECEIPT"
     case resume = "RESUME"

@@ -78,7 +78,7 @@ public struct Project: Codable, Sendable {
 // ProjectLifecycleStateEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for ProjectLifecycleStateEnum
-public enum ProjectLifecycleStateEnum: String, Sendable {
+public enum ProjectLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case updating = "UPDATING"
     case active = "ACTIVE"

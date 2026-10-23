@@ -60,7 +60,7 @@ extension piientitymasking: CustomStringConvertible {
 public typealias PiiEntityMaskingModeEnum = String
 
 // Set of constants representing the allowable values for PiiEntityMaskingModeEnum
-public enum PiiEntityMaskingModeEnum: String, Sendable {
+public enum PiiEntityMaskingModeEnum: String, Codable, Sendable {
     case replace = "REPLACE"
     case mask = "MASK"
     case remove = "REMOVE"

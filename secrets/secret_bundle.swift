@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - SecretBundleStagesEnum
 
-public enum SecretBundleStagesEnum: String, Sendable {
+public enum SecretBundleStagesEnum: String, Codable, Sendable {
     case current = "CURRENT"
     case pending = "PENDING"
     case latest = "LATEST"

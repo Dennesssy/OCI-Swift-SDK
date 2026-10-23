@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum WorkRequestOperationTypeEnum: String, Sendable {
+public enum WorkRequestOperationTypeEnum: String, Codable, Sendable {
     case copyObject = "COPY_OBJECT"
     case replicateObject = "REPLICATE_OBJECT"
 }
@@ -15,7 +15,7 @@ public extension WorkRequestOperationTypeEnum {
     }
 }
 
-public enum WorkRequestStatusEnum: String, Sendable {
+public enum WorkRequestStatusEnum: String, Codable, Sendable {
     case accepted = "ACCEPTED"
     case inProgress = "IN_PROGRESS"
     case failed = "FAILED"
@@ -56,7 +56,7 @@ public struct WorkRequestResource: Codable, Sendable {
     }
 }
 
-public enum WorkRequestResourceActionTypeEnum: String, Sendable {
+public enum WorkRequestResourceActionTypeEnum: String, Codable, Sendable {
     case created = "CREATED"
     case updated = "UPDATED"
     case deleted = "DELETED"

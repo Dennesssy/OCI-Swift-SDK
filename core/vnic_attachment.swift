@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - VnicAttachmentLifecycleStateEnum
 
-public enum VnicAttachmentLifecycleStateEnum: String, Sendable {
+public enum VnicAttachmentLifecycleStateEnum: String, Codable, Sendable {
     case attaching = "ATTACHING"
     case attached = "ATTACHED"
     case detaching = "DETACHING"

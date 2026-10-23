@@ -65,7 +65,7 @@ extension DetectAnomalyJob: CustomStringConvertible {
 
 // DetectAnomalyJobLifecycleStateEnum Enum with underlying type: string
 // MARK: - DetectAnomalyJobLifecycleStateEnum
-public enum DetectAnomalyJobLifecycleStateEnum: String, Sendable {
+public enum DetectAnomalyJobLifecycleStateEnum: String, Codable, Sendable {
     case succeeded = "SUCCEEDED"
     case partiallySucceeded = "PARTIALLY_SUCCEEDED"
     case failed = "FAILED"

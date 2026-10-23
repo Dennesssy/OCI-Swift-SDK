@@ -23,7 +23,7 @@ extension detectanomaliesdetails: CustomStringConvertible {
 
 // DetectAnomaliesDetailsRequestTypeEnum Enum with underlying type: string
 // MARK: - DetectAnomaliesDetailsRequestTypeEnum
-public enum DetectAnomaliesDetailsRequestTypeEnum: String, Sendable {
+public enum DetectAnomaliesDetailsRequestTypeEnum: String, Codable, Sendable {
     case inline = "INLINE"
     case base64Encoded = "BASE64_ENCODED"
 }

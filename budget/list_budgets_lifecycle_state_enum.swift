@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListBudgetsLifecycleStateEnum
 
-public enum ListBudgetsLifecycleStateEnum: String, Sendable {
+public enum ListBudgetsLifecycleStateEnum: String, Codable, Sendable {
     case active = "ACTIVE"
     case inactive = "INACTIVE"
 }

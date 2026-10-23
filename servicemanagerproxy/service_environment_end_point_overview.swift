@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ServiceEnvironmentEndPointOverviewEnvironmentTypeEnum
 
-public enum ServiceEnvironmentEndPointOverviewEnvironmentTypeEnum: String, Sendable {
+public enum ServiceEnvironmentEndPointOverviewEnvironmentTypeEnum: String, Codable, Sendable {
     case instanceUrlProd = "INSTANCE_URL_PROD"
     case instanceUrlTest = "INSTANCE_URL_TEST"
     case instanceUrlDev = "INSTANCE_URL_DEV"

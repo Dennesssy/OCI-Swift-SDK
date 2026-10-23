@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - EgressSecurityRuleDestinationTypeEnum
 
-public enum EgressSecurityRuleDestinationTypeEnum: String, Sendable {
+public enum EgressSecurityRuleDestinationTypeEnum: String, Codable, Sendable {
     case cidrBlock = "CIDR_BLOCK"
     case serviceCidrBlock = "SERVICE_CIDR_BLOCK"
 }

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ComputeClusterLifecycleStateEnum
 
-public enum ComputeClusterLifecycleStateEnum: String, Sendable {
+public enum ComputeClusterLifecycleStateEnum: String, Codable, Sendable {
     case active = "ACTIVE"
     case deleted = "DELETED"
 }

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - OpaInstanceConsumptionModelEnum
 
-public enum OpaInstanceConsumptionModelEnum: String, Sendable {
+public enum OpaInstanceConsumptionModelEnum: String, Codable, Sendable {
     case ucm = "UCM"
     case gov = "GOV"
     case saas = "SAAS"

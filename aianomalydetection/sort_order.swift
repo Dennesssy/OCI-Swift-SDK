@@ -6,7 +6,7 @@ import Foundation
 
 // SortOrderEnum Enum with underlying type: string
 // MARK: - SortOrderEnum
-public enum SortOrderEnum: String, Sendable {
+public enum SortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

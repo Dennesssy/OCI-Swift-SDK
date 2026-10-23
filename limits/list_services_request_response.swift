@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListServicesSortByEnum
 
-public enum ListServicesSortByEnum: String, Sendable {
+public enum ListServicesSortByEnum: String, Codable, Sendable {
     case name = "name"
     case description = "description"
 }
@@ -19,7 +19,7 @@ public extension ListServicesSortByEnum {
 
 // MARK: - ListServicesSortOrderEnum
 
-public enum ListServicesSortOrderEnum: String, Sendable {
+public enum ListServicesSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

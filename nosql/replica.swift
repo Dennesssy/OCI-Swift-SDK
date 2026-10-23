@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum ReplicaLifecycleStateEnum: String, Sendable {
+public enum ReplicaLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case deleting = "DELETING"

@@ -43,7 +43,7 @@ public struct Landmark: Codable, Sendable {
 // LandmarkTypeEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for LandmarkTypeEnum
-public enum LandmarkTypeEnum: String, Sendable {
+public enum LandmarkTypeEnum: String, Codable, Sendable {
     case leftEye = "LEFT_EYE"
     case rightEye = "RIGHT_EYE"
     case noseTip = "NOSE_TIP"

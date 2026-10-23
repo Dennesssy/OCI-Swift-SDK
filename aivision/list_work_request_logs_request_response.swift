@@ -79,7 +79,7 @@ public struct ListWorkRequestLogsResponse: Codable, Sendable {
 // ListWorkRequestLogsSortByEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for ListWorkRequestLogsSortByEnum
-public enum ListWorkRequestLogsSortByEnum: String, Sendable {
+public enum ListWorkRequestLogsSortByEnum: String, Codable, Sendable {
     case timeaccepted = "timeAccepted"
 }
 public extension ListWorkRequestLogsSortByEnum {
@@ -99,7 +99,7 @@ public extension ListWorkRequestLogsSortByEnum {
 // ListWorkRequestLogsSortOrderEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for ListWorkRequestLogsSortOrderEnum
-public enum ListWorkRequestLogsSortOrderEnum: String, Sendable {
+public enum ListWorkRequestLogsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

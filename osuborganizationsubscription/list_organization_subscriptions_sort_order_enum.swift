@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListOrganizationSubscriptionsSortOrderEnum
 
-public enum ListOrganizationSubscriptionsSortOrderEnum: String, Sendable {
+public enum ListOrganizationSubscriptionsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

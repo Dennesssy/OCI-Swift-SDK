@@ -48,7 +48,7 @@ extension PerSignalDetails: CustomStringConvertible {
 
 // PerSignalDetailsStatusEnum Enum with underlying type: string
 // MARK: - PerSignalDetailsStatusEnum
-public enum PerSignalDetailsStatusEnum: String, Sendable {
+public enum PerSignalDetailsStatusEnum: String, Codable, Sendable {
     case accepted = "ACCEPTED"
     case dropped = "DROPPED"
     case other = "OTHER"

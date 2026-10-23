@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - BootVolumeAttachmentLifecycleStateEnum
 
-public enum BootVolumeAttachmentLifecycleStateEnum: String, Sendable {
+public enum BootVolumeAttachmentLifecycleStateEnum: String, Codable, Sendable {
     case attaching = "ATTACHING"
     case attached = "ATTACHED"
     case detaching = "DETACHING"

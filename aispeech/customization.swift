@@ -73,7 +73,7 @@ public typealias CustomizationLifecycleStateEnum = String
 
 // MARK: - CustomizationLifecycleState
 
-public enum CustomizationLifecycleState: String, Sendable {
+public enum CustomizationLifecycleState: String, Codable, Sendable {
     case deleting = "DELETING"
     case deleted = "DELETED"
     case failed = "FAILED"

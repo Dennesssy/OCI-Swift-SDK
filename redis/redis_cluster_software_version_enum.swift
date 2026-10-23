@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - RedisClusterSoftwareVersionEnum
 
-public enum RedisClusterSoftwareVersionEnum: String, Sendable {
+public enum RedisClusterSoftwareVersionEnum: String, Codable, Sendable {
     case v705 = "V7_0_5"
     case redis70 = "REDIS_7_0"
 }

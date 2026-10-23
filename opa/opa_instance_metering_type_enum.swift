@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - OpaInstanceMeteringTypeEnum
 
-public enum OpaInstanceMeteringTypeEnum: String, Sendable {
+public enum OpaInstanceMeteringTypeEnum: String, Codable, Sendable {
     case executionPack = "EXECUTION_PACK"
     case users = "USERS"
     case employee = "EMPLOYEE"

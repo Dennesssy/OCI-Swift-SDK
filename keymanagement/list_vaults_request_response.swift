@@ -28,12 +28,12 @@ public struct ListVaultsResponse: Codable, Sendable {
     public var opcNextPage: String?
 }
 
-public enum VaultSortByEnum: String, Sendable {
+public enum VaultSortByEnum: String, Codable, Sendable {
     case timeCreated = "TIMECREATED"
     case displayName = "DISPLAYNAME"
 }
 
-public enum SortOrderEnum: String, Sendable {
+public enum SortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

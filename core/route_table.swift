@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - RouteTableLifecycleStateEnum
 
-public enum RouteTableLifecycleStateEnum: String, Sendable {
+public enum RouteTableLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case terminating = "TERMINATING"

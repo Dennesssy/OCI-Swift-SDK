@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum WorkRequestOperationTypeEnum: String, Sendable {
+public enum WorkRequestOperationTypeEnum: String, Codable, Sendable {
     case createNetworkLoadBalancer = "CREATE_NETWORK_LOAD_BALANCER"
     case updateNetworkLoadBalancer = "UPDATE_NETWORK_LOAD_BALANCER"
     case deleteNetworkLoadBalancer = "DELETE_NETWORK_LOAD_BALANCER"
@@ -25,7 +25,7 @@ public extension WorkRequestOperationTypeEnum {
     }
 }
 
-public enum WorkRequestStatusEnum: String, Sendable {
+public enum WorkRequestStatusEnum: String, Codable, Sendable {
     case accepted = "ACCEPTED"
     case inProgress = "IN_PROGRESS"
     case failed = "FAILED"

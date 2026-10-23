@@ -88,7 +88,7 @@ extension BatchDetectLanguageSentimentsResponse: CustomStringConvertible {
 public typealias BatchDetectLanguageSentimentsLevelEnum = String
 
 // Set of constants representing the allowable values for BatchDetectLanguageSentimentsLevelEnum
-public enum BatchDetectLanguageSentimentsLevelEnum: String, Sendable {
+public enum BatchDetectLanguageSentimentsLevelEnum: String, Codable, Sendable {
     case aspect = "ASPECT"
     case sentence = "SENTENCE"
 }

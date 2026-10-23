@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - AddSecurityRuleDetailsDirectionEnum
 
-public enum AddSecurityRuleDetailsDirectionEnum: String, Sendable {
+public enum AddSecurityRuleDetailsDirectionEnum: String, Codable, Sendable {
     case egress = "EGRESS"
     case ingress = "INGRESS"
 }
@@ -19,7 +19,7 @@ public extension AddSecurityRuleDetailsDirectionEnum {
 
 // MARK: - AddSecurityRuleDetailsDestinationTypeEnum
 
-public enum AddSecurityRuleDetailsDestinationTypeEnum: String, Sendable {
+public enum AddSecurityRuleDetailsDestinationTypeEnum: String, Codable, Sendable {
     case cidrBlock = "CIDR_BLOCK"
     case serviceCidrBlock = "SERVICE_CIDR_BLOCK"
     case networkSecurityGroup = "NETWORK_SECURITY_GROUP"
@@ -33,7 +33,7 @@ public extension AddSecurityRuleDetailsDestinationTypeEnum {
 
 // MARK: - AddSecurityRuleDetailsSourceTypeEnum
 
-public enum AddSecurityRuleDetailsSourceTypeEnum: String, Sendable {
+public enum AddSecurityRuleDetailsSourceTypeEnum: String, Codable, Sendable {
     case cidrBlock = "CIDR_BLOCK"
     case serviceCidrBlock = "SERVICE_CIDR_BLOCK"
     case networkSecurityGroup = "NETWORK_SECURITY_GROUP"

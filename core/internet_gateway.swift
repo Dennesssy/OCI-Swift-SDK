@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - InternetGatewayLifecycleStateEnum
 
-public enum InternetGatewayLifecycleStateEnum: String, Sendable {
+public enum InternetGatewayLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case terminating = "TERMINATING"

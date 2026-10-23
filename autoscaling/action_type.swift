@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ActionTypeEnum
 
-public enum ActionTypeEnum: String, Sendable {
+public enum ActionTypeEnum: String, Codable, Sendable {
     case changeCountBy = "CHANGE_COUNT_BY"
 }
 

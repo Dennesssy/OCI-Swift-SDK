@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ResourcePowerActionActionEnum
 
-public enum ResourcePowerActionActionEnum: String, Sendable {
+public enum ResourcePowerActionActionEnum: String, Codable, Sendable {
     case stop = "STOP"
     case start = "START"
     case softreset = "SOFTRESET"

@@ -45,7 +45,7 @@ extension GovernanceInstanceCollection: CustomStringConvertible {
     public var description: String {
         return """
         GovernanceInstanceCollection(
-            items: \(items)
+            items: \(String(describing: items))
         )
         """
     }

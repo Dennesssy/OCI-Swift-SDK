@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum VaultLifecycleStateEnum: String, Sendable {
+public enum VaultLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case deleting = "DELETING"
@@ -24,7 +24,7 @@ public extension VaultLifecycleStateEnum {
     }
 }
 
-public enum VaultTypeEnum: String, Sendable {
+public enum VaultTypeEnum: String, Codable, Sendable {
     case vaultStandard = "VAULT_STANDARD"
     case vaultPrivate = "VAULT_PRIVATE"
     case virtualPrivateVault = "VIRTUAL_PRIVATE_VAULT"

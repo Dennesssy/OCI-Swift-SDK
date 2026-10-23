@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - VlanLifecycleStateEnum
 
-public enum VlanLifecycleStateEnum: String, Sendable {
+public enum VlanLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case terminating = "TERMINATING"

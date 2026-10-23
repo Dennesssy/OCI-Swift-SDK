@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - LifecycleDetailsEnum
 
-public enum LifecycleDetailsEnum: String, Sendable {
+public enum LifecycleDetailsEnum: String, Codable, Sendable {
     case standby = "STANDBY"
     case failover = "FAILOVER"
     case down = "DOWN"

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - VolumeAttachmentLifecycleStateEnum
 
-public enum VolumeAttachmentLifecycleStateEnum: String, Sendable {
+public enum VolumeAttachmentLifecycleStateEnum: String, Codable, Sendable {
     case attaching = "ATTACHING"
     case attached = "ATTACHED"
     case detaching = "DETACHING"
@@ -21,7 +21,7 @@ public extension VolumeAttachmentLifecycleStateEnum {
 
 // MARK: - VolumeAttachmentIscsiLoginStateEnum
 
-public enum VolumeAttachmentIscsiLoginStateEnum: String, Sendable {
+public enum VolumeAttachmentIscsiLoginStateEnum: String, Codable, Sendable {
     case unknown = "UNKNOWN"
     case loggingIn = "LOGGING_IN"
     case loginSucceeded = "LOGIN_SUCCEEDED"

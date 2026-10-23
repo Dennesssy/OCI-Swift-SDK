@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ThresholdOperatorEnum
 
-public enum ThresholdOperatorEnum: String, Sendable {
+public enum ThresholdOperatorEnum: String, Codable, Sendable {
     case gt = "GT"
     case gte = "GTE"
     case lt = "LT"

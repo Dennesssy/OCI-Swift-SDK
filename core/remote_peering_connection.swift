@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - RemotePeeringConnectionLifecycleStateEnum
 
-public enum RemotePeeringConnectionLifecycleStateEnum: String, Sendable {
+public enum RemotePeeringConnectionLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case deleting = "DELETING"
@@ -21,7 +21,7 @@ public extension RemotePeeringConnectionLifecycleStateEnum {
 
 // MARK: - RemotePeeringConnectionPeeringStatusEnum
 
-public enum RemotePeeringConnectionPeeringStatusEnum: String, Sendable {
+public enum RemotePeeringConnectionPeeringStatusEnum: String, Codable, Sendable {
     case new = "NEW"
     case peered = "PEERED"
     case pending = "PENDING"

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - SearchDetailsMatchingContextTypeEnum
 
-public enum SearchDetailsMatchingContextTypeEnum: String, Sendable {
+public enum SearchDetailsMatchingContextTypeEnum: String, Codable, Sendable {
     case none = "NONE"
     case highlights = "HIGHLIGHTS"
 }

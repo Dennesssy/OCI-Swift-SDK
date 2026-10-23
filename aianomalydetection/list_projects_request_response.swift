@@ -73,7 +73,7 @@ extension ListProjectsResponse: CustomStringConvertible {
 
 // ListProjectsSortOrderEnum Enum with underlying type: string
 // MARK: - ListProjectsSortOrderEnum
-public enum ListProjectsSortOrderEnum: String, Sendable {
+public enum ListProjectsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -85,7 +85,7 @@ public extension ListProjectsSortOrderEnum {
 
 // ListProjectsSortByEnum Enum with underlying type: string
 // MARK: - ListProjectsSortByEnum
-public enum ListProjectsSortByEnum: String, Sendable {
+public enum ListProjectsSortByEnum: String, Codable, Sendable {
     case timecreated = "timeCreated"
     case displayname = "displayName"
 }

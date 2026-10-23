@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - MonitoredInstanceLifecycleStateEnum
 
-public enum MonitoredInstanceLifecycleStateEnum: String, Sendable {
+public enum MonitoredInstanceLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case updating = "UPDATING"
     case active = "ACTIVE"

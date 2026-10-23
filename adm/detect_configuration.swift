@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - DetectConfigurationUpgradePolicyEnum
 
-public enum DetectConfigurationUpgradePolicyEnum: String, Sendable {
+public enum DetectConfigurationUpgradePolicyEnum: String, Codable, Sendable {
     case nearest = "NEAREST"
 }
 

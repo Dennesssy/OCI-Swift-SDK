@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ExecutionScheduleTimezoneEnum
 
-public enum ExecutionScheduleTimezoneEnum: String, Sendable {
+public enum ExecutionScheduleTimezoneEnum: String, Codable, Sendable {
     case utc = "UTC"
 }
 

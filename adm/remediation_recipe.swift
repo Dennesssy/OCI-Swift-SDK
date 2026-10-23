@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - RemediationRecipeLifecycleStateEnum
 
-public enum RemediationRecipeLifecycleStateEnum: String, Sendable {
+public enum RemediationRecipeLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case updating = "UPDATING"

@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum ReplicationLifecycleStateEnum: String, Sendable {
+public enum ReplicationLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case deleting = "DELETING"
@@ -48,7 +48,7 @@ public struct Replication: Codable, Sendable {
     public var estimatedReplicationDuration: String?
 }
 
-public enum DeltaStatusEnum: String, Sendable {
+public enum DeltaStatusEnum: String, Codable, Sendable {
     case idle = "IDLE"
     case capturing = "CAPTURING"
     case applying = "APPLYING"

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - SecurityListLifecycleStateEnum
 
-public enum SecurityListLifecycleStateEnum: String, Sendable {
+public enum SecurityListLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case terminating = "TERMINATING"

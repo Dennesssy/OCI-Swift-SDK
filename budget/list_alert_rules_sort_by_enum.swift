@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListAlertRulesSortByEnum
 
-public enum ListAlertRulesSortByEnum: String, Sendable {
+public enum ListAlertRulesSortByEnum: String, Codable, Sendable {
     case timeCreated = "timeCreated"
     case displayName = "displayName"
 }

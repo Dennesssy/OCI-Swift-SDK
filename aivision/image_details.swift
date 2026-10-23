@@ -36,7 +36,7 @@ public typealias Unmarshalerimagedetails = imagedetails
 // ImageDetailsSourceEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for ImageDetailsSourceEnum
-public enum ImageDetailsSourceEnum: String, Sendable {
+public enum ImageDetailsSourceEnum: String, Codable, Sendable {
     case inline = "INLINE"
     case objectStorage = "OBJECT_STORAGE"
 }

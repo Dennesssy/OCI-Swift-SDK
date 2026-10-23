@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct EmWarehouseSummary: Codable {
     public var operationsInsightsWarehouseId: String
@@ -12,7 +13,7 @@ public struct EmWarehouseSummary: Codable {
     public var timeCreated: Date
     public var lifecycleState: EmWarehouseLifecycleStateEnum
     public var freeformTags: [String: String]
-    public var definedTags: [String: [String: Any]]
+    public var definedTags: [String: [String: JSONValue]]
     public var latestEtlRunStatus: String?
     public var latestEtlRunMessage: String?
     public var latestEtlRunTime: String?
@@ -46,7 +47,7 @@ public struct EmWarehouseSummary: Codable {
                 timeCreated: Date,
                 lifecycleState: EmWarehouseLifecycleStateEnum,
                 freeformTags: [String: String],
-                definedTags: [String: [String: Any]],
+                definedTags: [String: [String: JSONValue]],
                 latestEtlRunStatus: String? = nil,
                 latestEtlRunMessage: String? = nil,
                 latestEtlRunTime: String? = nil,

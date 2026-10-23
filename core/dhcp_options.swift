@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - DhcpOptionsLifecycleStateEnum
 
-public enum DhcpOptionsLifecycleStateEnum: String, Sendable {
+public enum DhcpOptionsLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case terminating = "TERMINATING"
@@ -21,7 +21,7 @@ public extension DhcpOptionsLifecycleStateEnum {
 
 // MARK: - DhcpOptionsDomainNameTypeEnum
 
-public enum DhcpOptionsDomainNameTypeEnum: String, Sendable {
+public enum DhcpOptionsDomainNameTypeEnum: String, Codable, Sendable {
     case customDomain = "CUSTOM_DOMAIN"
     case subnetDomain = "SUBNET_DOMAIN"
     case vcnDomain = "VCN_DOMAIN"

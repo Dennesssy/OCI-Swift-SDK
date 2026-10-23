@@ -36,7 +36,7 @@ public typealias Unmarshalerimagefeature = imagefeature
 // ImageFeatureFeatureTypeEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for ImageFeatureFeatureTypeEnum
-public enum ImageFeatureFeatureTypeEnum: String, Sendable {
+public enum ImageFeatureFeatureTypeEnum: String, Codable, Sendable {
     case imageClassification = "IMAGE_CLASSIFICATION"
     case objectDetection = "OBJECT_DETECTION"
     case textDetection = "TEXT_DETECTION"

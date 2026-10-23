@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - RemediationRunLifecycleStateEnum
 
-public enum RemediationRunLifecycleStateEnum: String, Sendable {
+public enum RemediationRunLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case updating = "UPDATING"
@@ -23,7 +23,7 @@ public extension RemediationRunLifecycleStateEnum {
 
 // MARK: - RemediationRunRemediationRunSourceEnum
 
-public enum RemediationRunRemediationRunSourceEnum: String, Sendable {
+public enum RemediationRunRemediationRunSourceEnum: String, Codable, Sendable {
     case userTriggered = "USER_TRIGGERED"
     case autoTriggered = "AUTO_TRIGGERED"
 }

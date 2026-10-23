@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum DocumentDetailsSourceEnum: String, Sendable {
+public enum DocumentDetailsSourceEnum: String, Codable, Sendable {
     case documentdetailssourceinline = "INLINE"
     case documentdetailssourceobjectstorage = "OBJECT_STORAGE"
 }

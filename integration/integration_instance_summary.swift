@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct IntegrationInstanceSummary: Codable {
     public var id: String
@@ -16,7 +17,7 @@ public struct IntegrationInstanceSummary: Codable {
     public var lifecycleState: IntegrationInstanceLifecycleStateEnum?
     public var stateMessage: String?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     public var isFileServerEnabled: Bool?
     public var isVisualBuilderEnabled: Bool?
     
@@ -50,7 +51,7 @@ public struct IntegrationInstanceSummary: Codable {
                 lifecycleState: IntegrationInstanceLifecycleStateEnum? = nil,
                 stateMessage: String? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil,
+                definedTags: [String: [String: JSONValue]]? = nil,
                 isFileServerEnabled: Bool? = nil,
                 isVisualBuilderEnabled: Bool? = nil) {
         self.id = id

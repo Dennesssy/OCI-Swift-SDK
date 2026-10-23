@@ -19,7 +19,7 @@ extension inputjobdetails: CustomStringConvertible {
 
 // InputJobDetailsInputTypeEnum Enum with underlying type: string
 // MARK: - InputJobDetailsInputTypeEnum
-public enum InputJobDetailsInputTypeEnum: String, Sendable {
+public enum InputJobDetailsInputTypeEnum: String, Codable, Sendable {
     case inline = "INLINE"
     case objectList = "OBJECT_LIST"
 }

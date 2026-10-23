@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ClusterNetworkPlacementConfigurationDetailsPlacementConstraintEnum
 
-public enum ClusterNetworkPlacementConfigurationDetailsPlacementConstraintEnum: String, Sendable {
+public enum ClusterNetworkPlacementConfigurationDetailsPlacementConstraintEnum: String, Codable, Sendable {
     case singleTier = "SINGLE_TIER"
     case singleBlock = "SINGLE_BLOCK"
     case packedDistributionMultiBlock = "PACKED_DISTRIBUTION_MULTI_BLOCK"

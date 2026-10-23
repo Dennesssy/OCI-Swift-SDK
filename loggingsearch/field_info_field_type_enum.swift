@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - FieldInfoFieldTypeEnum
 
-public enum FieldInfoFieldTypeEnum: String, Sendable {
+public enum FieldInfoFieldTypeEnum: String, Codable, Sendable {
     case string = "STRING"
     case number = "NUMBER"
     case boolean = "BOOLEAN"

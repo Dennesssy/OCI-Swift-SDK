@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - InstancePoolInstanceLifecycleStateEnum
 
-public enum InstancePoolInstanceLifecycleStateEnum: String, Sendable {
+public enum InstancePoolInstanceLifecycleStateEnum: String, Codable, Sendable {
     case attaching = "ATTACHING"
     case active = "ACTIVE"
     case detaching = "DETACHING"

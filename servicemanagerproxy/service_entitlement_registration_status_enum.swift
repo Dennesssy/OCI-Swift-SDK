@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ServiceEntitlementRegistrationStatusEnum
 
-public enum ServiceEntitlementRegistrationStatusEnum: String, Sendable {
+public enum ServiceEntitlementRegistrationStatusEnum: String, Codable, Sendable {
     case initialized = "INITIALIZED"
     case beginActivation = "BEGIN_ACTIVATION"
     case active = "ACTIVE"

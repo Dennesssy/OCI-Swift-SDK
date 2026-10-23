@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum WorkRequestOperationTypeEnum: String, Sendable {
+public enum WorkRequestOperationTypeEnum: String, Codable, Sendable {
     case clusterCreate = "CLUSTER_CREATE"
     case clusterUpdate = "CLUSTER_UPDATE"
     case clusterDelete = "CLUSTER_DELETE"
@@ -24,7 +24,7 @@ public extension WorkRequestOperationTypeEnum {
     }
 }
 
-public enum WorkRequestStatusEnum: String, Sendable {
+public enum WorkRequestStatusEnum: String, Codable, Sendable {
     case accepted = "ACCEPTED"
     case inProgress = "IN_PROGRESS"
     case failed = "FAILED"
@@ -58,7 +58,7 @@ public struct WorkRequestResource: Codable, Sendable {
     public var entityUri: String?
 }
 
-public enum WorkRequestResourceEntityTypeEnum: String, Sendable {
+public enum WorkRequestResourceEntityTypeEnum: String, Codable, Sendable {
     case cluster = "CLUSTER"
     case nodePool = "NODEPOOL"
     case node = "NODE"
@@ -70,7 +70,7 @@ public extension WorkRequestResourceEntityTypeEnum {
     }
 }
 
-public enum WorkRequestResourceActionTypeEnum: String, Sendable {
+public enum WorkRequestResourceActionTypeEnum: String, Codable, Sendable {
     case created = "CREATED"
     case updated = "UPDATED"
     case deleted = "DELETED"

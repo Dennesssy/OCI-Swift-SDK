@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum ViewLifecycleStateEnum: String, Sendable {
+public enum ViewLifecycleStateEnum: String, Codable, Sendable {
     case active = "ACTIVE"
     case creating = "CREATING"
     case deleted = "DELETED"

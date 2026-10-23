@@ -58,7 +58,7 @@ public typealias CreateTranscriptionJobDetailsAdditionalTranscriptionFormatsEnum
 
 // MARK: - CreateTranscriptionJobDetailsAdditionalTranscriptionFormatsSrt
 
-public enum CreateTranscriptionJobDetailsAdditionalTranscriptionFormatsSrt: String, Sendable {
+public enum CreateTranscriptionJobDetailsAdditionalTranscriptionFormatsSrt: String, Codable, Sendable {
     case  = "SRT"
 }
 

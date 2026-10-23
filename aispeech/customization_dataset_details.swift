@@ -28,7 +28,7 @@ public typealias CustomizationDatasetDetailsDatasetTypeEnum = String
 
 // MARK: - CustomizationDatasetDetailsDatasetType
 
-public enum CustomizationDatasetDetailsDatasetType: String, Sendable {
+public enum CustomizationDatasetDetailsDatasetType: String, Codable, Sendable {
     case objectStorage = "OBJECT_STORAGE"
     case entityList = "ENTITY_LIST"
 }

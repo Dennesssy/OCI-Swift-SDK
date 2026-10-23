@@ -41,7 +41,7 @@ public struct UpdateRowDetails: Codable, Sendable {
     }
 }
 
-public enum UpdateRowOptionEnum: String, Sendable {
+public enum UpdateRowOptionEnum: String, Codable, Sendable {
     case failIfExists = "FAIL_IF_EXISTS"
     case updateIfExists = "UPDATE_IF_EXISTS"
 }

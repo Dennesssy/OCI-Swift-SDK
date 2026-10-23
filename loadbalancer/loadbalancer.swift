@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum LoadBalancerLifecycleStateEnum: String, Sendable {
+public enum LoadBalancerLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case failed = "FAILED"
     case active = "ACTIVE"

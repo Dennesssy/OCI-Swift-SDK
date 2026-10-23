@@ -88,7 +88,7 @@ public typealias ListCustomizationsSortOrderEnum = String
 
 // MARK: - ListCustomizationsSortOrder
 
-public enum ListCustomizationsSortOrder: String, Sendable {
+public enum ListCustomizationsSortOrder: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -107,7 +107,7 @@ public typealias ListCustomizationsSortByEnum = String
 
 // MARK: - ListCustomizationsSortBy
 
-public enum ListCustomizationsSortBy: String, Sendable {
+public enum ListCustomizationsSortBy: String, Codable, Sendable {
     case timecreated = "timeCreated"
     case displayname = "displayName"
 }

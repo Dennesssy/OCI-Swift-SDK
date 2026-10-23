@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct AnalyticsInstance: Codable {
     public var id: String
@@ -16,7 +17,7 @@ public struct AnalyticsInstance: Codable {
     public var capacity: Capacity?
     public var endpointUrl: String?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
     public enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -46,7 +47,7 @@ public struct AnalyticsInstance: Codable {
                 capacity: Capacity? = nil,
                 endpointUrl: String? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil) {
+                definedTags: [String: [String: JSONValue]]? = nil) {
         self.id = id
         self.compartmentId = compartmentId
         self.name = name

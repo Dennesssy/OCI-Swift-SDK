@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - RouteRuleDestinationTypeEnum
 
-public enum RouteRuleDestinationTypeEnum: String, Sendable {
+public enum RouteRuleDestinationTypeEnum: String, Codable, Sendable {
     case cidrBlock = "CIDR_BLOCK"
     case serviceCidrBlock = "SERVICE_CIDR_BLOCK"
 }
@@ -19,7 +19,7 @@ public extension RouteRuleDestinationTypeEnum {
 
 // MARK: - RouteRuleRouteTypeEnum
 
-public enum RouteRuleRouteTypeEnum: String, Sendable {
+public enum RouteRuleRouteTypeEnum: String, Codable, Sendable {
     case `static` = "STATIC"
     case local = "LOCAL"
 }

@@ -73,7 +73,7 @@ extension ListAiPrivateEndpointsResponse: CustomStringConvertible {
 
 // ListAiPrivateEndpointsSortOrderEnum Enum with underlying type: string
 // MARK: - ListAiPrivateEndpointsSortOrderEnum
-public enum ListAiPrivateEndpointsSortOrderEnum: String, Sendable {
+public enum ListAiPrivateEndpointsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -85,7 +85,7 @@ public extension ListAiPrivateEndpointsSortOrderEnum {
 
 // ListAiPrivateEndpointsSortByEnum Enum with underlying type: string
 // MARK: - ListAiPrivateEndpointsSortByEnum
-public enum ListAiPrivateEndpointsSortByEnum: String, Sendable {
+public enum ListAiPrivateEndpointsSortByEnum: String, Codable, Sendable {
     case timecreated = "timeCreated"
     case displayname = "displayName"
 }

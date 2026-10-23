@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import OCICommon
 
 /// The details of a GovernanceInstance.
 public struct GovernanceInstance: Codable, Sendable {
@@ -46,7 +47,7 @@ public struct GovernanceInstance: Codable, Sendable {
     
     /// Defined tags for this resource. Each key is predefined and scoped to a namespace.
     /// Example: `{"foo-namespace": {"bar-key": "value"}}`
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
     /// Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
     /// Example: `{"bar-key": "value"}`
@@ -54,7 +55,7 @@ public struct GovernanceInstance: Codable, Sendable {
     
     /// Usage of system tag keys. These predefined keys are scoped to namespaces.
     /// Example: `{"orcl-cloud": {"free-tier-retained": "true"}}`
-    public var systemTags: [String: [String: Any]]?
+    public var systemTags: [String: [String: JSONValue]]?
     
     // MARK: - Coding Keys
     
@@ -87,9 +88,9 @@ public struct GovernanceInstance: Codable, Sendable {
         licenseType: LicenseTypeEnum? = nil,
         tenancyNamespace: String? = nil,
         instanceUrl: String? = nil,
-        definedTags: [String: [String: Any]]? = nil,
+        definedTags: [String: [String: JSONValue]]? = nil,
         freeformTags: [String: String]? = nil,
-        systemTags: [String: [String: Any]]? = nil
+        systemTags: [String: [String: JSONValue]]? = nil
     ) {
         self.displayName = displayName
         self.compartmentId = compartmentId
@@ -131,8 +132,8 @@ public struct GovernanceInstance: Codable, Sendable {
 
 // MARK: - CustomStringConvertible
 
-extension GovernanceInstance: CustomStringConvertible {
-    public var description: String {
+extension GovernanceInstance: CustomDebugStringConvertible {
+    public var debugDescription: String {
         return """
         GovernanceInstance(
             displayName: \(displayName),

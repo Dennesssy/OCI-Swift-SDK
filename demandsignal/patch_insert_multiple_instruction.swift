@@ -50,7 +50,7 @@ public struct PatchInsertMultipleInstruction: Codable, Sendable, PatchInstructio
 }
 
 // PatchInsertMultipleInstructionPositionEnum
-public enum PatchInsertMultipleInstructionPositionEnum: String, Sendable {
+public enum PatchInsertMultipleInstructionPositionEnum: String, Codable, Sendable {
     case before = "BEFORE"
     case after = "AFTER"
 }

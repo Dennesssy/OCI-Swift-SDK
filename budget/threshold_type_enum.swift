@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ThresholdTypeEnum
 
-public enum ThresholdTypeEnum: String, Sendable {
+public enum ThresholdTypeEnum: String, Codable, Sendable {
     case percentage = "PERCENTAGE"
     case absolute = "ABSOLUTE"
 }

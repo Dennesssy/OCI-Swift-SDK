@@ -48,7 +48,7 @@ public struct GeneratedKey: Codable, Sendable {
     }
 }
 
-public enum EncryptionAlgorithmEnum: String, Sendable {
+public enum EncryptionAlgorithmEnum: String, Codable, Sendable {
     case aesSiv256 = "AES_256_GCM"
     case rsaOaepSha256 = "RSA_OAEP_SHA256"
     case ecdsaSha256 = "ECDSA_SHA_256"

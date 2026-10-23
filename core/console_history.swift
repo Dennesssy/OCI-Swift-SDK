@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ConsoleHistoryLifecycleStateEnum
 
-public enum ConsoleHistoryLifecycleStateEnum: String, Sendable {
+public enum ConsoleHistoryLifecycleStateEnum: String, Codable, Sendable {
     case requested = "REQUESTED"
     case gettingHistory = "GETTING_HISTORY"
     case succeeded = "SUCCEEDED"

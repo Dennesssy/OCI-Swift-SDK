@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListSecretBundleVersionsSortByEnum
 
-public enum ListSecretBundleVersionsSortByEnum: String, Sendable {
+public enum ListSecretBundleVersionsSortByEnum: String, Codable, Sendable {
     case versionNumber = "VERSION_NUMBER"
 }
 
@@ -18,7 +18,7 @@ public extension ListSecretBundleVersionsSortByEnum {
 
 // MARK: - ListSecretBundleVersionsSortOrderEnum
 
-public enum ListSecretBundleVersionsSortOrderEnum: String, Sendable {
+public enum ListSecretBundleVersionsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

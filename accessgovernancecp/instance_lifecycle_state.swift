@@ -10,7 +10,7 @@
 import Foundation
 
 /// Enum with underlying type: string
-public enum InstanceLifecycleStateEnum: String, Sendable {
+public enum InstanceLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case deleting = "DELETING"

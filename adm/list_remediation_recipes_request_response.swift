@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListRemediationRecipesSortByEnum
 
-public enum ListRemediationRecipesSortByEnum: String, Sendable {
+public enum ListRemediationRecipesSortByEnum: String, Codable, Sendable {
     case displayName = "displayName"
     case lifecycleState = "lifecycleState"
     case timeCreated = "timeCreated"
@@ -22,7 +22,7 @@ public extension ListRemediationRecipesSortByEnum {
 
 // MARK: - ListRemediationRecipesSortOrderEnum
 
-public enum ListRemediationRecipesSortOrderEnum: String, Sendable {
+public enum ListRemediationRecipesSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

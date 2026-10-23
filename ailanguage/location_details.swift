@@ -60,7 +60,7 @@ extension locationdetails: CustomStringConvertible {
 public typealias LocationDetailsLocationTypeEnum = String
 
 // Set of constants representing the allowable values for LocationDetailsLocationTypeEnum
-public enum LocationDetailsLocationTypeEnum: String, Sendable {
+public enum LocationDetailsLocationTypeEnum: String, Codable, Sendable {
     case objectList = "OBJECT_LIST"
 }
 public extension LocationDetailsLocationTypeEnum {

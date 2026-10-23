@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum ZoneLifecycleStateEnum: String, Sendable {
+public enum ZoneLifecycleStateEnum: String, Codable, Sendable {
     case active = "ACTIVE"
     case creating = "CREATING"
     case deleted = "DELETED"
@@ -19,7 +19,7 @@ public extension ZoneLifecycleStateEnum {
     }
 }
 
-public enum ZoneScopeEnum: String, Sendable {
+public enum ZoneScopeEnum: String, Codable, Sendable {
     case global = "GLOBAL"
     case private_ = "PRIVATE"
 }
@@ -47,7 +47,7 @@ public struct Zone: Codable, Sendable {
     public var tsigKey: TSIGKey?
 }
 
-public enum ZoneTypeEnum: String, Sendable {
+public enum ZoneTypeEnum: String, Codable, Sendable {
     case primary = "PRIMARY"
     case secondary = "SECONDARY"
     case local = "LOCAL"

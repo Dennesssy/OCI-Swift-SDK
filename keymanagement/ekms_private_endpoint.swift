@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum EkmsPrivateEndpointLifecycleStateEnum: String, Sendable {
+public enum EkmsPrivateEndpointLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case updating = "UPDATING"

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ResetPeriodEnum
 
-public enum ResetPeriodEnum: String, Sendable {
+public enum ResetPeriodEnum: String, Codable, Sendable {
     case monthly = "MONTHLY"
 }
 

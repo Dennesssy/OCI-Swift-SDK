@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - InstanceConfigurationLaunchInstanceShapeConfigDetailsBaselineOcpuUtilizationEnum
 
-public enum InstanceConfigurationLaunchInstanceShapeConfigDetailsBaselineOcpuUtilizationEnum: String, Sendable {
+public enum InstanceConfigurationLaunchInstanceShapeConfigDetailsBaselineOcpuUtilizationEnum: String, Codable, Sendable {
     case baseline18 = "BASELINE_1_8"
     case baseline12 = "BASELINE_1_2"
     case baseline11 = "BASELINE_1_1"

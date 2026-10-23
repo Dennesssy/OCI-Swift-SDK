@@ -51,7 +51,7 @@ extension DataAsset: CustomStringConvertible {
 
 // DataAssetLifecycleStateEnum Enum with underlying type: string
 // MARK: - DataAssetLifecycleStateEnum
-public enum DataAssetLifecycleStateEnum: String, Sendable {
+public enum DataAssetLifecycleStateEnum: String, Codable, Sendable {
     case active = "ACTIVE"
     case deleted = "DELETED"
 }

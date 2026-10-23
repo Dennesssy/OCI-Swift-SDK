@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct AlarmSummary: Codable {
     public var id: String
@@ -17,7 +18,7 @@ public struct AlarmSummary: Codable {
     public var suppression: Suppression?
     public var isNotificationsPerMetricDimensionEnabled: Bool?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     public var overrides: [AlarmOverride]?
     public var ruleName: String?
     public var notificationVersion: String?
@@ -63,7 +64,7 @@ public struct AlarmSummary: Codable {
                 suppression: Suppression? = nil,
                 isNotificationsPerMetricDimensionEnabled: Bool? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil,
+                definedTags: [String: [String: JSONValue]]? = nil,
                 overrides: [AlarmOverride]? = nil,
                 ruleName: String? = nil,
                 notificationVersion: String? = nil,

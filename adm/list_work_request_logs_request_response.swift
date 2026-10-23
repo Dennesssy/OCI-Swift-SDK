@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListWorkRequestLogsSortByEnum
 
-public enum ListWorkRequestLogsSortByEnum: String, Sendable {
+public enum ListWorkRequestLogsSortByEnum: String, Codable, Sendable {
     case timeAccepted = "timeAccepted"
 }
 
@@ -18,7 +18,7 @@ public extension ListWorkRequestLogsSortByEnum {
 
 // MARK: - ListWorkRequestLogsSortOrderEnum
 
-public enum ListWorkRequestLogsSortOrderEnum: String, Sendable {
+public enum ListWorkRequestLogsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

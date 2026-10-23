@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - SubscriptionSummaryLifecycleStateEnum
 
-public enum SubscriptionSummaryLifecycleStateEnum: String, Sendable {
+public enum SubscriptionSummaryLifecycleStateEnum: String, Codable, Sendable {
     case pending = "PENDING"
     case active = "ACTIVE"
     case deleted = "DELETED"

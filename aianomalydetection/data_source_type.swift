@@ -6,7 +6,7 @@ import Foundation
 
 // DataSourceTypeEnum Enum with underlying type: string
 // MARK: - DataSourceTypeEnum
-public enum DataSourceTypeEnum: String, Sendable {
+public enum DataSourceTypeEnum: String, Codable, Sendable {
     case oracleObjectStorage = "ORACLE_OBJECT_STORAGE"
     case oracleAtp = "ORACLE_ATP"
     case influx = "INFLUX"

@@ -41,7 +41,7 @@ extension ModelTrainingResults: CustomStringConvertible {
 
 // ModelTrainingResultsAlgorithmEnum Enum with underlying type: string
 // MARK: - ModelTrainingResultsAlgorithmEnum
-public enum ModelTrainingResultsAlgorithmEnum: String, Sendable {
+public enum ModelTrainingResultsAlgorithmEnum: String, Codable, Sendable {
     case multivariateMset = "MULTIVARIATE_MSET"
     case univariateOcsvm = "UNIVARIATE_OCSVM"
 }

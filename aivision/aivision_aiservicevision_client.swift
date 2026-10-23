@@ -298,5 +298,3 @@ public struct AIServiceVisionClient: Codable, Sendable {
 // Click https://docs.cloud.oracle.com/en-us/iaas/tools/go-sdk-examples/latest/aivision/UpdateProject.go.html to see an example of how to use UpdateProject API.
 
 // updateProject implements the OCIOperation interface (enables retrying operations)
-
-

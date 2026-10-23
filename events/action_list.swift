@@ -12,9 +12,139 @@ public struct ActionList: Codable, Sendable {
     private enum CodingKeys: String, CodingKey {
         case actions
     }
+
+    private struct ActionPayload: Codable, Sendable {
+        var id: String?
+        var lifecycleMessage: String?
+        var isEnabled: Bool?
+        var description: String?
+        var functionId: String?
+        var topicId: String?
+        var streamId: String?
+        var lifecycleState: ActionLifecycleStateEnum?
+    }
     
     public init(actions: [Action]) {
         self.actions = actions
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        var actionContainer = try container.nestedUnkeyedContainer(forKey: .actions)
+        var decodedActions: [Action] = []
+
+        while !actionContainer.isAtEnd {
+            let payload = try actionContainer.decode(ActionPayload.self)
+            guard let id = payload.id,
+                  let lifecycleMessage = payload.lifecycleMessage,
+                  let lifecycleState = payload.lifecycleState else {
+                throw DecodingError.dataCorruptedError(
+                    forKey: .actions,
+                    in: container,
+                    debugDescription: "Action payload is missing required fields."
+                )
+            }
+
+            if let functionId = payload.functionId {
+                decodedActions.append(
+                    FaaSAction(
+                        id: id,
+                        lifecycleMessage: lifecycleMessage,
+                        lifecycleState: lifecycleState,
+                        isEnabled: payload.isEnabled,
+                        description: payload.description,
+                        functionId: functionId
+                    )
+                )
+            } else if let topicId = payload.topicId {
+                decodedActions.append(
+                    NotificationServiceAction(
+                        id: id,
+                        lifecycleMessage: lifecycleMessage,
+                        lifecycleState: lifecycleState,
+                        isEnabled: payload.isEnabled,
+                        description: payload.description,
+                        topicId: topicId
+                    )
+                )
+            } else if let streamId = payload.streamId {
+                decodedActions.append(
+                    StreamingServiceAction(
+                        id: id,
+                        lifecycleMessage: lifecycleMessage,
+                        lifecycleState: lifecycleState,
+                        isEnabled: payload.isEnabled,
+                        description: payload.description,
+                        streamId: streamId
+                    )
+                )
+            } else {
+                throw DecodingError.dataCorruptedError(
+                    forKey: .actions,
+                    in: container,
+                    debugDescription: "Unknown action payload type."
+                )
+            }
+        }
+
+        self.actions = decodedActions
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        var actionContainer = container.nestedUnkeyedContainer(forKey: .actions)
+
+        for action in actions {
+            switch action {
+            case let value as FaaSAction:
+                try actionContainer.encode(
+                    ActionPayload(
+                        id: value.id,
+                        lifecycleMessage: value.lifecycleMessage,
+                        isEnabled: value.isEnabled,
+                        description: value.description,
+                        functionId: value.functionId,
+                        topicId: nil,
+                        streamId: nil,
+                        lifecycleState: value.lifecycleState
+                    )
+                )
+            case let value as NotificationServiceAction:
+                try actionContainer.encode(
+                    ActionPayload(
+                        id: value.id,
+                        lifecycleMessage: value.lifecycleMessage,
+                        isEnabled: value.isEnabled,
+                        description: value.description,
+                        functionId: nil,
+                        topicId: value.topicId,
+                        streamId: nil,
+                        lifecycleState: value.lifecycleState
+                    )
+                )
+            case let value as StreamingServiceAction:
+                try actionContainer.encode(
+                    ActionPayload(
+                        id: value.id,
+                        lifecycleMessage: value.lifecycleMessage,
+                        isEnabled: value.isEnabled,
+                        description: value.description,
+                        functionId: nil,
+                        topicId: nil,
+                        streamId: value.streamId,
+                        lifecycleState: value.lifecycleState
+                    )
+                )
+            default:
+                throw EncodingError.invalidValue(
+                    action,
+                    EncodingError.Context(
+                        codingPath: container.codingPath,
+                        debugDescription: "Unsupported action type."
+                    )
+                )
+            }
+        }
     }
     
     public func validateEnumValue() throws {
@@ -28,7 +158,7 @@ extension ActionList: CustomStringConvertible {
 
 // MARK: - Action
 
-public protocol Action: Codable {
+public protocol Action: Codable, Sendable {
     var id: String { get }
     var lifecycleMessage: String { get }
     var lifecycleState: ActionLifecycleStateEnum { get }

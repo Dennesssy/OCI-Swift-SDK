@@ -43,7 +43,7 @@ extension Project: CustomStringConvertible {
 
 // ProjectLifecycleStateEnum Enum with underlying type: string
 // MARK: - ProjectLifecycleStateEnum
-public enum ProjectLifecycleStateEnum: String, Sendable {
+public enum ProjectLifecycleStateEnum: String, Codable, Sendable {
     case active = "ACTIVE"
     case creating = "CREATING"
     case failed = "FAILED"

@@ -96,7 +96,7 @@ public struct ImageJob: Codable, Sendable {
 // ImageJobLifecycleStateEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for ImageJobLifecycleStateEnum
-public enum ImageJobLifecycleStateEnum: String, Sendable {
+public enum ImageJobLifecycleStateEnum: String, Codable, Sendable {
     case succeeded = "SUCCEEDED"
     case failed = "FAILED"
     case accepted = "ACCEPTED"
@@ -121,7 +121,7 @@ public extension ImageJobLifecycleStateEnum {
 // ImageJobLifecycleDetailsEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for ImageJobLifecycleDetailsEnum
-public enum ImageJobLifecycleDetailsEnum: String, Sendable {
+public enum ImageJobLifecycleDetailsEnum: String, Codable, Sendable {
     case partiallySucceeded = "PARTIALLY_SUCCEEDED"
     case completelyFailed = "COMPLETELY_FAILED"
 }

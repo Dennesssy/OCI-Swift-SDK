@@ -53,7 +53,7 @@ extension Model: CustomStringConvertible {
 
 // ModelLifecycleStateEnum Enum with underlying type: string
 // MARK: - ModelLifecycleStateEnum
-public enum ModelLifecycleStateEnum: String, Sendable {
+public enum ModelLifecycleStateEnum: String, Codable, Sendable {
     case deleting = "DELETING"
     case deleted = "DELETED"
     case failed = "FAILED"

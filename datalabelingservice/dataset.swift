@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct Dataset: Codable {
     public var id: String
@@ -21,7 +22,7 @@ public struct Dataset: Codable {
     public var initialImportDatasetConfiguration: InitialImportDatasetConfiguration?
     public var labelingInstructions: String?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
     public enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -61,7 +62,7 @@ public struct Dataset: Codable {
                 initialImportDatasetConfiguration: InitialImportDatasetConfiguration? = nil,
                 labelingInstructions: String? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil) {
+                definedTags: [String: [String: JSONValue]]? = nil) {
         self.id = id
         self.compartmentId = compartmentId
         self.timeCreated = timeCreated

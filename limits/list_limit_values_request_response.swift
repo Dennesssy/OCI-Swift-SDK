@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListLimitValuesScopeTypeEnum
 
-public enum ListLimitValuesScopeTypeEnum: String, Sendable {
+public enum ListLimitValuesScopeTypeEnum: String, Codable, Sendable {
     case global = "GLOBAL"
     case region = "REGION"
     case ad = "AD"
@@ -20,7 +20,7 @@ public extension ListLimitValuesScopeTypeEnum {
 
 // MARK: - ListLimitValuesSortByEnum
 
-public enum ListLimitValuesSortByEnum: String, Sendable {
+public enum ListLimitValuesSortByEnum: String, Codable, Sendable {
     case name = "name"
 }
 
@@ -32,7 +32,7 @@ public extension ListLimitValuesSortByEnum {
 
 // MARK: - ListLimitValuesSortOrderEnum
 
-public enum ListLimitValuesSortOrderEnum: String, Sendable {
+public enum ListLimitValuesSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

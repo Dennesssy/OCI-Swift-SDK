@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - LocalPeeringGatewayLifecycleStateEnum
 
-public enum LocalPeeringGatewayLifecycleStateEnum: String, Sendable {
+public enum LocalPeeringGatewayLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case terminating = "TERMINATING"
@@ -21,7 +21,7 @@ public extension LocalPeeringGatewayLifecycleStateEnum {
 
 // MARK: - LocalPeeringGatewayPeeringStatusEnum
 
-public enum LocalPeeringGatewayPeeringStatusEnum: String, Sendable {
+public enum LocalPeeringGatewayPeeringStatusEnum: String, Codable, Sendable {
     case new = "NEW"
     case peered = "PEERED"
     case pending = "PENDING"

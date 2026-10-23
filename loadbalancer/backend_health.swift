@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum BackendHealthStatusEnum: String, Sendable {
+public enum BackendHealthStatusEnum: String, Codable, Sendable {
     case ok = "OK"
     case warning = "WARNING"
     case critical = "CRITICAL"

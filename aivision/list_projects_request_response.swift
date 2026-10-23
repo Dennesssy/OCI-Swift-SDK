@@ -88,7 +88,7 @@ public struct ListProjectsResponse: Codable, Sendable {
 // ListProjectsSortOrderEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for ListProjectsSortOrderEnum
-public enum ListProjectsSortOrderEnum: String, Sendable {
+public enum ListProjectsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -109,7 +109,7 @@ public extension ListProjectsSortOrderEnum {
 // ListProjectsSortByEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for ListProjectsSortByEnum
-public enum ListProjectsSortByEnum: String, Sendable {
+public enum ListProjectsSortByEnum: String, Codable, Sendable {
     case timecreated = "timeCreated"
     case displayname = "displayName"
 }

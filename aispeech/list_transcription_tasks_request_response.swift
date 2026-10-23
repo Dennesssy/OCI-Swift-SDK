@@ -88,7 +88,7 @@ public typealias ListTranscriptionTasksSortOrderEnum = String
 
 // MARK: - ListTranscriptionTasksSortOrder
 
-public enum ListTranscriptionTasksSortOrder: String, Sendable {
+public enum ListTranscriptionTasksSortOrder: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -107,7 +107,7 @@ public typealias ListTranscriptionTasksSortByEnum = String
 
 // MARK: - ListTranscriptionTasksSortBy
 
-public enum ListTranscriptionTasksSortBy: String, Sendable {
+public enum ListTranscriptionTasksSortBy: String, Codable, Sendable {
     case timecreated = "timeCreated"
     case displayname = "displayName"
 }

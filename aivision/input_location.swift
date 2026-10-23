@@ -36,7 +36,7 @@ public typealias Unmarshalerinputlocation = inputlocation
 // InputLocationSourceTypeEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for InputLocationSourceTypeEnum
-public enum InputLocationSourceTypeEnum: String, Sendable {
+public enum InputLocationSourceTypeEnum: String, Codable, Sendable {
     case objectListInlineInputLocation = "OBJECT_LIST_INLINE_INPUT_LOCATION"
 }
 public extension InputLocationSourceTypeEnum {

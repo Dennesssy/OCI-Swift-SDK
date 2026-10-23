@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - CccInfrastructureConnectionStateEnum
 
-public enum CccInfrastructureConnectionStateEnum: String, Sendable {
+public enum CccInfrastructureConnectionStateEnum: String, Codable, Sendable {
     case reject = "REJECT"
     case request = "REQUEST"
     case ready = "READY"

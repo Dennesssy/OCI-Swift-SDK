@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - VirtualCircuitLifecycleStateEnum
 
-public enum VirtualCircuitLifecycleStateEnum: String, Sendable {
+public enum VirtualCircuitLifecycleStateEnum: String, Codable, Sendable {
     case pendingProvider = "PENDING_PROVIDER"
     case verifying = "VERIFYING"
     case provisioning = "PROVISIONING"

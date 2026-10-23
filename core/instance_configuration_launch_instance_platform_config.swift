@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - InstanceConfigurationLaunchInstancePlatformConfigTypeEnum
 
-public enum InstanceConfigurationLaunchInstancePlatformConfigTypeEnum: String, Sendable {
+public enum InstanceConfigurationLaunchInstancePlatformConfigTypeEnum: String, Codable, Sendable {
     case amdMilanBm = "AMD_MILAN_BM"
     case amdMilanBmGpu = "AMD_MILAN_BM_GPU"
     case amdRomeBm = "AMD_ROME_BM"

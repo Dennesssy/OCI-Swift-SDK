@@ -60,7 +60,7 @@ extension datasetdetails: CustomStringConvertible {
 public typealias DatasetDetailsDatasetTypeEnum = String
 
 // Set of constants representing the allowable values for DatasetDetailsDatasetTypeEnum
-public enum DatasetDetailsDatasetTypeEnum: String, Sendable {
+public enum DatasetDetailsDatasetTypeEnum: String, Codable, Sendable {
     case objectStorage = "OBJECT_STORAGE"
     case dataScienceLabeling = "DATA_SCIENCE_LABELING"
 }

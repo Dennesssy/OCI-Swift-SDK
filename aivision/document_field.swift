@@ -51,7 +51,7 @@ public struct DocumentField: Codable, Sendable {
 // DocumentFieldFieldTypeEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for DocumentFieldFieldTypeEnum
-public enum DocumentFieldFieldTypeEnum: String, Sendable {
+public enum DocumentFieldFieldTypeEnum: String, Codable, Sendable {
     case lineItemGroup = "LINE_ITEM_GROUP"
     case lineItem = "LINE_ITEM"
     case lineItemField = "LINE_ITEM_FIELD"

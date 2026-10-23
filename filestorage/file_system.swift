@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum FileSystemLifecycleStateEnum: String, Sendable {
+public enum FileSystemLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case deleting = "DELETING"
@@ -42,7 +42,7 @@ public struct FileSystem: Codable, Sendable {
     public var snapshotPolicy: FileSystemSnapshotPolicyDetails?
 }
 
-public enum CloneAttachStatusEnum: String, Sendable {
+public enum CloneAttachStatusEnum: String, Codable, Sendable {
     case attaching = "ATTACHING"
     case attached = "ATTACHED"
     case detaching = "DETACHING"
@@ -76,7 +76,7 @@ public struct FileSystemSourceDetails: Codable, Sendable {
     public var sourceType: FileSystemSourceTypeEnum?
 }
 
-public enum FileSystemSourceTypeEnum: String, Sendable {
+public enum FileSystemSourceTypeEnum: String, Codable, Sendable {
     case clone = "CLONE"
     case replication = "REPLICATION"
     case snapshot = "SNAPSHOT"

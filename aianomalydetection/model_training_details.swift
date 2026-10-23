@@ -33,7 +33,7 @@ extension ModelTrainingDetails: CustomStringConvertible {
 
 // ModelTrainingDetailsAlgorithmHintEnum Enum with underlying type: string
 // MARK: - ModelTrainingDetailsAlgorithmHintEnum
-public enum ModelTrainingDetailsAlgorithmHintEnum: String, Sendable {
+public enum ModelTrainingDetailsAlgorithmHintEnum: String, Codable, Sendable {
     case multivariateMset = "MULTIVARIATE_MSET"
     case univariateOcsvm = "UNIVARIATE_OCSVM"
 }

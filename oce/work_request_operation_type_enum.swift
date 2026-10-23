@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - WorkRequestOperationTypeEnum
 
-public enum WorkRequestOperationTypeEnum: String, Sendable {
+public enum WorkRequestOperationTypeEnum: String, Codable, Sendable {
     case createOceInstance = "CREATE_OCE_INSTANCE"
     case updateOceInstance = "UPDATE_OCE_INSTANCE"
     case deleteOceInstance = "DELETE_OCE_INSTANCE"

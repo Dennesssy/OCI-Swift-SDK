@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - RemoveLockDetailsTypeEnum
 
-public enum RemoveLockDetailsTypeEnum: String, Sendable {
+public enum RemoveLockDetailsTypeEnum: String, Codable, Sendable {
     case full = "FULL"
     case delete = "DELETE"
 }

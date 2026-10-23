@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum NodePoolLifecycleStateEnum: String, Sendable {
+public enum NodePoolLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case updating = "UPDATING"
@@ -87,7 +87,7 @@ public struct Node: Codable, Sendable {
     public var privateEndpointDetails: PrivateEndpointDetails?
 }
 
-public enum NodeLifecycleStateEnum: String, Sendable {
+public enum NodeLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case updating = "UPDATING"
@@ -108,7 +108,7 @@ public struct NodeSourceDetails: Codable, Sendable {
     public var sourceType: NodeSourceTypeEnum
 }
 
-public enum NodeSourceTypeEnum: String, Sendable {
+public enum NodeSourceTypeEnum: String, Codable, Sendable {
     case image = "IMAGE"
     case bootVolume = "BOOTVOLUME"
 }
@@ -145,7 +145,7 @@ public struct PreemptionAction: Codable, Sendable {
     public var isPreserveBootVolume: Bool?
 }
 
-public enum PreemptionActionTypeEnum: String, Sendable {
+public enum PreemptionActionTypeEnum: String, Codable, Sendable {
     case terminate = "TERMINATE"
     case stop = "STOP"
 }

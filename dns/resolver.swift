@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum ResolverLifecycleStateEnum: String, Sendable {
+public enum ResolverLifecycleStateEnum: String, Codable, Sendable {
     case active = "ACTIVE"
     case creating = "CREATING"
     case deleted = "DELETED"
@@ -56,7 +56,7 @@ public struct ResolverRule: Codable, Sendable {
     public var qnameCoverConditions: [String]?
 }
 
-public enum ResolverRuleActionEnum: String, Sendable {
+public enum ResolverRuleActionEnum: String, Codable, Sendable {
     case forward = "FORWARD"
     case substitute = "SUBSTITUTE"
 }

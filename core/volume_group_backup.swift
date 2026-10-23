@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - VolumeGroupBackupLifecycleStateEnum
 
-public enum VolumeGroupBackupLifecycleStateEnum: String, Sendable {
+public enum VolumeGroupBackupLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case committed = "COMMITTED"
     case available = "AVAILABLE"
@@ -24,7 +24,7 @@ public extension VolumeGroupBackupLifecycleStateEnum {
 
 // MARK: - VolumeGroupBackupSourceTypeEnum
 
-public enum VolumeGroupBackupSourceTypeEnum: String, Sendable {
+public enum VolumeGroupBackupSourceTypeEnum: String, Codable, Sendable {
     case manual = "MANUAL"
     case scheduled = "SCHEDULED"
 }
@@ -37,7 +37,7 @@ public extension VolumeGroupBackupSourceTypeEnum {
 
 // MARK: - VolumeGroupBackupTypeEnum
 
-public enum VolumeGroupBackupTypeEnum: String, Sendable {
+public enum VolumeGroupBackupTypeEnum: String, Codable, Sendable {
     case full = "FULL"
     case incremental = "INCREMENTAL"
 }

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - IngressSecurityRuleSourceTypeEnum
 
-public enum IngressSecurityRuleSourceTypeEnum: String, Sendable {
+public enum IngressSecurityRuleSourceTypeEnum: String, Codable, Sendable {
     case cidrBlock = "CIDR_BLOCK"
     case serviceCidrBlock = "SERVICE_CIDR_BLOCK"
 }

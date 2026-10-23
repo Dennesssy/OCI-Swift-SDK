@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListAlertRulesSortOrderEnum
 
-public enum ListAlertRulesSortOrderEnum: String, Sendable {
+public enum ListAlertRulesSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

@@ -2,7 +2,7 @@
 
 import Foundation
 
-public enum SortOrderEnum: String, Sendable {
+public enum SortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

@@ -124,7 +124,7 @@ extension ListModelsResponse: CustomStringConvertible {
 public typealias ListModelsSortOrderEnum = String
 
 // Set of constants representing the allowable values for ListModelsSortOrderEnum
-public enum ListModelsSortOrderEnum: String, Sendable {
+public enum ListModelsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -146,7 +146,7 @@ public extension ListModelsSortOrderEnum {
 public typealias ListModelsSortByEnum = String
 
 // Set of constants representing the allowable values for ListModelsSortByEnum
-public enum ListModelsSortByEnum: String, Sendable {
+public enum ListModelsSortByEnum: String, Codable, Sendable {
     case timecreated = "timeCreated"
     case displayname = "displayName"
 }

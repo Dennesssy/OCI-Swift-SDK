@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - PreemptionActionTypeEnum
 
-public enum PreemptionActionTypeEnum: String, Sendable {
+public enum PreemptionActionTypeEnum: String, Codable, Sendable {
     case terminate = "TERMINATE"
 }
 

@@ -88,7 +88,7 @@ public struct ListWorkRequestsResponse: Codable, Sendable {
 // ListWorkRequestsStatusEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for ListWorkRequestsStatusEnum
-public enum ListWorkRequestsStatusEnum: String, Sendable {
+public enum ListWorkRequestsStatusEnum: String, Codable, Sendable {
     case accepted = "ACCEPTED"
     case inProgress = "IN_PROGRESS"
     case waiting = "WAITING"
@@ -114,7 +114,7 @@ public extension ListWorkRequestsStatusEnum {
 // ListWorkRequestsSortOrderEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for ListWorkRequestsSortOrderEnum
-public enum ListWorkRequestsSortOrderEnum: String, Sendable {
+public enum ListWorkRequestsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -135,7 +135,7 @@ public extension ListWorkRequestsSortOrderEnum {
 // ListWorkRequestsSortByEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for ListWorkRequestsSortByEnum
-public enum ListWorkRequestsSortByEnum: String, Sendable {
+public enum ListWorkRequestsSortByEnum: String, Codable, Sendable {
     case timeaccepted = "timeAccepted"
 }
 public extension ListWorkRequestsSortByEnum {

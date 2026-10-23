@@ -21,7 +21,7 @@ import Foundation
 public typealias NerModelVersionEnum = String
 
 // Set of constants representing the allowable values for NerModelVersionEnum
-public enum NerModelVersionEnum: String, Sendable {
+public enum NerModelVersionEnum: String, Codable, Sendable {
     case v21 = "V2_1"
     case v11 = "V1_1"
 }

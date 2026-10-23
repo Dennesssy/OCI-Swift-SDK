@@ -18,7 +18,7 @@ import Foundation
 // DocumentLanguageEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for DocumentLanguageEnum
-public enum DocumentLanguageEnum: String, Sendable {
+public enum DocumentLanguageEnum: String, Codable, Sendable {
     case eng = "ENG"
     case ces = "CES"
     case dan = "DAN"

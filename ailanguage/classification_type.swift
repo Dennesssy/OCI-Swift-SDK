@@ -60,8 +60,8 @@ extension classificationtype: CustomStringConvertible {
 public typealias ClassificationTypeClassificationModeEnum = String
 
 // Set of constants representing the allowable values for ClassificationTypeClassificationModeEnum
-public enum ClassificationTypeClassificationModeEnum: String, Sendable {
-    case class = "MULTI_CLASS"
+public enum ClassificationTypeClassificationModeEnum: String, Codable, Sendable {
+    case `class` = "MULTI_CLASS"
     case label = "MULTI_LABEL"
 }
 public extension ClassificationTypeClassificationModeEnum {

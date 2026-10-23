@@ -29,7 +29,7 @@ extension EmbeddedDetectAnomaliesRequest: CustomStringConvertible {
 
 // EmbeddedDetectAnomaliesRequestContentTypeEnum Enum with underlying type: string
 // MARK: - EmbeddedDetectAnomaliesRequestContentTypeEnum
-public enum EmbeddedDetectAnomaliesRequestContentTypeEnum: String, Sendable {
+public enum EmbeddedDetectAnomaliesRequestContentTypeEnum: String, Codable, Sendable {
     case csv = "CSV"
     case json = "JSON"
 }

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListSubscriptionsSortByEnum
 
-public enum ListSubscriptionsSortByEnum: String, Sendable {
+public enum ListSubscriptionsSortByEnum: String, Codable, Sendable {
     case timecreated = "TIMECREATED"
     case timestart = "TIMESTART"
 }
@@ -19,7 +19,7 @@ public extension ListSubscriptionsSortByEnum {
 
 // MARK: - ListSubscriptionsSortOrderEnum
 
-public enum ListSubscriptionsSortOrderEnum: String, Sendable {
+public enum ListSubscriptionsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

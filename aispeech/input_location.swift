@@ -28,7 +28,7 @@ public typealias InputLocationLocationTypeEnum = String
 
 // MARK: - InputLocationLocationType
 
-public enum InputLocationLocationType: String, Sendable {
+public enum InputLocationLocationType: String, Codable, Sendable {
     case inlineInputLocation = "OBJECT_LIST_INLINE_INPUT_LOCATION"
     case fileInputLocation = "OBJECT_LIST_FILE_INPUT_LOCATION"
 }

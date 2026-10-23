@@ -34,7 +34,7 @@ public typealias CustomizationModelDetailsDomainEnum = String
 
 // MARK: - CustomizationModelDetailsDomain
 
-public enum CustomizationModelDetailsDomain: String, Sendable {
+public enum CustomizationModelDetailsDomain: String, Codable, Sendable {
     case generic = "GENERIC"
     case medical = "MEDICAL"
 }

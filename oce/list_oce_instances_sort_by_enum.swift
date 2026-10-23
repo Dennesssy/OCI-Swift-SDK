@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListOceInstancesSortByEnum
 
-public enum ListOceInstancesSortByEnum: String, Sendable {
+public enum ListOceInstancesSortByEnum: String, Codable, Sendable {
     case timeCreated = "timeCreated"
     case displayName = "displayName"
 }

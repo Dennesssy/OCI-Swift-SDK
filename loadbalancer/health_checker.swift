@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum HealthCheckerProtocolEnum: String, Sendable {
+public enum HealthCheckerProtocolEnum: String, Codable, Sendable {
     case http = "HTTP"
     case https = "HTTPS"
     case tcp = "TCP"

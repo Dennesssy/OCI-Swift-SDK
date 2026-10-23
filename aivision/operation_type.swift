@@ -18,7 +18,7 @@ import Foundation
 // OperationTypeEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for OperationTypeEnum
-public enum OperationTypeEnum: String, Sendable {
+public enum OperationTypeEnum: String, Codable, Sendable {
     case createProject = "CREATE_PROJECT"
     case updateProject = "UPDATE_PROJECT"
     case deleteProject = "DELETE_PROJECT"

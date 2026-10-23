@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ByoipRangeLifecycleStateEnum
 
-public enum ByoipRangeLifecycleStateEnum: String, Sendable {
+public enum ByoipRangeLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case validating = "VALIDATING"
     case provisioned = "PROVISIONED"

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - DrgLifecycleStateEnum
 
-public enum DrgLifecycleStateEnum: String, Sendable {
+public enum DrgLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case terminating = "TERMINATING"

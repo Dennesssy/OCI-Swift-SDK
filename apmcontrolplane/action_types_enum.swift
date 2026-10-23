@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ActionTypesEnum
 
-public enum ActionTypesEnum: String, Sendable {
+public enum ActionTypesEnum: String, Codable, Sendable {
     case created = "CREATED"
     case updated = "UPDATED"
     case deleted = "DELETED"

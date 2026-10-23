@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct IntegrationInstance: Codable {
     public var id: String
@@ -16,8 +17,8 @@ public struct IntegrationInstance: Codable {
     public var lifecycleState: IntegrationInstanceLifecycleStateEnum?
     public var stateMessage: String?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
-    public var systemTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
+    public var systemTags: [String: [String: JSONValue]]?
     public var isFileServerEnabled: Bool?
     public var isVisualBuilderEnabled: Bool?
     public var customEndpoint: CustomEndpointDetails?
@@ -56,8 +57,8 @@ public struct IntegrationInstance: Codable {
                 lifecycleState: IntegrationInstanceLifecycleStateEnum? = nil,
                 stateMessage: String? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil,
-                systemTags: [String: [String: Any]]? = nil,
+                definedTags: [String: [String: JSONValue]]? = nil,
+                systemTags: [String: [String: JSONValue]]? = nil,
                 isFileServerEnabled: Bool? = nil,
                 isVisualBuilderEnabled: Bool? = nil,
                 customEndpoint: CustomEndpointDetails? = nil,

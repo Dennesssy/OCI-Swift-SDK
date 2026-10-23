@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum ClusterLifecycleStateEnum: String, Sendable {
+public enum ClusterLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case failed = "FAILED"

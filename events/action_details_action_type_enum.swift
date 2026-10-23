@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ActionDetailsActionTypeEnum
 
-public enum ActionDetailsActionTypeEnum: String, Sendable {
+public enum ActionDetailsActionTypeEnum: String, Codable, Sendable {
     case ons = "ONS"
     case oss = "OSS"
     case faas = "FAAS"

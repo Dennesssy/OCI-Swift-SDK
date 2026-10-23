@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - DhcpDnsOptionServerTypeEnum
 
-public enum DhcpDnsOptionServerTypeEnum: String, Sendable {
+public enum DhcpDnsOptionServerTypeEnum: String, Codable, Sendable {
     case vcnLocal = "VcnLocal"
     case vcnLocalPlusInternet = "VcnLocalPlusInternet"
     case customDnsServer = "CustomDnsServer"

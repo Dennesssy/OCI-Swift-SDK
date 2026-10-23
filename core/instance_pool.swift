@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - InstancePoolLifecycleStateEnum
 
-public enum InstancePoolLifecycleStateEnum: String, Sendable {
+public enum InstancePoolLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case scaling = "SCALING"
     case starting = "STARTING"

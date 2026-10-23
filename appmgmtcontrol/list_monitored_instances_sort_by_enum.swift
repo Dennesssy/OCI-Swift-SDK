@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListMonitoredInstancesSortByEnum
 
-public enum ListMonitoredInstancesSortByEnum: String, Sendable {
+public enum ListMonitoredInstancesSortByEnum: String, Codable, Sendable {
     case timeCreated = "timeCreated"
     case displayName = "displayName"
 }

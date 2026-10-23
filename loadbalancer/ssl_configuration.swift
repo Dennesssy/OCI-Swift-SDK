@@ -22,7 +22,7 @@ public struct SslConfigurationDetails: Codable, Sendable {
     }
 }
 
-public enum ServerOrderPreferenceEnum: String, Sendable {
+public enum ServerOrderPreferenceEnum: String, Codable, Sendable {
     case enabled = "ENABLED"
     case disabled = "DISABLED"
 }
@@ -46,7 +46,7 @@ public struct Certificate: Codable, Sendable {
     }
 }
 
-public enum CertificateLifecycleStateEnum: String, Sendable {
+public enum CertificateLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case failed = "FAILED"

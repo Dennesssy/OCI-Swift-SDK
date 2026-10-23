@@ -100,7 +100,7 @@ extension Endpoint: CustomStringConvertible {
 public typealias EndpointLifecycleStateEnum = String
 
 // Set of constants representing the allowable values for EndpointLifecycleStateEnum
-public enum EndpointLifecycleStateEnum: String, Sendable {
+public enum EndpointLifecycleStateEnum: String, Codable, Sendable {
     case deleting = "DELETING"
     case deleted = "DELETED"
     case failed = "FAILED"

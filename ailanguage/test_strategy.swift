@@ -60,7 +60,7 @@ extension teststrategy: CustomStringConvertible {
 public typealias TestStrategyStrategyTypeEnum = String
 
 // Set of constants representing the allowable values for TestStrategyStrategyTypeEnum
-public enum TestStrategyStrategyTypeEnum: String, Sendable {
+public enum TestStrategyStrategyTypeEnum: String, Codable, Sendable {
     case testAndValidationDataset = "TEST_AND_VALIDATION_DATASET"
 }
 public extension TestStrategyStrategyTypeEnum {

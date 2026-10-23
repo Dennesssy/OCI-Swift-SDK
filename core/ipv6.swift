@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - Ipv6LifecycleStateEnum
 
-public enum Ipv6LifecycleStateEnum: String, Sendable {
+public enum Ipv6LifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case terminating = "TERMINATING"

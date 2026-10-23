@@ -21,7 +21,7 @@ import Foundation
 public typealias OperationStatusEnum = String
 
 // Set of constants representing the allowable values for OperationStatusEnum
-public enum OperationStatusEnum: String, Sendable {
+public enum OperationStatusEnum: String, Codable, Sendable {
     case accepted = "ACCEPTED"
     case inProgress = "IN_PROGRESS"
     case failed = "FAILED"

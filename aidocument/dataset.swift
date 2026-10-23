@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum DatasetDatasetTypeEnum: String, Sendable {
+public enum DatasetDatasetTypeEnum: String, Codable, Sendable {
     case datasetdatasettypedatasciencelabeling = "DATA_SCIENCE_LABELING"
     case datasetdatasettypeobjectstorage = "OBJECT_STORAGE"
 }

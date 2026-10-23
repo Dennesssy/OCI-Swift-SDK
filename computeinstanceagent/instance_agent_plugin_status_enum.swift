@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - InstanceAgentPluginStatusEnum
 
-public enum InstanceAgentPluginStatusEnum: String, Sendable {
+public enum InstanceAgentPluginStatusEnum: String, Codable, Sendable {
     case running = "RUNNING"
     case stopped = "STOPPED"
     case notSupported = "NOT_SUPPORTED"

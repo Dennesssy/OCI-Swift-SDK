@@ -130,7 +130,7 @@ extension Job: CustomStringConvertible {
 public typealias JobLifecycleStateEnum = String
 
 // Set of constants representing the allowable values for JobLifecycleStateEnum
-public enum JobLifecycleStateEnum: String, Sendable {
+public enum JobLifecycleStateEnum: String, Codable, Sendable {
     case accepted = "ACCEPTED"
     case inProgress = "IN_PROGRESS"
     case succeeded = "SUCCEEDED"

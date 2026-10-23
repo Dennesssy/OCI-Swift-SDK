@@ -79,7 +79,7 @@ public struct ListWorkRequestErrorsResponse: Codable, Sendable {
 // ListWorkRequestErrorsSortByEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for ListWorkRequestErrorsSortByEnum
-public enum ListWorkRequestErrorsSortByEnum: String, Sendable {
+public enum ListWorkRequestErrorsSortByEnum: String, Codable, Sendable {
     case timeaccepted = "timeAccepted"
 }
 public extension ListWorkRequestErrorsSortByEnum {
@@ -99,7 +99,7 @@ public extension ListWorkRequestErrorsSortByEnum {
 // ListWorkRequestErrorsSortOrderEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for ListWorkRequestErrorsSortOrderEnum
-public enum ListWorkRequestErrorsSortOrderEnum: String, Sendable {
+public enum ListWorkRequestErrorsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

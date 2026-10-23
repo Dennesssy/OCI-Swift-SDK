@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - CrossConnectGroupLifecycleStateEnum
 
-public enum CrossConnectGroupLifecycleStateEnum: String, Sendable {
+public enum CrossConnectGroupLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case provisioned = "PROVISIONED"
     case inactive = "INACTIVE"

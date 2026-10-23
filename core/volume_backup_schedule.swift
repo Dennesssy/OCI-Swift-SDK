@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - VolumeBackupScheduleBackupTypeEnum
 
-public enum VolumeBackupScheduleBackupTypeEnum: String, Sendable {
+public enum VolumeBackupScheduleBackupTypeEnum: String, Codable, Sendable {
     case full = "FULL"
     case incremental = "INCREMENTAL"
 }
@@ -19,7 +19,7 @@ public extension VolumeBackupScheduleBackupTypeEnum {
 
 // MARK: - VolumeBackupSchedulePeriodEnum
 
-public enum VolumeBackupSchedulePeriodEnum: String, Sendable {
+public enum VolumeBackupSchedulePeriodEnum: String, Codable, Sendable {
     case oneDay = "ONE_DAY"
     case oneWeek = "ONE_WEEK"
     case oneMonth = "ONE_MONTH"
@@ -34,7 +34,7 @@ public extension VolumeBackupSchedulePeriodEnum {
 
 // MARK: - VolumeBackupScheduleOffsetTypeEnum
 
-public enum VolumeBackupScheduleOffsetTypeEnum: String, Sendable {
+public enum VolumeBackupScheduleOffsetTypeEnum: String, Codable, Sendable {
     case numericSeconds = "NUMERIC_SECONDS"
     case structured = "STRUCTURED"
 }
@@ -47,7 +47,7 @@ public extension VolumeBackupScheduleOffsetTypeEnum {
 
 // MARK: - VolumeBackupScheduleDayOfWeekEnum
 
-public enum VolumeBackupScheduleDayOfWeekEnum: String, Sendable {
+public enum VolumeBackupScheduleDayOfWeekEnum: String, Codable, Sendable {
     case monday = "MONDAY"
     case tuesday = "TUESDAY"
     case wednesday = "WEDNESDAY"
@@ -65,7 +65,7 @@ public extension VolumeBackupScheduleDayOfWeekEnum {
 
 // MARK: - VolumeBackupScheduleMonthEnum
 
-public enum VolumeBackupScheduleMonthEnum: String, Sendable {
+public enum VolumeBackupScheduleMonthEnum: String, Codable, Sendable {
     case january = "JANUARY"
     case february = "FEBRUARY"
     case march = "MARCH"
@@ -88,7 +88,7 @@ public extension VolumeBackupScheduleMonthEnum {
 
 // MARK: - VolumeBackupScheduleTimeZoneEnum
 
-public enum VolumeBackupScheduleTimeZoneEnum: String, Sendable {
+public enum VolumeBackupScheduleTimeZoneEnum: String, Codable, Sendable {
     case utc = "UTC"
     case regionalDataCenterTime = "REGIONAL_DATA_CENTER_TIME"
 }

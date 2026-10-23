@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - DrgAttachmentLifecycleStateEnum
 
-public enum DrgAttachmentLifecycleStateEnum: String, Sendable {
+public enum DrgAttachmentLifecycleStateEnum: String, Codable, Sendable {
     case attaching = "ATTACHING"
     case attached = "ATTACHED"
     case detaching = "DETACHING"

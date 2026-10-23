@@ -19,7 +19,7 @@ public typealias RealtimeMessageOutEventEnum = String
 
 // MARK: - RealtimeMessageOutEventSendFinalResult
 
-public enum RealtimeMessageOutEventSendFinalResult: String, Sendable {
+public enum RealtimeMessageOutEventSendFinalResult: String, Codable, Sendable {
     case  = "SEND_FINAL_RESULT"
 }
 

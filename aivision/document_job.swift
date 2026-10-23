@@ -106,7 +106,7 @@ public struct DocumentJob: Codable, Sendable {
 // DocumentJobLifecycleStateEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for DocumentJobLifecycleStateEnum
-public enum DocumentJobLifecycleStateEnum: String, Sendable {
+public enum DocumentJobLifecycleStateEnum: String, Codable, Sendable {
     case succeeded = "SUCCEEDED"
     case failed = "FAILED"
     case accepted = "ACCEPTED"
@@ -131,7 +131,7 @@ public extension DocumentJobLifecycleStateEnum {
 // DocumentJobLifecycleDetailsEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for DocumentJobLifecycleDetailsEnum
-public enum DocumentJobLifecycleDetailsEnum: String, Sendable {
+public enum DocumentJobLifecycleDetailsEnum: String, Codable, Sendable {
     case partiallySucceeded = "PARTIALLY_SUCCEEDED"
     case completelyFailed = "COMPLETELY_FAILED"
 }
