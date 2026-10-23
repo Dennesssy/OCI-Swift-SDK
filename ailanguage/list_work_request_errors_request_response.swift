@@ -108,10 +108,8 @@ extension ListWorkRequestErrorsResponse: CustomStringConvertible {
 
 // HTTPResponse implements the OCIResponse interface
 
-// ListWorkRequestErrorsSortOrderEnum Enum with underlying type: string
-public typealias ListWorkRequestErrorsSortOrderEnum = String
 
-// Set of constants representing the allowable values for ListWorkRequestErrorsSortOrderEnum
+// ListWorkRequestErrorsSortOrderEnum Enum with underlying type: string
 public enum ListWorkRequestErrorsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
@@ -127,10 +125,8 @@ public extension ListWorkRequestErrorsSortOrderEnum {
 
 // GetMappingListWorkRequestErrorsSortOrderEnum performs case Insensitive comparison on enum value and return the desired enum
 
-// ListWorkRequestErrorsSortByEnum Enum with underlying type: string
-public typealias ListWorkRequestErrorsSortByEnum = String
 
-// Set of constants representing the allowable values for ListWorkRequestErrorsSortByEnum
+// ListWorkRequestErrorsSortByEnum Enum with underlying type: string
 public enum ListWorkRequestErrorsSortByEnum: String, Codable, Sendable {
     case timecreated = "timeCreated"
     case displayname = "displayName"

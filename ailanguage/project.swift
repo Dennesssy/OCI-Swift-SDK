@@ -84,10 +84,8 @@ extension Project: CustomStringConvertible {
 // This function is being called during constructing API request process
 // Not recommended for calling this function directly
 
-// ProjectLifecycleStateEnum Enum with underlying type: string
-public typealias ProjectLifecycleStateEnum = String
 
-// Set of constants representing the allowable values for ProjectLifecycleStateEnum
+// ProjectLifecycleStateEnum Enum with underlying type: string
 public enum ProjectLifecycleStateEnum: String, Codable, Sendable {
     case deleting = "DELETING"
     case deleted = "DELETED"
