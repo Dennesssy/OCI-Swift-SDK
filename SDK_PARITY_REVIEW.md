@@ -28,6 +28,24 @@ Reference: `oci-go-sdk` cloned to `/tmp/oci-go-sdk` (27,170 `.go` files).
 `ailanguage` was **not** at parity before this branch: it had 168 of 192 files.
 Two commits added the 24 missing models and fixed the enum convention.
 
+## Python SDK comparison (oracle/oci-python-sdk)
+
+Checked against Python SDK v2.x (installed via `oci-cli` 3.95.1).
+
+| SDK | Model files | Structure |
+|---|---|---|
+| Python | 143 | Models only (no `*_request_response` wrappers, no separate enum files) |
+| Go | 192 | Models + `*_request_response` + enums + other artifacts |
+| Swift | 192 | Mirrors Go exactly |
+
+**Key differences:**
+- Python SDK uses `OracleSDKGenerator` and does not emit `*_request_response` wrapper files
+- Python SDK does not split enums into separate `*_enum.py` files
+- Python SDK has no `operation_status`, `sort_order` as separate files
+
+**Conclusion:** The Swift SDK correctly mirrors the Go SDK (its source), not the Python SDK. The 49 extra files in Swift/Go are Go SDK generator artifacts, not missing files. The Python SDK comparison confirms the Swift transpiler is using the correct reference (Go SDK).
+
+
 ## The 132 parity-missing folders
 
 Most have 2 files (a client plus one `sort_order_enum`) against hundreds in Go.
