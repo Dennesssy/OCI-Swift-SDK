@@ -13,16 +13,7 @@ public struct Session: Codable {
     public var timeCreated: Date
     public var timeUpdated: Date?
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case bastionId = "bastionId"
-        case bastionName = "bastionName"
-        case targetResourceDetails = "targetResourceDetails"
-        case sessionType = "sessionType"
-        case lifecycleState = "lifecycleState"
-        case timeCreated = "timeCreated"
-        case timeUpdated = "timeUpdated"
-    }
+    
     
     public init(id: String,
                 bastionId: String,

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - OperationTypesEnum
 
-public enum OperationTypesEnum: String, Sendable {
+public enum OperationTypesEnum: String, Codable, Sendable {
     case createApmDomain = "CREATE_APM_DOMAIN"
     case updateApmDomain = "UPDATE_APM_DOMAIN"
     case deleteApmDomain = "DELETE_APM_DOMAIN"

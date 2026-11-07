@@ -8,11 +8,7 @@ public struct KafkaSettings: Codable {
     public var bootstrapServers: String?
     public var logRetentionHours: Int?
     
-    public enum CodingKeys: String, CodingKey {
-        case autoCreateTopicsEnable = "autoCreateTopicsEnable"
-        case bootstrapServers = "bootstrapServers"
-        case logRetentionHours = "logRetentionHours"
-    }
+    
     
     public init(autoCreateTopicsEnable: Bool? = nil,
                 bootstrapServers: String? = nil,

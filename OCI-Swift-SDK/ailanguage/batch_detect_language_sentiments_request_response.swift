@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -16,9 +17,9 @@ import Foundation
 //
 // Click https://docs.cloud.oracle.com/en-us/iaas/tools/go-sdk-examples/latest/ailanguage/BatchDetectLanguageSentiments.go.html to see an example of how to use BatchDetectLanguageSentimentsRequest.
 public struct BatchDetectLanguageSentimentsRequest: Codable, Sendable {
-    public var opcRequestId: String??
+    public var opcRequestId: String?
     public var level: [BatchDetectLanguageSentimentsLevelEnum]?
-    public var requestMetadata: common.RequestMetadata?
+    public var requestMetadata: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case opcRequestId = "OpcRequestId"
@@ -27,9 +28,9 @@ public struct BatchDetectLanguageSentimentsRequest: Codable, Sendable {
     }
 
     public init(
-        opcRequestId: String?? = nil,
+        opcRequestId: String? = nil,
         level: [BatchDetectLanguageSentimentsLevelEnum]? = nil,
-        requestMetadata: common.RequestMetadata? = nil
+        requestMetadata: [String: String]? = nil
     ) {
         self.opcRequestId = opcRequestId
         self.level = level
@@ -39,7 +40,7 @@ public struct BatchDetectLanguageSentimentsRequest: Codable, Sendable {
 
 extension BatchDetectLanguageSentimentsRequest: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectLanguageSentimentsRequest(\n            opcRequestId: \(opcRequestId ?? "nil"),\n            level: \(level ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "BatchDetectLanguageSentimentsRequest(\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            level: \(level?.count ?? 0),\n            requestMetadata: \(requestMetadata != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -57,8 +58,8 @@ extension BatchDetectLanguageSentimentsRequest: CustomStringConvertible {
 
 // BatchDetectLanguageSentimentsResponse wrapper for the BatchDetectLanguageSentiments operation
 public struct BatchDetectLanguageSentimentsResponse: Codable, Sendable {
-    public var rawResponse: http.Response??
-    public var opcRequestId: String??
+    public var rawResponse: JSONValue?
+    public var opcRequestId: String?
 
     enum CodingKeys: String, CodingKey {
         case rawResponse = "RawResponse"
@@ -66,8 +67,8 @@ public struct BatchDetectLanguageSentimentsResponse: Codable, Sendable {
     }
 
     public init(
-        rawResponse: http.Response?? = nil,
-        opcRequestId: String?? = nil
+        rawResponse: JSONValue? = nil,
+        opcRequestId: String? = nil
     ) {
         self.rawResponse = rawResponse
         self.opcRequestId = opcRequestId
@@ -76,7 +77,7 @@ public struct BatchDetectLanguageSentimentsResponse: Codable, Sendable {
 
 extension BatchDetectLanguageSentimentsResponse: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectLanguageSentimentsResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "BatchDetectLanguageSentimentsResponse(\n            rawResponse: \(rawResponse != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil")\n        )"
     }
 }
 
@@ -84,17 +85,24 @@ extension BatchDetectLanguageSentimentsResponse: CustomStringConvertible {
 
 // HTTPResponse implements the OCIResponse interface
 
-// BatchDetectLanguageSentimentsLevelEnum Enum with underlying type: string
-public typealias BatchDetectLanguageSentimentsLevelEnum = String
-
-// Set of constants representing the allowable values for BatchDetectLanguageSentimentsLevelEnum
-public enum BatchDetectLanguageSentimentsLevelEnum: String, Sendable {
+/// Enum with underlying type: string
+public enum BatchDetectLanguageSentimentsLevelEnum: String, Codable, Sendable {
     case aspect = "ASPECT"
     case sentence = "SENTENCE"
 }
+
 public extension BatchDetectLanguageSentimentsLevelEnum {
-    static var allValues: [BatchDetectLanguageSentimentsLevelEnum] { [.aspect, .sentence] }
-    static func fromString(_ value: String) -> BatchDetectLanguageSentimentsLevelEnum? { BatchDetectLanguageSentimentsLevelEnum(rawValue: value) }
+    static var allValues: [BatchDetectLanguageSentimentsLevelEnum] {
+        return [.aspect, .sentence]
+    }
+    
+    static var allStringValues: [String] {
+        return ["ASPECT", "SENTENCE"]
+    }
+    
+    static func fromString(_ value: String) -> BatchDetectLanguageSentimentsLevelEnum? {
+        return BatchDetectLanguageSentimentsLevelEnum(rawValue: value.uppercased())
+    }
 }
 
 

@@ -21,7 +21,6 @@ public protocol DocumentDetails { }
 
 
 // UnmarshalJSON unmarshals json
-public typealias Unmarshalerdocumentdetails = documentdetails
 
 
 // UnmarshalPolymorphicJSON unmarshals polymorphic json
@@ -36,7 +35,7 @@ public typealias Unmarshalerdocumentdetails = documentdetails
 // DocumentDetailsSourceEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for DocumentDetailsSourceEnum
-public enum DocumentDetailsSourceEnum: String, Sendable {
+public enum DocumentDetailsSourceEnum: String, Codable, Sendable {
     case inline = "INLINE"
     case objectStorage = "OBJECT_STORAGE"
 }

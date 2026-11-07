@@ -34,7 +34,7 @@ public struct ConfusionMatrixDetails: Codable, Sendable {
 
 extension ConfusionMatrixDetails: CustomStringConvertible {
     public var description: String {
-        return "ConfusionMatrixDetails(\n            matrix: \(matrix ?? "nil")\n        )"
+        return "ConfusionMatrixDetails(\n            matrix: \(matrix?.count ?? 0)\n        )"
     }
 }
 

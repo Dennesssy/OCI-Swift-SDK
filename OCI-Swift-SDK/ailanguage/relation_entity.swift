@@ -50,7 +50,7 @@ public struct RelationEntity: Codable, Sendable {
 
 extension RelationEntity: CustomStringConvertible {
     public var description: String {
-        return "RelationEntity(\n            id: \(id ?? "nil"),\n            subjectId: \(subjectId ?? "nil"),\n            objectId: \(objectId ?? "nil"),\n            type: \(type ?? "nil"),\n            score: \(score ?? "nil")\n        )"
+        return "RelationEntity(\n            id: \(id ?? "nil"),\n            subjectId: \(subjectId ?? "nil"),\n            objectId: \(objectId ?? "nil"),\n            type: \(type ?? "nil"),\n            score: \((score.map { String($0) } ?? "nil"))\n        )"
     }
 }
 

@@ -19,9 +19,9 @@ import Foundation
 
 // PiiEntityMask Mask PII entities with the given masking character.
 public struct PiiEntityMask: Codable, Sendable {
-    public var maskingCharacter: String??
-    public var leaveCharactersUnmasked: Int??
-    public var isUnmaskedFromEnd: Bool??
+    public var maskingCharacter: String?
+    public var leaveCharactersUnmasked: Int?
+    public var isUnmaskedFromEnd: Bool?
 
     enum CodingKeys: String, CodingKey {
         case maskingCharacter = "maskingCharacter"
@@ -30,9 +30,9 @@ public struct PiiEntityMask: Codable, Sendable {
     }
 
     public init(
-        maskingCharacter: String?? = nil,
-        leaveCharactersUnmasked: Int?? = nil,
-        isUnmaskedFromEnd: Bool?? = nil
+        maskingCharacter: String? = nil,
+        leaveCharactersUnmasked: Int? = nil,
+        isUnmaskedFromEnd: Bool? = nil
     ) {
         self.maskingCharacter = maskingCharacter
         self.leaveCharactersUnmasked = leaveCharactersUnmasked
@@ -42,7 +42,7 @@ public struct PiiEntityMask: Codable, Sendable {
 
 extension PiiEntityMask: CustomStringConvertible {
     public var description: String {
-        return "PiiEntityMask(\n            maskingCharacter: \(maskingCharacter ?? "nil"),\n            leaveCharactersUnmasked: \(leaveCharactersUnmasked ?? "nil"),\n            isUnmaskedFromEnd: \(isUnmaskedFromEnd ?? "nil")\n        )"
+        return "PiiEntityMask(\n            maskingCharacter: \(maskingCharacter ?? "nil"),\n            leaveCharactersUnmasked: \((leaveCharactersUnmasked.map { String($0) } ?? "nil")),\n            isUnmaskedFromEnd: \((isUnmaskedFromEnd.map { String($0) } ?? "nil"))\n        )"
     }
 }
 

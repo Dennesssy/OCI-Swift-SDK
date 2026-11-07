@@ -46,7 +46,7 @@ public struct PiiEntityDocumentResult: Codable, Sendable {
 
 extension PiiEntityDocumentResult: CustomStringConvertible {
     public var description: String {
-        return "PiiEntityDocumentResult(\n            key: \(key ?? "nil"),\n            entities: \(entities ?? "nil"),\n            maskedText: \(maskedText ?? "nil"),\n            languageCode: \(languageCode ?? "nil")\n        )"
+        return "PiiEntityDocumentResult(\n            key: \(key ?? "nil"),\n            entities: \(entities.count),\n            maskedText: \(maskedText ?? "nil"),\n            languageCode: \(languageCode ?? "nil")\n        )"
     }
 }
 

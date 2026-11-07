@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -20,26 +21,26 @@ import Foundation
 // Job Job details which contain input document details on which prediction need to run, features (which and all language services ) need to run and where to store results
 public struct Job: Codable, Sendable {
     public var id: String?
-    public var inputLocation: InputLocation
+    public var inputLocation: JSONValue
     public var modelMetadataDetails: [ModelMetadataDetails]
     public var compartmentId: String?
     public var outputLocation: ObjectPrefixOutputLocation?
-    public var displayName: String??
-    public var description: String??
-    public var inputConfiguration: InputConfiguration??
+    public var displayName: String?
+    public var descriptionText: String?
+    public var inputConfiguration: InputConfiguration?
     public var lifecycleState: JobLifecycleStateEnum?
-    public var lifecycleDetails: String??
-    public var percentComplete: Int??
-    public var totalDocuments: Int??
-    public var pendingDocuments: Int??
-    public var completedDocuments: Int??
-    public var failedDocuments: Int??
-    public var warningsCount: Int??
-    public var ttlInDays: Int??
-    public var createdBy: String??
-    public var timeAccepted: Date??
-    public var timeStarted: Date??
-    public var timeCompleted: Date??
+    public var lifecycleDetails: String?
+    public var percentComplete: Int?
+    public var totalDocuments: Int?
+    public var pendingDocuments: Int?
+    public var completedDocuments: Int?
+    public var failedDocuments: Int?
+    public var warningsCount: Int?
+    public var ttlInDays: Int?
+    public var createdBy: String?
+    public var timeAccepted: Date?
+    public var timeStarted: Date?
+    public var timeCompleted: Date?
 
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -48,7 +49,7 @@ public struct Job: Codable, Sendable {
         case compartmentId = "compartmentId"
         case outputLocation = "outputLocation"
         case displayName = "displayName"
-        case description = "description"
+        case descriptionText = "description"
         case inputConfiguration = "inputConfiguration"
         case lifecycleState = "LifecycleState"
         case lifecycleDetails = "lifecycleDetails"
@@ -67,26 +68,26 @@ public struct Job: Codable, Sendable {
 
     public init(
         id: String?,
-        inputLocation: InputLocation,
+        inputLocation: JSONValue,
         modelMetadataDetails: [ModelMetadataDetails],
         compartmentId: String?,
         outputLocation: ObjectPrefixOutputLocation?,
-        displayName: String?? = nil,
-        description: String?? = nil,
-        inputConfiguration: InputConfiguration?? = nil,
+        displayName: String? = nil,
+        description: String? = nil,
+        inputConfiguration: InputConfiguration? = nil,
         lifecycleState: JobLifecycleStateEnum? = nil,
-        lifecycleDetails: String?? = nil,
-        percentComplete: Int?? = nil,
-        totalDocuments: Int?? = nil,
-        pendingDocuments: Int?? = nil,
-        completedDocuments: Int?? = nil,
-        failedDocuments: Int?? = nil,
-        warningsCount: Int?? = nil,
-        ttlInDays: Int?? = nil,
-        createdBy: String?? = nil,
-        timeAccepted: Date?? = nil,
-        timeStarted: Date?? = nil,
-        timeCompleted: Date?? = nil
+        lifecycleDetails: String? = nil,
+        percentComplete: Int? = nil,
+        totalDocuments: Int? = nil,
+        pendingDocuments: Int? = nil,
+        completedDocuments: Int? = nil,
+        failedDocuments: Int? = nil,
+        warningsCount: Int? = nil,
+        ttlInDays: Int? = nil,
+        createdBy: String? = nil,
+        timeAccepted: Date? = nil,
+        timeStarted: Date? = nil,
+        timeCompleted: Date? = nil
     ) {
         self.id = id
         self.inputLocation = inputLocation
@@ -94,7 +95,7 @@ public struct Job: Codable, Sendable {
         self.compartmentId = compartmentId
         self.outputLocation = outputLocation
         self.displayName = displayName
-        self.description = description
+        self.descriptionText = description
         self.inputConfiguration = inputConfiguration
         self.lifecycleState = lifecycleState
         self.lifecycleDetails = lifecycleDetails
@@ -114,7 +115,7 @@ public struct Job: Codable, Sendable {
 
 extension Job: CustomStringConvertible {
     public var description: String {
-        return "Job(\n            id: \(id ?? "nil"),\n            inputLocation: \(inputLocation ?? "nil"),\n            modelMetadataDetails: \(modelMetadataDetails ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            outputLocation: \(outputLocation ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            description: \(description ?? "nil"),\n            inputConfiguration: \(inputConfiguration ?? "nil"),\n            lifecycleState: \(lifecycleState ?? "nil"),\n            lifecycleDetails: \(lifecycleDetails ?? "nil"),\n            percentComplete: \(percentComplete ?? "nil"),\n            totalDocuments: \(totalDocuments ?? "nil"),\n            pendingDocuments: \(pendingDocuments ?? "nil"),\n            completedDocuments: \(completedDocuments ?? "nil"),\n            failedDocuments: \(failedDocuments ?? "nil"),\n            warningsCount: \(warningsCount ?? "nil"),\n            ttlInDays: \(ttlInDays ?? "nil"),\n            createdBy: \(createdBy ?? "nil"),\n            timeAccepted: \(timeAccepted ?? "nil"),\n            timeStarted: \(timeStarted ?? "nil"),\n            timeCompleted: \(timeCompleted ?? "nil")\n        )"
+        return "Job(\n            id: \(id ?? "nil"),\n            inputLocation: present,\n            modelMetadataDetails: \(modelMetadataDetails.count),\n            compartmentId: \(compartmentId ?? "nil"),\n            outputLocation: \((outputLocation != nil ? "present" : "nil")),\n            displayName: \(displayName ?? "nil"),\n            description: \(descriptionText ?? "nil"),\n            inputConfiguration: \((inputConfiguration != nil ? "present" : "nil")),\n            lifecycleState: \(lifecycleState.map { $0.rawValue } ?? "nil"),\n            lifecycleDetails: \(lifecycleDetails ?? "nil"),\n            percentComplete: \((percentComplete.map { String($0) } ?? "nil")),\n            totalDocuments: \((totalDocuments.map { String($0) } ?? "nil")),\n            pendingDocuments: \((pendingDocuments.map { String($0) } ?? "nil")),\n            completedDocuments: \((completedDocuments.map { String($0) } ?? "nil")),\n            failedDocuments: \((failedDocuments.map { String($0) } ?? "nil")),\n            warningsCount: \((warningsCount.map { String($0) } ?? "nil")),\n            ttlInDays: \((ttlInDays.map { String($0) } ?? "nil")),\n            createdBy: \(createdBy ?? "nil"),\n            timeAccepted: \((timeAccepted != nil ? "present" : "nil")),\n            timeStarted: \((timeStarted != nil ? "present" : "nil")),\n            timeCompleted: \((timeCompleted != nil ? "present" : "nil"))\n        )"
     }
 }
 
@@ -127,10 +128,9 @@ extension Job: CustomStringConvertible {
 // UnmarshalJSON unmarshals from json
 
 // JobLifecycleStateEnum Enum with underlying type: string
-public typealias JobLifecycleStateEnum = String
 
 // Set of constants representing the allowable values for JobLifecycleStateEnum
-public enum JobLifecycleStateEnum: String, Sendable {
+public enum JobLifecycleStateEnum: String, Codable, Sendable {
     case accepted = "ACCEPTED"
     case inProgress = "IN_PROGRESS"
     case succeeded = "SUCCEEDED"

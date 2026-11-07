@@ -6,9 +6,7 @@ import Foundation
 public struct AnnouncementsCollection: Codable {
     public var items: [AnnouncementSummary]
     
-    public enum CodingKeys: String, CodingKey {
-        case items = "items"
-    }
+    
     
     public init(items: [AnnouncementSummary]) {
         self.items = items

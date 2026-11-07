@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct VbInstance: Codable {
     public var id: String
@@ -14,8 +15,8 @@ public struct VbInstance: Codable {
     public var timeUpdated: Date?
     public var stateMessage: String?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
-    public var systemTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
+    public var systemTags: [String: [String: JSONValue]]?
     public var isVisualBuilderEnabled: Bool?
     public var customEndpoint: CustomEndpointDetails?
     public var alternateCustomEndpoints: [CustomEndpointDetails]?
@@ -24,27 +25,7 @@ public struct VbInstance: Codable {
     public var attachments: [AttachmentDetails]?
     public var serviceNatGatewayIp: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case displayName = "displayName"
-        case compartmentId = "compartmentId"
-        case lifecycleState = "lifecycleState"
-        case instanceUrl = "instanceUrl"
-        case nodeCount = "nodeCount"
-        case timeCreated = "timeCreated"
-        case timeUpdated = "timeUpdated"
-        case stateMessage = "stateMessage"
-        case freeformTags = "freeformTags"
-        case definedTags = "definedTags"
-        case systemTags = "systemTags"
-        case isVisualBuilderEnabled = "isVisualBuilderEnabled"
-        case customEndpoint = "customEndpoint"
-        case alternateCustomEndpoints = "alternateCustomEndpoints"
-        case consumptionModel = "consumptionModel"
-        case idcsInfo = "idcsInfo"
-        case attachments = "attachments"
-        case serviceNatGatewayIp = "serviceNatGatewayIp"
-    }
+    
     
     public init(id: String,
                 displayName: String,
@@ -56,8 +37,8 @@ public struct VbInstance: Codable {
                 timeUpdated: Date? = nil,
                 stateMessage: String? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil,
-                systemTags: [String: [String: Any]]? = nil,
+                definedTags: [String: [String: JSONValue]]? = nil,
+                systemTags: [String: [String: JSONValue]]? = nil,
                 isVisualBuilderEnabled: Bool? = nil,
                 customEndpoint: CustomEndpointDetails? = nil,
                 alternateCustomEndpoints: [CustomEndpointDetails]? = nil,

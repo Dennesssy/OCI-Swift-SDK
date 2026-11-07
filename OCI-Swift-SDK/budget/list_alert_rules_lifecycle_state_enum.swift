@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListAlertRulesLifecycleStateEnum
 
-public enum ListAlertRulesLifecycleStateEnum: String, Sendable {
+public enum ListAlertRulesLifecycleStateEnum: String, Codable, Sendable {
     case active = "ACTIVE"
     case inactive = "INACTIVE"
 }

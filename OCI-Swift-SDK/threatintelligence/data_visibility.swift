@@ -15,7 +15,5 @@ public struct DataVisibility: Codable, Sendable {
         self.isPublic = isPublic
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case isPublic
-    }
+    
 }

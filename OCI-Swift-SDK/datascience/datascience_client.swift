@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class udatascienceClient: ClientProtocol {
+public final class udatascienceClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

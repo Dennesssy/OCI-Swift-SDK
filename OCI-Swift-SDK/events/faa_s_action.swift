@@ -14,7 +14,7 @@ public struct FaaSAction: Codable, Sendable, Action {
     // Whether or not this action is currently enabled
     public var isEnabled: Bool?
     // A string that describes the details of the action
-    public var description: String?
+    public var descriptionText: String?
     // The OCID of a Function
     public var functionId: String?
     // The current state of the rule
@@ -29,10 +29,30 @@ public struct FaaSAction: Codable, Sendable, Action {
         self.lifecycleMessage = lifecycleMessage
         self.lifecycleState = lifecycleState
         self.isEnabled = isEnabled
-        self.description = description
+        self.descriptionText = description
         self.functionId = functionId
     }
     
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(String.self, forKey: .id)
+        self.lifecycleMessage = try container.decode(String.self, forKey: .lifecycleMessage)
+        self.isEnabled = try container.decodeIfPresent(Bool.self, forKey: .isEnabled)
+        self.descriptionText = try container.decodeIfPresent(String.self, forKey: .description)
+        self.functionId = try container.decodeIfPresent(String.self, forKey: .functionId)
+        self.lifecycleState = try container.decode(ActionLifecycleStateEnum.self, forKey: .lifecycleState)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.id, forKey: .id)
+        try container.encode(self.lifecycleMessage, forKey: .lifecycleMessage)
+        try container.encodeIfPresent(self.isEnabled, forKey: .isEnabled)
+        try container.encodeIfPresent(self.descriptionText, forKey: .description)
+        try container.encodeIfPresent(self.functionId, forKey: .functionId)
+        try container.encode(self.lifecycleState, forKey: .lifecycleState)
+    }
+
     public func validateEnumValue() throws {
         guard ActionLifecycleStateEnum.allValues.contains(lifecycleState) else {
             throw NSError(domain: "Invalid enum value", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid lifecycleState"])

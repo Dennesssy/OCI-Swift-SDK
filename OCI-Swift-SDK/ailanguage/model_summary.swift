@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -22,16 +23,16 @@ public struct ModelSummary: Codable, Sendable {
     public var id: String?
     public var displayName: String?
     public var compartmentId: String?
-    public var modelDetails: ModelDetails
+    public var modelDetails: JSONValue
     public var timeCreated: Date?
     public var lifecycleState: ModelLifecycleStateEnum
     public var projectId: String?
-    public var description: String??
-    public var lifecycleDetails: String??
-    public var version: String??
+    public var descriptionText: String?
+    public var lifecycleDetails: String?
+    public var version: String?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
-    public var systemTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
+    public var systemTags: [String: [String: JSONValue]]?
 
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -41,7 +42,7 @@ public struct ModelSummary: Codable, Sendable {
         case timeCreated = "timeCreated"
         case lifecycleState = "lifecycleState"
         case projectId = "projectId"
-        case description = "description"
+        case descriptionText = "description"
         case lifecycleDetails = "lifecycleDetails"
         case version = "version"
         case freeformTags = "freeformTags"
@@ -53,16 +54,16 @@ public struct ModelSummary: Codable, Sendable {
         id: String?,
         displayName: String?,
         compartmentId: String?,
-        modelDetails: ModelDetails,
+        modelDetails: JSONValue,
         timeCreated: Date?,
         lifecycleState: ModelLifecycleStateEnum,
         projectId: String?,
-        description: String?? = nil,
-        lifecycleDetails: String?? = nil,
-        version: String?? = nil,
+        description: String? = nil,
+        lifecycleDetails: String? = nil,
+        version: String? = nil,
         freeformTags: [String: String]? = nil,
-        definedTags: [String: [String: Any]]? = nil,
-        systemTags: [String: [String: Any]]? = nil
+        definedTags: [String: [String: JSONValue]]? = nil,
+        systemTags: [String: [String: JSONValue]]? = nil
     ) {
         self.id = id
         self.displayName = displayName
@@ -71,7 +72,7 @@ public struct ModelSummary: Codable, Sendable {
         self.timeCreated = timeCreated
         self.lifecycleState = lifecycleState
         self.projectId = projectId
-        self.description = description
+        self.descriptionText = description
         self.lifecycleDetails = lifecycleDetails
         self.version = version
         self.freeformTags = freeformTags
@@ -82,7 +83,7 @@ public struct ModelSummary: Codable, Sendable {
 
 extension ModelSummary: CustomStringConvertible {
     public var description: String {
-        return "ModelSummary(\n            id: \(id ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            modelDetails: \(modelDetails ?? "nil"),\n            timeCreated: \(timeCreated ?? "nil"),\n            lifecycleState: \(lifecycleState ?? "nil"),\n            projectId: \(projectId ?? "nil"),\n            description: \(description ?? "nil"),\n            lifecycleDetails: \(lifecycleDetails ?? "nil"),\n            version: \(version ?? "nil"),\n            freeformTags: \(freeformTags ?? "nil"),\n            definedTags: \(definedTags ?? "nil"),\n            systemTags: \(systemTags ?? "nil")\n        )"
+        return "ModelSummary(\n            id: \(id ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            modelDetails: present,\n            timeCreated: \((timeCreated != nil ? "present" : "nil")),\n            lifecycleState: \(lifecycleState.rawValue),\n            projectId: \(projectId ?? "nil"),\n            description: \(descriptionText ?? "nil"),\n            lifecycleDetails: \(lifecycleDetails ?? "nil"),\n            version: \(version ?? "nil"),\n            freeformTags: \(freeformTags?.count ?? 0),\n            definedTags: \(definedTags?.count ?? 0),\n            systemTags: \(systemTags?.count ?? 0)\n        )"
     }
 }
 

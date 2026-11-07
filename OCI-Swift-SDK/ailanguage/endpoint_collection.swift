@@ -34,7 +34,7 @@ public struct EndpointCollection: Codable, Sendable {
 
 extension EndpointCollection: CustomStringConvertible {
     public var description: String {
-        return "EndpointCollection(\n            items: \(items ?? "nil")\n        )"
+        return "EndpointCollection(\n            items: \(items.count)\n        )"
     }
 }
 

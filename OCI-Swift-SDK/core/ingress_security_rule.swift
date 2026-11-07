@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - IngressSecurityRuleSourceTypeEnum
 
-public enum IngressSecurityRuleSourceTypeEnum: String, Sendable {
+public enum IngressSecurityRuleSourceTypeEnum: String, Codable, Sendable {
     case cidrBlock = "CIDR_BLOCK"
     case serviceCidrBlock = "SERVICE_CIDR_BLOCK"
 }
@@ -20,29 +20,30 @@ public extension IngressSecurityRuleSourceTypeEnum {
 // MARK: - IngressSecurityRule
 
 public struct IngressSecurityRule: Codable, Sendable {
-    public var protocol: String
+    public var `protocol`: String
     public var source: String
     public var icmpOptions: IcmpOptions?
     public var isStateless: Bool?
     public var sourceType: IngressSecurityRuleSourceTypeEnum?
     public var tcpOptions: TcpOptions?
     public var udpOptions: UdpOptions?
-    public var description: String?
+    public var descriptionText: String?
     
     private enum CodingKeys: String, CodingKey {
-        case protocol, source, icmpOptions, isStateless
-        case sourceType, tcpOptions, udpOptions, description
+        case `protocol`, source, icmpOptions, isStateless
+        case sourceType, tcpOptions, udpOptions
+        case descriptionText = "description"
     }
     
-    public init(protocol: String, source: String,
+    public init(`protocol`: String, source: String,
                 icmpOptions: IcmpOptions? = nil, isStateless: Bool? = nil,
                 sourceType: IngressSecurityRuleSourceTypeEnum? = nil,
                 tcpOptions: TcpOptions? = nil, udpOptions: UdpOptions? = nil,
                 description: String? = nil) {
-        self.protocol = protocol; self.source = source
+        self.`protocol` = `protocol`; self.source = source
         self.icmpOptions = icmpOptions; self.isStateless = isStateless
         self.sourceType = sourceType; self.tcpOptions = tcpOptions
-        self.udpOptions = udpOptions; self.description = description
+        self.udpOptions = udpOptions; self.descriptionText = description
     }
     
     public func validateEnumValue() throws {
@@ -58,5 +59,5 @@ public struct IngressSecurityRule: Codable, Sendable {
 }
 
 extension IngressSecurityRule: CustomStringConvertible {
-    public var description: String { "IngressSecurityRule(source: \(source), protocol: \(protocol))" }
+    public var description: String { "IngressSecurityRule(source: \(source), protocol: \(`protocol`))" }
 }

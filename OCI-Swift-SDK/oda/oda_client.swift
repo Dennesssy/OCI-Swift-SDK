@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class uodaClient: ClientProtocol {
+public final class uodaClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

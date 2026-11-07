@@ -48,18 +48,5 @@ public struct IndicatorSummary: Codable, Sendable {
         self.lifecycleState = lifecycleState
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case id
-        case type
-        case value
-        case threatTypes
-        case attributes
-        case timeCreated
-        case timeUpdated
-        case timeLastSeen
-        case geodata
-        case confidence
-        case compartmentId
-        case lifecycleState
-    }
+    
 }

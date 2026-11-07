@@ -19,7 +19,7 @@ import Foundation
 
 // TextClassificationEvaluationResults Text Classification model testing and evaluation results
 public struct TextClassificationEvaluationResults: Codable, Sendable {
-    public var metrics: TextClassificationModelMetrics??
+    public var metrics: TextClassificationModelMetrics?
     public var classMetrics: [ClassMetrics]?
     public var confusionMatrix: [String: ConfusionMatrixDetails]?
     public var labels: [String]?
@@ -32,7 +32,7 @@ public struct TextClassificationEvaluationResults: Codable, Sendable {
     }
 
     public init(
-        metrics: TextClassificationModelMetrics?? = nil,
+        metrics: TextClassificationModelMetrics? = nil,
         classMetrics: [ClassMetrics]? = nil,
         confusionMatrix: [String: ConfusionMatrixDetails]? = nil,
         labels: [String]? = nil
@@ -46,7 +46,7 @@ public struct TextClassificationEvaluationResults: Codable, Sendable {
 
 extension TextClassificationEvaluationResults: CustomStringConvertible {
     public var description: String {
-        return "TextClassificationEvaluationResults(\n            metrics: \(metrics ?? "nil"),\n            classMetrics: \(classMetrics ?? "nil"),\n            confusionMatrix: \(confusionMatrix ?? "nil"),\n            labels: \(labels ?? "nil")\n        )"
+        return "TextClassificationEvaluationResults(\n            metrics: \((metrics != nil ? "present" : "nil")),\n            classMetrics: \(classMetrics?.count ?? 0),\n            confusionMatrix: \(confusionMatrix?.count ?? 0),\n            labels: \(labels?.count ?? 0)\n        )"
     }
 }
 

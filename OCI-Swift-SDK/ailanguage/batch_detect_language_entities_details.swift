@@ -20,8 +20,8 @@ import Foundation
 // BatchDetectLanguageEntitiesDetails The documents details for entities detect call.
 public struct BatchDetectLanguageEntitiesDetails: Codable, Sendable {
     public var documents: [TextDocument]
-    public var compartmentId: String??
-    public var endpointId: String??
+    public var compartmentId: String?
+    public var endpointId: String?
 
     enum CodingKeys: String, CodingKey {
         case documents = "documents"
@@ -31,8 +31,8 @@ public struct BatchDetectLanguageEntitiesDetails: Codable, Sendable {
 
     public init(
         documents: [TextDocument],
-        compartmentId: String?? = nil,
-        endpointId: String?? = nil
+        compartmentId: String? = nil,
+        endpointId: String? = nil
     ) {
         self.documents = documents
         self.compartmentId = compartmentId
@@ -42,7 +42,7 @@ public struct BatchDetectLanguageEntitiesDetails: Codable, Sendable {
 
 extension BatchDetectLanguageEntitiesDetails: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectLanguageEntitiesDetails(\n            documents: \(documents ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            endpointId: \(endpointId ?? "nil")\n        )"
+        return "BatchDetectLanguageEntitiesDetails(\n            documents: \(documents.count),\n            compartmentId: \(compartmentId ?? "nil"),\n            endpointId: \(endpointId ?? "nil")\n        )"
     }
 }
 

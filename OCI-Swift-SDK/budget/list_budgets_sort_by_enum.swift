@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListBudgetsSortByEnum
 
-public enum ListBudgetsSortByEnum: String, Sendable {
+public enum ListBudgetsSortByEnum: String, Codable, Sendable {
     case timeCreated = "timeCreated"
     case displayName = "displayName"
 }

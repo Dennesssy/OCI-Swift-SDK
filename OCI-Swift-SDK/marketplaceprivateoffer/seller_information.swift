@@ -18,8 +18,5 @@ public struct SellerInformation: Codable, Sendable {
         self.tenancyName = tenancyName
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case compartmentId
-        case tenancyName
-    }
+    
 }

@@ -34,7 +34,7 @@ public struct DetectLanguageEntitiesResult: Codable, Sendable {
 
 extension DetectLanguageEntitiesResult: CustomStringConvertible {
     public var description: String {
-        return "DetectLanguageEntitiesResult(\n            entities: \(entities ?? "nil")\n        )"
+        return "DetectLanguageEntitiesResult(\n            entities: \(entities.count)\n        )"
     }
 }
 

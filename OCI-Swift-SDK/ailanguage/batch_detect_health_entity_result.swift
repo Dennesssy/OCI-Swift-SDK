@@ -38,7 +38,7 @@ public struct BatchDetectHealthEntityResult: Codable, Sendable {
 
 extension BatchDetectHealthEntityResult: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectHealthEntityResult(\n            documents: \(documents ?? "nil"),\n            errors: \(errors ?? "nil")\n        )"
+        return "BatchDetectHealthEntityResult(\n            documents: \(documents.count),\n            errors: \(errors?.count ?? 0)\n        )"
     }
 }
 

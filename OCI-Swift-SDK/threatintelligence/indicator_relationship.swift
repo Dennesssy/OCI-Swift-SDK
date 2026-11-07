@@ -21,9 +21,5 @@ public struct IndicatorRelationship: Codable, Sendable {
         self.attribution = attribution
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case name
-        case relatedEntity
-        case attribution
-    }
+    
 }

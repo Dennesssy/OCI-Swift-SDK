@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import OCICommon
 
 /// The details about a new GovernanceInstance.
 public struct CreateGovernanceInstanceDetails: Codable, Sendable {
@@ -30,11 +31,11 @@ public struct CreateGovernanceInstanceDetails: Codable, Sendable {
     public var idcsAccessToken: String
     
     /// The description of the GovernanceInstance.
-    public var description: String?
+    public var descriptionText: String?
     
     /// Defined tags for this resource. Each key is predefined and scoped to a namespace.
     /// Example: `{"foo-namespace": {"bar-key": "value"}}`
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
     /// Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
     /// Example: `{"bar-key": "value"}`
@@ -42,7 +43,7 @@ public struct CreateGovernanceInstanceDetails: Codable, Sendable {
     
     /// Usage of system tag keys. These predefined keys are scoped to namespaces.
     /// Example: `{"orcl-cloud": {"free-tier-retained": "true"}}`
-    public var systemTags: [String: [String: Any]]?
+    public var systemTags: [String: [String: JSONValue]]?
     
     // MARK: - Coding Keys
     
@@ -67,16 +68,16 @@ public struct CreateGovernanceInstanceDetails: Codable, Sendable {
         compartmentId: String,
         idcsAccessToken: String,
         description: String? = nil,
-        definedTags: [String: [String: Any]]? = nil,
+        definedTags: [String: [String: JSONValue]]? = nil,
         freeformTags: [String: String]? = nil,
-        systemTags: [String: [String: Any]]? = nil
+        systemTags: [String: [String: JSONValue]]? = nil
     ) {
         self.displayName = displayName
         self.licenseType = licenseType
         self.tenancyNamespace = tenancyNamespace
         self.compartmentId = compartmentId
         self.idcsAccessToken = idcsAccessToken
-        self.description = description
+        self.descriptionText = description
         self.definedTags = definedTags
         self.freeformTags = freeformTags
         self.systemTags = systemTags
@@ -98,6 +99,34 @@ public struct CreateGovernanceInstanceDetails: Codable, Sendable {
             throw NSError(domain: "AccessGovernanceCP", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessages.joined(separator: "\n")])
         }
     }
+    // MARK: - Codable
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.displayName = try container.decode(String.self, forKey: .displayName)
+        self.licenseType = try container.decode(LicenseTypeEnum.self, forKey: .licenseType)
+        self.tenancyNamespace = try container.decode(String.self, forKey: .tenancyNamespace)
+        self.compartmentId = try container.decode(String.self, forKey: .compartmentId)
+        self.idcsAccessToken = try container.decode(String.self, forKey: .idcsAccessToken)
+        self.descriptionText = try container.decodeIfPresent(String.self, forKey: .description)
+        self.definedTags = try container.decodeIfPresent([String: [String: JSONValue]].self, forKey: .definedTags)
+        self.freeformTags = try container.decodeIfPresent([String: String].self, forKey: .freeformTags)
+        self.systemTags = try container.decodeIfPresent([String: [String: JSONValue]].self, forKey: .systemTags)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.displayName, forKey: .displayName)
+        try container.encode(self.licenseType, forKey: .licenseType)
+        try container.encode(self.tenancyNamespace, forKey: .tenancyNamespace)
+        try container.encode(self.compartmentId, forKey: .compartmentId)
+        try container.encode(self.idcsAccessToken, forKey: .idcsAccessToken)
+        try container.encodeIfPresent(self.descriptionText, forKey: .description)
+        try container.encodeIfPresent(self.definedTags, forKey: .definedTags)
+        try container.encodeIfPresent(self.freeformTags, forKey: .freeformTags)
+        try container.encodeIfPresent(self.systemTags, forKey: .systemTags)
+    }
+
 }
 
 // MARK: - CustomStringConvertible
@@ -111,7 +140,7 @@ extension CreateGovernanceInstanceDetails: CustomStringConvertible {
             tenancyNamespace: \(tenancyNamespace),
             compartmentId: \(compartmentId),
             idcsAccessToken: \(idcsAccessToken),
-            description: \(description ?? "nil"),
+            description: \(descriptionText ?? "nil"),
             definedTags: \(definedTags?.description ?? "nil"),
             freeformTags: \(freeformTags?.description ?? "nil"),
             systemTags: \(systemTags?.description ?? "nil")

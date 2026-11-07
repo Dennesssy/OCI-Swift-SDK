@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - OpaInstanceShapeNameEnum
 
-public enum OpaInstanceShapeNameEnum: String, Sendable {
+public enum OpaInstanceShapeNameEnum: String, Codable, Sendable {
     case development = "DEVELOPMENT"
     case production = "PRODUCTION"
 }

@@ -57,7 +57,7 @@ extension AiPrivateEndpoint: CustomStringConvertible {
 
 // AiPrivateEndpointLifecycleStateEnum Enum with underlying type: string
 // MARK: - AiPrivateEndpointLifecycleStateEnum
-public enum AiPrivateEndpointLifecycleStateEnum: String, Sendable {
+public enum AiPrivateEndpointLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case updating = "UPDATING"
     case active = "ACTIVE"

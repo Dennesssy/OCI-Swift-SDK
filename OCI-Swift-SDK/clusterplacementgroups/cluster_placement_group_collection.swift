@@ -6,9 +6,7 @@ import Foundation
 public struct ClusterPlacementGroupCollection: Codable {
     public var items: [ClusterPlacementGroupSummary]
     
-    public enum CodingKeys: String, CodingKey {
-        case items = "items"
-    }
+    
     
     public init(items: [ClusterPlacementGroupSummary]) {
         self.items = items

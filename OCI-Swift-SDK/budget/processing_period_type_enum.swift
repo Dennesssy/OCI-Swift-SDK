@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ProcessingPeriodTypeEnum
 
-public enum ProcessingPeriodTypeEnum: String, Sendable {
+public enum ProcessingPeriodTypeEnum: String, Codable, Sendable {
     case invoice = "INVOICE"
     case month = "MONTH"
     case singleUse = "SINGLE_USE"

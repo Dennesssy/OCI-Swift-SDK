@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class ucontainerinstancesClient: ClientProtocol {
+public final class ucontainerinstancesClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

@@ -12,9 +12,9 @@ public struct ModelTrainingDetails: Codable, Sendable {
     // User can choose specific algorithm for training.
     public var AlgorithmHint: ModelTrainingDetailsAlgorithmHintEnum?
     // A target model accuracy metric user provides as their requirement
-    public var TargetFap: float32?
+    public var TargetFap: Float?
     // Fraction of total data that is used for training the model. The remaining is used for validation of the model.
-    public var TrainingFraction: float32?
+    public var TrainingFraction: Float?
     // This value would determine the window size of the training algorithm.
     public var WindowSize: Int?
     enum CodingKeys: String, CodingKey {
@@ -33,7 +33,7 @@ extension ModelTrainingDetails: CustomStringConvertible {
 
 // ModelTrainingDetailsAlgorithmHintEnum Enum with underlying type: string
 // MARK: - ModelTrainingDetailsAlgorithmHintEnum
-public enum ModelTrainingDetailsAlgorithmHintEnum: String, Sendable {
+public enum ModelTrainingDetailsAlgorithmHintEnum: String, Codable, Sendable {
     case multivariateMset = "MULTIVARIATE_MSET"
     case univariateOcsvm = "UNIVARIATE_OCSVM"
 }

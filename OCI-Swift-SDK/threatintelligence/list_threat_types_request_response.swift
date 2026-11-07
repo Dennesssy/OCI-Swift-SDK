@@ -24,12 +24,7 @@ public struct ListThreatTypesRequest: Codable, Sendable {
         self.opcRequestId = opcRequestId
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case compartmentId
-        case limit
-        case page
-        case opcRequestId
-    }
+    
 }
 
 // MARK: - ListThreatTypesResponse
@@ -49,9 +44,5 @@ public struct ListThreatTypesResponse: Codable, Sendable {
         self.opcNextPage = opcNextPage
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case threatTypesCollection
-        case opcRequestId
-        case opcNextPage
-    }
+    
 }

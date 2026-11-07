@@ -8,7 +8,7 @@ import Foundation
 
 public struct UpdateApmDomainDetails: Codable, Sendable {
     public var displayName: String?
-    public var description: String?
+    public var descriptionText: String?
     public var freeformTags: [String: String]?
     public var definedTags: [String: [String: String]]?
     
@@ -18,13 +18,31 @@ public struct UpdateApmDomainDetails: Codable, Sendable {
     
     public init(displayName: String? = nil, description: String? = nil,
                 freeformTags: [String: String]? = nil, definedTags: [String: [String: String]]? = nil) {
-        self.displayName = displayName; self.description = description
+        self.displayName = displayName; self.descriptionText = description
         self.freeformTags = freeformTags; self.definedTags = definedTags
     }
     
     public func validateEnumValue() throws {
         // No enums to validate
     }
+    // MARK: - Codable
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.displayName = try container.decodeIfPresent(String.self, forKey: .displayName)
+        self.descriptionText = try container.decodeIfPresent(String.self, forKey: .description)
+        self.freeformTags = try container.decodeIfPresent([String: String].self, forKey: .freeformTags)
+        self.definedTags = try container.decodeIfPresent([String: [String: String]].self, forKey: .definedTags)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(self.displayName, forKey: .displayName)
+        try container.encodeIfPresent(self.descriptionText, forKey: .description)
+        try container.encodeIfPresent(self.freeformTags, forKey: .freeformTags)
+        try container.encodeIfPresent(self.definedTags, forKey: .definedTags)
+    }
+
 }
 
 extension UpdateApmDomainDetails: CustomStringConvertible {

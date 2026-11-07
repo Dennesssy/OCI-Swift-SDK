@@ -34,7 +34,7 @@ public struct DetectDominantLanguageResult: Codable, Sendable {
 
 extension DetectDominantLanguageResult: CustomStringConvertible {
     public var description: String {
-        return "DetectDominantLanguageResult(\n            languages: \(languages ?? "nil")\n        )"
+        return "DetectDominantLanguageResult(\n            languages: \(languages.count)\n        )"
     }
 }
 

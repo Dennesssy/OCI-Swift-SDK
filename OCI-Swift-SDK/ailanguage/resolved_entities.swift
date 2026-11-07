@@ -34,7 +34,7 @@ public struct ResolvedEntities: Codable, Sendable {
 
 extension ResolvedEntities: CustomStringConvertible {
     public var description: String {
-        return "ResolvedEntities(\n            details: \(details ?? "nil")\n        )"
+        return "ResolvedEntities(\n            details: \(details.count)\n        )"
     }
 }
 

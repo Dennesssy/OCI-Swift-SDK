@@ -55,7 +55,7 @@ public typealias RealtimeParametersStabilizePartialResultsEnum = String
 
 // MARK: - RealtimeParametersStabilizePartialResults
 
-public enum RealtimeParametersStabilizePartialResults: String, Sendable {
+public enum RealtimeParametersStabilizePartialResults: String, Codable, Sendable {
     case none = "NONE"
     case low = "LOW"
     case medium = "MEDIUM"
@@ -76,7 +76,7 @@ public typealias RealtimeParametersModelDomainEnum = String
 
 // MARK: - RealtimeParametersModelDomain
 
-public enum RealtimeParametersModelDomain: String, Sendable {
+public enum RealtimeParametersModelDomain: String, Codable, Sendable {
     case generic = "GENERIC"
     case medical = "MEDICAL"
 }

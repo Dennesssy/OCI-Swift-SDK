@@ -6,9 +6,7 @@ import Foundation
 public struct InitialImportDatasetConfiguration: Codable {
     public var importMetadata: ImportMetadataPath?
     
-    public enum CodingKeys: String, CodingKey {
-        case importMetadata = "importMetadata"
-    }
+    
     
     public init(importMetadata: ImportMetadataPath? = nil) {
         self.importMetadata = importMetadata

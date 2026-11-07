@@ -38,7 +38,7 @@ public struct KeyPhrase: Codable, Sendable {
 
 extension KeyPhrase: CustomStringConvertible {
     public var description: String {
-        return "KeyPhrase(\n            text: \(text ?? "nil"),\n            score: \(score ?? "nil")\n        )"
+        return "KeyPhrase(\n            text: \(text ?? "nil"),\n            score: \((score.map { String($0) } ?? "nil"))\n        )"
     }
 }
 

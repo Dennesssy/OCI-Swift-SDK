@@ -40,12 +40,12 @@ public typealias TranscriptionModelDetailsDomainEnum = String
 
 // MARK: - TranscriptionModelDetailsDomainGeneric
 
-public enum TranscriptionModelDetailsDomainGeneric: String, Sendable {
-    case  = "GENERIC"
+public enum TranscriptionModelDetailsDomainGeneric: String, Codable, Sendable {
+    case generic = "GENERIC"
 }
 
 public extension TranscriptionModelDetailsDomainGeneric {
-    static var allValues: [TranscriptionModelDetailsDomainGeneric] { [.] }
+    static var allValues: [TranscriptionModelDetailsDomainGeneric] { [.generic] }
     static var allStringValues: [String] { ["GENERIC"] }
     static func fromString(_ value: String) -> TranscriptionModelDetailsDomainGeneric? {
         TranscriptionModelDetailsDomainGeneric(rawValue: value)
@@ -58,7 +58,7 @@ public typealias TranscriptionModelDetailsLanguageCodeEnum = String
 
 // MARK: - TranscriptionModelDetailsLanguageCode
 
-public enum TranscriptionModelDetailsLanguageCode: String, Sendable {
+public enum TranscriptionModelDetailsLanguageCode: String, Codable, Sendable {
     case enUs = "en-US"
     case esEs = "es-ES"
     case ptBr = "pt-BR"
@@ -94,7 +94,7 @@ public enum TranscriptionModelDetailsLanguageCode: String, Sendable {
     case hu = "hu"
     case hy = "hy"
     case id = "id"
-    case is = "is"
+    case `is` = "is"
     case it = "it"
     case ja = "ja"
     case kk = "kk"
@@ -129,7 +129,7 @@ public enum TranscriptionModelDetailsLanguageCode: String, Sendable {
 }
 
 public extension TranscriptionModelDetailsLanguageCode {
-    static var allValues: [TranscriptionModelDetailsLanguageCode] { [.enUs, .esEs, .ptBr, .enGb, .enAu, .enIn, .hiIn, .frFr, .deDe, .itIt, .af, .ar, .az, .be, .bg, .bs, .ca, .cs, .cy, .da, .de, .el, .en, .es, .et, .fa, .fi, .fr, .gl, .he, .hi, .hr, .hu, .hy, .id, .is, .it, .ja, .kk, .kn, .ko, .lt, .lv, .mi, .mk, .mr, .ms, .ne, .nl, .no, .pl, .pt, .ro, .ru, .sk, .sl, .sr, .sv, .sw, .ta, .th, .tl, .tr, .uk, .ur, .vi, .zh] }
+    static var allValues: [TranscriptionModelDetailsLanguageCode] { [.enUs, .esEs, .ptBr, .enGb, .enAu, .enIn, .hiIn, .frFr, .deDe, .itIt, .af, .ar, .az, .be, .bg, .bs, .ca, .cs, .cy, .da, .de, .el, .en, .es, .et, .fa, .fi, .fr, .gl, .he, .hi, .hr, .hu, .hy, .id, .`is`, .it, .ja, .kk, .kn, .ko, .lt, .lv, .mi, .mk, .mr, .ms, .ne, .nl, .no, .pl, .pt, .ro, .ru, .sk, .sl, .sr, .sv, .sw, .ta, .th, .tl, .tr, .uk, .ur, .vi, .zh] }
     static var allStringValues: [String] { ["en-US", "es-ES", "pt-BR", "en-GB", "en-AU", "en-IN", "hi-IN", "fr-FR", "de-DE", "it-IT", "af", "ar", "az", "be", "bg", "bs", "ca", "cs", "cy", "da", "de", "el", "en", "es", "et", "fa", "fi", "fr", "gl", "he", "hi", "hr", "hu", "hy", "id", "is", "it", "ja", "kk", "kn", "ko", "lt", "lv", "mi", "mk", "mr", "ms", "ne", "nl", "no", "pl", "pt", "ro", "ru", "sk", "sl", "sr", "sv", "sw", "ta", "th", "tl", "tr", "uk", "ur", "vi", "zh"] }
     static func fromString(_ value: String) -> TranscriptionModelDetailsLanguageCode? {
         TranscriptionModelDetailsLanguageCode(rawValue: value)

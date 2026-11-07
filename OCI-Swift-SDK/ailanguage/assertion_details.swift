@@ -46,7 +46,7 @@ public struct AssertionDetails: Codable, Sendable {
 
 extension AssertionDetails: CustomStringConvertible {
     public var description: String {
-        return "AssertionDetails(\n            id: \(id ?? "nil"),\n            type: \(type ?? "nil"),\n            value: \(value ?? "nil"),\n            score: \(score ?? "nil")\n        )"
+        return "AssertionDetails(\n            id: \(id ?? "nil"),\n            type: \(type ?? "nil"),\n            value: \(value ?? "nil"),\n            score: \((score.map { String($0) } ?? "nil"))\n        )"
     }
 }
 

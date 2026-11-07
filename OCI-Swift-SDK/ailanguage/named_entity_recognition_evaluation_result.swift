@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -23,7 +24,7 @@ public struct NamedEntityRecognitionEvaluationResult: Codable, Sendable {
     public var trueEntities: [EntityLabelErrorAnalysis]
     public var predictedEntities: [EntityLabelErrorAnalysis]
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
 
     enum CodingKeys: String, CodingKey {
         case record = "record"
@@ -38,7 +39,7 @@ public struct NamedEntityRecognitionEvaluationResult: Codable, Sendable {
         trueEntities: [EntityLabelErrorAnalysis],
         predictedEntities: [EntityLabelErrorAnalysis],
         freeformTags: [String: String]? = nil,
-        definedTags: [String: [String: Any]]? = nil
+        definedTags: [String: [String: JSONValue]]? = nil
     ) {
         self.record = record
         self.trueEntities = trueEntities
@@ -50,7 +51,7 @@ public struct NamedEntityRecognitionEvaluationResult: Codable, Sendable {
 
 extension NamedEntityRecognitionEvaluationResult: CustomStringConvertible {
     public var description: String {
-        return "NamedEntityRecognitionEvaluationResult(\n            record: \(record ?? "nil"),\n            trueEntities: \(trueEntities ?? "nil"),\n            predictedEntities: \(predictedEntities ?? "nil"),\n            freeformTags: \(freeformTags ?? "nil"),\n            definedTags: \(definedTags ?? "nil")\n        )"
+        return "NamedEntityRecognitionEvaluationResult(\n            record: \(record ?? "nil"),\n            trueEntities: \(trueEntities.count),\n            predictedEntities: \(predictedEntities.count),\n            freeformTags: \(freeformTags?.count ?? 0),\n            definedTags: \(definedTags?.count ?? 0)\n        )"
     }
 }
 

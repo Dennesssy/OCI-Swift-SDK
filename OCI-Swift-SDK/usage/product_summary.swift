@@ -27,11 +27,5 @@ public struct ProductSummary: Codable, Sendable {
         self.isEligibleToEarnRewards = isEligibleToEarnRewards
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case productNumber
-        case productName
-        case usageAmount
-        case earnedRewards
-        case isEligibleToEarnRewards
-    }
+    
 }

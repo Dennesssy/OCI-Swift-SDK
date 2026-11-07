@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class ugovernancerulescontrolplaneClient: ClientProtocol {
+public final class ugovernancerulescontrolplaneClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

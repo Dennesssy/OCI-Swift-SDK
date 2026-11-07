@@ -36,14 +36,5 @@ public struct GeodataDetails: Codable, Sendable {
         self.state = state
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case city
-        case continent
-        case country
-        case countryCode
-        case latitude
-        case longitude
-        case region
-        case state
-    }
+    
 }

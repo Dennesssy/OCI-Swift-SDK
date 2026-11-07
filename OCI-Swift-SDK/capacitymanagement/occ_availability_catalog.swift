@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct OccAvailabilityCatalog: Codable {
     public var id: String
@@ -17,28 +18,11 @@ public struct OccAvailabilityCatalog: Codable {
     public var description: String?
     public var lifecycleDetails: String?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
-    public var systemTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
+    public var systemTags: [String: [String: JSONValue]]?
     public var details: [OccAvailabilitySummary]?
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case namespace = "namespace"
-        case compartmentId = "compartmentId"
-        case displayName = "displayName"
-        case occCustomerGroupId = "occCustomerGroupId"
-        case catalogState = "catalogState"
-        case metadataDetails = "metadataDetails"
-        case timeCreated = "timeCreated"
-        case timeUpdated = "timeUpdated"
-        case lifecycleState = "lifecycleState"
-        case description = "description"
-        case lifecycleDetails = "lifecycleDetails"
-        case freeformTags = "freeformTags"
-        case definedTags = "definedTags"
-        case systemTags = "systemTags"
-        case details = "details"
-    }
+    
     
     public init(id: String,
                 namespace: NamespaceEnum,
@@ -53,8 +37,8 @@ public struct OccAvailabilityCatalog: Codable {
                 description: String? = nil,
                 lifecycleDetails: String? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil,
-                systemTags: [String: [String: Any]]? = nil,
+                definedTags: [String: [String: JSONValue]]? = nil,
+                systemTags: [String: [String: JSONValue]]? = nil,
                 details: [OccAvailabilitySummary]? = nil) {
         self.id = id
         self.namespace = namespace

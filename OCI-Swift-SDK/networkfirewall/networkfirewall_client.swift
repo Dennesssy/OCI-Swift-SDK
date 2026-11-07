@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class unetworkfirewallClient: ClientProtocol {
+public final class unetworkfirewallClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

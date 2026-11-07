@@ -8,11 +8,7 @@ public struct AttachmentDetails: Codable {
     public var instanceUrl: String?
     public var subnetId: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case type = "type"
-        case instanceUrl = "instanceUrl"
-        case subnetId = "subnetId"
-    }
+    
     
     public init(type: String? = nil,
                 instanceUrl: String? = nil,

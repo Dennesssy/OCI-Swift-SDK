@@ -21,9 +21,5 @@ public struct IndicatorCountDimensions: Codable, Sendable {
         self.indicatorTypes = indicatorTypes
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case threatTypes
-        case threatFeeds
-        case indicatorTypes
-    }
+    
 }

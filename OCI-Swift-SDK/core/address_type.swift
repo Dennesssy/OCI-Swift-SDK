@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - AddressTypeEnum
 
-public enum AddressTypeEnum: String, Sendable {
+public enum AddressTypeEnum: String, Codable, Sendable {
     case privateIPv4 = "Private_IPv4"
     case oracleAllocatedPublicIPv4 = "Oracle_Allocated_Public_IPv4"
     case byoipIPv4 = "BYOIP_IPv4"

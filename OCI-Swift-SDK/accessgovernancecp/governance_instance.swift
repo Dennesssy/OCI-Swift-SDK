@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import OCICommon
 
 /// The details of a GovernanceInstance.
 public struct GovernanceInstance: Codable, Sendable {
@@ -33,7 +34,7 @@ public struct GovernanceInstance: Codable, Sendable {
     public var timeUpdated: Date?
     
     /// The description of the GovernanceInstance.
-    public var description: String?
+    public var descriptionText: String?
     
     /// The licenseType being used.
     public var licenseType: LicenseTypeEnum?
@@ -46,7 +47,7 @@ public struct GovernanceInstance: Codable, Sendable {
     
     /// Defined tags for this resource. Each key is predefined and scoped to a namespace.
     /// Example: `{"foo-namespace": {"bar-key": "value"}}`
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
     /// Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
     /// Example: `{"bar-key": "value"}`
@@ -54,7 +55,7 @@ public struct GovernanceInstance: Codable, Sendable {
     
     /// Usage of system tag keys. These predefined keys are scoped to namespaces.
     /// Example: `{"orcl-cloud": {"free-tier-retained": "true"}}`
-    public var systemTags: [String: [String: Any]]?
+    public var systemTags: [String: [String: JSONValue]]?
     
     // MARK: - Coding Keys
     
@@ -87,9 +88,9 @@ public struct GovernanceInstance: Codable, Sendable {
         licenseType: LicenseTypeEnum? = nil,
         tenancyNamespace: String? = nil,
         instanceUrl: String? = nil,
-        definedTags: [String: [String: Any]]? = nil,
+        definedTags: [String: [String: JSONValue]]? = nil,
         freeformTags: [String: String]? = nil,
-        systemTags: [String: [String: Any]]? = nil
+        systemTags: [String: [String: JSONValue]]? = nil
     ) {
         self.displayName = displayName
         self.compartmentId = compartmentId
@@ -97,7 +98,7 @@ public struct GovernanceInstance: Codable, Sendable {
         self.lifecycleState = lifecycleState
         self.id = id
         self.timeUpdated = timeUpdated
-        self.description = description
+        self.descriptionText = description
         self.licenseType = licenseType
         self.tenancyNamespace = tenancyNamespace
         self.instanceUrl = instanceUrl
@@ -127,6 +128,42 @@ public struct GovernanceInstance: Codable, Sendable {
             throw NSError(domain: "AccessGovernanceCP", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessages.joined(separator: "\n")])
         }
     }
+    // MARK: - Codable
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.displayName = try container.decode(String.self, forKey: .displayName)
+        self.compartmentId = try container.decode(String.self, forKey: .compartmentId)
+        self.timeCreated = try container.decode(Date.self, forKey: .timeCreated)
+        self.lifecycleState = try container.decode(InstanceLifecycleStateEnum.self, forKey: .lifecycleState)
+        self.id = try container.decodeIfPresent(String.self, forKey: .id)
+        self.timeUpdated = try container.decodeIfPresent(Date.self, forKey: .timeUpdated)
+        self.descriptionText = try container.decodeIfPresent(String.self, forKey: .description)
+        self.licenseType = try container.decodeIfPresent(LicenseTypeEnum.self, forKey: .licenseType)
+        self.tenancyNamespace = try container.decodeIfPresent(String.self, forKey: .tenancyNamespace)
+        self.instanceUrl = try container.decodeIfPresent(String.self, forKey: .instanceUrl)
+        self.definedTags = try container.decodeIfPresent([String: [String: JSONValue]].self, forKey: .definedTags)
+        self.freeformTags = try container.decodeIfPresent([String: String].self, forKey: .freeformTags)
+        self.systemTags = try container.decodeIfPresent([String: [String: JSONValue]].self, forKey: .systemTags)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.displayName, forKey: .displayName)
+        try container.encode(self.compartmentId, forKey: .compartmentId)
+        try container.encode(self.timeCreated, forKey: .timeCreated)
+        try container.encode(self.lifecycleState, forKey: .lifecycleState)
+        try container.encodeIfPresent(self.id, forKey: .id)
+        try container.encodeIfPresent(self.timeUpdated, forKey: .timeUpdated)
+        try container.encodeIfPresent(self.descriptionText, forKey: .description)
+        try container.encodeIfPresent(self.licenseType, forKey: .licenseType)
+        try container.encodeIfPresent(self.tenancyNamespace, forKey: .tenancyNamespace)
+        try container.encodeIfPresent(self.instanceUrl, forKey: .instanceUrl)
+        try container.encodeIfPresent(self.definedTags, forKey: .definedTags)
+        try container.encodeIfPresent(self.freeformTags, forKey: .freeformTags)
+        try container.encodeIfPresent(self.systemTags, forKey: .systemTags)
+    }
+
 }
 
 // MARK: - CustomStringConvertible
@@ -141,7 +178,7 @@ extension GovernanceInstance: CustomStringConvertible {
             lifecycleState: \(lifecycleState),
             id: \(id ?? "nil"),
             timeUpdated: \(timeUpdated?.description ?? "nil"),
-            description: \(description ?? "nil"),
+            description: \(descriptionText ?? "nil"),
             licenseType: \(licenseType?.rawValue ?? "nil"),
             tenancyNamespace: \(tenancyNamespace ?? "nil"),
             instanceUrl: \(instanceUrl ?? "nil"),

@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class uocvpClient: ClientProtocol {
+public final class uocvpClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

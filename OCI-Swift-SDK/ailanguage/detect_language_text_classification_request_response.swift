@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -16,8 +17,8 @@ import Foundation
 //
 // Click https://docs.cloud.oracle.com/en-us/iaas/tools/go-sdk-examples/latest/ailanguage/DetectLanguageTextClassification.go.html to see an example of how to use DetectLanguageTextClassificationRequest.
 public struct DetectLanguageTextClassificationRequest: Codable, Sendable {
-    public var opcRequestId: String??
-    public var requestMetadata: common.RequestMetadata?
+    public var opcRequestId: String?
+    public var requestMetadata: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case opcRequestId = "OpcRequestId"
@@ -25,8 +26,8 @@ public struct DetectLanguageTextClassificationRequest: Codable, Sendable {
     }
 
     public init(
-        opcRequestId: String?? = nil,
-        requestMetadata: common.RequestMetadata? = nil
+        opcRequestId: String? = nil,
+        requestMetadata: [String: String]? = nil
     ) {
         self.opcRequestId = opcRequestId
         self.requestMetadata = requestMetadata
@@ -35,7 +36,7 @@ public struct DetectLanguageTextClassificationRequest: Codable, Sendable {
 
 extension DetectLanguageTextClassificationRequest: CustomStringConvertible {
     public var description: String {
-        return "DetectLanguageTextClassificationRequest(\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "DetectLanguageTextClassificationRequest(\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            requestMetadata: \(requestMetadata != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -53,9 +54,9 @@ extension DetectLanguageTextClassificationRequest: CustomStringConvertible {
 
 // DetectLanguageTextClassificationResponse wrapper for the DetectLanguageTextClassification operation
 public struct DetectLanguageTextClassificationResponse: Codable, Sendable {
-    public var rawResponse: http.Response??
-    public var opcRequestId: String??
-    public var sunset: String??
+    public var rawResponse: JSONValue?
+    public var opcRequestId: String?
+    public var sunset: String?
 
     enum CodingKeys: String, CodingKey {
         case rawResponse = "RawResponse"
@@ -64,9 +65,9 @@ public struct DetectLanguageTextClassificationResponse: Codable, Sendable {
     }
 
     public init(
-        rawResponse: http.Response?? = nil,
-        opcRequestId: String?? = nil,
-        sunset: String?? = nil
+        rawResponse: JSONValue? = nil,
+        opcRequestId: String? = nil,
+        sunset: String? = nil
     ) {
         self.rawResponse = rawResponse
         self.opcRequestId = opcRequestId
@@ -76,7 +77,7 @@ public struct DetectLanguageTextClassificationResponse: Codable, Sendable {
 
 extension DetectLanguageTextClassificationResponse: CustomStringConvertible {
     public var description: String {
-        return "DetectLanguageTextClassificationResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            sunset: \(sunset ?? "nil")\n        )"
+        return "DetectLanguageTextClassificationResponse(\n            rawResponse: \(rawResponse != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            sunset: \(sunset != nil ? "present" : "nil")\n        )"
     }
 }
 

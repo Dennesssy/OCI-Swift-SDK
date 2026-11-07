@@ -19,7 +19,7 @@ extension inputdetails: CustomStringConvertible {
 
 // InputDetailsInputTypeEnum Enum with underlying type: string
 // MARK: - InputDetailsInputTypeEnum
-public enum InputDetailsInputTypeEnum: String, Sendable {
+public enum InputDetailsInputTypeEnum: String, Codable, Sendable {
     case inline = "INLINE"
     case base64Encoded = "BASE64_ENCODED"
     case objectList = "OBJECT_LIST"

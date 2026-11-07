@@ -22,7 +22,7 @@ public struct WorkRequestResource: Codable, Sendable {
     public var entityType: String?
     public var actionType: ActionTypeEnum
     public var identifier: String?
-    public var entityUri: String??
+    public var entityUri: String?
 
     enum CodingKeys: String, CodingKey {
         case entityType = "entityType"
@@ -35,7 +35,7 @@ public struct WorkRequestResource: Codable, Sendable {
         entityType: String?,
         actionType: ActionTypeEnum,
         identifier: String?,
-        entityUri: String?? = nil
+        entityUri: String? = nil
     ) {
         self.entityType = entityType
         self.actionType = actionType
@@ -46,7 +46,7 @@ public struct WorkRequestResource: Codable, Sendable {
 
 extension WorkRequestResource: CustomStringConvertible {
     public var description: String {
-        return "WorkRequestResource(\n            entityType: \(entityType ?? "nil"),\n            actionType: \(actionType ?? "nil"),\n            identifier: \(identifier ?? "nil"),\n            entityUri: \(entityUri ?? "nil")\n        )"
+        return "WorkRequestResource(\n            entityType: \(entityType ?? "nil"),\n            actionType: \(actionType.rawValue),\n            identifier: \(identifier ?? "nil"),\n            entityUri: \(entityUri ?? "nil")\n        )"
     }
 }
 

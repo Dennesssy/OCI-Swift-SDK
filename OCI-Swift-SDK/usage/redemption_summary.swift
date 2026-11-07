@@ -42,16 +42,5 @@ public struct RedemptionSummary: Codable, Sendable {
         self.timeInvoiced = timeInvoiced
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case timeRedeemed
-        case redemptionEmail
-        case redemptionCode
-        case invoiceNumber
-        case invoiceTotalAmount
-        case invoiceCurrency
-        case redeemedRewards
-        case baseRewards
-        case fxRate
-        case timeInvoiced
-    }
+    
 }

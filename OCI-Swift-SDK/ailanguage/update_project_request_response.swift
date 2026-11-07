@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -17,9 +18,9 @@ import Foundation
 // Click https://docs.cloud.oracle.com/en-us/iaas/tools/go-sdk-examples/latest/ailanguage/UpdateProject.go.html to see an example of how to use UpdateProjectRequest.
 public struct UpdateProjectRequest: Codable, Sendable {
     public var projectId: String?
-    public var ifMatch: String??
-    public var opcRequestId: String??
-    public var requestMetadata: common.RequestMetadata?
+    public var ifMatch: String?
+    public var opcRequestId: String?
+    public var requestMetadata: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case projectId = "ProjectId"
@@ -30,9 +31,9 @@ public struct UpdateProjectRequest: Codable, Sendable {
 
     public init(
         projectId: String?,
-        ifMatch: String?? = nil,
-        opcRequestId: String?? = nil,
-        requestMetadata: common.RequestMetadata? = nil
+        ifMatch: String? = nil,
+        opcRequestId: String? = nil,
+        requestMetadata: [String: String]? = nil
     ) {
         self.projectId = projectId
         self.ifMatch = ifMatch
@@ -43,7 +44,7 @@ public struct UpdateProjectRequest: Codable, Sendable {
 
 extension UpdateProjectRequest: CustomStringConvertible {
     public var description: String {
-        return "UpdateProjectRequest(\n            projectId: \(projectId ?? "nil"),\n            ifMatch: \(ifMatch ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "UpdateProjectRequest(\n            projectId: \(projectId ?? "nil"),\n            ifMatch: \(ifMatch != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            requestMetadata: \(requestMetadata != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -61,9 +62,9 @@ extension UpdateProjectRequest: CustomStringConvertible {
 
 // UpdateProjectResponse wrapper for the UpdateProject operation
 public struct UpdateProjectResponse: Codable, Sendable {
-    public var rawResponse: http.Response??
-    public var opcRequestId: String??
-    public var opcWorkRequestId: String??
+    public var rawResponse: JSONValue?
+    public var opcRequestId: String?
+    public var opcWorkRequestId: String?
 
     enum CodingKeys: String, CodingKey {
         case rawResponse = "RawResponse"
@@ -72,9 +73,9 @@ public struct UpdateProjectResponse: Codable, Sendable {
     }
 
     public init(
-        rawResponse: http.Response?? = nil,
-        opcRequestId: String?? = nil,
-        opcWorkRequestId: String?? = nil
+        rawResponse: JSONValue? = nil,
+        opcRequestId: String? = nil,
+        opcWorkRequestId: String? = nil
     ) {
         self.rawResponse = rawResponse
         self.opcRequestId = opcRequestId
@@ -84,7 +85,7 @@ public struct UpdateProjectResponse: Codable, Sendable {
 
 extension UpdateProjectResponse: CustomStringConvertible {
     public var description: String {
-        return "UpdateProjectResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            opcWorkRequestId: \(opcWorkRequestId ?? "nil")\n        )"
+        return "UpdateProjectResponse(\n            rawResponse: \(rawResponse != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            opcWorkRequestId: \(opcWorkRequestId != nil ? "present" : "nil")\n        )"
     }
 }
 

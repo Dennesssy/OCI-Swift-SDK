@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -19,14 +20,14 @@ import Foundation
 
 // ObjectStorageDataset Different type of location types supported for object storage
 public struct ObjectStorageDataset: Codable, Sendable {
-    public var locationDetails: LocationDetails
+    public var locationDetails: JSONValue
 
     enum CodingKeys: String, CodingKey {
         case locationDetails = "locationDetails"
     }
 
     public init(
-        locationDetails: LocationDetails
+        locationDetails: JSONValue
     ) {
         self.locationDetails = locationDetails
     }
@@ -34,7 +35,7 @@ public struct ObjectStorageDataset: Codable, Sendable {
 
 extension ObjectStorageDataset: CustomStringConvertible {
     public var description: String {
-        return "ObjectStorageDataset(\n            locationDetails: \(locationDetails ?? "nil")\n        )"
+        return "ObjectStorageDataset(\n            locationDetails: present\n        )"
     }
 }
 

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - QuotaSummaryLifecycleStateEnum
 
-public enum QuotaSummaryLifecycleStateEnum: String, Sendable {
+public enum QuotaSummaryLifecycleStateEnum: String, Codable, Sendable {
     case active = "ACTIVE"
 }
 

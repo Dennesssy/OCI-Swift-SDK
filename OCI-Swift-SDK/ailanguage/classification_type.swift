@@ -23,7 +23,7 @@ public protocol ClassificationType {
 
 
 public struct classificationtype: Codable, Sendable {
-    public var jsonData: [byte]?
+    public var jsonData: [UInt8]?
     public var classificationMode: String?
 
     enum CodingKeys: String, CodingKey {
@@ -32,7 +32,7 @@ public struct classificationtype: Codable, Sendable {
     }
 
     public init(
-        jsonData: [byte]? = nil,
+        jsonData: [UInt8]? = nil,
         classificationMode: String? = nil
     ) {
         self.jsonData = jsonData
@@ -42,7 +42,7 @@ public struct classificationtype: Codable, Sendable {
 
 extension classificationtype: CustomStringConvertible {
     public var description: String {
-        return "classificationtype(\n            jsonData: \(jsonData ?? "nil"),\n            classificationMode: \(classificationMode ?? "nil")\n        )"
+        return "classificationtype(\n            jsonData: \(jsonData?.count ?? 0),\n            classificationMode: \(classificationMode ?? "nil")\n        )"
     }
 }
 
@@ -57,15 +57,13 @@ extension classificationtype: CustomStringConvertible {
 // Not recommended for calling this function directly
 
 // ClassificationTypeClassificationModeEnum Enum with underlying type: string
-public typealias ClassificationTypeClassificationModeEnum = String
-
 // Set of constants representing the allowable values for ClassificationTypeClassificationModeEnum
-public enum ClassificationTypeClassificationModeEnum: String, Sendable {
-    case class = "MULTI_CLASS"
+public enum ClassificationTypeClassificationModeEnum: String, Codable, Sendable {
+    case `class` = "MULTI_CLASS"
     case label = "MULTI_LABEL"
 }
 public extension ClassificationTypeClassificationModeEnum {
-    static var allValues: [ClassificationTypeClassificationModeEnum] { [.class, .label] }
+    static var allValues: [ClassificationTypeClassificationModeEnum] { [.`class`, .label] }
     static func fromString(_ value: String) -> ClassificationTypeClassificationModeEnum? { ClassificationTypeClassificationModeEnum(rawValue: value) }
 }
 

@@ -19,9 +19,9 @@ import Foundation
 
 // Profile Documents profile
 public struct Profile: Codable, Sendable {
-    public var domain: String??
-    public var documentType: String??
-    public var speciality: String??
+    public var domain: String?
+    public var documentType: String?
+    public var speciality: String?
 
     enum CodingKeys: String, CodingKey {
         case domain = "domain"
@@ -30,9 +30,9 @@ public struct Profile: Codable, Sendable {
     }
 
     public init(
-        domain: String?? = nil,
-        documentType: String?? = nil,
-        speciality: String?? = nil
+        domain: String? = nil,
+        documentType: String? = nil,
+        speciality: String? = nil
     ) {
         self.domain = domain
         self.documentType = documentType

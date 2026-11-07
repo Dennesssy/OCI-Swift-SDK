@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - EgressSecurityRuleDestinationTypeEnum
 
-public enum EgressSecurityRuleDestinationTypeEnum: String, Sendable {
+public enum EgressSecurityRuleDestinationTypeEnum: String, Codable, Sendable {
     case cidrBlock = "CIDR_BLOCK"
     case serviceCidrBlock = "SERVICE_CIDR_BLOCK"
 }
@@ -21,28 +21,30 @@ public extension EgressSecurityRuleDestinationTypeEnum {
 
 public struct EgressSecurityRule: Codable, Sendable {
     public var destination: String
-    public var protocol: String
+    public var `protocol`: String
     public var destinationType: EgressSecurityRuleDestinationTypeEnum?
     public var icmpOptions: IcmpOptions?
     public var isStateless: Bool?
     public var tcpOptions: TcpOptions?
     public var udpOptions: UdpOptions?
-    public var description: String?
+    public var descriptionText: String?
     
     private enum CodingKeys: String, CodingKey {
-        case destination, protocol, destinationType, icmpOptions
-        case isStateless, tcpOptions, udpOptions, description
+        case destination, `protocol`, destinationType, icmpOptions
+        case isStateless, tcpOptions, udpOptions
+        case descriptionText = "description"
+        // descriptionText maps to "description"
     }
     
-    public init(destination: String, protocol: String,
+    public init(destination: String, `protocol`: String,
                 destinationType: EgressSecurityRuleDestinationTypeEnum? = nil,
                 icmpOptions: IcmpOptions? = nil, isStateless: Bool? = nil,
                 tcpOptions: TcpOptions? = nil, udpOptions: UdpOptions? = nil,
                 description: String? = nil) {
-        self.destination = destination; self.protocol = protocol
+        self.destination = destination; self.`protocol` = `protocol`
         self.destinationType = destinationType; self.icmpOptions = icmpOptions
         self.isStateless = isStateless; self.tcpOptions = tcpOptions
-        self.udpOptions = udpOptions; self.description = description
+        self.udpOptions = udpOptions; self.descriptionText = description
     }
     
     public func validateEnumValue() throws {
@@ -58,5 +60,5 @@ public struct EgressSecurityRule: Codable, Sendable {
 }
 
 extension EgressSecurityRule: CustomStringConvertible {
-    public var description: String { "EgressSecurityRule(destination: \(destination), protocol: \(protocol))" }
+    public var description: String { "EgressSecurityRule(destination: \(destination), protocol: \(`protocol`))" }
 }

@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class ulicensemanagerClient: ClientProtocol {
+public final class ulicensemanagerClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

@@ -15,18 +15,7 @@ public struct AnalyticsInstanceSummary: Codable {
     public var licenseType: String?
     public var capacity: Capacity?
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case compartmentId = "compartmentId"
-        case name = "name"
-        case lifecycleState = "lifecycleState"
-        case timeCreated = "timeCreated"
-        case timeUpdated = "timeUpdated"
-        case description = "description"
-        case featureSet = "featureSet"
-        case licenseType = "licenseType"
-        case capacity = "capacity"
-    }
+    
     
     public init(id: String,
                 compartmentId: String,

@@ -22,7 +22,7 @@ public struct SentimentDocumentResult: Codable, Sendable {
     public var key: String?
     public var aspects: [SentimentAspect]
     public var languageCode: String?
-    public var documentSentiment: String??
+    public var documentSentiment: String?
     public var documentScores: [String: Double]?
     public var sentences: [SentimentSentence]?
 
@@ -39,7 +39,7 @@ public struct SentimentDocumentResult: Codable, Sendable {
         key: String?,
         aspects: [SentimentAspect],
         languageCode: String?,
-        documentSentiment: String?? = nil,
+        documentSentiment: String? = nil,
         documentScores: [String: Double]? = nil,
         sentences: [SentimentSentence]? = nil
     ) {
@@ -54,7 +54,7 @@ public struct SentimentDocumentResult: Codable, Sendable {
 
 extension SentimentDocumentResult: CustomStringConvertible {
     public var description: String {
-        return "SentimentDocumentResult(\n            key: \(key ?? "nil"),\n            aspects: \(aspects ?? "nil"),\n            languageCode: \(languageCode ?? "nil"),\n            documentSentiment: \(documentSentiment ?? "nil"),\n            documentScores: \(documentScores ?? "nil"),\n            sentences: \(sentences ?? "nil")\n        )"
+        return "SentimentDocumentResult(\n            key: \(key ?? "nil"),\n            aspects: \(aspects.count),\n            languageCode: \(languageCode ?? "nil"),\n            documentSentiment: \(documentSentiment ?? "nil"),\n            documentScores: \(documentScores?.count ?? 0),\n            sentences: \(sentences?.count ?? 0)\n        )"
     }
 }
 

@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class ufleetsoftwareupdateClient: ClientProtocol {
+public final class ufleetsoftwareupdateClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

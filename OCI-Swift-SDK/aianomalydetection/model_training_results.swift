@@ -8,9 +8,9 @@ import Foundation
 // MARK: - ModelTrainingResults
 public struct ModelTrainingResults: Codable, Sendable {
     // The final-achieved model accuracy metric on individual value level
-    public var Fap: float32?
+    public var Fap: Float?
     // The model accuracy metric on timestamp level.
-    public var MultivariateFap: float32?
+    public var MultivariateFap: Float?
     // Actual algorithm used to train the model
     public var Algorithm: ModelTrainingResultsAlgorithmEnum?
     // Window size defined during training or deduced by the algorithm.
@@ -41,7 +41,7 @@ extension ModelTrainingResults: CustomStringConvertible {
 
 // ModelTrainingResultsAlgorithmEnum Enum with underlying type: string
 // MARK: - ModelTrainingResultsAlgorithmEnum
-public enum ModelTrainingResultsAlgorithmEnum: String, Sendable {
+public enum ModelTrainingResultsAlgorithmEnum: String, Codable, Sendable {
     case multivariateMset = "MULTIVARIATE_MSET"
     case univariateOcsvm = "UNIVARIATE_OCSVM"
 }

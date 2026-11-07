@@ -42,7 +42,7 @@ public struct KeyPhraseDocumentResult: Codable, Sendable {
 
 extension KeyPhraseDocumentResult: CustomStringConvertible {
     public var description: String {
-        return "KeyPhraseDocumentResult(\n            key: \(key ?? "nil"),\n            keyPhrases: \(keyPhrases ?? "nil"),\n            languageCode: \(languageCode ?? "nil")\n        )"
+        return "KeyPhraseDocumentResult(\n            key: \(key ?? "nil"),\n            keyPhrases: \(keyPhrases.count),\n            languageCode: \(languageCode ?? "nil")\n        )"
     }
 }
 

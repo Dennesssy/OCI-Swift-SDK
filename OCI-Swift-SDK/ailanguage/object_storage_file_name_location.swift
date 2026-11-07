@@ -42,7 +42,7 @@ public struct ObjectStorageFileNameLocation: Codable, Sendable {
 
 extension ObjectStorageFileNameLocation: CustomStringConvertible {
     public var description: String {
-        return "ObjectStorageFileNameLocation(\n            namespaceName: \(namespaceName ?? "nil"),\n            bucketName: \(bucketName ?? "nil"),\n            objectNames: \(objectNames ?? "nil")\n        )"
+        return "ObjectStorageFileNameLocation(\n            namespaceName: \(namespaceName ?? "nil"),\n            bucketName: \(bucketName ?? "nil"),\n            objectNames: \(objectNames.count)\n        )"
     }
 }
 

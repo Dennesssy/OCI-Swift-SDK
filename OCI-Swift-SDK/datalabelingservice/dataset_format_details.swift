@@ -6,9 +6,7 @@ import Foundation
 public struct DatasetFormatDetails: Codable {
     public var formatType: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case formatType = "formatType"
-    }
+    
     
     public init(formatType: String? = nil) {
         self.formatType = formatType

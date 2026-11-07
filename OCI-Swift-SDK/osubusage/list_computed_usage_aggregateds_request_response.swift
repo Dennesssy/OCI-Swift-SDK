@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListComputedUsageAggregatedsGroupingEnum
 
-public enum ListComputedUsageAggregatedsGroupingEnum: String, Sendable {
+public enum ListComputedUsageAggregatedsGroupingEnum: String, Codable, Sendable {
     case hourly = "HOURLY"
     case daily = "DAILY"
     case monthly = "MONTHLY"

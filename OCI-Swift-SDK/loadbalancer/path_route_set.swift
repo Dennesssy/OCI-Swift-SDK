@@ -49,7 +49,7 @@ public struct PathMatchTypeDetails: Codable, Sendable {
     }
 }
 
-public enum PathMatchTypeEnum: String, Sendable {
+public enum PathMatchTypeEnum: String, Codable, Sendable {
     case exactMatch = "EXACT_MATCH"
     case forceLongestPrefixMatch = "FORCE_LONGEST_PREFIX_MATCH"
     case prefixMatch = "PREFIX_MATCH"

@@ -21,9 +21,5 @@ public struct BuyerInformation: Codable, Sendable {
         self.email = email
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case compartmentId
-        case tenancyName
-        case email
-    }
+    
 }

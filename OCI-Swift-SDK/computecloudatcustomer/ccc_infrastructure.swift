@@ -54,20 +54,5 @@ public struct CccInfrastructure: Codable, Sendable {
         self.timeUpdated = timeUpdated
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case id
-        case displayName
-        case compartmentId
-        case subnetId
-        case timeCreated
-        case lifecycleState
-        case shortName
-        case description
-        case connectionState
-        case connectionDetails
-        case cccUpgradeScheduleId
-        case provisioningFingerprint
-        case provisioningPin
-        case timeUpdated
-    }
+    
 }

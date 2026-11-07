@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ExecutionScheduleTimezoneEnum
 
-public enum ExecutionScheduleTimezoneEnum: String, Sendable {
+public enum ExecutionScheduleTimezoneEnum: String, Codable, Sendable {
     case utc = "UTC"
 }
 
@@ -15,6 +15,10 @@ public extension ExecutionScheduleTimezoneEnum {
     static var allStringValues: [String] { ["UTC"] }
     static func fromString(_ value: String) -> ExecutionScheduleTimezoneEnum? { ExecutionScheduleTimezoneEnum(rawValue: value) }
 }
+
+// MARK: - ExecutionSchedule
+
+public typealias ExecutionSchedule = CronExecutionSchedule
 
 // MARK: - CronExecutionSchedule
 

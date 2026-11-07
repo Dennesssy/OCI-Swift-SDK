@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - RemediationRunStageStatusEnum
 
-public enum RemediationRunStageStatusEnum: String, Sendable {
+public enum RemediationRunStageStatusEnum: String, Codable, Sendable {
     case inProgress = "IN_PROGRESS"
     case succeeded = "SUCCEEDED"
     case failed = "FAILED"

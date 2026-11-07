@@ -1,47 +1,32 @@
-# Go
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
-*.test
-*.out
-go.work
+# Swift / SwiftPM
+.build/
+.swiftpm/
+Package.resolved
+*.xcodeproj
+*.xcworkspace
+DerivedData/
+Carthage/
+Pods/
 
-# Environment
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Logs
-*.log
-logs/
-
-# Build
+# Build artifacts
 build/
 dist/
+*.o
+*.a
+*.dylib
+*.exe
 
-# Oracle
-*.wallet
-*.ora
+# macOS
+.DS_Store
+*.icloud
 
-# Swift SDK
-.aider*
+# Logs & temp
+*.log
+*.tmp
+*.temp
+*.bak
+*.backup
 
-# Go vendored SDK cache (use go modules instead)
-oci-go-sdk/
-
-# Claude Code
-.claude/
+# Env / secrets
+.env
+.env.*

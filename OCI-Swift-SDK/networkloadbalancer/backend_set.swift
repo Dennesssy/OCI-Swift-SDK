@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum NetworkLoadBalancerBackendSetPolicyEnum: String, Sendable {
+public enum NetworkLoadBalancerBackendSetPolicyEnum: String, Codable, Sendable {
     case fiveTuple = "FIVE_TUPLE"
     case threeTuple = "THREE_TUPLE"
     case twoTuple = "TWO_TUPLE"
@@ -65,7 +65,7 @@ public struct NetworkLoadBalancerHealthChecker: Codable, Sendable {
     public var intervalInMillis: Int?
 }
 
-public enum HealthCheckerProtocolEnum: String, Sendable {
+public enum HealthCheckerProtocolEnum: String, Codable, Sendable {
     case http = "HTTP"
     case https = "HTTPS"
     case tcp = "TCP"
@@ -85,7 +85,7 @@ public struct NetworkLoadBalancerVipIpSource: Codable, Sendable {
     public var vlanId: Int?
 }
 
-public enum VipIpSourceTypeEnum: String, Sendable {
+public enum VipIpSourceTypeEnum: String, Codable, Sendable {
     case publicIp = "PUBLIC_IP"
     case privateIp = "PRIVATE_IP"
 }

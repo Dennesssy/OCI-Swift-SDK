@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class umarketplacepublisherClient: ClientProtocol {
+public final class umarketplacepublisherClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

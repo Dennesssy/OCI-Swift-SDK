@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum IndexLifecycleStateEnum: String, Sendable {
+public enum IndexLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case dropping = "DROPPING"

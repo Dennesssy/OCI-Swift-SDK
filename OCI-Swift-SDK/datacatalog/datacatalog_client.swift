@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class udatacatalogClient: ClientProtocol {
+public final class udatacatalogClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

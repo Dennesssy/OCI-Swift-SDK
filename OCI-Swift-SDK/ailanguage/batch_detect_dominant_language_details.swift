@@ -20,10 +20,10 @@ import Foundation
 // BatchDetectDominantLanguageDetails The documents details for language detect call.
 public struct BatchDetectDominantLanguageDetails: Codable, Sendable {
     public var documents: [DominantLanguageDocument]
-    public var shouldIgnoreTransliteration: Bool??
-    public var charsToConsider: Int??
-    public var endpointId: String??
-    public var compartmentId: String??
+    public var shouldIgnoreTransliteration: Bool?
+    public var charsToConsider: Int?
+    public var endpointId: String?
+    public var compartmentId: String?
 
     enum CodingKeys: String, CodingKey {
         case documents = "documents"
@@ -35,10 +35,10 @@ public struct BatchDetectDominantLanguageDetails: Codable, Sendable {
 
     public init(
         documents: [DominantLanguageDocument],
-        shouldIgnoreTransliteration: Bool?? = nil,
-        charsToConsider: Int?? = nil,
-        endpointId: String?? = nil,
-        compartmentId: String?? = nil
+        shouldIgnoreTransliteration: Bool? = nil,
+        charsToConsider: Int? = nil,
+        endpointId: String? = nil,
+        compartmentId: String? = nil
     ) {
         self.documents = documents
         self.shouldIgnoreTransliteration = shouldIgnoreTransliteration
@@ -50,7 +50,7 @@ public struct BatchDetectDominantLanguageDetails: Codable, Sendable {
 
 extension BatchDetectDominantLanguageDetails: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectDominantLanguageDetails(\n            documents: \(documents ?? "nil"),\n            shouldIgnoreTransliteration: \(shouldIgnoreTransliteration ?? "nil"),\n            charsToConsider: \(charsToConsider ?? "nil"),\n            endpointId: \(endpointId ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil")\n        )"
+        return "BatchDetectDominantLanguageDetails(\n            documents: \(documents.count),\n            shouldIgnoreTransliteration: \((shouldIgnoreTransliteration.map { String($0) } ?? "nil")),\n            charsToConsider: \((charsToConsider.map { String($0) } ?? "nil")),\n            endpointId: \(endpointId ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil")\n        )"
     }
 }
 

@@ -12,15 +12,7 @@ public struct OccAvailabilitySummary: Codable {
     public var resourceVersion: String?
     public var availableCapacity: Int?
     
-    public enum CodingKeys: String, CodingKey {
-        case catalogResourceId = "catalogResourceId"
-        case region = "region"
-        case availabilityDomain = "availabilityDomain"
-        case resourceType = "resourceType"
-        case resourceShape = "resourceShape"
-        case resourceVersion = "resourceVersion"
-        case availableCapacity = "availableCapacity"
-    }
+    
     
     public init(catalogResourceId: String? = nil,
                 region: String? = nil,

@@ -6,14 +6,14 @@ import Foundation
 
 // MARK: - ScheduledPolicy
 
-public struct ScheduledPolicy: Codable, Sendable {
+public struct ScheduledPolicy: AutoScalingPolicy {
     public var timeCreated: Date
     public var executionSchedule: ExecutionSchedule
     public var capacity: Capacity?
     public var id: String?
     public var displayName: String?
     public var isEnabled: Bool?
-    public var resourceAction: ResourceAction?
+    public var resourceAction: ResourcePowerAction?
     
     private enum CodingKeys: String, CodingKey {
         case timeCreated, executionSchedule, capacity, id, displayName, isEnabled, resourceAction
@@ -21,7 +21,7 @@ public struct ScheduledPolicy: Codable, Sendable {
     
     public init(timeCreated: Date, executionSchedule: ExecutionSchedule, capacity: Capacity? = nil,
                 id: String? = nil, displayName: String? = nil, isEnabled: Bool? = nil,
-                resourceAction: ResourceAction? = nil) {
+                resourceAction: ResourcePowerAction? = nil) {
         self.timeCreated = timeCreated; self.executionSchedule = executionSchedule; self.capacity = capacity
         self.id = id; self.displayName = displayName; self.isEnabled = isEnabled; self.resourceAction = resourceAction
     }

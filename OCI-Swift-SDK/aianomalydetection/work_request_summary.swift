@@ -21,7 +21,7 @@ public struct WorkRequestSummary: Codable, Sendable {
     // The resources affected by this work request.
     public var Resources: [WorkRequestResource]?
     // Percentage of the request completed.
-    public var PercentComplete: float32?
+    public var PercentComplete: Float?
     // The date and time the request was created, as described in
     // RFC 3339 (https://tools.ietf.org/rfc/rfc3339), section 14.29.
     public var TimeAccepted: Date?

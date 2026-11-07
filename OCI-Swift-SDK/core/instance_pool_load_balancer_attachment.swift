@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - InstancePoolLoadBalancerAttachmentLifecycleStateEnum
 
-public enum InstancePoolLoadBalancerAttachmentLifecycleStateEnum: String, Sendable {
+public enum InstancePoolLoadBalancerAttachmentLifecycleStateEnum: String, Codable, Sendable {
     case attaching = "ATTACHING"
     case attached = "ATTACHED"
     case detaching = "DETACHING"

@@ -21,7 +21,7 @@ import Foundation
 public struct TextDocument: Codable, Sendable {
     public var key: String?
     public var text: String?
-    public var languageCode: String??
+    public var languageCode: String?
 
     enum CodingKeys: String, CodingKey {
         case key = "key"
@@ -32,7 +32,7 @@ public struct TextDocument: Codable, Sendable {
     public init(
         key: String?,
         text: String?,
-        languageCode: String?? = nil
+        languageCode: String? = nil
     ) {
         self.key = key
         self.text = text

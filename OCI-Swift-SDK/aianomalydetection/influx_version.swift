@@ -6,7 +6,7 @@ import Foundation
 
 // InfluxVersionEnum Enum with underlying type: string
 // MARK: - InfluxVersionEnum
-public enum InfluxVersionEnum: String, Sendable {
+public enum InfluxVersionEnum: String, Codable, Sendable {
     case v18 = "V_1_8"
     case v20 = "V_2_0"
 }

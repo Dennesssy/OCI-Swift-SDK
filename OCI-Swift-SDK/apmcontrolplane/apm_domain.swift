@@ -4,30 +4,13 @@
 
 import Foundation
 
-// MARK: - LifecycleStatesEnum
-
-public enum LifecycleStatesEnum: String, Sendable {
-    case creating = "CREATING"
-    case updating = "UPDATING"
-    case active = "ACTIVE"
-    case deleting = "DELETING"
-    case deleted = "DELETED"
-    case failed = "FAILED"
-}
-
-public extension LifecycleStatesEnum {
-    static var allValues: [LifecycleStatesEnum] { [.creating, .updating, .active, .deleting, .deleted, .failed] }
-    static var allStringValues: [String] { ["CREATING", "UPDATING", "ACTIVE", "DELETING", "DELETED", "FAILED"] }
-    static func fromString(_ value: String) -> LifecycleStatesEnum? { LifecycleStatesEnum(rawValue: value) }
-}
-
 // MARK: - ApmDomain
 
 public struct ApmDomain: Codable, Sendable {
     public var id: String
     public var displayName: String
     public var compartmentId: String
-    public var description: String?
+    public var descriptionText: String?
     public var lifecycleState: LifecycleStatesEnum?
     public var isFreeTier: Bool?
     public var timeCreated: Date?
@@ -46,7 +29,7 @@ public struct ApmDomain: Codable, Sendable {
                 timeUpdated: Date? = nil, freeformTags: [String: String]? = nil,
                 definedTags: [String: [String: String]]? = nil, dataUploadEndpoint: String? = nil) {
         self.id = id; self.displayName = displayName; self.compartmentId = compartmentId
-        self.description = description; self.lifecycleState = lifecycleState; self.isFreeTier = isFreeTier
+        self.descriptionText = description; self.lifecycleState = lifecycleState; self.isFreeTier = isFreeTier
         self.timeCreated = timeCreated; self.timeUpdated = timeUpdated; self.freeformTags = freeformTags
         self.definedTags = definedTags; self.dataUploadEndpoint = dataUploadEndpoint
     }
@@ -58,6 +41,38 @@ public struct ApmDomain: Codable, Sendable {
             }
         }
     }
+    // MARK: - Codable
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(String.self, forKey: .id)
+        self.displayName = try container.decode(String.self, forKey: .displayName)
+        self.compartmentId = try container.decode(String.self, forKey: .compartmentId)
+        self.descriptionText = try container.decodeIfPresent(String.self, forKey: .description)
+        self.lifecycleState = try container.decodeIfPresent(LifecycleStatesEnum.self, forKey: .lifecycleState)
+        self.isFreeTier = try container.decodeIfPresent(Bool.self, forKey: .isFreeTier)
+        self.timeCreated = try container.decodeIfPresent(Date.self, forKey: .timeCreated)
+        self.timeUpdated = try container.decodeIfPresent(Date.self, forKey: .timeUpdated)
+        self.freeformTags = try container.decodeIfPresent([String: String].self, forKey: .freeformTags)
+        self.definedTags = try container.decodeIfPresent([String: [String: String]].self, forKey: .definedTags)
+        self.dataUploadEndpoint = try container.decodeIfPresent(String.self, forKey: .dataUploadEndpoint)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.id, forKey: .id)
+        try container.encode(self.displayName, forKey: .displayName)
+        try container.encode(self.compartmentId, forKey: .compartmentId)
+        try container.encodeIfPresent(self.descriptionText, forKey: .description)
+        try container.encodeIfPresent(self.lifecycleState, forKey: .lifecycleState)
+        try container.encodeIfPresent(self.isFreeTier, forKey: .isFreeTier)
+        try container.encodeIfPresent(self.timeCreated, forKey: .timeCreated)
+        try container.encodeIfPresent(self.timeUpdated, forKey: .timeUpdated)
+        try container.encodeIfPresent(self.freeformTags, forKey: .freeformTags)
+        try container.encodeIfPresent(self.definedTags, forKey: .definedTags)
+        try container.encodeIfPresent(self.dataUploadEndpoint, forKey: .dataUploadEndpoint)
+    }
+
 }
 
 extension ApmDomain: CustomStringConvertible {

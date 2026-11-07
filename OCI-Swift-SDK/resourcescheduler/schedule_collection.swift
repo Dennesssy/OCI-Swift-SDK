@@ -6,9 +6,7 @@ import Foundation
 public struct ScheduleCollection: Codable {
     public var items: [ScheduleSummary]
     
-    public enum CodingKeys: String, CodingKey {
-        case items = "items"
-    }
+    
     
     public init(items: [ScheduleSummary]) {
         self.items = items

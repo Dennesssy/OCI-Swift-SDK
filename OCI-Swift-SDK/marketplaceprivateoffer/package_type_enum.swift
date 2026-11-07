@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - PackageTypeEnum
 
-public enum PackageTypeEnum: String, Sendable {
+public enum PackageTypeEnum: String, Codable, Sendable {
     case containerImage = "CONTAINER_IMAGE"
     case helmChart = "HELM_CHART"
 }

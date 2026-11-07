@@ -6,9 +6,7 @@ import Foundation
 public struct ImportMetadataPath: Codable {
     public var path: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case path = "path"
-    }
+    
     
     public init(path: String? = nil) {
         self.path = path

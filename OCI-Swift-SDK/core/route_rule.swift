@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - RouteRuleDestinationTypeEnum
 
-public enum RouteRuleDestinationTypeEnum: String, Sendable {
+public enum RouteRuleDestinationTypeEnum: String, Codable, Sendable {
     case cidrBlock = "CIDR_BLOCK"
     case serviceCidrBlock = "SERVICE_CIDR_BLOCK"
 }
@@ -19,7 +19,7 @@ public extension RouteRuleDestinationTypeEnum {
 
 // MARK: - RouteRuleRouteTypeEnum
 
-public enum RouteRuleRouteTypeEnum: String, Sendable {
+public enum RouteRuleRouteTypeEnum: String, Codable, Sendable {
     case `static` = "STATIC"
     case local = "LOCAL"
 }
@@ -37,12 +37,12 @@ public struct RouteRule: Codable, Sendable {
     public var cidrBlock: String?
     public var destination: String?
     public var destinationType: RouteRuleDestinationTypeEnum?
-    public var description: String?
+    public var descriptionText: String?
     public var routeType: RouteRuleRouteTypeEnum?
     
     private enum CodingKeys: String, CodingKey {
         case networkEntityId, cidrBlock, destination, destinationType
-        case description, routeType
+        case descriptionText = "description", routeType
     }
     
     public init(networkEntityId: String, cidrBlock: String? = nil,
@@ -50,7 +50,7 @@ public struct RouteRule: Codable, Sendable {
                 description: String? = nil, routeType: RouteRuleRouteTypeEnum? = nil) {
         self.networkEntityId = networkEntityId; self.cidrBlock = cidrBlock
         self.destination = destination; self.destinationType = destinationType
-        self.description = description; self.routeType = routeType
+        self.descriptionText = description; self.routeType = routeType
     }
     
     public func validateEnumValue() throws {

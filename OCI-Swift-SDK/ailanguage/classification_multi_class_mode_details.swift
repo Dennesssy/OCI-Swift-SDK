@@ -19,14 +19,14 @@ import Foundation
 
 // ClassificationMultiClassModeDetails Possible text classification multi class mode details
 public struct ClassificationMultiClassModeDetails: Codable, Sendable {
-    public var version: String??
+    public var version: String?
 
     enum CodingKeys: String, CodingKey {
         case version = "version"
     }
 
     public init(
-        version: String?? = nil
+        version: String? = nil
     ) {
         self.version = version
     }

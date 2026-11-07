@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct Record: Codable {
     public var id: String
@@ -15,22 +16,9 @@ public struct Record: Codable {
     public var lifecycleState: RecordLifecycleStateEnum
     public var recordMetadata: RecordMetadata?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case timeCreated = "timeCreated"
-        case timeUpdated = "timeUpdated"
-        case datasetId = "datasetId"
-        case compartmentId = "compartmentId"
-        case sourceDetails = "sourceDetails"
-        case isLabeled = "isLabeled"
-        case lifecycleState = "lifecycleState"
-        case recordMetadata = "recordMetadata"
-        case freeformTags = "freeformTags"
-        case definedTags = "definedTags"
-    }
+    
     
     public init(id: String,
                 name: String,
@@ -43,7 +31,7 @@ public struct Record: Codable {
                 lifecycleState: RecordLifecycleStateEnum,
                 recordMetadata: RecordMetadata? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil) {
+                definedTags: [String: [String: JSONValue]]? = nil) {
         self.id = id
         self.name = name
         self.timeCreated = timeCreated

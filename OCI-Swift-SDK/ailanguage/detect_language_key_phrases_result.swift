@@ -34,7 +34,7 @@ public struct DetectLanguageKeyPhrasesResult: Codable, Sendable {
 
 extension DetectLanguageKeyPhrasesResult: CustomStringConvertible {
     public var description: String {
-        return "DetectLanguageKeyPhrasesResult(\n            keyPhrases: \(keyPhrases ?? "nil")\n        )"
+        return "DetectLanguageKeyPhrasesResult(\n            keyPhrases: \(keyPhrases.count)\n        )"
     }
 }
 

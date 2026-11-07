@@ -21,9 +21,5 @@ public struct PublisherSummary: Codable, Sendable {
         self.description = description
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case compartmentId
-        case name
-        case description
-    }
+    
 }

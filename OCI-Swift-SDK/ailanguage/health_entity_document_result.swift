@@ -50,7 +50,7 @@ public struct HealthEntityDocumentResult: Codable, Sendable {
 
 extension HealthEntityDocumentResult: CustomStringConvertible {
     public var description: String {
-        return "HealthEntityDocumentResult(\n            key: \(key ?? "nil"),\n            entities: \(entities ?? "nil"),\n            resolvedEntities: \(resolvedEntities ?? "nil"),\n            languageCode: \(languageCode ?? "nil"),\n            relations: \(relations ?? "nil")\n        )"
+        return "HealthEntityDocumentResult(\n            key: \(key ?? "nil"),\n            entities: \(entities.count),\n            resolvedEntities: \(resolvedEntities.count),\n            languageCode: \(languageCode ?? "nil"),\n            relations: \(relations?.count ?? 0)\n        )"
     }
 }
 

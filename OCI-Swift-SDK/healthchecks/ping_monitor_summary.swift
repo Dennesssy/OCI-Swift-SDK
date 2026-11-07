@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct PingMonitorSummary: Codable {
     public var id: String?
@@ -9,23 +10,16 @@ public struct PingMonitorSummary: Codable {
     public var compartmentId: String?
     public var isEnabled: Bool?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case displayName = "displayName"
-        case compartmentId = "compartmentId"
-        case isEnabled = "isEnabled"
-        case freeformTags = "freeformTags"
-        case definedTags = "definedTags"
-    }
+    
     
     public init(id: String? = nil,
                 displayName: String? = nil,
                 compartmentId: String? = nil,
                 isEnabled: Bool? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil) {
+                definedTags: [String: [String: JSONValue]]? = nil) {
         self.id = id
         self.displayName = displayName
         self.compartmentId = compartmentId

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - SortByEnum
 
-public enum SortByEnum: String, Sendable {
+public enum SortByEnum: String, Codable, Sendable {
     case timeCreated = "timeCreated"
     case displayName = "displayName"
 }

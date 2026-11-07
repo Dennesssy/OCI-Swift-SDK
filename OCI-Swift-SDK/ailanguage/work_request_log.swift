@@ -38,7 +38,7 @@ public struct WorkRequestLog: Codable, Sendable {
 
 extension WorkRequestLog: CustomStringConvertible {
     public var description: String {
-        return "WorkRequestLog(\n            message: \(message ?? "nil"),\n            timestamp: \(timestamp ?? "nil")\n        )"
+        return "WorkRequestLog(\n            message: \(message ?? "nil"),\n            timestamp: \((timestamp != nil ? "present" : "nil"))\n        )"
     }
 }
 

@@ -34,7 +34,7 @@ public struct Capabilities: Codable, Sendable {
 
 extension Capabilities: CustomStringConvertible {
     public var description: String {
-        return "Capabilities(\n            capability: \(capability ?? "nil")\n        )"
+        return "Capabilities(\n            capability: \(capability?.count ?? 0)\n        )"
     }
 }
 

@@ -6,13 +6,13 @@ import Foundation
 
 // MARK: - DataKeyTypesEnum
 
-public enum DataKeyTypesEnum: String, Sendable {
-    case private = "PRIVATE"
-    case public = "PUBLIC"
+public enum DataKeyTypesEnum: String, Codable, Sendable {
+    case `private` = "PRIVATE"
+    case `public` = "PUBLIC"
 }
 
 public extension DataKeyTypesEnum {
-    static var allValues: [DataKeyTypesEnum] { [.private, .public] }
+    static var allValues: [DataKeyTypesEnum] { [.`private`, .`public`] }
     static var allStringValues: [String] { ["PRIVATE", "PUBLIC"] }
     static func fromString(_ value: String) -> DataKeyTypesEnum? { DataKeyTypesEnum(rawValue: value) }
 }

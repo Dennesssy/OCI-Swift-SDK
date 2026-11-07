@@ -9,9 +9,6 @@ import Foundation
 public protocol RealtimeMessageAuthentication {
 }
 
-// MARK: - Unmarshalerrealtimemessageauthentication
-
-public typealias Unmarshalerrealtimemessageauthentication = realtimemessageauthentication
 
 // MARK: - RealtimeMessageAuthenticationAuthenticationTypeEnum
 
@@ -19,7 +16,7 @@ public typealias RealtimeMessageAuthenticationAuthenticationTypeEnum = String
 
 // MARK: - RealtimeMessageAuthenticationAuthenticationType
 
-public enum RealtimeMessageAuthenticationAuthenticationType: String, Sendable {
+public enum RealtimeMessageAuthenticationAuthenticationType: String, Codable, Sendable {
     case credentials = "CREDENTIALS"
     case token = "TOKEN"
 }

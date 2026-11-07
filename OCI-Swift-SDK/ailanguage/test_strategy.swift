@@ -23,7 +23,7 @@ public protocol TestStrategy {
 
 
 public struct teststrategy: Codable, Sendable {
-    public var jsonData: [byte]?
+    public var jsonData: [UInt8]?
     public var strategyType: String?
 
     enum CodingKeys: String, CodingKey {
@@ -32,7 +32,7 @@ public struct teststrategy: Codable, Sendable {
     }
 
     public init(
-        jsonData: [byte]? = nil,
+        jsonData: [UInt8]? = nil,
         strategyType: String? = nil
     ) {
         self.jsonData = jsonData
@@ -42,7 +42,7 @@ public struct teststrategy: Codable, Sendable {
 
 extension teststrategy: CustomStringConvertible {
     public var description: String {
-        return "teststrategy(\n            jsonData: \(jsonData ?? "nil"),\n            strategyType: \(strategyType ?? "nil")\n        )"
+        return "teststrategy(\n            jsonData: \(jsonData?.count ?? 0),\n            strategyType: \(strategyType ?? "nil")\n        )"
     }
 }
 
@@ -57,10 +57,9 @@ extension teststrategy: CustomStringConvertible {
 // Not recommended for calling this function directly
 
 // TestStrategyStrategyTypeEnum Enum with underlying type: string
-public typealias TestStrategyStrategyTypeEnum = String
 
 // Set of constants representing the allowable values for TestStrategyStrategyTypeEnum
-public enum TestStrategyStrategyTypeEnum: String, Sendable {
+public enum TestStrategyStrategyTypeEnum: String, Codable, Sendable {
     case testAndValidationDataset = "TEST_AND_VALIDATION_DATASET"
 }
 public extension TestStrategyStrategyTypeEnum {

@@ -14,11 +14,12 @@
 //
 
 import Foundation
+import OCICommon
 
 // MARK: - VcnLifecycleStateEnum
 
 /// Enum with underlying type: string
-public enum VcnLifecycleStateEnum: String, Sendable {
+public enum VcnLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case available = "AVAILABLE"
     case terminating = "TERMINATING"
@@ -84,7 +85,7 @@ public struct Vcn: Codable, Sendable {
     
     /// Defined tags for this resource. Each key is predefined and scoped to a namespace.
     /// Example: `{"Operations": {"CostCenter": "42"}}`
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
     /// A user-friendly name. Does not have to be unique, and it's changeable.
     /// Avoid entering confidential information.
@@ -151,7 +152,7 @@ public struct Vcn: Codable, Sendable {
         defaultDhcpOptionsId: String? = nil,
         defaultRouteTableId: String? = nil,
         defaultSecurityListId: String? = nil,
-        definedTags: [String: [String: Any]]? = nil,
+        definedTags: [String: [String: JSONValue]]? = nil,
         displayName: String? = nil,
         dnsLabel: String? = nil,
         freeformTags: [String: String]? = nil,

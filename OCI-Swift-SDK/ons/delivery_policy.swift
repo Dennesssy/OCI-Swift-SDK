@@ -18,8 +18,5 @@ public struct DeliveryPolicy: Codable, Sendable {
         self.channelId = channelId
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case backoffRetryPolicy
-        case channelId
-    }
+    
 }

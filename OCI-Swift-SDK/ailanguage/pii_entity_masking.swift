@@ -23,7 +23,7 @@ public protocol PiiEntityMasking {
 
 
 public struct piientitymasking: Codable, Sendable {
-    public var jsonData: [byte]?
+    public var jsonData: [UInt8]?
     public var mode: String?
 
     enum CodingKeys: String, CodingKey {
@@ -32,7 +32,7 @@ public struct piientitymasking: Codable, Sendable {
     }
 
     public init(
-        jsonData: [byte]? = nil,
+        jsonData: [UInt8]? = nil,
         mode: String? = nil
     ) {
         self.jsonData = jsonData
@@ -42,7 +42,7 @@ public struct piientitymasking: Codable, Sendable {
 
 extension piientitymasking: CustomStringConvertible {
     public var description: String {
-        return "piientitymasking(\n            jsonData: \(jsonData ?? "nil"),\n            mode: \(mode ?? "nil")\n        )"
+        return "piientitymasking(\n            jsonData: \(jsonData?.count ?? 0),\n            mode: \(mode ?? "nil")\n        )"
     }
 }
 
@@ -57,10 +57,9 @@ extension piientitymasking: CustomStringConvertible {
 // Not recommended for calling this function directly
 
 // PiiEntityMaskingModeEnum Enum with underlying type: string
-public typealias PiiEntityMaskingModeEnum = String
 
 // Set of constants representing the allowable values for PiiEntityMaskingModeEnum
-public enum PiiEntityMaskingModeEnum: String, Sendable {
+public enum PiiEntityMaskingModeEnum: String, Codable, Sendable {
     case replace = "REPLACE"
     case mask = "MASK"
     case remove = "REMOVE"

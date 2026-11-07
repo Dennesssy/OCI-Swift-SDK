@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - MemberReplicaMembershipStateEnum
 
-public enum MemberReplicaMembershipStateEnum: String, Sendable {
+public enum MemberReplicaMembershipStateEnum: String, Codable, Sendable {
     case addPending = "ADD_PENDING"
     case stable = "STABLE"
     case removePending = "REMOVE_PENDING"

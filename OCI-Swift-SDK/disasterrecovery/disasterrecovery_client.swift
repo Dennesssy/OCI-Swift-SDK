@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class udisasterrecoveryClient: ClientProtocol {
+public final class udisasterrecoveryClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

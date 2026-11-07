@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct ClusterPlacementGroupSummary: Codable {
     public var id: String
@@ -13,24 +14,11 @@ public struct ClusterPlacementGroupSummary: Codable {
     public var timeCreated: Date
     public var lifecycleState: ClusterPlacementGroupLifecycleStateEnum
     public var freeformTags: [String: String]
-    public var definedTags: [String: [String: Any]]
+    public var definedTags: [String: [String: JSONValue]]
     public var timeUpdated: Date?
     public var lifecycleDetails: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case description = "description"
-        case compartmentId = "compartmentId"
-        case availabilityDomain = "availabilityDomain"
-        case clusterPlacementGroupType = "clusterPlacementGroupType"
-        case timeCreated = "timeCreated"
-        case lifecycleState = "lifecycleState"
-        case freeformTags = "freeformTags"
-        case definedTags = "definedTags"
-        case timeUpdated = "timeUpdated"
-        case lifecycleDetails = "lifecycleDetails"
-    }
+    
     
     public init(id: String,
                 name: String,
@@ -41,7 +29,7 @@ public struct ClusterPlacementGroupSummary: Codable {
                 timeCreated: Date,
                 lifecycleState: ClusterPlacementGroupLifecycleStateEnum,
                 freeformTags: [String: String],
-                definedTags: [String: [String: Any]],
+                definedTags: [String: [String: JSONValue]],
                 timeUpdated: Date? = nil,
                 lifecycleDetails: String? = nil) {
         self.id = id

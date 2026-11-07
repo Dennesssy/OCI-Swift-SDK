@@ -42,7 +42,7 @@ public struct DetectedLanguage: Codable, Sendable {
 
 extension DetectedLanguage: CustomStringConvertible {
     public var description: String {
-        return "DetectedLanguage(\n            name: \(name ?? "nil"),\n            code: \(code ?? "nil"),\n            score: \(score ?? "nil")\n        )"
+        return "DetectedLanguage(\n            name: \(name ?? "nil"),\n            code: \(code ?? "nil"),\n            score: \((score.map { String($0) } ?? "nil"))\n        )"
     }
 }
 

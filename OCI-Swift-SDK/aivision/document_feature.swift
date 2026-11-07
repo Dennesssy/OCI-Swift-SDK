@@ -21,7 +21,6 @@ public protocol DocumentFeature { }
 
 
 // UnmarshalJSON unmarshals json
-public typealias Unmarshalerdocumentfeature = documentfeature
 
 
 // UnmarshalPolymorphicJSON unmarshals polymorphic json
@@ -36,7 +35,7 @@ public typealias Unmarshalerdocumentfeature = documentfeature
 // DocumentFeatureFeatureTypeEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for DocumentFeatureFeatureTypeEnum
-public enum DocumentFeatureFeatureTypeEnum: String, Sendable {
+public enum DocumentFeatureFeatureTypeEnum: String, Codable, Sendable {
     case languageClassification = "LANGUAGE_CLASSIFICATION"
     case textDetection = "TEXT_DETECTION"
     case tableDetection = "TABLE_DETECTION"

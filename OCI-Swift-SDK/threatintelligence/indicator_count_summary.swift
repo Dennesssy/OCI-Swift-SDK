@@ -18,8 +18,5 @@ public struct IndicatorCountSummary: Codable, Sendable {
         self.count = count
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case indicatorType
-        case count
-    }
+    
 }

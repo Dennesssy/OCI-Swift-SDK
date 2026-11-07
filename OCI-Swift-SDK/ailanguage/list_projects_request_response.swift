@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -18,14 +19,14 @@ import Foundation
 public struct ListProjectsRequest: Codable, Sendable {
     public var compartmentId: String?
     public var lifecycleState: ProjectLifecycleStateEnum?
-    public var displayName: String??
-    public var limit: Int??
-    public var page: String??
-    public var projectId: String??
+    public var displayName: String?
+    public var limit: Int?
+    public var page: String?
+    public var projectId: String?
     public var sortOrder: ListProjectsSortOrderEnum?
     public var sortBy: ListProjectsSortByEnum?
-    public var opcRequestId: String??
-    public var requestMetadata: common.RequestMetadata?
+    public var opcRequestId: String?
+    public var requestMetadata: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case compartmentId = "CompartmentId"
@@ -43,14 +44,14 @@ public struct ListProjectsRequest: Codable, Sendable {
     public init(
         compartmentId: String?,
         lifecycleState: ProjectLifecycleStateEnum? = nil,
-        displayName: String?? = nil,
-        limit: Int?? = nil,
-        page: String?? = nil,
-        projectId: String?? = nil,
+        displayName: String? = nil,
+        limit: Int? = nil,
+        page: String? = nil,
+        projectId: String? = nil,
         sortOrder: ListProjectsSortOrderEnum? = nil,
         sortBy: ListProjectsSortByEnum? = nil,
-        opcRequestId: String?? = nil,
-        requestMetadata: common.RequestMetadata? = nil
+        opcRequestId: String? = nil,
+        requestMetadata: [String: String]? = nil
     ) {
         self.compartmentId = compartmentId
         self.lifecycleState = lifecycleState
@@ -67,7 +68,7 @@ public struct ListProjectsRequest: Codable, Sendable {
 
 extension ListProjectsRequest: CustomStringConvertible {
     public var description: String {
-        return "ListProjectsRequest(\n            compartmentId: \(compartmentId ?? "nil"),\n            lifecycleState: \(lifecycleState ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            limit: \(limit ?? "nil"),\n            page: \(page ?? "nil"),\n            projectId: \(projectId ?? "nil"),\n            sortOrder: \(sortOrder ?? "nil"),\n            sortBy: \(sortBy ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "ListProjectsRequest(\n            compartmentId: \(compartmentId ?? "nil"),\n            lifecycleState: \(lifecycleState?.rawValue ?? "nil"),\n            displayName: \(displayName != nil ? "present" : "nil"),\n            limit: \(limit != nil ? "present" : "nil"),\n            page: \(page != nil ? "present" : "nil"),\n            projectId: \(projectId != nil ? "present" : "nil"),\n            sortOrder: \(sortOrder?.rawValue ?? "nil"),\n            sortBy: \(sortBy?.rawValue ?? "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            requestMetadata: \(requestMetadata != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -85,9 +86,9 @@ extension ListProjectsRequest: CustomStringConvertible {
 
 // ListProjectsResponse wrapper for the ListProjects operation
 public struct ListProjectsResponse: Codable, Sendable {
-    public var rawResponse: http.Response??
-    public var opcRequestId: String??
-    public var opcNextPage: String??
+    public var rawResponse: JSONValue?
+    public var opcRequestId: String?
+    public var opcNextPage: String?
 
     enum CodingKeys: String, CodingKey {
         case rawResponse = "RawResponse"
@@ -96,9 +97,9 @@ public struct ListProjectsResponse: Codable, Sendable {
     }
 
     public init(
-        rawResponse: http.Response?? = nil,
-        opcRequestId: String?? = nil,
-        opcNextPage: String?? = nil
+        rawResponse: JSONValue? = nil,
+        opcRequestId: String? = nil,
+        opcNextPage: String? = nil
     ) {
         self.rawResponse = rawResponse
         self.opcRequestId = opcRequestId
@@ -108,7 +109,7 @@ public struct ListProjectsResponse: Codable, Sendable {
 
 extension ListProjectsResponse: CustomStringConvertible {
     public var description: String {
-        return "ListProjectsResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            opcNextPage: \(opcNextPage ?? "nil")\n        )"
+        return "ListProjectsResponse(\n            rawResponse: \(rawResponse != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            opcNextPage: \(opcNextPage != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -117,16 +118,26 @@ extension ListProjectsResponse: CustomStringConvertible {
 // HTTPResponse implements the OCIResponse interface
 
 // ListProjectsSortOrderEnum Enum with underlying type: string
-public typealias ListProjectsSortOrderEnum = String
-
-// Set of constants representing the allowable values for ListProjectsSortOrderEnum
-public enum ListProjectsSortOrderEnum: String, Sendable {
+/// Enum with underlying type: string
+public enum ListProjectsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
+
 public extension ListProjectsSortOrderEnum {
-    static var allValues: [ListProjectsSortOrderEnum] { [.asc, .desc] }
-    static func fromString(_ value: String) -> ListProjectsSortOrderEnum? { ListProjectsSortOrderEnum(rawValue: value) }
+    static var allValues: [ListProjectsSortOrderEnum] {
+        return [.asc, .desc]
+    }
+    
+    /// Enumerates the set of values in String for ListProjectsSortOrderEnum
+    static var allStringValues: [String] {
+        return ["ASC", "DESC"]
+    }
+    
+    /// Performs case insensitive comparison on enum value and return the desired enum
+    static func fromString(_ value: String) -> ListProjectsSortOrderEnum? {
+        return ListProjectsSortOrderEnum(rawValue: value.uppercased())
+    }
 }
 
 
@@ -138,17 +149,26 @@ public extension ListProjectsSortOrderEnum {
 
 // GetMappingListProjectsSortOrderEnum performs case Insensitive comparison on enum value and return the desired enum
 
-// ListProjectsSortByEnum Enum with underlying type: string
-public typealias ListProjectsSortByEnum = String
-
-// Set of constants representing the allowable values for ListProjectsSortByEnum
-public enum ListProjectsSortByEnum: String, Sendable {
+/// Enum with underlying type: string
+public enum ListProjectsSortByEnum: String, Codable, Sendable {
     case timecreated = "timeCreated"
     case displayname = "displayName"
 }
+
 public extension ListProjectsSortByEnum {
-    static var allValues: [ListProjectsSortByEnum] { [.timecreated, .displayname] }
-    static func fromString(_ value: String) -> ListProjectsSortByEnum? { ListProjectsSortByEnum(rawValue: value) }
+    static var allValues: [ListProjectsSortByEnum] {
+        return [.timecreated, .displayname]
+    }
+    
+    /// Enumerates the set of values in String for ListProjectsSortByEnum
+    static var allStringValues: [String] {
+        return ["timeCreated", "displayName"]
+    }
+    
+    /// Performs case insensitive comparison on enum value and return the desired enum
+    static func fromString(_ value: String) -> ListProjectsSortByEnum? {
+        return ListProjectsSortByEnum(rawValue: value.uppercased())
+    }
 }
 
 

@@ -12,15 +12,7 @@ public struct DatasetSummary: Codable {
     public var annotationFormat: String
     public var displayName: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case compartmentId = "compartmentId"
-        case timeCreated = "timeCreated"
-        case timeUpdated = "timeUpdated"
-        case lifecycleState = "lifecycleState"
-        case annotationFormat = "annotationFormat"
-        case displayName = "displayName"
-    }
+    
     
     public init(id: String,
                 compartmentId: String,

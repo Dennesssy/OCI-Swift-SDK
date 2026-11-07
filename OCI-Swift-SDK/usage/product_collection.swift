@@ -15,7 +15,5 @@ public struct ProductCollection: Codable, Sendable {
         self.items = items
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case items
-    }
+    
 }

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - WorkRequestResourceActionTypeEnum
 
-public enum WorkRequestResourceActionTypeEnum: String, Sendable {
+public enum WorkRequestResourceActionTypeEnum: String, Codable, Sendable {
     case created = "CREATED"
     case updated = "UPDATED"
     case deleted = "DELETED"

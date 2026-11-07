@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ThresholdOperatorEnum
 
-public enum ThresholdOperatorEnum: String, Sendable {
+public enum ThresholdOperatorEnum: String, Codable, Sendable {
     case gt = "GT"
     case gte = "GTE"
     case lt = "LT"
@@ -22,24 +22,24 @@ public extension ThresholdOperatorEnum {
 // MARK: - Threshold
 
 public struct Threshold: Codable, Sendable {
-    public var operator: ThresholdOperatorEnum
+    public var `operator`: ThresholdOperatorEnum
     public var value: Int
     
     private enum CodingKeys: String, CodingKey {
-        case operator, value
+        case `operator`, value
     }
     
-    public init(operator: ThresholdOperatorEnum, value: Int) {
-        self.operator = operator; self.value = value
+    public init(`operator`: ThresholdOperatorEnum, value: Int) {
+        self.`operator` = `operator`; self.value = value
     }
     
     public func validateEnumValue() throws {
-        guard ThresholdOperatorEnum.allValues.contains(operator) else {
+        guard ThresholdOperatorEnum.allValues.contains(`operator`) else {
             throw NSError(domain: "Invalid enum value", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid operator"])
         }
     }
 }
 
 extension Threshold: CustomStringConvertible {
-    public var description: String { "Threshold(operator: \(operator), value: \(value))" }
+    public var description: String { "Threshold(operator: \(`operator`), value: \(value))" }
 }

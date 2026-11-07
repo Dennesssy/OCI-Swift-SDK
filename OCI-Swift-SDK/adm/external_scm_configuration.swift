@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ExternalScmConfigurationExternalScmTypeEnum
 
-public enum ExternalScmConfigurationExternalScmTypeEnum: String, Sendable {
+public enum ExternalScmConfigurationExternalScmTypeEnum: String, Codable, Sendable {
     case gitHub = "GITHUB"
     case gitLab = "GITLAB"
 }
@@ -19,7 +19,7 @@ public extension ExternalScmConfigurationExternalScmTypeEnum {
 
 // MARK: - ExternalScmConfiguration
 
-public struct ExternalScmConfiguration: Codable, Sendable {
+public struct ExternalScmConfiguration: ScmConfiguration {
     public var branch: String
     public var isAutomergeEnabled: Bool
     public var repositoryUrl: String

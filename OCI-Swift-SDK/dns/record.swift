@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum RecordOperationEnum: String, Sendable {
+public enum RecordOperationEnum: String, Codable, Sendable {
     case add = "ADD"
     case remove = "REMOVE"
     case replace = "REPLACE"

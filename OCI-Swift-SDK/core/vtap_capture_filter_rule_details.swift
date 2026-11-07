@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - VtapCaptureFilterRuleDetailsTrafficDirectionEnum
 
-public enum VtapCaptureFilterRuleDetailsTrafficDirectionEnum: String, Sendable {
+public enum VtapCaptureFilterRuleDetailsTrafficDirectionEnum: String, Codable, Sendable {
     case ingress = "INGRESS"
     case egress = "EGRESS"
 }
@@ -19,7 +19,7 @@ public extension VtapCaptureFilterRuleDetailsTrafficDirectionEnum {
 
 // MARK: - VtapCaptureFilterRuleDetailsRuleActionEnum
 
-public enum VtapCaptureFilterRuleDetailsRuleActionEnum: String, Sendable {
+public enum VtapCaptureFilterRuleDetailsRuleActionEnum: String, Codable, Sendable {
     case include = "INCLUDE"
     case exclude = "EXCLUDE"
 }
@@ -37,24 +37,24 @@ public struct VtapCaptureFilterRuleDetails: Codable, Sendable {
     public var ruleAction: VtapCaptureFilterRuleDetailsRuleActionEnum?
     public var sourceCidr: String?
     public var destinationCidr: String?
-    public var protocol: String?
+    public var `protocol`: String?
     public var icmpOptions: IcmpOptions?
     public var tcpOptions: TcpOptions?
     public var udpOptions: UdpOptions?
     
     private enum CodingKeys: String, CodingKey {
-        case trafficDirection, ruleAction, sourceCidr, destinationCidr, protocol
+        case trafficDirection, ruleAction, sourceCidr, destinationCidr, `protocol`
         case icmpOptions, tcpOptions, udpOptions
     }
     
     public init(trafficDirection: VtapCaptureFilterRuleDetailsTrafficDirectionEnum,
                 ruleAction: VtapCaptureFilterRuleDetailsRuleActionEnum? = nil,
                 sourceCidr: String? = nil, destinationCidr: String? = nil,
-                protocol: String? = nil, icmpOptions: IcmpOptions? = nil,
+                `protocol`: String? = nil, icmpOptions: IcmpOptions? = nil,
                 tcpOptions: TcpOptions? = nil, udpOptions: UdpOptions? = nil) {
         self.trafficDirection = trafficDirection; self.ruleAction = ruleAction
         self.sourceCidr = sourceCidr; self.destinationCidr = destinationCidr
-        self.protocol = protocol; self.icmpOptions = icmpOptions
+        self.`protocol` = `protocol`; self.icmpOptions = icmpOptions
         self.tcpOptions = tcpOptions; self.udpOptions = udpOptions
     }
     

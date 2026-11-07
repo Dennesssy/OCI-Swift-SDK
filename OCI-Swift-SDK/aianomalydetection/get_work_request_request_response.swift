@@ -37,7 +37,7 @@ public struct GetWorkRequestResponse: Codable, Sendable {
     // Oracle about a particular request, please provide the request ID.
     public var OpcRequestId: String?
     // A decimal number representing the number of seconds the client should wait before polling this endpoint again.
-    public var RetryAfter: float32?
+    public var RetryAfter: Float?
     enum CodingKeys: String, CodingKey {
         case Etag = "Etag"
         case OpcRequestId = "OpcRequestId"

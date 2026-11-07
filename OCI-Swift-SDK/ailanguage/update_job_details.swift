@@ -19,26 +19,26 @@ import Foundation
 
 // UpdateJobDetails The information to be updated.
 public struct UpdateJobDetails: Codable, Sendable {
-    public var displayName: String??
-    public var description: String??
+    public var displayName: String?
+    public var descriptionText: String?
 
     enum CodingKeys: String, CodingKey {
         case displayName = "displayName"
-        case description = "description"
+        case descriptionText = "description"
     }
 
     public init(
-        displayName: String?? = nil,
-        description: String?? = nil
+        displayName: String? = nil,
+        description: String? = nil
     ) {
         self.displayName = displayName
-        self.description = description
+        self.descriptionText = description
     }
 }
 
 extension UpdateJobDetails: CustomStringConvertible {
     public var description: String {
-        return "UpdateJobDetails(\n            displayName: \(displayName ?? "nil"),\n            description: \(description ?? "nil")\n        )"
+        return "UpdateJobDetails(\n            displayName: \(displayName ?? "nil"),\n            description: \(descriptionText ?? "nil")\n        )"
     }
 }
 

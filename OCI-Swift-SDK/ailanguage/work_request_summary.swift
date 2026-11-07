@@ -26,8 +26,8 @@ public struct WorkRequestSummary: Codable, Sendable {
     public var percentComplete: Float?
     public var timeAccepted: Date?
     public var resources: [WorkRequestResource]?
-    public var timeStarted: Date??
-    public var timeFinished: Date??
+    public var timeStarted: Date?
+    public var timeFinished: Date?
 
     enum CodingKeys: String, CodingKey {
         case operationType = "operationType"
@@ -49,8 +49,8 @@ public struct WorkRequestSummary: Codable, Sendable {
         percentComplete: Float?,
         timeAccepted: Date?,
         resources: [WorkRequestResource]? = nil,
-        timeStarted: Date?? = nil,
-        timeFinished: Date?? = nil
+        timeStarted: Date? = nil,
+        timeFinished: Date? = nil
     ) {
         self.operationType = operationType
         self.status = status
@@ -66,7 +66,7 @@ public struct WorkRequestSummary: Codable, Sendable {
 
 extension WorkRequestSummary: CustomStringConvertible {
     public var description: String {
-        return "WorkRequestSummary(\n            operationType: \(operationType ?? "nil"),\n            status: \(status ?? "nil"),\n            id: \(id ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            percentComplete: \(percentComplete ?? "nil"),\n            timeAccepted: \(timeAccepted ?? "nil"),\n            resources: \(resources ?? "nil"),\n            timeStarted: \(timeStarted ?? "nil"),\n            timeFinished: \(timeFinished ?? "nil")\n        )"
+        return "WorkRequestSummary(\n            operationType: \(operationType.rawValue),\n            status: \(status.rawValue),\n            id: \(id ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            percentComplete: \((percentComplete.map { String($0) } ?? "nil")),\n            timeAccepted: \((timeAccepted != nil ? "present" : "nil")),\n            resources: \(resources?.count ?? 0),\n            timeStarted: \((timeStarted != nil ? "present" : "nil")),\n            timeFinished: \((timeFinished != nil ? "present" : "nil"))\n        )"
     }
 }
 

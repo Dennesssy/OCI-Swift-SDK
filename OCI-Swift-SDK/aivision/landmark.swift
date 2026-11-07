@@ -19,7 +19,7 @@ import Foundation
 public struct Landmark: Codable, Sendable {
 
 	// The face landmark type
-    public var Type: LandmarkTypeEnum?
+    public var `Type`: LandmarkTypeEnum?
 
 	// The X-axis normalized coordinate.
     public var X: Float??
@@ -27,7 +27,7 @@ public struct Landmark: Codable, Sendable {
 	// The Y-axis normalized coordinate.
     public var Y: Float??
     enum CodingKeys: String, CodingKey {
-        case Type = "type"
+        case `Type` = "type"
         case X = "x"
         case Y = "y"
     }
@@ -43,7 +43,7 @@ public struct Landmark: Codable, Sendable {
 // LandmarkTypeEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for LandmarkTypeEnum
-public enum LandmarkTypeEnum: String, Sendable {
+public enum LandmarkTypeEnum: String, Codable, Sendable {
     case leftEye = "LEFT_EYE"
     case rightEye = "RIGHT_EYE"
     case noseTip = "NOSE_TIP"

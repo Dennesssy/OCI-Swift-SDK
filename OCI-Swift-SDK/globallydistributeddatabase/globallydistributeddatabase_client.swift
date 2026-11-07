@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class ugloballydistributeddatabaseClient: ClientProtocol {
+public final class ugloballydistributeddatabaseClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

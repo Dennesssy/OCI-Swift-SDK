@@ -25,9 +25,9 @@ public struct NamedEntityRecognitionModelMetrics: Codable, Sendable {
     public var macroF1: Float?
     public var macroPrecision: Float?
     public var macroRecall: Float?
-    public var weightedF1: Float??
-    public var weightedPrecision: Float??
-    public var weightedRecall: Float??
+    public var weightedF1: Float?
+    public var weightedPrecision: Float?
+    public var weightedRecall: Float?
 
     enum CodingKeys: String, CodingKey {
         case microF1 = "microF1"
@@ -48,9 +48,9 @@ public struct NamedEntityRecognitionModelMetrics: Codable, Sendable {
         macroF1: Float?,
         macroPrecision: Float?,
         macroRecall: Float?,
-        weightedF1: Float?? = nil,
-        weightedPrecision: Float?? = nil,
-        weightedRecall: Float?? = nil
+        weightedF1: Float? = nil,
+        weightedPrecision: Float? = nil,
+        weightedRecall: Float? = nil
     ) {
         self.microF1 = microF1
         self.microPrecision = microPrecision
@@ -66,7 +66,7 @@ public struct NamedEntityRecognitionModelMetrics: Codable, Sendable {
 
 extension NamedEntityRecognitionModelMetrics: CustomStringConvertible {
     public var description: String {
-        return "NamedEntityRecognitionModelMetrics(\n            microF1: \(microF1 ?? "nil"),\n            microPrecision: \(microPrecision ?? "nil"),\n            microRecall: \(microRecall ?? "nil"),\n            macroF1: \(macroF1 ?? "nil"),\n            macroPrecision: \(macroPrecision ?? "nil"),\n            macroRecall: \(macroRecall ?? "nil"),\n            weightedF1: \(weightedF1 ?? "nil"),\n            weightedPrecision: \(weightedPrecision ?? "nil"),\n            weightedRecall: \(weightedRecall ?? "nil")\n        )"
+        return "NamedEntityRecognitionModelMetrics(\n            microF1: \((microF1.map { String($0) } ?? "nil")),\n            microPrecision: \((microPrecision.map { String($0) } ?? "nil")),\n            microRecall: \((microRecall.map { String($0) } ?? "nil")),\n            macroF1: \((macroF1.map { String($0) } ?? "nil")),\n            macroPrecision: \((macroPrecision.map { String($0) } ?? "nil")),\n            macroRecall: \((macroRecall.map { String($0) } ?? "nil")),\n            weightedF1: \((weightedF1.map { String($0) } ?? "nil")),\n            weightedPrecision: \((weightedPrecision.map { String($0) } ?? "nil")),\n            weightedRecall: \((weightedRecall.map { String($0) } ?? "nil"))\n        )"
     }
 }
 

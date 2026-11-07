@@ -21,7 +21,6 @@ public protocol Dataset { }
 
 
 // UnmarshalJSON unmarshals json
-public typealias Unmarshalerdataset = dataset
 
 
 // UnmarshalPolymorphicJSON unmarshals polymorphic json
@@ -36,7 +35,7 @@ public typealias Unmarshalerdataset = dataset
 // DatasetDatasetTypeEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for DatasetDatasetTypeEnum
-public enum DatasetDatasetTypeEnum: String, Sendable {
+public enum DatasetDatasetTypeEnum: String, Codable, Sendable {
     case dataScienceLabeling = "DATA_SCIENCE_LABELING"
     case objectStorage = "OBJECT_STORAGE"
 }

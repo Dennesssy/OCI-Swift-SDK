@@ -6,9 +6,7 @@ import Foundation
 public struct PlacementInstructionDetails: Codable {
     public var faultDomain: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case faultDomain = "faultDomain"
-    }
+    
     
     public init(faultDomain: String? = nil) {
         self.faultDomain = faultDomain

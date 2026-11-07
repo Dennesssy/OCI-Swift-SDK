@@ -18,10 +18,7 @@ public struct SummarizeIndicatorsRequest: Codable, Sendable {
         self.opcRequestId = opcRequestId
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case summarizeIndicatorsDetails
-        case opcRequestId
-    }
+    
 }
 
 // MARK: - SummarizeIndicatorsResponse
@@ -38,8 +35,5 @@ public struct SummarizeIndicatorsResponse: Codable, Sendable {
         self.opcRequestId = opcRequestId
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case indicatorCountDimensions
-        case opcRequestId
-    }
+    
 }

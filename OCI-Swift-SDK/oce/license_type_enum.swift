@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - LicenseTypeEnum
 
-public enum LicenseTypeEnum: String, Sendable {
+public enum LicenseTypeEnum: String, Codable, Sendable {
     case new = "NEW"
     case byol = "BYOL"
     case premium = "PREMIUM"

@@ -21,7 +21,6 @@ public protocol FieldValue { }
 
 
 // UnmarshalJSON unmarshals json
-public typealias Unmarshalerfieldvalue = fieldvalue
 
 
 // UnmarshalPolymorphicJSON unmarshals polymorphic json
@@ -44,7 +43,7 @@ public typealias Unmarshalerfieldvalue = fieldvalue
 // FieldValueValueTypeEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for FieldValueValueTypeEnum
-public enum FieldValueValueTypeEnum: String, Sendable {
+public enum FieldValueValueTypeEnum: String, Codable, Sendable {
     case string = "STRING"
     case date = "DATE"
     case time = "TIME"

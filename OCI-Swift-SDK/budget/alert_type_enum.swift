@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - AlertTypeEnum
 
-public enum AlertTypeEnum: String, Sendable {
+public enum AlertTypeEnum: String, Codable, Sendable {
     case actual = "ACTUAL"
     case forecast = "FORECAST"
 }

@@ -43,7 +43,7 @@ public typealias RealtimeMessageResultTranscriptionTokenTypeEnum = String
 
 // MARK: - RealtimeMessageResultTranscriptionTokenType
 
-public enum RealtimeMessageResultTranscriptionTokenType: String, Sendable {
+public enum RealtimeMessageResultTranscriptionTokenType: String, Codable, Sendable {
     case word = "WORD"
     case punctuation = "PUNCTUATION"
 }

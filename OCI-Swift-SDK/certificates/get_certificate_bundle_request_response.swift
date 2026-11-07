@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - GetCertificateBundleStageEnum
 
-public enum GetCertificateBundleStageEnum: String, Sendable {
+public enum GetCertificateBundleStageEnum: String, Codable, Sendable {
     case current = "CURRENT"
     case pending = "PENDING"
     case latest = "LATEST"
@@ -22,7 +22,7 @@ public extension GetCertificateBundleStageEnum {
 
 // MARK: - GetCertificateBundleCertificateBundleTypeEnum
 
-public enum GetCertificateBundleCertificateBundleTypeEnum: String, Sendable {
+public enum GetCertificateBundleCertificateBundleTypeEnum: String, Codable, Sendable {
     case publicOnly = "CERTIFICATE_CONTENT_PUBLIC_ONLY"
     case withPrivateKey = "CERTIFICATE_CONTENT_WITH_PRIVATE_KEY"
 }

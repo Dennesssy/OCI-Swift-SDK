@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListKnowledgeBasesSortByEnum
 
-public enum ListKnowledgeBasesSortByEnum: String, Sendable {
+public enum ListKnowledgeBasesSortByEnum: String, Codable, Sendable {
     case displayName = "displayName"
     case lifecycleState = "lifecycleState"
     case timeCreated = "timeCreated"
@@ -21,7 +21,7 @@ public extension ListKnowledgeBasesSortByEnum {
 
 // MARK: - ListKnowledgeBasesSortOrderEnum
 
-public enum ListKnowledgeBasesSortOrderEnum: String, Sendable {
+public enum ListKnowledgeBasesSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class ujmsjavadownloadsClient: ClientProtocol {
+public final class ujmsjavadownloadsClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

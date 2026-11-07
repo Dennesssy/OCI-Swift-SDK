@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class uemailClient: ClientProtocol {
+public final class uemailClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

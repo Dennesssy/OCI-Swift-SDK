@@ -46,7 +46,7 @@ public struct EntityMetrics: Codable, Sendable {
 
 extension EntityMetrics: CustomStringConvertible {
     public var description: String {
-        return "EntityMetrics(\n            label: \(label ?? "nil"),\n            f1: \(f1 ?? "nil"),\n            precision: \(precision ?? "nil"),\n            recall: \(recall ?? "nil")\n        )"
+        return "EntityMetrics(\n            label: \(label ?? "nil"),\n            f1: \((f1.map { String($0) } ?? "nil")),\n            precision: \((precision.map { String($0) } ?? "nil")),\n            recall: \((recall.map { String($0) } ?? "nil"))\n        )"
     }
 }
 

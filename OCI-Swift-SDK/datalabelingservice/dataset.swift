@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct Dataset: Codable {
     public var id: String
@@ -21,28 +22,9 @@ public struct Dataset: Codable {
     public var initialImportDatasetConfiguration: InitialImportDatasetConfiguration?
     public var labelingInstructions: String?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case compartmentId = "compartmentId"
-        case timeCreated = "timeCreated"
-        case timeUpdated = "timeUpdated"
-        case lifecycleState = "lifecycleState"
-        case annotationFormat = "annotationFormat"
-        case datasetSourceDetails = "datasetSourceDetails"
-        case datasetFormatDetails = "datasetFormatDetails"
-        case labelSet = "labelSet"
-        case displayName = "displayName"
-        case description = "description"
-        case lifecycleDetails = "lifecycleDetails"
-        case lifecycleSubstate = "lifecycleSubstate"
-        case initialRecordGenerationConfiguration = "initialRecordGenerationConfiguration"
-        case initialImportDatasetConfiguration = "initialImportDatasetConfiguration"
-        case labelingInstructions = "labelingInstructions"
-        case freeformTags = "freeformTags"
-        case definedTags = "definedTags"
-    }
+    
     
     public init(id: String,
                 compartmentId: String,
@@ -61,7 +43,7 @@ public struct Dataset: Codable {
                 initialImportDatasetConfiguration: InitialImportDatasetConfiguration? = nil,
                 labelingInstructions: String? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil) {
+                definedTags: [String: [String: JSONValue]]? = nil) {
         self.id = id
         self.compartmentId = compartmentId
         self.timeCreated = timeCreated

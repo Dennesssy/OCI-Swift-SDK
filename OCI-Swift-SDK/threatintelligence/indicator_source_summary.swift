@@ -15,7 +15,5 @@ public struct IndicatorSourceSummary: Codable, Sendable {
         self.name = name
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case name
-    }
+    
 }

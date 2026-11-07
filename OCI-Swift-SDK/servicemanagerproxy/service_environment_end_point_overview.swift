@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ServiceEnvironmentEndPointOverviewEnvironmentTypeEnum
 
-public enum ServiceEnvironmentEndPointOverviewEnvironmentTypeEnum: String, Sendable {
+public enum ServiceEnvironmentEndPointOverviewEnvironmentTypeEnum: String, Codable, Sendable {
     case instanceUrlProd = "INSTANCE_URL_PROD"
     case instanceUrlTest = "INSTANCE_URL_TEST"
     case instanceUrlDev = "INSTANCE_URL_DEV"
@@ -27,7 +27,7 @@ public struct ServiceEnvironmentEndPointOverview: Codable, Sendable {
     // Service environment instance URL
     public var url: String
     // Description of the environment link
-    public var description: String?
+    public var descriptionText: String?
     
     private enum CodingKeys: String, CodingKey {
         case environmentType, url, description
@@ -36,9 +36,23 @@ public struct ServiceEnvironmentEndPointOverview: Codable, Sendable {
     public init(environmentType: ServiceEnvironmentEndPointOverviewEnvironmentTypeEnum, url: String, description: String? = nil) {
         self.environmentType = environmentType
         self.url = url
-        self.description = description
+        self.descriptionText = description
     }
     
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.environmentType = try container.decode(ServiceEnvironmentEndPointOverviewEnvironmentTypeEnum.self, forKey: .environmentType)
+        self.url = try container.decode(String.self, forKey: .url)
+        self.descriptionText = try container.decodeIfPresent(String.self, forKey: .description)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.environmentType, forKey: .environmentType)
+        try container.encode(self.url, forKey: .url)
+        try container.encodeIfPresent(self.descriptionText, forKey: .description)
+    }
+
     public func validateEnumValue() throws {
         guard ServiceEnvironmentEndPointOverviewEnvironmentTypeEnum.allValues.contains(environmentType) else {
             throw NSError(domain: "Invalid enum value", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid environmentType"])
@@ -47,5 +61,5 @@ public struct ServiceEnvironmentEndPointOverview: Codable, Sendable {
 }
 
 extension ServiceEnvironmentEndPointOverview: CustomStringConvertible {
-    public var description: String { "ServiceEnvironmentEndPointOverview(environmentType: \(environmentType), url: \(url))" }
+    public var description: String { "ServiceEnvironmentEndPointOverview(environmentType: \(environmentType), url: \(url), description: \(descriptionText ?? "nil"))" }
 }

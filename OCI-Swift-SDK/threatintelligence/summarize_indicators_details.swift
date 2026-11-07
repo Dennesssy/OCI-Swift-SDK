@@ -24,10 +24,5 @@ public struct SummarizeIndicatorsDetails: Codable, Sendable {
         self.indicatorTypes = indicatorTypes
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case compartmentId
-        case threatTypes
-        case threatFeeds
-        case indicatorTypes
-    }
+    
 }

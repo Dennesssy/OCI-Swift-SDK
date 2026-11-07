@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -16,9 +17,9 @@ import Foundation
 //
 // Click https://docs.cloud.oracle.com/en-us/iaas/tools/go-sdk-examples/latest/ailanguage/CreateEndpoint.go.html to see an example of how to use CreateEndpointRequest.
 public struct CreateEndpointRequest: Codable, Sendable {
-    public var opcRetryToken: String??
-    public var opcRequestId: String??
-    public var requestMetadata: common.RequestMetadata?
+    public var opcRetryToken: String?
+    public var opcRequestId: String?
+    public var requestMetadata: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case opcRetryToken = "OpcRetryToken"
@@ -27,9 +28,9 @@ public struct CreateEndpointRequest: Codable, Sendable {
     }
 
     public init(
-        opcRetryToken: String?? = nil,
-        opcRequestId: String?? = nil,
-        requestMetadata: common.RequestMetadata? = nil
+        opcRetryToken: String? = nil,
+        opcRequestId: String? = nil,
+        requestMetadata: [String: String]? = nil
     ) {
         self.opcRetryToken = opcRetryToken
         self.opcRequestId = opcRequestId
@@ -39,7 +40,7 @@ public struct CreateEndpointRequest: Codable, Sendable {
 
 extension CreateEndpointRequest: CustomStringConvertible {
     public var description: String {
-        return "CreateEndpointRequest(\n            opcRetryToken: \(opcRetryToken ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "CreateEndpointRequest(\n            opcRetryToken: \(opcRetryToken != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            requestMetadata: \(requestMetadata != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -57,11 +58,11 @@ extension CreateEndpointRequest: CustomStringConvertible {
 
 // CreateEndpointResponse wrapper for the CreateEndpoint operation
 public struct CreateEndpointResponse: Codable, Sendable {
-    public var rawResponse: http.Response??
-    public var etag: String??
-    public var location: String??
-    public var opcWorkRequestId: String??
-    public var opcRequestId: String??
+    public var rawResponse: JSONValue?
+    public var etag: String?
+    public var location: String?
+    public var opcWorkRequestId: String?
+    public var opcRequestId: String?
 
     enum CodingKeys: String, CodingKey {
         case rawResponse = "RawResponse"
@@ -72,11 +73,11 @@ public struct CreateEndpointResponse: Codable, Sendable {
     }
 
     public init(
-        rawResponse: http.Response?? = nil,
-        etag: String?? = nil,
-        location: String?? = nil,
-        opcWorkRequestId: String?? = nil,
-        opcRequestId: String?? = nil
+        rawResponse: JSONValue? = nil,
+        etag: String? = nil,
+        location: String? = nil,
+        opcWorkRequestId: String? = nil,
+        opcRequestId: String? = nil
     ) {
         self.rawResponse = rawResponse
         self.etag = etag
@@ -88,7 +89,7 @@ public struct CreateEndpointResponse: Codable, Sendable {
 
 extension CreateEndpointResponse: CustomStringConvertible {
     public var description: String {
-        return "CreateEndpointResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            etag: \(etag ?? "nil"),\n            location: \(location ?? "nil"),\n            opcWorkRequestId: \(opcWorkRequestId ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "CreateEndpointResponse(\n            rawResponse: \(rawResponse != nil ? "present" : "nil"),\n            etag: \(etag != nil ? "present" : "nil"),\n            location: \(location != nil ? "present" : "nil"),\n            opcWorkRequestId: \(opcWorkRequestId != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil")\n        )"
     }
 }
 

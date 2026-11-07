@@ -34,7 +34,7 @@ public struct WorkRequestSummaryCollection: Codable, Sendable {
 
 extension WorkRequestSummaryCollection: CustomStringConvertible {
     public var description: String {
-        return "WorkRequestSummaryCollection(\n            items: \(items ?? "nil")\n        )"
+        return "WorkRequestSummaryCollection(\n            items: \(items.count)\n        )"
     }
 }
 

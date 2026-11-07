@@ -10,13 +10,7 @@ public struct AlarmOverride: Codable {
     public var body: String?
     public var pendingDuration: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case ruleName = "ruleName"
-        case query = "query"
-        case severity = "severity"
-        case body = "body"
-        case pendingDuration = "pendingDuration"
-    }
+    
     
     public init(ruleName: String? = nil,
                 query: String? = nil,

@@ -76,7 +76,7 @@ extension ListModelsResponse: CustomStringConvertible {
 
 // ListModelsSortOrderEnum Enum with underlying type: string
 // MARK: - ListModelsSortOrderEnum
-public enum ListModelsSortOrderEnum: String, Sendable {
+public enum ListModelsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -88,7 +88,7 @@ public extension ListModelsSortOrderEnum {
 
 // ListModelsSortByEnum Enum with underlying type: string
 // MARK: - ListModelsSortByEnum
-public enum ListModelsSortByEnum: String, Sendable {
+public enum ListModelsSortByEnum: String, Codable, Sendable {
     case timecreated = "timeCreated"
     case displayname = "displayName"
 }

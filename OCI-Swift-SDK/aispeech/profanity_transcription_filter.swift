@@ -35,7 +35,7 @@ public typealias ProfanityTranscriptionFilterModeEnum = String
 
 // MARK: - ProfanityTranscriptionFilterMode
 
-public enum ProfanityTranscriptionFilterMode: String, Sendable {
+public enum ProfanityTranscriptionFilterMode: String, Codable, Sendable {
     case mask = "MASK"
     case remove = "REMOVE"
     case tag = "TAG"

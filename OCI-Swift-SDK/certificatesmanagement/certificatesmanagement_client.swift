@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class ucertificatesmanagementClient: ClientProtocol {
+public final class ucertificatesmanagementClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

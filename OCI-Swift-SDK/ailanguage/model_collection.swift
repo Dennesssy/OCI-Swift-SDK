@@ -34,7 +34,7 @@ public struct ModelCollection: Codable, Sendable {
 
 extension ModelCollection: CustomStringConvertible {
     public var description: String {
-        return "ModelCollection(\n            items: \(items ?? "nil")\n        )"
+        return "ModelCollection(\n            items: \(items.count)\n        )"
     }
 }
 

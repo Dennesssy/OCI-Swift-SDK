@@ -21,11 +21,7 @@ public struct Pricing: Codable, Sendable {
         self.freeTrial = freeTrial
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case currency
-        case payG
-        case freeTrial
-    }
+    
 }
 
 // MARK: - PayG
@@ -45,11 +41,7 @@ public struct PayG: Codable, Sendable {
         self.currency = currency
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case model
-        case rate
-        case currency
-    }
+    
 }
 
 // MARK: - FreeTrial
@@ -66,8 +58,5 @@ public struct FreeTrial: Codable, Sendable {
         self.timeEnd = timeEnd
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case duration
-        case timeEnd
-    }
+    
 }

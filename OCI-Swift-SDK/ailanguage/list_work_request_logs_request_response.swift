@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -17,12 +18,12 @@ import Foundation
 // Click https://docs.cloud.oracle.com/en-us/iaas/tools/go-sdk-examples/latest/ailanguage/ListWorkRequestLogs.go.html to see an example of how to use ListWorkRequestLogsRequest.
 public struct ListWorkRequestLogsRequest: Codable, Sendable {
     public var workRequestId: String?
-    public var opcRequestId: String??
-    public var page: String??
-    public var limit: Int??
+    public var opcRequestId: String?
+    public var page: String?
+    public var limit: Int?
     public var sortOrder: ListWorkRequestLogsSortOrderEnum?
     public var sortBy: ListWorkRequestLogsSortByEnum?
-    public var requestMetadata: common.RequestMetadata?
+    public var requestMetadata: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case workRequestId = "WorkRequestId"
@@ -36,12 +37,12 @@ public struct ListWorkRequestLogsRequest: Codable, Sendable {
 
     public init(
         workRequestId: String?,
-        opcRequestId: String?? = nil,
-        page: String?? = nil,
-        limit: Int?? = nil,
+        opcRequestId: String? = nil,
+        page: String? = nil,
+        limit: Int? = nil,
         sortOrder: ListWorkRequestLogsSortOrderEnum? = nil,
         sortBy: ListWorkRequestLogsSortByEnum? = nil,
-        requestMetadata: common.RequestMetadata? = nil
+        requestMetadata: [String: String]? = nil
     ) {
         self.workRequestId = workRequestId
         self.opcRequestId = opcRequestId
@@ -55,7 +56,7 @@ public struct ListWorkRequestLogsRequest: Codable, Sendable {
 
 extension ListWorkRequestLogsRequest: CustomStringConvertible {
     public var description: String {
-        return "ListWorkRequestLogsRequest(\n            workRequestId: \(workRequestId ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            page: \(page ?? "nil"),\n            limit: \(limit ?? "nil"),\n            sortOrder: \(sortOrder ?? "nil"),\n            sortBy: \(sortBy ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "ListWorkRequestLogsRequest(\n            workRequestId: \(workRequestId ?? "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            page: \(page != nil ? "present" : "nil"),\n            limit: \(limit != nil ? "present" : "nil"),\n            sortOrder: \(sortOrder?.rawValue ?? "nil"),\n            sortBy: \(sortBy?.rawValue ?? "nil"),\n            requestMetadata: \(requestMetadata != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -73,9 +74,9 @@ extension ListWorkRequestLogsRequest: CustomStringConvertible {
 
 // ListWorkRequestLogsResponse wrapper for the ListWorkRequestLogs operation
 public struct ListWorkRequestLogsResponse: Codable, Sendable {
-    public var rawResponse: http.Response??
-    public var opcNextPage: String??
-    public var opcRequestId: String??
+    public var rawResponse: JSONValue?
+    public var opcNextPage: String?
+    public var opcRequestId: String?
 
     enum CodingKeys: String, CodingKey {
         case rawResponse = "RawResponse"
@@ -84,9 +85,9 @@ public struct ListWorkRequestLogsResponse: Codable, Sendable {
     }
 
     public init(
-        rawResponse: http.Response?? = nil,
-        opcNextPage: String?? = nil,
-        opcRequestId: String?? = nil
+        rawResponse: JSONValue? = nil,
+        opcNextPage: String? = nil,
+        opcRequestId: String? = nil
     ) {
         self.rawResponse = rawResponse
         self.opcNextPage = opcNextPage
@@ -96,7 +97,7 @@ public struct ListWorkRequestLogsResponse: Codable, Sendable {
 
 extension ListWorkRequestLogsResponse: CustomStringConvertible {
     public var description: String {
-        return "ListWorkRequestLogsResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcNextPage: \(opcNextPage ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "ListWorkRequestLogsResponse(\n            rawResponse: \(rawResponse != nil ? "present" : "nil"),\n            opcNextPage: \(opcNextPage != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil")\n        )"
     }
 }
 
@@ -105,16 +106,26 @@ extension ListWorkRequestLogsResponse: CustomStringConvertible {
 // HTTPResponse implements the OCIResponse interface
 
 // ListWorkRequestLogsSortOrderEnum Enum with underlying type: string
-public typealias ListWorkRequestLogsSortOrderEnum = String
-
-// Set of constants representing the allowable values for ListWorkRequestLogsSortOrderEnum
-public enum ListWorkRequestLogsSortOrderEnum: String, Sendable {
+/// Enum with underlying type: string
+public enum ListWorkRequestLogsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
+
 public extension ListWorkRequestLogsSortOrderEnum {
-    static var allValues: [ListWorkRequestLogsSortOrderEnum] { [.asc, .desc] }
-    static func fromString(_ value: String) -> ListWorkRequestLogsSortOrderEnum? { ListWorkRequestLogsSortOrderEnum(rawValue: value) }
+    static var allValues: [ListWorkRequestLogsSortOrderEnum] {
+        return [.asc, .desc]
+    }
+    
+    /// Enumerates the set of values in String for ListWorkRequestLogsSortOrderEnum
+    static var allStringValues: [String] {
+        return ["ASC", "DESC"]
+    }
+    
+    /// Performs case insensitive comparison on enum value and return the desired enum
+    static func fromString(_ value: String) -> ListWorkRequestLogsSortOrderEnum? {
+        return ListWorkRequestLogsSortOrderEnum(rawValue: value.uppercased())
+    }
 }
 
 
@@ -126,17 +137,26 @@ public extension ListWorkRequestLogsSortOrderEnum {
 
 // GetMappingListWorkRequestLogsSortOrderEnum performs case Insensitive comparison on enum value and return the desired enum
 
-// ListWorkRequestLogsSortByEnum Enum with underlying type: string
-public typealias ListWorkRequestLogsSortByEnum = String
-
-// Set of constants representing the allowable values for ListWorkRequestLogsSortByEnum
-public enum ListWorkRequestLogsSortByEnum: String, Sendable {
+/// Enum with underlying type: string
+public enum ListWorkRequestLogsSortByEnum: String, Codable, Sendable {
     case timecreated = "timeCreated"
     case displayname = "displayName"
 }
+
 public extension ListWorkRequestLogsSortByEnum {
-    static var allValues: [ListWorkRequestLogsSortByEnum] { [.timecreated, .displayname] }
-    static func fromString(_ value: String) -> ListWorkRequestLogsSortByEnum? { ListWorkRequestLogsSortByEnum(rawValue: value) }
+    static var allValues: [ListWorkRequestLogsSortByEnum] {
+        return [.timecreated, .displayname]
+    }
+    
+    /// Enumerates the set of values in String for ListWorkRequestLogsSortByEnum
+    static var allStringValues: [String] {
+        return ["timeCreated", "displayName"]
+    }
+    
+    /// Performs case insensitive comparison on enum value and return the desired enum
+    static func fromString(_ value: String) -> ListWorkRequestLogsSortByEnum? {
+        return ListWorkRequestLogsSortByEnum(rawValue: value.uppercased())
+    }
 }
 
 

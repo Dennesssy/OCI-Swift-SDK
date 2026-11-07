@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum ActionTypeEnum: String, Sendable {
+public enum ActionTypeEnum: String, Codable, Sendable {
     case actiontypecreated = "CREATED"
     case actiontypeupdated = "UPDATED"
     case actiontypedeleted = "DELETED"
@@ -18,29 +18,3 @@ public extension ActionTypeEnum {
     static var allStringValues: [String] { ["CREATED", "UPDATED", "DELETED", "IN_PROGRESS", "RELATED", "FAILED"] }
     static func fromString(_ value: String) -> ActionTypeEnum? { ActionTypeEnum(rawValue: value) }
 }
-
-// Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
-// This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
-// Document Understanding API
-//
-// Document AI helps customers perform various analysis on their documents. If a customer has lots of documents, they can process them in batch using asynchronous API endpoints.
-//
-// ActionTypeEnum Enum with underlying type: string
-// Set of constants representing the allowable values for ActionTypeEnum
-	"CREATED":     ActionTypeCreated,
-	"UPDATED":     ActionTypeUpdated,
-	"DELETED":     ActionTypeDeleted,
-	"IN_PROGRESS": ActionTypeInProgress,
-	"RELATED":     ActionTypeRelated,
-	"FAILED":      ActionTypeFailed,
-}
-	"created":     ActionTypeCreated,
-	"updated":     ActionTypeUpdated,
-	"deleted":     ActionTypeDeleted,
-	"in_progress": ActionTypeInProgress,
-	"related":     ActionTypeRelated,
-	"failed":      ActionTypeFailed,
-}
-// GetActionTypeEnumValues Enumerates the set of values for ActionTypeEnum
-// GetActionTypeEnumStringValues Enumerates the set of values in String for ActionTypeEnum
-// GetMappingActionTypeEnum performs case Insensitive comparison on enum value and return the desired enum

@@ -15,7 +15,5 @@ public struct ThreatTypesCollection: Codable, Sendable {
         self.items = items
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case items
-    }
+    
 }

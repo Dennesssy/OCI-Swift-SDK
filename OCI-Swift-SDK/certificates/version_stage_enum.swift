@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - VersionStageEnum
 
-public enum VersionStageEnum: String, Sendable {
+public enum VersionStageEnum: String, Codable, Sendable {
     case current = "CURRENT"
     case pending = "PENDING"
     case latest = "LATEST"

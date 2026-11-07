@@ -8,11 +8,7 @@ public struct IdcsInfoDetails: Codable {
     public var idcsClientId: String?
     public var idcsTenantId: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case idcsEndpoint = "idcsEndpoint"
-        case idcsClientId = "idcsClientId"
-        case idcsTenantId = "idcsTenantId"
-    }
+    
     
     public init(idcsEndpoint: String? = nil,
                 idcsClientId: String? = nil,

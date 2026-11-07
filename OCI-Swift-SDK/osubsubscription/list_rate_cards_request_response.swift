@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListRateCardsSortByEnum
 
-public enum ListRateCardsSortByEnum: String, Sendable {
+public enum ListRateCardsSortByEnum: String, Codable, Sendable {
     case timecreated = "TIMECREATED"
     case timestart = "TIMESTART"
 }
@@ -19,7 +19,7 @@ public extension ListRateCardsSortByEnum {
 
 // MARK: - ListRateCardsSortOrderEnum
 
-public enum ListRateCardsSortOrderEnum: String, Sendable {
+public enum ListRateCardsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

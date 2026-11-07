@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class ucloudguardClient: ClientProtocol {
+public final class ucloudguardClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

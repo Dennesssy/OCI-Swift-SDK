@@ -18,8 +18,5 @@ public struct ThreatType: Codable, Sendable {
         self.description = description
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case name
-        case description
-    }
+    
 }

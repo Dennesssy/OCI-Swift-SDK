@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class uloganalyticsClient: ClientProtocol {
+public final class uloganalyticsClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

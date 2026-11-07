@@ -30,14 +30,7 @@ public struct ListIndicatorCountsRequest: Codable, Sendable {
         self.opcRequestId = opcRequestId
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case compartmentId
-        case threatTypes
-        case threatFeeds
-        case limit
-        case page
-        case opcRequestId
-    }
+    
 }
 
 // MARK: - ListIndicatorCountsResponse
@@ -57,9 +50,5 @@ public struct ListIndicatorCountsResponse: Codable, Sendable {
         self.opcNextPage = opcNextPage
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case indicatorCountCollection
-        case opcRequestId
-        case opcNextPage
-    }
+    
 }

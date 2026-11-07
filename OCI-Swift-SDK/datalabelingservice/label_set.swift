@@ -6,9 +6,7 @@ import Foundation
 public struct LabelSet: Codable {
     public var items: [Label]?
     
-    public enum CodingKeys: String, CodingKey {
-        case items = "items"
-    }
+    
     
     public init(items: [Label]? = nil) {
         self.items = items

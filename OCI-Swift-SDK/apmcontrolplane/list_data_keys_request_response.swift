@@ -4,6 +4,20 @@
 
 import Foundation
 
+// MARK: - ListDataKeysDataKeyTypeEnum
+
+public enum ListDataKeysDataKeyTypeEnum: String, Codable, Sendable {
+    case `private` = "PRIVATE"
+    case `public` = "PUBLIC"
+}
+
+public extension ListDataKeysDataKeyTypeEnum {
+    static var allValues: [ListDataKeysDataKeyTypeEnum] { [.`private`, .`public`] }
+    static var allStringValues: [String] { ["PRIVATE", "PUBLIC"] }
+    static func fromString(_ value: String) -> ListDataKeysDataKeyTypeEnum? { ListDataKeysDataKeyTypeEnum(rawValue: value) }
+}
+
+
 // MARK: - ListDataKeysRequest
 
 public struct ListDataKeysRequest: Codable, Sendable {

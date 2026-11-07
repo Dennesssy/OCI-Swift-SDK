@@ -11,14 +11,14 @@ public struct UpdateScheduledPolicyDetails: Codable, Sendable {
     public var capacity: Capacity?
     public var isEnabled: Bool?
     public var executionSchedule: ExecutionSchedule?
-    public var resourceAction: ResourceAction?
+    public var resourceAction: ResourcePowerAction?
     
     private enum CodingKeys: String, CodingKey {
         case displayName, capacity, isEnabled, executionSchedule, resourceAction
     }
     
     public init(displayName: String? = nil, capacity: Capacity? = nil, isEnabled: Bool? = nil,
-                executionSchedule: ExecutionSchedule? = nil, resourceAction: ResourceAction? = nil) {
+                executionSchedule: ExecutionSchedule? = nil, resourceAction: ResourcePowerAction? = nil) {
         self.displayName = displayName; self.capacity = capacity; self.isEnabled = isEnabled
         self.executionSchedule = executionSchedule; self.resourceAction = resourceAction
     }

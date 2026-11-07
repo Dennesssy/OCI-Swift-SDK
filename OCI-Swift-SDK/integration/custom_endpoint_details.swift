@@ -7,10 +7,7 @@ public struct CustomEndpointDetails: Codable {
     public var hostnamePrefix: String?
     public var certificateSecretId: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case hostnamePrefix = "hostnamePrefix"
-        case certificateSecretId = "certificateSecretId"
-    }
+    
     
     public init(hostnamePrefix: String? = nil,
                 certificateSecretId: String? = nil) {

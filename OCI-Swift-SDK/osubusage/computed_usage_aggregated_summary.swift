@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ComputedUsageAggregatedSummaryPricingModelEnum
 
-public enum ComputedUsageAggregatedSummaryPricingModelEnum: String, Sendable {
+public enum ComputedUsageAggregatedSummaryPricingModelEnum: String, Codable, Sendable {
     case payAsYouGo = "PAY_AS_YOU_GO"
     case monthly = "MONTHLY"
     case annual = "ANNUAL"

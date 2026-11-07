@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class ubdsClient: ClientProtocol {
+public final class ubdsClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

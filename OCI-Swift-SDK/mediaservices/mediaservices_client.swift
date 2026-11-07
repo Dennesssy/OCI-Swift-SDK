@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class umediaservicesClient: ClientProtocol {
+public final class umediaservicesClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

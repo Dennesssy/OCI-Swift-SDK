@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class ugenerativeaiClient: ClientProtocol {
+public final class ugenerativeaiClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

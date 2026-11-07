@@ -38,7 +38,7 @@ public struct BatchLanguageTranslationResult: Codable, Sendable {
 
 extension BatchLanguageTranslationResult: CustomStringConvertible {
     public var description: String {
-        return "BatchLanguageTranslationResult(\n            documents: \(documents ?? "nil"),\n            errors: \(errors ?? "nil")\n        )"
+        return "BatchLanguageTranslationResult(\n            documents: \(documents.count),\n            errors: \(errors?.count ?? 0)\n        )"
     }
 }
 

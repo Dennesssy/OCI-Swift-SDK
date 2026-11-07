@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -19,8 +20,8 @@ import Foundation
 
 // TestAndValidationDatasetStrategy This information will be used capture training, testing and validation dataset.
 public struct TestAndValidationDatasetStrategy: Codable, Sendable {
-    public var testingDataset: DatasetDetails
-    public var validationDataset: DatasetDetails?
+    public var testingDataset: JSONValue
+    public var validationDataset: JSONValue?
 
     enum CodingKeys: String, CodingKey {
         case testingDataset = "testingDataset"
@@ -28,8 +29,8 @@ public struct TestAndValidationDatasetStrategy: Codable, Sendable {
     }
 
     public init(
-        testingDataset: DatasetDetails,
-        validationDataset: DatasetDetails? = nil
+        testingDataset: JSONValue,
+        validationDataset: JSONValue? = nil
     ) {
         self.testingDataset = testingDataset
         self.validationDataset = validationDataset
@@ -38,7 +39,7 @@ public struct TestAndValidationDatasetStrategy: Codable, Sendable {
 
 extension TestAndValidationDatasetStrategy: CustomStringConvertible {
     public var description: String {
-        return "TestAndValidationDatasetStrategy(\n            testingDataset: \(testingDataset ?? "nil"),\n            validationDataset: \(validationDataset ?? "nil")\n        )"
+        return "TestAndValidationDatasetStrategy(\n            testingDataset: present,\n            validationDataset: \((validationDataset != nil ? "present" : "nil"))\n        )"
     }
 }
 

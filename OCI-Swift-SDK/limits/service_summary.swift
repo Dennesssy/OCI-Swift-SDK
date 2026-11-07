@@ -10,7 +10,7 @@ public struct ServiceSummary: Codable, Sendable {
     // The service name
     public var name: String?
     // The friendly service name
-    public var description: String?
+    public var descriptionText: String?
     // An array of subscription types supported
     public var supportedSubscriptions: [String]?
     
@@ -20,13 +20,29 @@ public struct ServiceSummary: Codable, Sendable {
     
     public init(name: String? = nil, description: String? = nil, supportedSubscriptions: [String]? = nil) {
         self.name = name
-        self.description = description
+        self.descriptionText = description
         self.supportedSubscriptions = supportedSubscriptions
     }
     
     public func validateEnumValue() throws {
         // No enums to validate
     }
+    // MARK: - Codable
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decodeIfPresent(String.self, forKey: .name)
+        self.descriptionText = try container.decodeIfPresent(String.self, forKey: .description)
+        self.supportedSubscriptions = try container.decodeIfPresent([String].self, forKey: .supportedSubscriptions)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(self.name, forKey: .name)
+        try container.encodeIfPresent(self.descriptionText, forKey: .description)
+        try container.encodeIfPresent(self.supportedSubscriptions, forKey: .supportedSubscriptions)
+    }
+
 }
 
 extension ServiceSummary: CustomStringConvertible {

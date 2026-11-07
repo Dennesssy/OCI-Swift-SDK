@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListOccDemandSignalsSortByEnum
 
-public enum ListOccDemandSignalsSortByEnum: String, Sendable {
+public enum ListOccDemandSignalsSortByEnum: String, Codable, Sendable {
     case timeCreated = "timeCreated"
     case displayName = "displayName"
 }

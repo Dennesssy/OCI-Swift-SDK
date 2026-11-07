@@ -21,9 +21,5 @@ public struct RedeemableUser: Codable, Sendable {
         self.lastName = lastName
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case emailId
-        case firstName
-        case lastName
-    }
+    
 }

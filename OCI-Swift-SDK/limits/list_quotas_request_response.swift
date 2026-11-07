@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListQuotasLifecycleStateEnum
 
-public enum ListQuotasLifecycleStateEnum: String, Sendable {
+public enum ListQuotasLifecycleStateEnum: String, Codable, Sendable {
     case active = "ACTIVE"
 }
 
@@ -18,7 +18,7 @@ public extension ListQuotasLifecycleStateEnum {
 
 // MARK: - ListQuotasSortOrderEnum
 
-public enum ListQuotasSortOrderEnum: String, Sendable {
+public enum ListQuotasSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -31,7 +31,7 @@ public extension ListQuotasSortOrderEnum {
 
 // MARK: - ListQuotasSortByEnum
 
-public enum ListQuotasSortByEnum: String, Sendable {
+public enum ListQuotasSortByEnum: String, Codable, Sendable {
     case name = "NAME"
     case timecreated = "TIMECREATED"
 }

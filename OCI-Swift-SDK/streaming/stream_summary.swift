@@ -12,15 +12,7 @@ public struct StreamSummary: Codable {
     public var lifecycleState: StreamLifecycleStateEnum
     public var timeCreated: Date
     
-    public enum CodingKeys: String, CodingKey {
-        case name = "name"
-        case id = "id"
-        case partitions = "partitions"
-        case compartmentId = "compartmentId"
-        case streamPoolId = "streamPoolId"
-        case lifecycleState = "lifecycleState"
-        case timeCreated = "timeCreated"
-    }
+    
     
     public init(name: String,
                 id: String,

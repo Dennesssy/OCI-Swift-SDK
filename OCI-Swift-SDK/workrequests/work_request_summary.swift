@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - WorkRequestSummaryStatusEnum
 
-public enum WorkRequestSummaryStatusEnum: String, Sendable {
+public enum WorkRequestSummaryStatusEnum: String, Codable, Sendable {
     case accepted = "ACCEPTED"
     case inProgress = "IN_PROGRESS"
     case failed = "FAILED"

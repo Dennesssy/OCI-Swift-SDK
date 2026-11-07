@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -17,10 +18,10 @@ import Foundation
 // Click https://docs.cloud.oracle.com/en-us/iaas/tools/go-sdk-examples/latest/ailanguage/ListEvaluationResults.go.html to see an example of how to use ListEvaluationResultsRequest.
 public struct ListEvaluationResultsRequest: Codable, Sendable {
     public var modelId: String?
-    public var opcRequestId: String??
-    public var limit: Int??
-    public var page: String??
-    public var requestMetadata: common.RequestMetadata?
+    public var opcRequestId: String?
+    public var limit: Int?
+    public var page: String?
+    public var requestMetadata: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case modelId = "ModelId"
@@ -32,10 +33,10 @@ public struct ListEvaluationResultsRequest: Codable, Sendable {
 
     public init(
         modelId: String?,
-        opcRequestId: String?? = nil,
-        limit: Int?? = nil,
-        page: String?? = nil,
-        requestMetadata: common.RequestMetadata? = nil
+        opcRequestId: String? = nil,
+        limit: Int? = nil,
+        page: String? = nil,
+        requestMetadata: [String: String]? = nil
     ) {
         self.modelId = modelId
         self.opcRequestId = opcRequestId
@@ -47,7 +48,7 @@ public struct ListEvaluationResultsRequest: Codable, Sendable {
 
 extension ListEvaluationResultsRequest: CustomStringConvertible {
     public var description: String {
-        return "ListEvaluationResultsRequest(\n            modelId: \(modelId ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            limit: \(limit ?? "nil"),\n            page: \(page ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "ListEvaluationResultsRequest(\n            modelId: \(modelId ?? "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            limit: \(limit != nil ? "present" : "nil"),\n            page: \(page != nil ? "present" : "nil"),\n            requestMetadata: \(requestMetadata != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -65,9 +66,9 @@ extension ListEvaluationResultsRequest: CustomStringConvertible {
 
 // ListEvaluationResultsResponse wrapper for the ListEvaluationResults operation
 public struct ListEvaluationResultsResponse: Codable, Sendable {
-    public var rawResponse: http.Response??
-    public var opcRequestId: String??
-    public var opcNextPage: String??
+    public var rawResponse: JSONValue?
+    public var opcRequestId: String?
+    public var opcNextPage: String?
 
     enum CodingKeys: String, CodingKey {
         case rawResponse = "RawResponse"
@@ -76,9 +77,9 @@ public struct ListEvaluationResultsResponse: Codable, Sendable {
     }
 
     public init(
-        rawResponse: http.Response?? = nil,
-        opcRequestId: String?? = nil,
-        opcNextPage: String?? = nil
+        rawResponse: JSONValue? = nil,
+        opcRequestId: String? = nil,
+        opcNextPage: String? = nil
     ) {
         self.rawResponse = rawResponse
         self.opcRequestId = opcRequestId
@@ -88,7 +89,7 @@ public struct ListEvaluationResultsResponse: Codable, Sendable {
 
 extension ListEvaluationResultsResponse: CustomStringConvertible {
     public var description: String {
-        return "ListEvaluationResultsResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            opcNextPage: \(opcNextPage ?? "nil")\n        )"
+        return "ListEvaluationResultsResponse(\n            rawResponse: \(rawResponse != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            opcNextPage: \(opcNextPage != nil ? "present" : "nil")\n        )"
     }
 }
 

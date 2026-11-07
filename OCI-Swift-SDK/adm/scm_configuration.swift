@@ -29,20 +29,18 @@ public struct ScmConfigurationBase: ScmConfiguration {
     }
 }
 
-// MARK: - OciCodeRepositoryConfiguration
+// MARK: - Type Erasure
 
-public struct OciCodeRepositoryConfiguration: ScmConfiguration {
-    public var branch: String
-    public var isAutomergeEnabled: Bool
-    public var buildFileLocation: String?
-    public var scmType: String = "OCI_CODE_REPOSITORY"
+private struct ScmConfigurationEncodeBox: Encodable {
+    let value: any ScmConfiguration
+    func encode(to encoder: Encoder) throws { try value.encode(to: encoder) }
 }
 
-// MARK: - ExternalScmConfiguration
-
-public struct ExternalScmConfiguration: ScmConfiguration {
-    public var branch: String
-    public var isAutomergeEnabled: Bool
-    public var buildFileLocation: String?
-    public var scmType: String = "EXTERNAL_SCM"
+public extension ScmConfiguration {
+    /// Type-erased base representation used for Codable synthesis
+    var scmConfigurationBase: ScmConfigurationBase {
+        ScmConfigurationBase(branch: branch, isAutomergeEnabled: isAutomergeEnabled,
+                              buildFileLocation: buildFileLocation, scmType: "",
+                              jsonData: try? JSONEncoder().encode(ScmConfigurationEncodeBox(value: self)))
+    }
 }

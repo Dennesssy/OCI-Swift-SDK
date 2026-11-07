@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct PingMonitor: Codable {
     public var id: String?
@@ -13,30 +14,14 @@ public struct PingMonitor: Codable {
     public var vantagePointNames: [String]?
     public var port: Int?
     public var timeoutInSeconds: Int?
-    public var protocol: PingProbeProtocolEnum?
+    public var `protocol`: PingProbeProtocolEnum?
     public var displayName: String?
     public var intervalInSeconds: Int?
     public var isEnabled: Bool?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case resultsUrl = "resultsUrl"
-        case homeRegion = "homeRegion"
-        case timeCreated = "timeCreated"
-        case compartmentId = "compartmentId"
-        case targets = "targets"
-        case vantagePointNames = "vantagePointNames"
-        case port = "port"
-        case timeoutInSeconds = "timeoutInSeconds"
-        case protocol = "protocol"
-        case displayName = "displayName"
-        case intervalInSeconds = "intervalInSeconds"
-        case isEnabled = "isEnabled"
-        case freeformTags = "freeformTags"
-        case definedTags = "definedTags"
-    }
+    
     
     public init(id: String? = nil,
                 resultsUrl: String? = nil,
@@ -47,12 +32,12 @@ public struct PingMonitor: Codable {
                 vantagePointNames: [String]? = nil,
                 port: Int? = nil,
                 timeoutInSeconds: Int? = nil,
-                protocol: PingProbeProtocolEnum? = nil,
+                `protocol`: PingProbeProtocolEnum? = nil,
                 displayName: String? = nil,
                 intervalInSeconds: Int? = nil,
                 isEnabled: Bool? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil) {
+                definedTags: [String: [String: JSONValue]]? = nil) {
         self.id = id
         self.resultsUrl = resultsUrl
         self.homeRegion = homeRegion
@@ -62,7 +47,7 @@ public struct PingMonitor: Codable {
         self.vantagePointNames = vantagePointNames
         self.port = port
         self.timeoutInSeconds = timeoutInSeconds
-        self.protocol = protocol
+        self.`protocol` = `protocol`
         self.displayName = displayName
         self.intervalInSeconds = intervalInSeconds
         self.isEnabled = isEnabled

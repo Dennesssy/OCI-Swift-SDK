@@ -32,7 +32,7 @@ public struct RetentionRuleDuration: Codable, Sendable {
     }
 }
 
-public enum RetentionRuleDurationTimeUnitEnum: String, Sendable {
+public enum RetentionRuleDurationTimeUnitEnum: String, Codable, Sendable {
     case days = "DAYS"
     case years = "YEARS"
 }

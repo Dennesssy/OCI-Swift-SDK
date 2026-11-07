@@ -19,12 +19,12 @@ import Foundation
 
 // HierarchicalEntity Hierarchical entity object
 public struct HierarchicalEntity: Codable, Sendable {
-    public var offset: Int??
-    public var length: Int??
-    public var text: String??
-    public var type: String??
-    public var subType: String??
-    public var score: Double??
+    public var offset: Int?
+    public var length: Int?
+    public var text: String?
+    public var type: String?
+    public var subType: String?
+    public var score: Double?
 
     enum CodingKeys: String, CodingKey {
         case offset = "offset"
@@ -36,12 +36,12 @@ public struct HierarchicalEntity: Codable, Sendable {
     }
 
     public init(
-        offset: Int?? = nil,
-        length: Int?? = nil,
-        text: String?? = nil,
-        type: String?? = nil,
-        subType: String?? = nil,
-        score: Double?? = nil
+        offset: Int? = nil,
+        length: Int? = nil,
+        text: String? = nil,
+        type: String? = nil,
+        subType: String? = nil,
+        score: Double? = nil
     ) {
         self.offset = offset
         self.length = length
@@ -54,7 +54,7 @@ public struct HierarchicalEntity: Codable, Sendable {
 
 extension HierarchicalEntity: CustomStringConvertible {
     public var description: String {
-        return "HierarchicalEntity(\n            offset: \(offset ?? "nil"),\n            length: \(length ?? "nil"),\n            text: \(text ?? "nil"),\n            type: \(type ?? "nil"),\n            subType: \(subType ?? "nil"),\n            score: \(score ?? "nil")\n        )"
+        return "HierarchicalEntity(\n            offset: \((offset.map { String($0) } ?? "nil")),\n            length: \((length.map { String($0) } ?? "nil")),\n            text: \(text ?? "nil"),\n            type: \(type ?? "nil"),\n            subType: \(subType ?? "nil"),\n            score: \((score.map { String($0) } ?? "nil"))\n        )"
     }
 }
 

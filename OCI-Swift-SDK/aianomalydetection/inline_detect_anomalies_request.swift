@@ -16,7 +16,7 @@ public struct InlineDetectAnomaliesRequest: Codable, Sendable {
     // Array containing data.
     public var Data: [DataItem]
     // Sensitivity of the algorithm to detect anomalies - higher the value, more anomalies get flagged. The value estimated during training is used by default. You can choose to provide a custom value.
-    public var Sensitivity: float32?
+    public var Sensitivity: Float?
     enum CodingKeys: String, CodingKey {
         case ModelId = "modelId"
         case SignalNames = "signalNames"

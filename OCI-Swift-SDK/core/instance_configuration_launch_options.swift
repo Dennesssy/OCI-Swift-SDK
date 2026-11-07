@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - InstanceConfigurationLaunchOptionsBootVolumeTypeEnum
 
-public enum InstanceConfigurationLaunchOptionsBootVolumeTypeEnum: String, Sendable {
+public enum InstanceConfigurationLaunchOptionsBootVolumeTypeEnum: String, Codable, Sendable {
     case iscsi = "ISCSI"
     case scsi = "SCSI"
     case ide = "IDE"
@@ -22,7 +22,7 @@ public extension InstanceConfigurationLaunchOptionsBootVolumeTypeEnum {
 
 // MARK: - InstanceConfigurationLaunchOptionsFirmwareEnum
 
-public enum InstanceConfigurationLaunchOptionsFirmwareEnum: String, Sendable {
+public enum InstanceConfigurationLaunchOptionsFirmwareEnum: String, Codable, Sendable {
     case bios = "BIOS"
     case uefi64 = "UEFI_64"
 }
@@ -35,7 +35,7 @@ public extension InstanceConfigurationLaunchOptionsFirmwareEnum {
 
 // MARK: - InstanceConfigurationLaunchOptionsNetworkTypeEnum
 
-public enum InstanceConfigurationLaunchOptionsNetworkTypeEnum: String, Sendable {
+public enum InstanceConfigurationLaunchOptionsNetworkTypeEnum: String, Codable, Sendable {
     case e1000 = "E1000"
     case vfio = "VFIO"
     case paravirtualized = "PARAVIRTUALIZED"
@@ -49,7 +49,7 @@ public extension InstanceConfigurationLaunchOptionsNetworkTypeEnum {
 
 // MARK: - InstanceConfigurationLaunchOptionsRemoteDataVolumeTypeEnum
 
-public enum InstanceConfigurationLaunchOptionsRemoteDataVolumeTypeEnum: String, Sendable {
+public enum InstanceConfigurationLaunchOptionsRemoteDataVolumeTypeEnum: String, Codable, Sendable {
     case iscsi = "ISCSI"
     case scsi = "SCSI"
     case ide = "IDE"

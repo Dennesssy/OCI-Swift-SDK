@@ -19,14 +19,14 @@ import Foundation
 
 // PiiEntityReplace Replace PII entities with a given sequence of characters.
 public struct PiiEntityReplace: Codable, Sendable {
-    public var replaceWith: String??
+    public var replaceWith: String?
 
     enum CodingKeys: String, CodingKey {
         case replaceWith = "replaceWith"
     }
 
     public init(
-        replaceWith: String?? = nil
+        replaceWith: String? = nil
     ) {
         self.replaceWith = replaceWith
     }

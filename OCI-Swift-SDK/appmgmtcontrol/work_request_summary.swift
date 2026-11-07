@@ -4,39 +4,6 @@
 
 import Foundation
 
-// MARK: - OperationTypeEnum
-
-public enum OperationTypeEnum: String, Sendable {
-    case createMonitoredInstance = "CREATE_MONITORED_INSTANCE"
-    case updateMonitoredInstance = "UPDATE_MONITORED_INSTANCE"
-    case deleteMonitoredInstance = "DELETE_MONITORED_INSTANCE"
-    case activateMonitoringPlugin = "ACTIVATE_MONITORING_PLUGIN"
-    case deactivateMonitoringPlugin = "DEACTIVATE_MONITORING_PLUGIN"
-}
-
-public extension OperationTypeEnum {
-    static var allValues: [OperationTypeEnum] { [.createMonitoredInstance, .updateMonitoredInstance, .deleteMonitoredInstance, .activateMonitoringPlugin, .deactivateMonitoringPlugin] }
-    static var allStringValues: [String] { ["CREATE_MONITORED_INSTANCE", "UPDATE_MONITORED_INSTANCE", "DELETE_MONITORED_INSTANCE", "ACTIVATE_MONITORING_PLUGIN", "DEACTIVATE_MONITORING_PLUGIN"] }
-    static func fromString(_ value: String) -> OperationTypeEnum? { OperationTypeEnum(rawValue: value) }
-}
-
-// MARK: - OperationStatusEnum
-
-public enum OperationStatusEnum: String, Sendable {
-    case accepted = "ACCEPTED"
-    case inProgress = "IN_PROGRESS"
-    case failed = "FAILED"
-    case succeeded = "SUCCEEDED"
-    case canceling = "CANCELING"
-    case canceled = "CANCELED"
-}
-
-public extension OperationStatusEnum {
-    static var allValues: [OperationStatusEnum] { [.accepted, .inProgress, .failed, .succeeded, .canceling, .canceled] }
-    static var allStringValues: [String] { ["ACCEPTED", "IN_PROGRESS", "FAILED", "SUCCEEDED", "CANCELING", "CANCELED"] }
-    static func fromString(_ value: String) -> OperationStatusEnum? { OperationStatusEnum(rawValue: value) }
-}
-
 // MARK: - WorkRequestSummary
 
 public struct WorkRequestSummary: Codable, Sendable {

@@ -2,8 +2,9 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
-public struct ResourceSummary: Codable {
+public struct ResourceSummary: Codable, Sendable {
     public var dailyUnitDisplayName: String?
     public var hourlyUnitDisplayName: String?
     public var rawUnitDisplayName: String?
@@ -14,7 +15,7 @@ public struct ResourceSummary: Codable {
     public var instanceType: String?
     public var isPurchased: Bool?
     public var childResources: [String]?
-    public var skus: [SkuProducts]?
+    public var skus: [JSONValue]?
     
     public enum CodingKeys: String, CodingKey {
         case dailyUnitDisplayName = "dailyUnitDisplayName"
@@ -40,7 +41,7 @@ public struct ResourceSummary: Codable {
                 instanceType: String? = nil,
                 isPurchased: Bool? = nil,
                 childResources: [String]? = nil,
-                skus: [SkuProducts]? = nil) {
+                skus: [JSONValue]? = nil) {
         self.dailyUnitDisplayName = dailyUnitDisplayName
         self.hourlyUnitDisplayName = hourlyUnitDisplayName
         self.rawUnitDisplayName = rawUnitDisplayName

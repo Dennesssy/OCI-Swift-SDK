@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - OpaInstanceLifecycleStateEnum
 
-public enum OpaInstanceLifecycleStateEnum: String, Sendable {
+public enum OpaInstanceLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case updating = "UPDATING"
     case active = "ACTIVE"

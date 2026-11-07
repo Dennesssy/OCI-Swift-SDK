@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - InstancePoolInstanceLoadBalancerBackendBackendHealthStatusEnum
 
-public enum InstancePoolInstanceLoadBalancerBackendBackendHealthStatusEnum: String, Sendable {
+public enum InstancePoolInstanceLoadBalancerBackendBackendHealthStatusEnum: String, Codable, Sendable {
     case ok = "OK"
     case warning = "WARNING"
     case critical = "CRITICAL"

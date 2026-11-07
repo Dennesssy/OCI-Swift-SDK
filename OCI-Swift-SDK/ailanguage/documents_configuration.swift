@@ -34,7 +34,7 @@ public struct DocumentsConfiguration: Codable, Sendable {
 
 extension DocumentsConfiguration: CustomStringConvertible {
     public var description: String {
-        return "DocumentsConfiguration(\n            config: \(config ?? "nil")\n        )"
+        return "DocumentsConfiguration(\n            config: \(config?.count ?? 0)\n        )"
     }
 }
 

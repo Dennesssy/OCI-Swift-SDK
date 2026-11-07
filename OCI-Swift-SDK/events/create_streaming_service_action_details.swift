@@ -12,7 +12,7 @@ public struct CreateStreamingServiceActionDetails: Codable, Sendable, ActionDeta
     // The OCID of the stream
     public var streamId: String
     // A string that describes the details of the action
-    public var description: String?
+    public var descriptionText: String?
     
     private enum CodingKeys: String, CodingKey {
         case isEnabled, streamId, description
@@ -21,9 +21,23 @@ public struct CreateStreamingServiceActionDetails: Codable, Sendable, ActionDeta
     public init(isEnabled: Bool, streamId: String, description: String? = nil) {
         self.isEnabled = isEnabled
         self.streamId = streamId
-        self.description = description
+        self.descriptionText = description
     }
     
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.isEnabled = try container.decode(Bool.self, forKey: .isEnabled)
+        self.streamId = try container.decode(String.self, forKey: .streamId)
+        self.descriptionText = try container.decodeIfPresent(String.self, forKey: .description)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.isEnabled, forKey: .isEnabled)
+        try container.encode(self.streamId, forKey: .streamId)
+        try container.encodeIfPresent(self.descriptionText, forKey: .description)
+    }
+
     public func validateEnumValue() throws {
         // No enums to validate
     }

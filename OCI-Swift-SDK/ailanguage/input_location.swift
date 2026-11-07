@@ -26,7 +26,7 @@ public protocol InputLocation {
 
 
 public struct inputlocation: Codable, Sendable {
-    public var jsonData: [byte]?
+    public var jsonData: [UInt8]?
     public var locationType: String?
 
     enum CodingKeys: String, CodingKey {
@@ -35,7 +35,7 @@ public struct inputlocation: Codable, Sendable {
     }
 
     public init(
-        jsonData: [byte]? = nil,
+        jsonData: [UInt8]? = nil,
         locationType: String? = nil
     ) {
         self.jsonData = jsonData
@@ -45,7 +45,7 @@ public struct inputlocation: Codable, Sendable {
 
 extension inputlocation: CustomStringConvertible {
     public var description: String {
-        return "inputlocation(\n            jsonData: \(jsonData ?? "nil"),\n            locationType: \(locationType ?? "nil")\n        )"
+        return "inputlocation(\n            jsonData: \(jsonData?.count ?? 0),\n            locationType: \(locationType ?? "nil")\n        )"
     }
 }
 
@@ -60,10 +60,9 @@ extension inputlocation: CustomStringConvertible {
 // Not recommended for calling this function directly
 
 // InputLocationLocationTypeEnum Enum with underlying type: string
-public typealias InputLocationLocationTypeEnum = String
 
 // Set of constants representing the allowable values for InputLocationLocationTypeEnum
-public enum InputLocationLocationTypeEnum: String, Sendable {
+public enum InputLocationLocationTypeEnum: String, Codable, Sendable {
     case prefix = "OBJECT_STORAGE_PREFIX"
     case fileList = "OBJECT_STORAGE_FILE_LIST"
 }

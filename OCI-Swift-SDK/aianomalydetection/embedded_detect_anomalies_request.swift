@@ -12,7 +12,7 @@ public struct EmbeddedDetectAnomaliesRequest: Codable, Sendable {
     public var ModelId: String?
     public var Content: [UInt8]?
     // Sensitivity of the algorithm to detect anomalies - higher the value, more anomalies get flagged. The value estimated during training is used by default. You can choose to provide a custom value.
-    public var Sensitivity: float32?
+    public var Sensitivity: Float?
     public var ContentType: EmbeddedDetectAnomaliesRequestContentTypeEnum?
     enum CodingKeys: String, CodingKey {
         case ModelId = "modelId"
@@ -29,7 +29,7 @@ extension EmbeddedDetectAnomaliesRequest: CustomStringConvertible {
 
 // EmbeddedDetectAnomaliesRequestContentTypeEnum Enum with underlying type: string
 // MARK: - EmbeddedDetectAnomaliesRequestContentTypeEnum
-public enum EmbeddedDetectAnomaliesRequestContentTypeEnum: String, Sendable {
+public enum EmbeddedDetectAnomaliesRequestContentTypeEnum: String, Codable, Sendable {
     case csv = "CSV"
     case json = "JSON"
 }

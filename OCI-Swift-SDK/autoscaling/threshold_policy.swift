@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ThresholdPolicy
 
-public struct ThresholdPolicy: Codable, Sendable {
+public struct ThresholdPolicy: AutoScalingPolicy {
     public var timeCreated: Date
     public var rules: [Condition]
     public var capacity: Capacity?

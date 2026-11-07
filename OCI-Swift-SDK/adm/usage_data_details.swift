@@ -29,3 +29,18 @@ public struct UsageDataViaObjectStorageTupleDetails: UsageDataDetails {
     public var sourceType: String = "objectStorageTuple"
     // Add object storage specific fields here
 }
+
+// MARK: - Type Erasure
+
+private struct UsageDataDetailsEncodeBox: Encodable {
+    let value: any UsageDataDetails
+    func encode(to encoder: Encoder) throws { try value.encode(to: encoder) }
+}
+
+public extension UsageDataDetails {
+    /// Type-erased base representation used for Codable synthesis
+    var usageDataDetailsBase: UsageDataDetailsBase {
+        UsageDataDetailsBase(sourceType: sourceType,
+                             jsonData: try? JSONEncoder().encode(UsageDataDetailsEncodeBox(value: self)))
+    }
+}

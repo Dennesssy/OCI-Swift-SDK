@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListOrganizationSubscriptionsSortOrderEnum
 
-public enum ListOrganizationSubscriptionsSortOrderEnum: String, Sendable {
+public enum ListOrganizationSubscriptionsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -19,7 +19,7 @@ public extension ListOrganizationSubscriptionsSortOrderEnum {
 
 // MARK: - ListOrganizationSubscriptionsSortByEnum
 
-public enum ListOrganizationSubscriptionsSortByEnum: String, Sendable {
+public enum ListOrganizationSubscriptionsSortByEnum: String, Codable, Sendable {
     case subscriptionid = "SUBSCRIPTIONID"
     case timestart = "TIMESTART"
 }

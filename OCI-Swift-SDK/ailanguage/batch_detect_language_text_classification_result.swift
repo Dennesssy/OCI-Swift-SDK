@@ -38,7 +38,7 @@ public struct BatchDetectLanguageTextClassificationResult: Codable, Sendable {
 
 extension BatchDetectLanguageTextClassificationResult: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectLanguageTextClassificationResult(\n            documents: \(documents ?? "nil"),\n            errors: \(errors ?? "nil")\n        )"
+        return "BatchDetectLanguageTextClassificationResult(\n            documents: \(documents.count),\n            errors: \(errors?.count ?? 0)\n        )"
     }
 }
 

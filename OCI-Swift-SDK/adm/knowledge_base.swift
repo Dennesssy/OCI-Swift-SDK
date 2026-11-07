@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - KnowledgeBaseLifecycleStateEnum
 
-public enum KnowledgeBaseLifecycleStateEnum: String, Sendable {
+public enum KnowledgeBaseLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case active = "ACTIVE"
     case updating = "UPDATING"

@@ -15,18 +15,7 @@ public struct BastionSummary: Codable {
     public var timeUpdated: Date?
     public var lifecycleDetails: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case compartmentId = "compartmentId"
-        case targetVcnId = "targetVcnId"
-        case targetSubnetId = "targetSubnetId"
-        case bastionType = "bastionType"
-        case timeCreated = "timeCreated"
-        case lifecycleState = "lifecycleState"
-        case timeUpdated = "timeUpdated"
-        case lifecycleDetails = "lifecycleDetails"
-    }
+    
     
     public init(id: String,
                 name: String,

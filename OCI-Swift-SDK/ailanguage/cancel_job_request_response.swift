@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -17,10 +18,10 @@ import Foundation
 // Click https://docs.cloud.oracle.com/en-us/iaas/tools/go-sdk-examples/latest/ailanguage/CancelJob.go.html to see an example of how to use CancelJobRequest.
 public struct CancelJobRequest: Codable, Sendable {
     public var jobId: String?
-    public var ifMatch: String??
-    public var opcRequestId: String??
-    public var opcRetryToken: String??
-    public var requestMetadata: common.RequestMetadata?
+    public var ifMatch: String?
+    public var opcRequestId: String?
+    public var opcRetryToken: String?
+    public var requestMetadata: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case jobId = "JobId"
@@ -32,10 +33,10 @@ public struct CancelJobRequest: Codable, Sendable {
 
     public init(
         jobId: String?,
-        ifMatch: String?? = nil,
-        opcRequestId: String?? = nil,
-        opcRetryToken: String?? = nil,
-        requestMetadata: common.RequestMetadata? = nil
+        ifMatch: String? = nil,
+        opcRequestId: String? = nil,
+        opcRetryToken: String? = nil,
+        requestMetadata: [String: String]? = nil
     ) {
         self.jobId = jobId
         self.ifMatch = ifMatch
@@ -47,7 +48,7 @@ public struct CancelJobRequest: Codable, Sendable {
 
 extension CancelJobRequest: CustomStringConvertible {
     public var description: String {
-        return "CancelJobRequest(\n            jobId: \(jobId ?? "nil"),\n            ifMatch: \(ifMatch ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            opcRetryToken: \(opcRetryToken ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "CancelJobRequest(\n            jobId: \(jobId ?? "nil"),\n            ifMatch: \(ifMatch != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            opcRetryToken: \(opcRetryToken != nil ? "present" : "nil"),\n            requestMetadata: \(requestMetadata != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -65,8 +66,8 @@ extension CancelJobRequest: CustomStringConvertible {
 
 // CancelJobResponse wrapper for the CancelJob operation
 public struct CancelJobResponse: Codable, Sendable {
-    public var rawResponse: http.Response??
-    public var opcRequestId: String??
+    public var rawResponse: JSONValue?
+    public var opcRequestId: String?
 
     enum CodingKeys: String, CodingKey {
         case rawResponse = "RawResponse"
@@ -74,8 +75,8 @@ public struct CancelJobResponse: Codable, Sendable {
     }
 
     public init(
-        rawResponse: http.Response?? = nil,
-        opcRequestId: String?? = nil
+        rawResponse: JSONValue? = nil,
+        opcRequestId: String? = nil
     ) {
         self.rawResponse = rawResponse
         self.opcRequestId = opcRequestId
@@ -84,7 +85,7 @@ public struct CancelJobResponse: Codable, Sendable {
 
 extension CancelJobResponse: CustomStringConvertible {
     public var description: String {
-        return "CancelJobResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "CancelJobResponse(\n            rawResponse: \(rawResponse != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil")\n        )"
     }
 }
 

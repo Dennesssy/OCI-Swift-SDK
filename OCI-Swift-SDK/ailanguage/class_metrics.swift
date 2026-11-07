@@ -23,7 +23,7 @@ public struct ClassMetrics: Codable, Sendable {
     public var f1: Float?
     public var precision: Float?
     public var recall: Float?
-    public var support: Float??
+    public var support: Float?
 
     enum CodingKeys: String, CodingKey {
         case label = "label"
@@ -38,7 +38,7 @@ public struct ClassMetrics: Codable, Sendable {
         f1: Float?,
         precision: Float?,
         recall: Float?,
-        support: Float?? = nil
+        support: Float? = nil
     ) {
         self.label = label
         self.f1 = f1
@@ -50,7 +50,7 @@ public struct ClassMetrics: Codable, Sendable {
 
 extension ClassMetrics: CustomStringConvertible {
     public var description: String {
-        return "ClassMetrics(\n            label: \(label ?? "nil"),\n            f1: \(f1 ?? "nil"),\n            precision: \(precision ?? "nil"),\n            recall: \(recall ?? "nil"),\n            support: \(support ?? "nil")\n        )"
+        return "ClassMetrics(\n            label: \(label ?? "nil"),\n            f1: \((f1.map { String($0) } ?? "nil")),\n            precision: \((precision.map { String($0) } ?? "nil")),\n            recall: \((recall.map { String($0) } ?? "nil")),\n            support: \((support.map { String($0) } ?? "nil"))\n        )"
     }
 }
 

@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct ScheduleSummary: Codable {
     public var id: String
@@ -13,7 +14,7 @@ public struct ScheduleSummary: Codable {
     public var timeCreated: Date
     public var lifecycleState: ScheduleLifecycleStateEnum
     public var freeformTags: [String: String]
-    public var definedTags: [String: [String: Any]]
+    public var definedTags: [String: [String: JSONValue]]
     public var description: String?
     public var timeStarts: Date?
     public var timeEnds: Date?
@@ -49,7 +50,7 @@ public struct ScheduleSummary: Codable {
                 timeCreated: Date,
                 lifecycleState: ScheduleLifecycleStateEnum,
                 freeformTags: [String: String],
-                definedTags: [String: [String: Any]],
+                definedTags: [String: [String: JSONValue]],
                 description: String? = nil,
                 timeStarts: Date? = nil,
                 timeEnds: Date? = nil,

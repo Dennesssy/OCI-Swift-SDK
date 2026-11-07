@@ -6,9 +6,7 @@ import Foundation
 public struct VbInstanceSummaryCollection: Codable {
     public var items: [VbInstanceSummary]
     
-    public enum CodingKeys: String, CodingKey {
-        case items = "items"
-    }
+    
     
     public init(items: [VbInstanceSummary]) {
         self.items = items

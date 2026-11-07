@@ -43,7 +43,7 @@ public struct Dimensions: Codable, Sendable {
 // DimensionsUnitEnum Enum with underlying type: string
 
 // Set of constants representing the allowable values for DimensionsUnitEnum
-public enum DimensionsUnitEnum: String, Sendable {
+public enum DimensionsUnitEnum: String, Codable, Sendable {
     case pixel = "PIXEL"
     case inch = "INCH"
 }

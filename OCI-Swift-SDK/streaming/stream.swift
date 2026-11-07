@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct Stream: Codable {
     public var name: String
@@ -15,22 +16,9 @@ public struct Stream: Codable {
     public var messagesEndpoint: String
     public var lifecycleStateDetails: String?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
-    public enum CodingKeys: String, CodingKey {
-        case name = "name"
-        case id = "id"
-        case partitions = "partitions"
-        case retentionInHours = "retentionInHours"
-        case compartmentId = "compartmentId"
-        case streamPoolId = "streamPoolId"
-        case lifecycleState = "lifecycleState"
-        case timeCreated = "timeCreated"
-        case messagesEndpoint = "messagesEndpoint"
-        case lifecycleStateDetails = "lifecycleStateDetails"
-        case freeformTags = "freeformTags"
-        case definedTags = "definedTags"
-    }
+    
     
     public init(name: String,
                 id: String,
@@ -43,7 +31,7 @@ public struct Stream: Codable {
                 messagesEndpoint: String,
                 lifecycleStateDetails: String? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil) {
+                definedTags: [String: [String: JSONValue]]? = nil) {
         self.name = name
         self.id = id
         self.partitions = partitions

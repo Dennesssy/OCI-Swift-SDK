@@ -34,7 +34,7 @@ public struct DetectLanguageTextClassificationResult: Codable, Sendable {
 
 extension DetectLanguageTextClassificationResult: CustomStringConvertible {
     public var description: String {
-        return "DetectLanguageTextClassificationResult(\n            textClassification: \(textClassification ?? "nil")\n        )"
+        return "DetectLanguageTextClassificationResult(\n            textClassification: \(textClassification.count)\n        )"
     }
 }
 

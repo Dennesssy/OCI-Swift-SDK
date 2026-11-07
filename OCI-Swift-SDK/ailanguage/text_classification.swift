@@ -38,7 +38,7 @@ public struct TextClassification: Codable, Sendable {
 
 extension TextClassification: CustomStringConvertible {
     public var description: String {
-        return "TextClassification(\n            label: \(label ?? "nil"),\n            score: \(score ?? "nil")\n        )"
+        return "TextClassification(\n            label: \(label ?? "nil"),\n            score: \((score.map { String($0) } ?? "nil"))\n        )"
     }
 }
 

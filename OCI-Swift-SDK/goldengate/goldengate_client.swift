@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class ugoldengateClient: ClientProtocol {
+public final class ugoldengateClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

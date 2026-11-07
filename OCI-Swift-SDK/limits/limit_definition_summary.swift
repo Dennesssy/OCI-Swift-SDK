@@ -12,7 +12,7 @@ public struct LimitDefinitionSummary: Codable, Sendable {
     // The service name of the limit
     public var serviceName: String?
     // The limit description
-    public var description: String?
+    public var descriptionText: String?
     // Reflects the scope of the resource limit
     public var scopeType: LimitDefinitionSummaryScopeTypeEnum?
     // If true, quota policies can be created
@@ -37,7 +37,7 @@ public struct LimitDefinitionSummary: Codable, Sendable {
     public init(name: String? = nil, serviceName: String? = nil, description: String? = nil, scopeType: LimitDefinitionSummaryScopeTypeEnum? = nil, areQuotasSupported: Bool? = nil, isResourceAvailabilitySupported: Bool? = nil, isDeprecated: Bool? = nil, isEligibleForLimitIncrease: Bool? = nil, isDynamic: Bool? = nil, supportedSubscriptions: [String]? = nil, supportedQuotaFamilies: [String]? = nil) {
         self.name = name
         self.serviceName = serviceName
-        self.description = description
+        self.descriptionText = description
         self.scopeType = scopeType
         self.areQuotasSupported = areQuotasSupported
         self.isResourceAvailabilitySupported = isResourceAvailabilitySupported
@@ -55,6 +55,38 @@ public struct LimitDefinitionSummary: Codable, Sendable {
             }
         }
     }
+    // MARK: - Codable
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decodeIfPresent(String.self, forKey: .name)
+        self.serviceName = try container.decodeIfPresent(String.self, forKey: .serviceName)
+        self.descriptionText = try container.decodeIfPresent(String.self, forKey: .description)
+        self.scopeType = try container.decodeIfPresent(LimitDefinitionSummaryScopeTypeEnum.self, forKey: .scopeType)
+        self.areQuotasSupported = try container.decodeIfPresent(Bool.self, forKey: .areQuotasSupported)
+        self.isResourceAvailabilitySupported = try container.decodeIfPresent(Bool.self, forKey: .isResourceAvailabilitySupported)
+        self.isDeprecated = try container.decodeIfPresent(Bool.self, forKey: .isDeprecated)
+        self.isEligibleForLimitIncrease = try container.decodeIfPresent(Bool.self, forKey: .isEligibleForLimitIncrease)
+        self.isDynamic = try container.decodeIfPresent(Bool.self, forKey: .isDynamic)
+        self.supportedSubscriptions = try container.decodeIfPresent([String].self, forKey: .supportedSubscriptions)
+        self.supportedQuotaFamilies = try container.decodeIfPresent([String].self, forKey: .supportedQuotaFamilies)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(self.name, forKey: .name)
+        try container.encodeIfPresent(self.serviceName, forKey: .serviceName)
+        try container.encodeIfPresent(self.descriptionText, forKey: .description)
+        try container.encodeIfPresent(self.scopeType, forKey: .scopeType)
+        try container.encodeIfPresent(self.areQuotasSupported, forKey: .areQuotasSupported)
+        try container.encodeIfPresent(self.isResourceAvailabilitySupported, forKey: .isResourceAvailabilitySupported)
+        try container.encodeIfPresent(self.isDeprecated, forKey: .isDeprecated)
+        try container.encodeIfPresent(self.isEligibleForLimitIncrease, forKey: .isEligibleForLimitIncrease)
+        try container.encodeIfPresent(self.isDynamic, forKey: .isDynamic)
+        try container.encodeIfPresent(self.supportedSubscriptions, forKey: .supportedSubscriptions)
+        try container.encodeIfPresent(self.supportedQuotaFamilies, forKey: .supportedQuotaFamilies)
+    }
+
 }
 
 extension LimitDefinitionSummary: CustomStringConvertible {

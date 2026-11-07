@@ -6,9 +6,7 @@ import Foundation
 public struct CapabilitiesCollection: Codable {
     public var items: [CapabilityDetails]?
     
-    public enum CodingKeys: String, CodingKey {
-        case items = "items"
-    }
+    
     
     public init(items: [CapabilityDetails]? = nil) {
         self.items = items

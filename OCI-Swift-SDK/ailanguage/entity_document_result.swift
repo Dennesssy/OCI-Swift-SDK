@@ -42,7 +42,7 @@ public struct EntityDocumentResult: Codable, Sendable {
 
 extension EntityDocumentResult: CustomStringConvertible {
     public var description: String {
-        return "EntityDocumentResult(\n            key: \(key ?? "nil"),\n            entities: \(entities ?? "nil"),\n            languageCode: \(languageCode ?? "nil")\n        )"
+        return "EntityDocumentResult(\n            key: \(key ?? "nil"),\n            entities: \(entities.count),\n            languageCode: \(languageCode ?? "nil")\n        )"
     }
 }
 

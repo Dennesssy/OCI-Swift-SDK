@@ -18,10 +18,7 @@ public struct GetIndicatorRequest: Codable, Sendable {
         self.opcRequestId = opcRequestId
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case indicatorId
-        case opcRequestId
-    }
+    
 }
 
 // MARK: - GetIndicatorResponse
@@ -38,8 +35,5 @@ public struct GetIndicatorResponse: Codable, Sendable {
         self.opcRequestId = opcRequestId
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case indicator
-        case opcRequestId
-    }
+    
 }

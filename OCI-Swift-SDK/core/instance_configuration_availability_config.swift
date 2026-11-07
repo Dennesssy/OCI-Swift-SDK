@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - InstanceConfigurationAvailabilityConfigRecoveryActionEnum
 
-public enum InstanceConfigurationAvailabilityConfigRecoveryActionEnum: String, Sendable {
+public enum InstanceConfigurationAvailabilityConfigRecoveryActionEnum: String, Codable, Sendable {
     case restoreInstance = "RESTORE_INSTANCE"
     case stopInstance = "STOP_INSTANCE"
 }

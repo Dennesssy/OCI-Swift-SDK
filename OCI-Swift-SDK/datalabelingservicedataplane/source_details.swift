@@ -6,9 +6,7 @@ import Foundation
 public struct SourceDetails: Codable {
     public var sourceType: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case sourceType = "sourceType"
-    }
+    
     
     public init(sourceType: String? = nil) {
         self.sourceType = sourceType

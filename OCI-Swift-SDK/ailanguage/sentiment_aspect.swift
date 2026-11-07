@@ -19,10 +19,10 @@ import Foundation
 
 // SentimentAspect Sentiment aspect object.
 public struct SentimentAspect: Codable, Sendable {
-    public var offset: Int??
-    public var length: Int??
-    public var text: String??
-    public var sentiment: String??
+    public var offset: Int?
+    public var length: Int?
+    public var text: String?
+    public var sentiment: String?
     public var scores: [String: Double]?
 
     enum CodingKeys: String, CodingKey {
@@ -34,10 +34,10 @@ public struct SentimentAspect: Codable, Sendable {
     }
 
     public init(
-        offset: Int?? = nil,
-        length: Int?? = nil,
-        text: String?? = nil,
-        sentiment: String?? = nil,
+        offset: Int? = nil,
+        length: Int? = nil,
+        text: String? = nil,
+        sentiment: String? = nil,
         scores: [String: Double]? = nil
     ) {
         self.offset = offset
@@ -50,7 +50,7 @@ public struct SentimentAspect: Codable, Sendable {
 
 extension SentimentAspect: CustomStringConvertible {
     public var description: String {
-        return "SentimentAspect(\n            offset: \(offset ?? "nil"),\n            length: \(length ?? "nil"),\n            text: \(text ?? "nil"),\n            sentiment: \(sentiment ?? "nil"),\n            scores: \(scores ?? "nil")\n        )"
+        return "SentimentAspect(\n            offset: \((offset.map { String($0) } ?? "nil")),\n            length: \((length.map { String($0) } ?? "nil")),\n            text: \(text ?? "nil"),\n            sentiment: \(sentiment ?? "nil"),\n            scores: \(scores?.count ?? 0)\n        )"
     }
 }
 

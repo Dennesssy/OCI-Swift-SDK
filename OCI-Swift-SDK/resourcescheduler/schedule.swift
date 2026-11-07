@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct Schedule: Codable {
     public var id: String
@@ -13,7 +14,7 @@ public struct Schedule: Codable {
     public var timeCreated: Date
     public var lifecycleState: ScheduleLifecycleStateEnum
     public var freeformTags: [String: String]
-    public var definedTags: [String: [String: Any]]
+    public var definedTags: [String: [String: JSONValue]]
     public var description: String?
     public var resourceFilters: [ResourceFilter]?
     public var resources: [Resource]?
@@ -22,29 +23,9 @@ public struct Schedule: Codable {
     public var timeUpdated: Date?
     public var timeLastRun: Date?
     public var timeNextRun: Date?
-    public var systemTags: [String: [String: Any]]?
+    public var systemTags: [String: [String: JSONValue]]?
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case compartmentId = "compartmentId"
-        case displayName = "displayName"
-        case action = "action"
-        case recurrenceDetails = "recurrenceDetails"
-        case recurrenceType = "recurrenceType"
-        case timeCreated = "timeCreated"
-        case lifecycleState = "lifecycleState"
-        case freeformTags = "freeformTags"
-        case definedTags = "definedTags"
-        case description = "description"
-        case resourceFilters = "resourceFilters"
-        case resources = "resources"
-        case timeStarts = "timeStarts"
-        case timeEnds = "timeEnds"
-        case timeUpdated = "timeUpdated"
-        case timeLastRun = "timeLastRun"
-        case timeNextRun = "timeNextRun"
-        case systemTags = "systemTags"
-    }
+    
     
     public init(id: String,
                 compartmentId: String,
@@ -55,7 +36,7 @@ public struct Schedule: Codable {
                 timeCreated: Date,
                 lifecycleState: ScheduleLifecycleStateEnum,
                 freeformTags: [String: String],
-                definedTags: [String: [String: Any]],
+                definedTags: [String: [String: JSONValue]],
                 description: String? = nil,
                 resourceFilters: [ResourceFilter]? = nil,
                 resources: [Resource]? = nil,
@@ -64,7 +45,7 @@ public struct Schedule: Codable {
                 timeUpdated: Date? = nil,
                 timeLastRun: Date? = nil,
                 timeNextRun: Date? = nil,
-                systemTags: [String: [String: Any]]? = nil) {
+                systemTags: [String: [String: JSONValue]]? = nil) {
         self.id = id
         self.compartmentId = compartmentId
         self.displayName = displayName

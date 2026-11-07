@@ -9,11 +9,12 @@
 //
 
 import Foundation
+import OCICommon
 
 // MARK: - InstanceLifecycleStateEnum
 
 /// Enum with underlying type: string
-public enum InstanceLifecycleStateEnum: String, Sendable {
+public enum InstanceLifecycleStateEnum: String, Codable, Sendable {
     case provisioning = "PROVISIONING"
     case running = "RUNNING"
     case starting = "STARTING"
@@ -41,7 +42,7 @@ public extension InstanceLifecycleStateEnum {
 // MARK: - InstanceLaunchModeEnum
 
 /// Enum with underlying type: string
-public enum InstanceLaunchModeEnum: String, Sendable {
+public enum InstanceLaunchModeEnum: String, Codable, Sendable {
     case native = "NATIVE"
     case emulated = "EMULATED"
     case paravirtualized = "PARAVIRTUALIZED"
@@ -110,13 +111,13 @@ public struct Instance: Codable, Sendable {
     public var dedicatedVmHostId: String?
     
     /// Defined tags for this resource. Each key is predefined and scoped to a namespace.
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
     /// A user-friendly name. Does not have to be unique, and it's changeable.
     public var displayName: String?
     
     /// Additional metadata key/value pairs that you provide.
-    public var extendedMetadata: [String: Any]?
+    public var extendedMetadata: [String: JSONValue]?
     
     /// The name of the fault domain the instance is running in.
     public var faultDomain: String?
@@ -140,7 +141,7 @@ public struct Instance: Codable, Sendable {
     public var isCrossNumaNode: Bool?
     
     /// System tags for this resource.
-    public var systemTags: [String: [String: Any]]?
+    public var systemTags: [String: [String: JSONValue]]?
     
     /// The date and time the instance is expected to be stopped/started.
     public var timeMaintenanceRebootDue: Date?
@@ -189,9 +190,9 @@ public struct Instance: Codable, Sendable {
         capacityReservationId: String? = nil,
         clusterPlacementGroupId: String? = nil,
         dedicatedVmHostId: String? = nil,
-        definedTags: [String: [String: Any]]? = nil,
+        definedTags: [String: [String: JSONValue]]? = nil,
         displayName: String? = nil,
-        extendedMetadata: [String: Any]? = nil,
+        extendedMetadata: [String: JSONValue]? = nil,
         faultDomain: String? = nil,
         freeformTags: [String: String]? = nil,
         imageId: String? = nil,
@@ -199,7 +200,7 @@ public struct Instance: Codable, Sendable {
         launchMode: InstanceLaunchModeEnum? = nil,
         metadata: [String: String]? = nil,
         isCrossNumaNode: Bool? = nil,
-        systemTags: [String: [String: Any]]? = nil,
+        systemTags: [String: [String: JSONValue]]? = nil,
         timeMaintenanceRebootDue: Date? = nil,
         instanceConfigurationId: String? = nil
     ) {

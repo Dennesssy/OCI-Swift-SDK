@@ -42,7 +42,7 @@ public struct EntityLabelErrorAnalysis: Codable, Sendable {
 
 extension EntityLabelErrorAnalysis: CustomStringConvertible {
     public var description: String {
-        return "EntityLabelErrorAnalysis(\n            type: \(type ?? "nil"),\n            offset: \(offset ?? "nil"),\n            length: \(length ?? "nil")\n        )"
+        return "EntityLabelErrorAnalysis(\n            type: \(type ?? "nil"),\n            offset: \((offset.map { String($0) } ?? "nil")),\n            length: \((length.map { String($0) } ?? "nil"))\n        )"
     }
 }
 

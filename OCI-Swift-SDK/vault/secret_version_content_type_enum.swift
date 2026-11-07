@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - SecretVersionContentTypeEnum
 
-public enum SecretVersionContentTypeEnum: String, Sendable {
+public enum SecretVersionContentTypeEnum: String, Codable, Sendable {
     case base64 = "BASE64"
 }
 

@@ -42,7 +42,7 @@ public struct ObjectListDataset: Codable, Sendable {
 
 extension ObjectListDataset: CustomStringConvertible {
     public var description: String {
-        return "ObjectListDataset(\n            namespaceName: \(namespaceName ?? "nil"),\n            bucketName: \(bucketName ?? "nil"),\n            objectNames: \(objectNames ?? "nil")\n        )"
+        return "ObjectListDataset(\n            namespaceName: \(namespaceName ?? "nil"),\n            bucketName: \(bucketName ?? "nil"),\n            objectNames: \(objectNames.count)\n        )"
     }
 }
 

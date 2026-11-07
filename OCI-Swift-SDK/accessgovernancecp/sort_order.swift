@@ -10,7 +10,7 @@
 import Foundation
 
 /// Enum with underlying type: string
-public enum SortOrderEnum: String, Sendable {
+public enum SortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

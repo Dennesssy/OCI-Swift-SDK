@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum PreauthenticatedRequestAccessTypeEnum: String, Sendable {
+public enum PreauthenticatedRequestAccessTypeEnum: String, Codable, Sendable {
     case objectRead = "ObjectRead"
     case objectWrite = "ObjectWrite"
     case objectReadWrite = "ObjectReadWrite"

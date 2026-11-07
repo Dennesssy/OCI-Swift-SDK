@@ -15,7 +15,5 @@ public struct RedisClusterCollection: Codable, Sendable {
         self.items = items
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case items
-    }
+    
 }

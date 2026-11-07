@@ -19,7 +19,7 @@ extension outputjobdetails: CustomStringConvertible {
 
 // OutputJobDetailsOutputTypeEnum Enum with underlying type: string
 // MARK: - OutputJobDetailsOutputTypeEnum
-public enum OutputJobDetailsOutputTypeEnum: String, Sendable {
+public enum OutputJobDetailsOutputTypeEnum: String, Codable, Sendable {
     case objectStorage = "OBJECT_STORAGE"
 }
 public extension OutputJobDetailsOutputTypeEnum {

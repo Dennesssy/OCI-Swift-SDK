@@ -19,7 +19,7 @@ import Foundation
 
 // NamedEntityRecognitionEvaluationResults Named entity recognition model testing and evaluation results
 public struct NamedEntityRecognitionEvaluationResults: Codable, Sendable {
-    public var metrics: NamedEntityRecognitionModelMetrics??
+    public var metrics: NamedEntityRecognitionModelMetrics?
     public var entityMetrics: [EntityMetrics]?
     public var confusionMatrix: [String: ConfusionMatrixDetails]?
     public var labels: [String]?
@@ -32,7 +32,7 @@ public struct NamedEntityRecognitionEvaluationResults: Codable, Sendable {
     }
 
     public init(
-        metrics: NamedEntityRecognitionModelMetrics?? = nil,
+        metrics: NamedEntityRecognitionModelMetrics? = nil,
         entityMetrics: [EntityMetrics]? = nil,
         confusionMatrix: [String: ConfusionMatrixDetails]? = nil,
         labels: [String]? = nil
@@ -46,7 +46,7 @@ public struct NamedEntityRecognitionEvaluationResults: Codable, Sendable {
 
 extension NamedEntityRecognitionEvaluationResults: CustomStringConvertible {
     public var description: String {
-        return "NamedEntityRecognitionEvaluationResults(\n            metrics: \(metrics ?? "nil"),\n            entityMetrics: \(entityMetrics ?? "nil"),\n            confusionMatrix: \(confusionMatrix ?? "nil"),\n            labels: \(labels ?? "nil")\n        )"
+        return "NamedEntityRecognitionEvaluationResults(\n            metrics: \((metrics != nil ? "present" : "nil")),\n            entityMetrics: \(entityMetrics?.count ?? 0),\n            confusionMatrix: \(confusionMatrix?.count ?? 0),\n            labels: \(labels?.count ?? 0)\n        )"
     }
 }
 

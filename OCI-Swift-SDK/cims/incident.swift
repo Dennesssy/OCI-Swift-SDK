@@ -8,11 +8,7 @@ public struct Incident: Codable {
     public var csi: String?
     public var problemType: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case incidentKey = "incidentKey"
-        case csi = "csi"
-        case problemType = "problemType"
-    }
+    
     
     public init(incidentKey: String? = nil,
                 csi: String? = nil,

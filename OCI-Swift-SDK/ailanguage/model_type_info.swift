@@ -38,7 +38,7 @@ public struct ModelTypeInfo: Codable, Sendable {
 
 extension ModelTypeInfo: CustomStringConvertible {
     public var description: String {
-        return "ModelTypeInfo(\n            capabilities: \(capabilities ?? "nil"),\n            versions: \(versions ?? "nil")\n        )"
+        return "ModelTypeInfo(\n            capabilities: \(capabilities.count),\n            versions: \(versions?.count ?? 0)\n        )"
     }
 }
 

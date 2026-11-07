@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - OceInstanceInstanceUsageTypeEnum
 
-public enum OceInstanceInstanceUsageTypeEnum: String, Sendable {
+public enum OceInstanceInstanceUsageTypeEnum: String, Codable, Sendable {
     case primary = "PRIMARY"
     case nonprimary = "NONPRIMARY"
 }

@@ -19,8 +19,8 @@ import Foundation
 
 // PreTrainedUniversalModel Possible pre trained universal model information
 public struct PreTrainedUniversalModel: Codable, Sendable {
-    public var languageCode: String??
-    public var version: String??
+    public var languageCode: String?
+    public var version: String?
 
     enum CodingKeys: String, CodingKey {
         case languageCode = "languageCode"
@@ -28,8 +28,8 @@ public struct PreTrainedUniversalModel: Codable, Sendable {
     }
 
     public init(
-        languageCode: String?? = nil,
-        version: String?? = nil
+        languageCode: String? = nil,
+        version: String? = nil
     ) {
         self.languageCode = languageCode
         self.version = version

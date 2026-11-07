@@ -23,7 +23,7 @@ public protocol DatasetDetails {
 
 
 public struct datasetdetails: Codable, Sendable {
-    public var jsonData: [byte]?
+    public var jsonData: [UInt8]?
     public var datasetType: String?
 
     enum CodingKeys: String, CodingKey {
@@ -32,7 +32,7 @@ public struct datasetdetails: Codable, Sendable {
     }
 
     public init(
-        jsonData: [byte]? = nil,
+        jsonData: [UInt8]? = nil,
         datasetType: String? = nil
     ) {
         self.jsonData = jsonData
@@ -42,7 +42,7 @@ public struct datasetdetails: Codable, Sendable {
 
 extension datasetdetails: CustomStringConvertible {
     public var description: String {
-        return "datasetdetails(\n            jsonData: \(jsonData ?? "nil"),\n            datasetType: \(datasetType ?? "nil")\n        )"
+        return "datasetdetails(\n            jsonData: \(jsonData?.count ?? 0),\n            datasetType: \(datasetType ?? "nil")\n        )"
     }
 }
 
@@ -57,10 +57,9 @@ extension datasetdetails: CustomStringConvertible {
 // Not recommended for calling this function directly
 
 // DatasetDetailsDatasetTypeEnum Enum with underlying type: string
-public typealias DatasetDetailsDatasetTypeEnum = String
 
 // Set of constants representing the allowable values for DatasetDetailsDatasetTypeEnum
-public enum DatasetDetailsDatasetTypeEnum: String, Sendable {
+public enum DatasetDetailsDatasetTypeEnum: String, Codable, Sendable {
     case objectStorage = "OBJECT_STORAGE"
     case dataScienceLabeling = "DATA_SCIENCE_LABELING"
 }

@@ -4,6 +4,33 @@
 
 import Foundation
 
+// MARK: - ListAutoScalingPoliciesSortOrderEnum
+
+public enum ListAutoScalingPoliciesSortOrderEnum: String, Codable, Sendable {
+    case asc = "ASC"
+    case desc = "DESC"
+}
+
+public extension ListAutoScalingPoliciesSortOrderEnum {
+    static var allValues: [ListAutoScalingPoliciesSortOrderEnum] { [.asc, .desc] }
+    static var allStringValues: [String] { ["ASC", "DESC"] }
+    static func fromString(_ value: String) -> ListAutoScalingPoliciesSortOrderEnum? { ListAutoScalingPoliciesSortOrderEnum(rawValue: value) }
+}
+
+// MARK: - ListAutoScalingPoliciesSortByEnum
+
+public enum ListAutoScalingPoliciesSortByEnum: String, Codable, Sendable {
+    case displayName = "DISPLAY_NAME"
+    case timeCreated = "TIME_CREATED"
+}
+
+public extension ListAutoScalingPoliciesSortByEnum {
+    static var allValues: [ListAutoScalingPoliciesSortByEnum] { [.displayName, .timeCreated] }
+    static var allStringValues: [String] { ["DISPLAY_NAME", "TIME_CREATED"] }
+    static func fromString(_ value: String) -> ListAutoScalingPoliciesSortByEnum? { ListAutoScalingPoliciesSortByEnum(rawValue: value) }
+}
+
+
 // MARK: - ListAutoScalingPoliciesRequest
 
 public struct ListAutoScalingPoliciesRequest: Codable, Sendable {

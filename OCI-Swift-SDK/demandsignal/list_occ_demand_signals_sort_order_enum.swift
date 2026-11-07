@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListOccDemandSignalsSortOrderEnum
 
-public enum ListOccDemandSignalsSortOrderEnum: String, Sendable {
+public enum ListOccDemandSignalsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

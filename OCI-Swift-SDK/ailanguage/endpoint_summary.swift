@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -26,12 +27,12 @@ public struct EndpointSummary: Codable, Sendable {
     public var timeCreated: Date?
     public var lifecycleState: EndpointLifecycleStateEnum
     public var modelId: String?
-    public var description: String??
-    public var lifecycleDetails: String??
-    public var inferenceUnits: Int??
+    public var descriptionText: String?
+    public var lifecycleDetails: String?
+    public var inferenceUnits: Int?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
-    public var systemTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
+    public var systemTags: [String: [String: JSONValue]]?
 
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -41,7 +42,7 @@ public struct EndpointSummary: Codable, Sendable {
         case timeCreated = "timeCreated"
         case lifecycleState = "lifecycleState"
         case modelId = "modelId"
-        case description = "description"
+        case descriptionText = "description"
         case lifecycleDetails = "lifecycleDetails"
         case inferenceUnits = "inferenceUnits"
         case freeformTags = "freeformTags"
@@ -57,12 +58,12 @@ public struct EndpointSummary: Codable, Sendable {
         timeCreated: Date?,
         lifecycleState: EndpointLifecycleStateEnum,
         modelId: String?,
-        description: String?? = nil,
-        lifecycleDetails: String?? = nil,
-        inferenceUnits: Int?? = nil,
+        description: String? = nil,
+        lifecycleDetails: String? = nil,
+        inferenceUnits: Int? = nil,
         freeformTags: [String: String]? = nil,
-        definedTags: [String: [String: Any]]? = nil,
-        systemTags: [String: [String: Any]]? = nil
+        definedTags: [String: [String: JSONValue]]? = nil,
+        systemTags: [String: [String: JSONValue]]? = nil
     ) {
         self.id = id
         self.displayName = displayName
@@ -71,7 +72,7 @@ public struct EndpointSummary: Codable, Sendable {
         self.timeCreated = timeCreated
         self.lifecycleState = lifecycleState
         self.modelId = modelId
-        self.description = description
+        self.descriptionText = description
         self.lifecycleDetails = lifecycleDetails
         self.inferenceUnits = inferenceUnits
         self.freeformTags = freeformTags
@@ -82,7 +83,7 @@ public struct EndpointSummary: Codable, Sendable {
 
 extension EndpointSummary: CustomStringConvertible {
     public var description: String {
-        return "EndpointSummary(\n            id: \(id ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            projectId: \(projectId ?? "nil"),\n            timeCreated: \(timeCreated ?? "nil"),\n            lifecycleState: \(lifecycleState ?? "nil"),\n            modelId: \(modelId ?? "nil"),\n            description: \(description ?? "nil"),\n            lifecycleDetails: \(lifecycleDetails ?? "nil"),\n            inferenceUnits: \(inferenceUnits ?? "nil"),\n            freeformTags: \(freeformTags ?? "nil"),\n            definedTags: \(definedTags ?? "nil"),\n            systemTags: \(systemTags ?? "nil")\n        )"
+        return "EndpointSummary(\n            id: \(id ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            projectId: \(projectId ?? "nil"),\n            timeCreated: \((timeCreated != nil ? "present" : "nil")),\n            lifecycleState: \(lifecycleState.rawValue),\n            modelId: \(modelId ?? "nil"),\n            description: \(descriptionText ?? "nil"),\n            lifecycleDetails: \(lifecycleDetails ?? "nil"),\n            inferenceUnits: \((inferenceUnits.map { String($0) } ?? "nil")),\n            freeformTags: \(freeformTags?.count ?? 0),\n            definedTags: \(definedTags?.count ?? 0),\n            systemTags: \(systemTags?.count ?? 0)\n        )"
     }
 }
 

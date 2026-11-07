@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - RedisClusterClusterModeEnum
 
-public enum RedisClusterClusterModeEnum: String, Sendable {
+public enum RedisClusterClusterModeEnum: String, Codable, Sendable {
     case sharded = "SHARDED"
     case nonsharded = "NONSHARDED"
 }

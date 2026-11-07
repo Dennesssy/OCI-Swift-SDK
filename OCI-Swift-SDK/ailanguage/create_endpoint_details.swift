@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -21,17 +22,17 @@ import Foundation
 public struct CreateEndpointDetails: Codable, Sendable {
     public var compartmentId: String?
     public var modelId: String?
-    public var displayName: String??
-    public var description: String??
-    public var inferenceUnits: Int??
+    public var displayName: String?
+    public var descriptionText: String?
+    public var inferenceUnits: Int?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
 
     enum CodingKeys: String, CodingKey {
         case compartmentId = "compartmentId"
         case modelId = "modelId"
         case displayName = "displayName"
-        case description = "description"
+        case descriptionText = "description"
         case inferenceUnits = "inferenceUnits"
         case freeformTags = "freeformTags"
         case definedTags = "definedTags"
@@ -40,16 +41,16 @@ public struct CreateEndpointDetails: Codable, Sendable {
     public init(
         compartmentId: String?,
         modelId: String?,
-        displayName: String?? = nil,
-        description: String?? = nil,
-        inferenceUnits: Int?? = nil,
+        displayName: String? = nil,
+        description: String? = nil,
+        inferenceUnits: Int? = nil,
         freeformTags: [String: String]? = nil,
-        definedTags: [String: [String: Any]]? = nil
+        definedTags: [String: [String: JSONValue]]? = nil
     ) {
         self.compartmentId = compartmentId
         self.modelId = modelId
         self.displayName = displayName
-        self.description = description
+        self.descriptionText = description
         self.inferenceUnits = inferenceUnits
         self.freeformTags = freeformTags
         self.definedTags = definedTags
@@ -58,7 +59,7 @@ public struct CreateEndpointDetails: Codable, Sendable {
 
 extension CreateEndpointDetails: CustomStringConvertible {
     public var description: String {
-        return "CreateEndpointDetails(\n            compartmentId: \(compartmentId ?? "nil"),\n            modelId: \(modelId ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            description: \(description ?? "nil"),\n            inferenceUnits: \(inferenceUnits ?? "nil"),\n            freeformTags: \(freeformTags ?? "nil"),\n            definedTags: \(definedTags ?? "nil")\n        )"
+        return "CreateEndpointDetails(\n            compartmentId: \(compartmentId ?? "nil"),\n            modelId: \(modelId ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            description: \(descriptionText ?? "nil"),\n            inferenceUnits: \((inferenceUnits.map { String($0) } ?? "nil")),\n            freeformTags: \(freeformTags?.count ?? 0),\n            definedTags: \(definedTags?.count ?? 0)\n        )"
     }
 }
 

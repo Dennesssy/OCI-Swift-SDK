@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -16,10 +17,10 @@ import Foundation
 //
 // Click https://docs.cloud.oracle.com/en-us/iaas/tools/go-sdk-examples/latest/ailanguage/DetectLanguageEntities.go.html to see an example of how to use DetectLanguageEntitiesRequest.
 public struct DetectLanguageEntitiesRequest: Codable, Sendable {
-    public var opcRequestId: String??
+    public var opcRequestId: String?
     public var modelVersion: DetectLanguageEntitiesModelVersionEnum?
-    public var isPii: Bool??
-    public var requestMetadata: common.RequestMetadata?
+    public var isPii: Bool?
+    public var requestMetadata: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case opcRequestId = "OpcRequestId"
@@ -29,10 +30,10 @@ public struct DetectLanguageEntitiesRequest: Codable, Sendable {
     }
 
     public init(
-        opcRequestId: String?? = nil,
+        opcRequestId: String? = nil,
         modelVersion: DetectLanguageEntitiesModelVersionEnum? = nil,
-        isPii: Bool?? = nil,
-        requestMetadata: common.RequestMetadata? = nil
+        isPii: Bool? = nil,
+        requestMetadata: [String: String]? = nil
     ) {
         self.opcRequestId = opcRequestId
         self.modelVersion = modelVersion
@@ -43,7 +44,7 @@ public struct DetectLanguageEntitiesRequest: Codable, Sendable {
 
 extension DetectLanguageEntitiesRequest: CustomStringConvertible {
     public var description: String {
-        return "DetectLanguageEntitiesRequest(\n            opcRequestId: \(opcRequestId ?? "nil"),\n            modelVersion: \(modelVersion ?? "nil"),\n            isPii: \(isPii ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "DetectLanguageEntitiesRequest(\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            modelVersion: \(modelVersion?.rawValue ?? "nil"),\n            isPii: \(isPii != nil ? "present" : "nil"),\n            requestMetadata: \(requestMetadata != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -61,9 +62,9 @@ extension DetectLanguageEntitiesRequest: CustomStringConvertible {
 
 // DetectLanguageEntitiesResponse wrapper for the DetectLanguageEntities operation
 public struct DetectLanguageEntitiesResponse: Codable, Sendable {
-    public var rawResponse: http.Response??
-    public var opcRequestId: String??
-    public var sunset: String??
+    public var rawResponse: JSONValue?
+    public var opcRequestId: String?
+    public var sunset: String?
 
     enum CodingKeys: String, CodingKey {
         case rawResponse = "RawResponse"
@@ -72,9 +73,9 @@ public struct DetectLanguageEntitiesResponse: Codable, Sendable {
     }
 
     public init(
-        rawResponse: http.Response?? = nil,
-        opcRequestId: String?? = nil,
-        sunset: String?? = nil
+        rawResponse: JSONValue? = nil,
+        opcRequestId: String? = nil,
+        sunset: String? = nil
     ) {
         self.rawResponse = rawResponse
         self.opcRequestId = opcRequestId
@@ -84,7 +85,7 @@ public struct DetectLanguageEntitiesResponse: Codable, Sendable {
 
 extension DetectLanguageEntitiesResponse: CustomStringConvertible {
     public var description: String {
-        return "DetectLanguageEntitiesResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            sunset: \(sunset ?? "nil")\n        )"
+        return "DetectLanguageEntitiesResponse(\n            rawResponse: \(rawResponse != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            sunset: \(sunset != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -93,16 +94,26 @@ extension DetectLanguageEntitiesResponse: CustomStringConvertible {
 // HTTPResponse implements the OCIResponse interface
 
 // DetectLanguageEntitiesModelVersionEnum Enum with underlying type: string
-public typealias DetectLanguageEntitiesModelVersionEnum = String
-
-// Set of constants representing the allowable values for DetectLanguageEntitiesModelVersionEnum
-public enum DetectLanguageEntitiesModelVersionEnum: String, Sendable {
+/// Enum with underlying type: string
+public enum DetectLanguageEntitiesModelVersionEnum: String, Codable, Sendable {
     case v21 = "V2_1"
     case v11 = "V1_1"
 }
+
 public extension DetectLanguageEntitiesModelVersionEnum {
-    static var allValues: [DetectLanguageEntitiesModelVersionEnum] { [.v21, .v11] }
-    static func fromString(_ value: String) -> DetectLanguageEntitiesModelVersionEnum? { DetectLanguageEntitiesModelVersionEnum(rawValue: value) }
+    static var allValues: [DetectLanguageEntitiesModelVersionEnum] {
+        return [.v21, .v11]
+    }
+    
+    /// Enumerates the set of values in String for DetectLanguageEntitiesModelVersionEnum
+    static var allStringValues: [String] {
+        return ["V2_1", "V1_1"]
+    }
+    
+    /// Performs case insensitive comparison on enum value and return the desired enum
+    static func fromString(_ value: String) -> DetectLanguageEntitiesModelVersionEnum? {
+        return DetectLanguageEntitiesModelVersionEnum(rawValue: value.uppercased())
+    }
 }
 
 

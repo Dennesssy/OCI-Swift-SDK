@@ -37,7 +37,7 @@ public actor AccessGovernanceCPClient: Sendable {
         // Set region from config provider
         if let region = configProvider.region {
             self.region = region
-            setRegion(region)
+            self.host = Self.host(for: region)
         }
         
         if self.host.isEmpty {
@@ -58,7 +58,7 @@ public actor AccessGovernanceCPClient: Sendable {
         // Set region from config provider
         if let region = configProvider.region {
             self.region = region
-            setRegion(region)
+            self.host = Self.host(for: region)
         }
         
         if self.host.isEmpty {
@@ -74,9 +74,13 @@ public actor AccessGovernanceCPClient: Sendable {
     /// - Parameter region: The region to set
     public func setRegion(_ region: String) {
         self.region = region
+        self.host = Self.host(for: region)
+    }
+
+    private static func host(for region: String) -> String {
         // TODO: Implement endpoint construction based on region
         // Go: client.Host = common.StringToRegion(region).EndpointForTemplate("accessgovernancecp", "https://cp-prod.access-governance.{region}.oci.{secondLevelDomain}")
-        self.host = "https://cp-prod.access-governance.\(region).oci.oraclecloud.com"
+        return "https://cp-prod.access-governance.\(region).oci.oraclecloud.com"
     }
     
     // MARK: - API Methods

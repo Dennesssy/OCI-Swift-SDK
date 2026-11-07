@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -17,10 +18,10 @@ import Foundation
 // Click https://docs.cloud.oracle.com/en-us/iaas/tools/go-sdk-examples/latest/ailanguage/ChangeModelCompartment.go.html to see an example of how to use ChangeModelCompartmentRequest.
 public struct ChangeModelCompartmentRequest: Codable, Sendable {
     public var modelId: String?
-    public var opcRequestId: String??
-    public var ifMatch: String??
-    public var opcRetryToken: String??
-    public var requestMetadata: common.RequestMetadata?
+    public var opcRequestId: String?
+    public var ifMatch: String?
+    public var opcRetryToken: String?
+    public var requestMetadata: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case modelId = "ModelId"
@@ -32,10 +33,10 @@ public struct ChangeModelCompartmentRequest: Codable, Sendable {
 
     public init(
         modelId: String?,
-        opcRequestId: String?? = nil,
-        ifMatch: String?? = nil,
-        opcRetryToken: String?? = nil,
-        requestMetadata: common.RequestMetadata? = nil
+        opcRequestId: String? = nil,
+        ifMatch: String? = nil,
+        opcRetryToken: String? = nil,
+        requestMetadata: [String: String]? = nil
     ) {
         self.modelId = modelId
         self.opcRequestId = opcRequestId
@@ -47,7 +48,7 @@ public struct ChangeModelCompartmentRequest: Codable, Sendable {
 
 extension ChangeModelCompartmentRequest: CustomStringConvertible {
     public var description: String {
-        return "ChangeModelCompartmentRequest(\n            modelId: \(modelId ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            ifMatch: \(ifMatch ?? "nil"),\n            opcRetryToken: \(opcRetryToken ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "ChangeModelCompartmentRequest(\n            modelId: \(modelId ?? "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            ifMatch: \(ifMatch != nil ? "present" : "nil"),\n            opcRetryToken: \(opcRetryToken != nil ? "present" : "nil"),\n            requestMetadata: \(requestMetadata != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -65,8 +66,8 @@ extension ChangeModelCompartmentRequest: CustomStringConvertible {
 
 // ChangeModelCompartmentResponse wrapper for the ChangeModelCompartment operation
 public struct ChangeModelCompartmentResponse: Codable, Sendable {
-    public var rawResponse: http.Response??
-    public var opcRequestId: String??
+    public var rawResponse: JSONValue?
+    public var opcRequestId: String?
 
     enum CodingKeys: String, CodingKey {
         case rawResponse = "RawResponse"
@@ -74,8 +75,8 @@ public struct ChangeModelCompartmentResponse: Codable, Sendable {
     }
 
     public init(
-        rawResponse: http.Response?? = nil,
-        opcRequestId: String?? = nil
+        rawResponse: JSONValue? = nil,
+        opcRequestId: String? = nil
     ) {
         self.rawResponse = rawResponse
         self.opcRequestId = opcRequestId
@@ -84,7 +85,7 @@ public struct ChangeModelCompartmentResponse: Codable, Sendable {
 
 extension ChangeModelCompartmentResponse: CustomStringConvertible {
     public var description: String {
-        return "ChangeModelCompartmentResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "ChangeModelCompartmentResponse(\n            rawResponse: \(rawResponse != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil")\n        )"
     }
 }
 

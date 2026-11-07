@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class umanagementagentClient: ClientProtocol {
+public final class umanagementagentClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

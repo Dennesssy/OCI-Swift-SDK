@@ -34,7 +34,7 @@ public typealias RealtimeModelDetailsDomainEnum = String
 
 // MARK: - RealtimeModelDetailsDomain
 
-public enum RealtimeModelDetailsDomain: String, Sendable {
+public enum RealtimeModelDetailsDomain: String, Codable, Sendable {
     case generic = "GENERIC"
     case medical = "MEDICAL"
 }

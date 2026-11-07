@@ -22,25 +22,25 @@ public struct JobSummary: Codable, Sendable {
     public var id: String?
     public var displayName: String?
     public var compartmentId: String?
-    public var description: String??
+    public var descriptionText: String?
     public var lifecycleState: JobLifecycleStateEnum?
-    public var lifecycleDetails: String??
-    public var percentComplete: Int??
-    public var totalDocuments: Int??
-    public var pendingDocuments: Int??
-    public var completedDocuments: Int??
-    public var failedDocuments: Int??
-    public var warningsCount: Int??
-    public var createdBy: String??
-    public var timeAccepted: Date??
-    public var timeStarted: Date??
-    public var timeCompleted: Date??
+    public var lifecycleDetails: String?
+    public var percentComplete: Int?
+    public var totalDocuments: Int?
+    public var pendingDocuments: Int?
+    public var completedDocuments: Int?
+    public var failedDocuments: Int?
+    public var warningsCount: Int?
+    public var createdBy: String?
+    public var timeAccepted: Date?
+    public var timeStarted: Date?
+    public var timeCompleted: Date?
 
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case displayName = "displayName"
         case compartmentId = "compartmentId"
-        case description = "description"
+        case descriptionText = "description"
         case lifecycleState = "LifecycleState"
         case lifecycleDetails = "lifecycleDetails"
         case percentComplete = "percentComplete"
@@ -59,24 +59,24 @@ public struct JobSummary: Codable, Sendable {
         id: String?,
         displayName: String?,
         compartmentId: String?,
-        description: String?? = nil,
+        description: String? = nil,
         lifecycleState: JobLifecycleStateEnum? = nil,
-        lifecycleDetails: String?? = nil,
-        percentComplete: Int?? = nil,
-        totalDocuments: Int?? = nil,
-        pendingDocuments: Int?? = nil,
-        completedDocuments: Int?? = nil,
-        failedDocuments: Int?? = nil,
-        warningsCount: Int?? = nil,
-        createdBy: String?? = nil,
-        timeAccepted: Date?? = nil,
-        timeStarted: Date?? = nil,
-        timeCompleted: Date?? = nil
+        lifecycleDetails: String? = nil,
+        percentComplete: Int? = nil,
+        totalDocuments: Int? = nil,
+        pendingDocuments: Int? = nil,
+        completedDocuments: Int? = nil,
+        failedDocuments: Int? = nil,
+        warningsCount: Int? = nil,
+        createdBy: String? = nil,
+        timeAccepted: Date? = nil,
+        timeStarted: Date? = nil,
+        timeCompleted: Date? = nil
     ) {
         self.id = id
         self.displayName = displayName
         self.compartmentId = compartmentId
-        self.description = description
+        self.descriptionText = description
         self.lifecycleState = lifecycleState
         self.lifecycleDetails = lifecycleDetails
         self.percentComplete = percentComplete
@@ -94,7 +94,7 @@ public struct JobSummary: Codable, Sendable {
 
 extension JobSummary: CustomStringConvertible {
     public var description: String {
-        return "JobSummary(\n            id: \(id ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            description: \(description ?? "nil"),\n            lifecycleState: \(lifecycleState ?? "nil"),\n            lifecycleDetails: \(lifecycleDetails ?? "nil"),\n            percentComplete: \(percentComplete ?? "nil"),\n            totalDocuments: \(totalDocuments ?? "nil"),\n            pendingDocuments: \(pendingDocuments ?? "nil"),\n            completedDocuments: \(completedDocuments ?? "nil"),\n            failedDocuments: \(failedDocuments ?? "nil"),\n            warningsCount: \(warningsCount ?? "nil"),\n            createdBy: \(createdBy ?? "nil"),\n            timeAccepted: \(timeAccepted ?? "nil"),\n            timeStarted: \(timeStarted ?? "nil"),\n            timeCompleted: \(timeCompleted ?? "nil")\n        )"
+        return "JobSummary(\n            id: \(id ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            description: \(descriptionText ?? "nil"),\n            lifecycleState: \(lifecycleState.map { $0.rawValue } ?? "nil"),\n            lifecycleDetails: \(lifecycleDetails ?? "nil"),\n            percentComplete: \((percentComplete.map { String($0) } ?? "nil")),\n            totalDocuments: \((totalDocuments.map { String($0) } ?? "nil")),\n            pendingDocuments: \((pendingDocuments.map { String($0) } ?? "nil")),\n            completedDocuments: \((completedDocuments.map { String($0) } ?? "nil")),\n            failedDocuments: \((failedDocuments.map { String($0) } ?? "nil")),\n            warningsCount: \((warningsCount.map { String($0) } ?? "nil")),\n            createdBy: \(createdBy ?? "nil"),\n            timeAccepted: \((timeAccepted != nil ? "present" : "nil")),\n            timeStarted: \((timeStarted != nil ? "present" : "nil")),\n            timeCompleted: \((timeCompleted != nil ? "present" : "nil"))\n        )"
     }
 }
 

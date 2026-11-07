@@ -6,13 +6,13 @@ import Foundation
 
 // MARK: - OceInstanceInstanceAccessTypeEnum
 
-public enum OceInstanceInstanceAccessTypeEnum: String, Sendable {
-    case public = "PUBLIC"
-    case private = "PRIVATE"
+public enum OceInstanceInstanceAccessTypeEnum: String, Codable, Sendable {
+    case `public` = "PUBLIC"
+    case `private` = "PRIVATE"
 }
 
 public extension OceInstanceInstanceAccessTypeEnum {
-    static var allValues: [OceInstanceInstanceAccessTypeEnum] { [.public, .private] }
+    static var allValues: [OceInstanceInstanceAccessTypeEnum] { [.`public`, .`private`] }
     static var allStringValues: [String] { ["PUBLIC", "PRIVATE"] }
     static func fromString(_ value: String) -> OceInstanceInstanceAccessTypeEnum? { OceInstanceInstanceAccessTypeEnum(rawValue: value) }
 }

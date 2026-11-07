@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ResourceLockTypeEnum
 
-public enum ResourceLockTypeEnum: String, Sendable {
+public enum ResourceLockTypeEnum: String, Codable, Sendable {
     case full = "FULL"
     case delete = "DELETE"
 }

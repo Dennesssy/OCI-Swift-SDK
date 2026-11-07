@@ -54,7 +54,7 @@ public struct ResolvedEntity: Codable, Sendable {
 
 extension ResolvedEntity: CustomStringConvertible {
     public var description: String {
-        return "ResolvedEntity(\n            id: \(id ?? "nil"),\n            offset: \(offset ?? "nil"),\n            length: \(length ?? "nil"),\n            text: \(text ?? "nil"),\n            type: \(type ?? "nil"),\n            value: \(value ?? "nil")\n        )"
+        return "ResolvedEntity(\n            id: \(id ?? "nil"),\n            offset: \((offset.map { String($0) } ?? "nil")),\n            length: \((length.map { String($0) } ?? "nil")),\n            text: \(text ?? "nil"),\n            type: \(type ?? "nil"),\n            value: \(value.count)\n        )"
     }
 }
 

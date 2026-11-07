@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - LimitDefinitionSummaryScopeTypeEnum
 
-public enum LimitDefinitionSummaryScopeTypeEnum: String, Sendable {
+public enum LimitDefinitionSummaryScopeTypeEnum: String, Codable, Sendable {
     case global = "GLOBAL"
     case region = "REGION"
     case ad = "AD"

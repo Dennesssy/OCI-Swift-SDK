@@ -14,17 +14,7 @@ public struct OccAvailabilityCatalogSummary: Codable {
     public var timeUpdated: Date
     public var lifecycleState: OccAvailabilityCatalogLifecycleStateEnum
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case namespace = "namespace"
-        case compartmentId = "compartmentId"
-        case displayName = "displayName"
-        case occCustomerGroupId = "occCustomerGroupId"
-        case catalogState = "catalogState"
-        case timeCreated = "timeCreated"
-        case timeUpdated = "timeUpdated"
-        case lifecycleState = "lifecycleState"
-    }
+    
     
     public init(id: String,
                 namespace: NamespaceEnum,

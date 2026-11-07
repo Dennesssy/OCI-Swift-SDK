@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - OciCodeRepositoryConfiguration
 
-public struct OciCodeRepositoryConfiguration: Codable, Sendable {
+public struct OciCodeRepositoryConfiguration: ScmConfiguration {
     public var branch: String
     public var isAutomergeEnabled: Bool
     public var ociCodeRepositoryId: String

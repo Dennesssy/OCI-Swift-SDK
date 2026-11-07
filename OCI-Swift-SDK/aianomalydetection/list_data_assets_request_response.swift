@@ -73,7 +73,7 @@ extension ListDataAssetsResponse: CustomStringConvertible {
 
 // ListDataAssetsSortOrderEnum Enum with underlying type: string
 // MARK: - ListDataAssetsSortOrderEnum
-public enum ListDataAssetsSortOrderEnum: String, Sendable {
+public enum ListDataAssetsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -85,7 +85,7 @@ public extension ListDataAssetsSortOrderEnum {
 
 // ListDataAssetsSortByEnum Enum with underlying type: string
 // MARK: - ListDataAssetsSortByEnum
-public enum ListDataAssetsSortByEnum: String, Sendable {
+public enum ListDataAssetsSortByEnum: String, Codable, Sendable {
     case timecreated = "timeCreated"
     case displayname = "displayName"
 }

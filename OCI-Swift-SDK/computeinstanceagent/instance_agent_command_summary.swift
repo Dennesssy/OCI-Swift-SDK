@@ -30,12 +30,5 @@ public struct InstanceAgentCommandSummary: Codable, Sendable {
         self.isCanceled = isCanceled
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case instanceAgentCommandId
-        case compartmentId
-        case timeCreated
-        case timeUpdated
-        case displayName
-        case isCanceled
-    }
+    
 }

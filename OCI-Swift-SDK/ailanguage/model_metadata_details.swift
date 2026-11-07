@@ -21,10 +21,10 @@ import Foundation
 // For this release only one model is allowed to be input here.
 // One of the three modelType, ModelId, endpointId should be given other wise error will be thrown from API
 public struct ModelMetadataDetails: Codable, Sendable {
-    public var modelType: String??
-    public var modelId: String??
-    public var endpointId: String??
-    public var languageCode: String??
+    public var modelType: String?
+    public var modelId: String?
+    public var endpointId: String?
+    public var languageCode: String?
     public var configuration: [String: ConfigurationDetails]?
 
     enum CodingKeys: String, CodingKey {
@@ -36,10 +36,10 @@ public struct ModelMetadataDetails: Codable, Sendable {
     }
 
     public init(
-        modelType: String?? = nil,
-        modelId: String?? = nil,
-        endpointId: String?? = nil,
-        languageCode: String?? = nil,
+        modelType: String? = nil,
+        modelId: String? = nil,
+        endpointId: String? = nil,
+        languageCode: String? = nil,
         configuration: [String: ConfigurationDetails]? = nil
     ) {
         self.modelType = modelType
@@ -52,7 +52,7 @@ public struct ModelMetadataDetails: Codable, Sendable {
 
 extension ModelMetadataDetails: CustomStringConvertible {
     public var description: String {
-        return "ModelMetadataDetails(\n            modelType: \(modelType ?? "nil"),\n            modelId: \(modelId ?? "nil"),\n            endpointId: \(endpointId ?? "nil"),\n            languageCode: \(languageCode ?? "nil"),\n            configuration: \(configuration ?? "nil")\n        )"
+        return "ModelMetadataDetails(\n            modelType: \(modelType ?? "nil"),\n            modelId: \(modelId ?? "nil"),\n            endpointId: \(endpointId ?? "nil"),\n            languageCode: \(languageCode ?? "nil"),\n            configuration: \(configuration?.count ?? 0)\n        )"
     }
 }
 

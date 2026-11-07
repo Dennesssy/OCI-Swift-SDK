@@ -9,9 +9,6 @@ import Foundation
 public protocol RealtimeMessageOut {
 }
 
-// MARK: - Unmarshalerrealtimemessageout
-
-public typealias Unmarshalerrealtimemessageout = realtimemessageout
 
 // MARK: - RealtimeMessageOutEventEnum
 
@@ -19,12 +16,12 @@ public typealias RealtimeMessageOutEventEnum = String
 
 // MARK: - RealtimeMessageOutEventSendFinalResult
 
-public enum RealtimeMessageOutEventSendFinalResult: String, Sendable {
-    case  = "SEND_FINAL_RESULT"
+public enum RealtimeMessageOutEventSendFinalResult: String, Codable, Sendable {
+    case sendFinalResult = "SEND_FINAL_RESULT"
 }
 
 public extension RealtimeMessageOutEventSendFinalResult {
-    static var allValues: [RealtimeMessageOutEventSendFinalResult] { [.] }
+    static var allValues: [RealtimeMessageOutEventSendFinalResult] { [.sendFinalResult] }
     static var allStringValues: [String] { ["SEND_FINAL_RESULT"] }
     static func fromString(_ value: String) -> RealtimeMessageOutEventSendFinalResult? {
         RealtimeMessageOutEventSendFinalResult(rawValue: value)

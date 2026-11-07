@@ -38,7 +38,7 @@ public struct DominantLanguageDocumentResult: Codable, Sendable {
 
 extension DominantLanguageDocumentResult: CustomStringConvertible {
     public var description: String {
-        return "DominantLanguageDocumentResult(\n            key: \(key ?? "nil"),\n            languages: \(languages ?? "nil")\n        )"
+        return "DominantLanguageDocumentResult(\n            key: \(key ?? "nil"),\n            languages: \(languages.count)\n        )"
     }
 }
 

@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -23,19 +24,19 @@ public struct Model: Codable, Sendable {
     public var displayName: String?
     public var compartmentId: String?
     public var projectId: String?
-    public var modelDetails: ModelDetails
+    public var modelDetails: JSONValue
     public var timeCreated: Date?
     public var lifecycleState: ModelLifecycleStateEnum
-    public var description: String??
-    public var timeUpdated: Date??
-    public var lifecycleDetails: String??
-    public var trainingDataset: DatasetDetails?
-    public var evaluationResults: EvaluationResults?
-    public var testStrategy: TestStrategy?
-    public var version: String??
+    public var descriptionText: String?
+    public var timeUpdated: Date?
+    public var lifecycleDetails: String?
+    public var trainingDataset: JSONValue?
+    public var evaluationResults: JSONValue?
+    public var testStrategy: JSONValue?
+    public var version: String?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
-    public var systemTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
+    public var systemTags: [String: [String: JSONValue]]?
 
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -45,7 +46,7 @@ public struct Model: Codable, Sendable {
         case modelDetails = "modelDetails"
         case timeCreated = "timeCreated"
         case lifecycleState = "lifecycleState"
-        case description = "description"
+        case descriptionText = "description"
         case timeUpdated = "timeUpdated"
         case lifecycleDetails = "lifecycleDetails"
         case trainingDataset = "trainingDataset"
@@ -62,19 +63,19 @@ public struct Model: Codable, Sendable {
         displayName: String?,
         compartmentId: String?,
         projectId: String?,
-        modelDetails: ModelDetails,
+        modelDetails: JSONValue,
         timeCreated: Date?,
         lifecycleState: ModelLifecycleStateEnum,
-        description: String?? = nil,
-        timeUpdated: Date?? = nil,
-        lifecycleDetails: String?? = nil,
-        trainingDataset: DatasetDetails? = nil,
-        evaluationResults: EvaluationResults? = nil,
-        testStrategy: TestStrategy? = nil,
-        version: String?? = nil,
+        description: String? = nil,
+        timeUpdated: Date? = nil,
+        lifecycleDetails: String? = nil,
+        trainingDataset: JSONValue? = nil,
+        evaluationResults: JSONValue? = nil,
+        testStrategy: JSONValue? = nil,
+        version: String? = nil,
         freeformTags: [String: String]? = nil,
-        definedTags: [String: [String: Any]]? = nil,
-        systemTags: [String: [String: Any]]? = nil
+        definedTags: [String: [String: JSONValue]]? = nil,
+        systemTags: [String: [String: JSONValue]]? = nil
     ) {
         self.id = id
         self.displayName = displayName
@@ -83,7 +84,7 @@ public struct Model: Codable, Sendable {
         self.modelDetails = modelDetails
         self.timeCreated = timeCreated
         self.lifecycleState = lifecycleState
-        self.description = description
+        self.descriptionText = description
         self.timeUpdated = timeUpdated
         self.lifecycleDetails = lifecycleDetails
         self.trainingDataset = trainingDataset
@@ -98,7 +99,7 @@ public struct Model: Codable, Sendable {
 
 extension Model: CustomStringConvertible {
     public var description: String {
-        return "Model(\n            id: \(id ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            projectId: \(projectId ?? "nil"),\n            modelDetails: \(modelDetails ?? "nil"),\n            timeCreated: \(timeCreated ?? "nil"),\n            lifecycleState: \(lifecycleState ?? "nil"),\n            description: \(description ?? "nil"),\n            timeUpdated: \(timeUpdated ?? "nil"),\n            lifecycleDetails: \(lifecycleDetails ?? "nil"),\n            trainingDataset: \(trainingDataset ?? "nil"),\n            evaluationResults: \(evaluationResults ?? "nil"),\n            testStrategy: \(testStrategy ?? "nil"),\n            version: \(version ?? "nil"),\n            freeformTags: \(freeformTags ?? "nil"),\n            definedTags: \(definedTags ?? "nil"),\n            systemTags: \(systemTags ?? "nil")\n        )"
+        return "Model(\n            id: \(id ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            projectId: \(projectId ?? "nil"),\n            modelDetails: present,\n            timeCreated: \((timeCreated != nil ? "present" : "nil")),\n            lifecycleState: \(lifecycleState.rawValue),\n            description: \(descriptionText ?? "nil"),\n            timeUpdated: \((timeUpdated != nil ? "present" : "nil")),\n            lifecycleDetails: \(lifecycleDetails ?? "nil"),\n            trainingDataset: \((trainingDataset != nil ? "present" : "nil")),\n            evaluationResults: \((evaluationResults != nil ? "present" : "nil")),\n            testStrategy: \((testStrategy != nil ? "present" : "nil")),\n            version: \(version ?? "nil"),\n            freeformTags: \(freeformTags?.count ?? 0),\n            definedTags: \(definedTags?.count ?? 0),\n            systemTags: \(systemTags?.count ?? 0)\n        )"
     }
 }
 
@@ -111,10 +112,9 @@ extension Model: CustomStringConvertible {
 // UnmarshalJSON unmarshals from json
 
 // ModelLifecycleStateEnum Enum with underlying type: string
-public typealias ModelLifecycleStateEnum = String
 
 // Set of constants representing the allowable values for ModelLifecycleStateEnum
-public enum ModelLifecycleStateEnum: String, Sendable {
+public enum ModelLifecycleStateEnum: String, Codable, Sendable {
     case deleting = "DELETING"
     case deleted = "DELETED"
     case failed = "FAILED"

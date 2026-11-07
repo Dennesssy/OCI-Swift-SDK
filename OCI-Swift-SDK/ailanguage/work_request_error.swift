@@ -42,7 +42,7 @@ public struct WorkRequestError: Codable, Sendable {
 
 extension WorkRequestError: CustomStringConvertible {
     public var description: String {
-        return "WorkRequestError(\n            code: \(code ?? "nil"),\n            message: \(message ?? "nil"),\n            timestamp: \(timestamp ?? "nil")\n        )"
+        return "WorkRequestError(\n            code: \(code ?? "nil"),\n            message: \(message ?? "nil"),\n            timestamp: \((timestamp != nil ? "present" : "nil"))\n        )"
     }
 }
 

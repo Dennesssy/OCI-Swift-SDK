@@ -8,16 +8,17 @@ import Foundation
 
 public struct Service: Codable, Sendable {
     public var cidrBlock: String
-    public var description: String
+    public var descriptionText: String
     public var id: String
     public var name: String
     
     private enum CodingKeys: String, CodingKey {
-        case cidrBlock, description, id, name
+        case cidrBlock, id, name
+        case descriptionText = "description"
     }
     
     public init(cidrBlock: String, description: String, id: String, name: String) {
-        self.cidrBlock = cidrBlock; self.description = description
+        self.cidrBlock = cidrBlock; self.descriptionText = description
         self.id = id; self.name = name
     }
     

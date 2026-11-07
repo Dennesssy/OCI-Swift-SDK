@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum ListenerProtocolEnum: String, Sendable {
+public enum ListenerProtocolEnum: String, Codable, Sendable {
     case http = "HTTP"
     case https = "HTTPS"
     case tcp = "TCP"

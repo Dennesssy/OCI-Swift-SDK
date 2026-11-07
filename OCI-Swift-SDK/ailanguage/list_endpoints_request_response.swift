@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -17,17 +18,17 @@ import Foundation
 // Click https://docs.cloud.oracle.com/en-us/iaas/tools/go-sdk-examples/latest/ailanguage/ListEndpoints.go.html to see an example of how to use ListEndpointsRequest.
 public struct ListEndpointsRequest: Codable, Sendable {
     public var compartmentId: String?
-    public var endpointId: String??
-    public var projectId: String??
-    public var displayName: String??
-    public var modelId: String??
+    public var endpointId: String?
+    public var projectId: String?
+    public var displayName: String?
+    public var modelId: String?
     public var lifecycleState: EndpointLifecycleStateEnum?
-    public var limit: Int??
-    public var page: String??
+    public var limit: Int?
+    public var page: String?
     public var sortOrder: ListEndpointsSortOrderEnum?
     public var sortBy: ListEndpointsSortByEnum?
-    public var opcRequestId: String??
-    public var requestMetadata: common.RequestMetadata?
+    public var opcRequestId: String?
+    public var requestMetadata: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case compartmentId = "CompartmentId"
@@ -46,17 +47,17 @@ public struct ListEndpointsRequest: Codable, Sendable {
 
     public init(
         compartmentId: String?,
-        endpointId: String?? = nil,
-        projectId: String?? = nil,
-        displayName: String?? = nil,
-        modelId: String?? = nil,
+        endpointId: String? = nil,
+        projectId: String? = nil,
+        displayName: String? = nil,
+        modelId: String? = nil,
         lifecycleState: EndpointLifecycleStateEnum? = nil,
-        limit: Int?? = nil,
-        page: String?? = nil,
+        limit: Int? = nil,
+        page: String? = nil,
         sortOrder: ListEndpointsSortOrderEnum? = nil,
         sortBy: ListEndpointsSortByEnum? = nil,
-        opcRequestId: String?? = nil,
-        requestMetadata: common.RequestMetadata? = nil
+        opcRequestId: String? = nil,
+        requestMetadata: [String: String]? = nil
     ) {
         self.compartmentId = compartmentId
         self.endpointId = endpointId
@@ -75,7 +76,7 @@ public struct ListEndpointsRequest: Codable, Sendable {
 
 extension ListEndpointsRequest: CustomStringConvertible {
     public var description: String {
-        return "ListEndpointsRequest(\n            compartmentId: \(compartmentId ?? "nil"),\n            endpointId: \(endpointId ?? "nil"),\n            projectId: \(projectId ?? "nil"),\n            displayName: \(displayName ?? "nil"),\n            modelId: \(modelId ?? "nil"),\n            lifecycleState: \(lifecycleState ?? "nil"),\n            limit: \(limit ?? "nil"),\n            page: \(page ?? "nil"),\n            sortOrder: \(sortOrder ?? "nil"),\n            sortBy: \(sortBy ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "ListEndpointsRequest(\n            compartmentId: \(compartmentId ?? "nil"),\n            endpointId: \(endpointId != nil ? "present" : "nil"),\n            projectId: \(projectId != nil ? "present" : "nil"),\n            displayName: \(displayName != nil ? "present" : "nil"),\n            modelId: \(modelId != nil ? "present" : "nil"),\n            lifecycleState: \(lifecycleState?.rawValue ?? "nil"),\n            limit: \(limit != nil ? "present" : "nil"),\n            page: \(page != nil ? "present" : "nil"),\n            sortOrder: \(sortOrder?.rawValue ?? "nil"),\n            sortBy: \(sortBy?.rawValue ?? "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            requestMetadata: \(requestMetadata != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -93,9 +94,9 @@ extension ListEndpointsRequest: CustomStringConvertible {
 
 // ListEndpointsResponse wrapper for the ListEndpoints operation
 public struct ListEndpointsResponse: Codable, Sendable {
-    public var rawResponse: http.Response??
-    public var opcRequestId: String??
-    public var opcNextPage: String??
+    public var rawResponse: JSONValue?
+    public var opcRequestId: String?
+    public var opcNextPage: String?
 
     enum CodingKeys: String, CodingKey {
         case rawResponse = "RawResponse"
@@ -104,9 +105,9 @@ public struct ListEndpointsResponse: Codable, Sendable {
     }
 
     public init(
-        rawResponse: http.Response?? = nil,
-        opcRequestId: String?? = nil,
-        opcNextPage: String?? = nil
+        rawResponse: JSONValue? = nil,
+        opcRequestId: String? = nil,
+        opcNextPage: String? = nil
     ) {
         self.rawResponse = rawResponse
         self.opcRequestId = opcRequestId
@@ -116,7 +117,7 @@ public struct ListEndpointsResponse: Codable, Sendable {
 
 extension ListEndpointsResponse: CustomStringConvertible {
     public var description: String {
-        return "ListEndpointsResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            opcNextPage: \(opcNextPage ?? "nil")\n        )"
+        return "ListEndpointsResponse(\n            rawResponse: \(rawResponse != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            opcNextPage: \(opcNextPage != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -125,16 +126,26 @@ extension ListEndpointsResponse: CustomStringConvertible {
 // HTTPResponse implements the OCIResponse interface
 
 // ListEndpointsSortOrderEnum Enum with underlying type: string
-public typealias ListEndpointsSortOrderEnum = String
-
-// Set of constants representing the allowable values for ListEndpointsSortOrderEnum
-public enum ListEndpointsSortOrderEnum: String, Sendable {
+/// Enum with underlying type: string
+public enum ListEndpointsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
+
 public extension ListEndpointsSortOrderEnum {
-    static var allValues: [ListEndpointsSortOrderEnum] { [.asc, .desc] }
-    static func fromString(_ value: String) -> ListEndpointsSortOrderEnum? { ListEndpointsSortOrderEnum(rawValue: value) }
+    static var allValues: [ListEndpointsSortOrderEnum] {
+        return [.asc, .desc]
+    }
+    
+    /// Enumerates the set of values in String for ListEndpointsSortOrderEnum
+    static var allStringValues: [String] {
+        return ["ASC", "DESC"]
+    }
+    
+    /// Performs case insensitive comparison on enum value and return the desired enum
+    static func fromString(_ value: String) -> ListEndpointsSortOrderEnum? {
+        return ListEndpointsSortOrderEnum(rawValue: value.uppercased())
+    }
 }
 
 
@@ -146,17 +157,26 @@ public extension ListEndpointsSortOrderEnum {
 
 // GetMappingListEndpointsSortOrderEnum performs case Insensitive comparison on enum value and return the desired enum
 
-// ListEndpointsSortByEnum Enum with underlying type: string
-public typealias ListEndpointsSortByEnum = String
-
-// Set of constants representing the allowable values for ListEndpointsSortByEnum
-public enum ListEndpointsSortByEnum: String, Sendable {
+/// Enum with underlying type: string
+public enum ListEndpointsSortByEnum: String, Codable, Sendable {
     case timecreated = "timeCreated"
     case displayname = "displayName"
 }
+
 public extension ListEndpointsSortByEnum {
-    static var allValues: [ListEndpointsSortByEnum] { [.timecreated, .displayname] }
-    static func fromString(_ value: String) -> ListEndpointsSortByEnum? { ListEndpointsSortByEnum(rawValue: value) }
+    static var allValues: [ListEndpointsSortByEnum] {
+        return [.timecreated, .displayname]
+    }
+    
+    /// Enumerates the set of values in String for ListEndpointsSortByEnum
+    static var allStringValues: [String] {
+        return ["timeCreated", "displayName"]
+    }
+    
+    /// Performs case insensitive comparison on enum value and return the desired enum
+    static func fromString(_ value: String) -> ListEndpointsSortByEnum? {
+        return ListEndpointsSortByEnum(rawValue: value.uppercased())
+    }
 }
 
 

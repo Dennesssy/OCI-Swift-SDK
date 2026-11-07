@@ -7,10 +7,7 @@ public struct CapabilityDetails: Codable {
     public var name: String?
     public var value: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case name = "name"
-        case value = "value"
-    }
+    
     
     public init(name: String? = nil,
                 value: String? = nil) {

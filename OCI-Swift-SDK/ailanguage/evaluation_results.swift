@@ -23,7 +23,7 @@ public protocol EvaluationResults {
 
 
 public struct evaluationresults: Codable, Sendable {
-    public var jsonData: [byte]?
+    public var jsonData: [UInt8]?
     public var modelType: String?
 
     enum CodingKeys: String, CodingKey {
@@ -32,7 +32,7 @@ public struct evaluationresults: Codable, Sendable {
     }
 
     public init(
-        jsonData: [byte]? = nil,
+        jsonData: [UInt8]? = nil,
         modelType: String? = nil
     ) {
         self.jsonData = jsonData
@@ -42,7 +42,7 @@ public struct evaluationresults: Codable, Sendable {
 
 extension evaluationresults: CustomStringConvertible {
     public var description: String {
-        return "evaluationresults(\n            jsonData: \(jsonData ?? "nil"),\n            modelType: \(modelType ?? "nil")\n        )"
+        return "evaluationresults(\n            jsonData: \(jsonData?.count ?? 0),\n            modelType: \(modelType ?? "nil")\n        )"
     }
 }
 

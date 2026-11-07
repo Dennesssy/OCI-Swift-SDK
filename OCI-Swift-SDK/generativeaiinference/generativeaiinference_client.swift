@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class ugenerativeaiinferenceClient: ClientProtocol {
+public final class ugenerativeaiinferenceClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

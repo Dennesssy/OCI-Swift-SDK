@@ -14,9 +14,6 @@ public struct PatchMoveInstruction: Codable, Sendable, PatchInstruction {
     // Where to insert the value in an array
     public var position: PatchMoveInstructionPositionEnum?
     
-    private enum CodingKeys: String, CodingKey {
-        case selection, from, position
-    }
     
     public init(selection: String, from: String, position: PatchMoveInstructionPositionEnum? = nil) {
         self.selection = selection
@@ -32,6 +29,13 @@ public struct PatchMoveInstruction: Codable, Sendable, PatchInstruction {
         }
     }
     
+        public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.selection = try container.decode(String.self, forKey: .selection)
+        self.from = try container.decode(String.self, forKey: .from)
+        self.position = try container.decodeIfPresent(PatchMoveInstructionPositionEnum.self, forKey: .position)
+    }
+
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(selection, forKey: .selection)
@@ -46,7 +50,7 @@ public struct PatchMoveInstruction: Codable, Sendable, PatchInstruction {
 }
 
 // PatchMoveInstructionPositionEnum
-public enum PatchMoveInstructionPositionEnum: String, Sendable {
+public enum PatchMoveInstructionPositionEnum: String, Codable, Sendable {
     case at = "AT"
     case before = "BEFORE"
     case after = "AFTER"

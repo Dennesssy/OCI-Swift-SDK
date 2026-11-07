@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListRulesSortByEnum
 
-public enum ListRulesSortByEnum: String, Sendable {
+public enum ListRulesSortByEnum: String, Codable, Sendable {
     case timeCreated = "TIME_CREATED"
     case id = "ID"
     case displayName = "DISPLAY_NAME"
@@ -20,7 +20,7 @@ public extension ListRulesSortByEnum {
 
 // MARK: - ListRulesSortOrderEnum
 
-public enum ListRulesSortOrderEnum: String, Sendable {
+public enum ListRulesSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

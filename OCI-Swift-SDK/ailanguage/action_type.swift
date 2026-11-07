@@ -18,10 +18,9 @@ import Foundation
 
 
 // ActionTypeEnum Enum with underlying type: string
-public typealias ActionTypeEnum = String
 
 // Set of constants representing the allowable values for ActionTypeEnum
-public enum ActionTypeEnum: String, Sendable {
+public enum ActionTypeEnum: String, Codable, Sendable {
     case created = "CREATED"
     case updated = "UPDATED"
     case deleted = "DELETED"

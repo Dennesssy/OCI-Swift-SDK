@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class ufleetappsmanagementClient: ClientProtocol {
+public final class ufleetappsmanagementClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

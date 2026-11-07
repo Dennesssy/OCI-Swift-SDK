@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -17,9 +18,9 @@ import Foundation
 // Click https://docs.cloud.oracle.com/en-us/iaas/tools/go-sdk-examples/latest/ailanguage/DeleteJob.go.html to see an example of how to use DeleteJobRequest.
 public struct DeleteJobRequest: Codable, Sendable {
     public var jobId: String?
-    public var ifMatch: String??
-    public var opcRequestId: String??
-    public var requestMetadata: common.RequestMetadata?
+    public var ifMatch: String?
+    public var opcRequestId: String?
+    public var requestMetadata: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case jobId = "JobId"
@@ -30,9 +31,9 @@ public struct DeleteJobRequest: Codable, Sendable {
 
     public init(
         jobId: String?,
-        ifMatch: String?? = nil,
-        opcRequestId: String?? = nil,
-        requestMetadata: common.RequestMetadata? = nil
+        ifMatch: String? = nil,
+        opcRequestId: String? = nil,
+        requestMetadata: [String: String]? = nil
     ) {
         self.jobId = jobId
         self.ifMatch = ifMatch
@@ -43,7 +44,7 @@ public struct DeleteJobRequest: Codable, Sendable {
 
 extension DeleteJobRequest: CustomStringConvertible {
     public var description: String {
-        return "DeleteJobRequest(\n            jobId: \(jobId ?? "nil"),\n            ifMatch: \(ifMatch ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "DeleteJobRequest(\n            jobId: \(jobId ?? "nil"),\n            ifMatch: \(ifMatch != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            requestMetadata: \(requestMetadata != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -61,9 +62,9 @@ extension DeleteJobRequest: CustomStringConvertible {
 
 // DeleteJobResponse wrapper for the DeleteJob operation
 public struct DeleteJobResponse: Codable, Sendable {
-    public var rawResponse: http.Response??
-    public var opcWorkRequestId: String??
-    public var opcRequestId: String??
+    public var rawResponse: JSONValue?
+    public var opcWorkRequestId: String?
+    public var opcRequestId: String?
 
     enum CodingKeys: String, CodingKey {
         case rawResponse = "RawResponse"
@@ -72,9 +73,9 @@ public struct DeleteJobResponse: Codable, Sendable {
     }
 
     public init(
-        rawResponse: http.Response?? = nil,
-        opcWorkRequestId: String?? = nil,
-        opcRequestId: String?? = nil
+        rawResponse: JSONValue? = nil,
+        opcWorkRequestId: String? = nil,
+        opcRequestId: String? = nil
     ) {
         self.rawResponse = rawResponse
         self.opcWorkRequestId = opcWorkRequestId
@@ -84,7 +85,7 @@ public struct DeleteJobResponse: Codable, Sendable {
 
 extension DeleteJobResponse: CustomStringConvertible {
     public var description: String {
-        return "DeleteJobResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcWorkRequestId: \(opcWorkRequestId ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "DeleteJobResponse(\n            rawResponse: \(rawResponse != nil ? "present" : "nil"),\n            opcWorkRequestId: \(opcWorkRequestId != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil")\n        )"
     }
 }
 

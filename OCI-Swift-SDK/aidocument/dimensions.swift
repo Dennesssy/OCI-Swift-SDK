@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum DimensionsUnitEnum: String, Sendable {
+public enum DimensionsUnitEnum: String, Codable, Sendable {
     case dimensionsunitpixel = "PIXEL"
     case dimensionsunitinch = "INCH"
 }
@@ -14,53 +14,3 @@ public extension DimensionsUnitEnum {
     static var allStringValues: [String] { ["PIXEL", "INCH"] }
     static func fromString(_ value: String) -> DimensionsUnitEnum? { DimensionsUnitEnum(rawValue: value) }
 }
-
-// Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
-// This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
-// Document Understanding API
-//
-// Document AI helps customers perform various analysis on their documents. If a customer has lots of documents, they can process them in batch using asynchronous API endpoints.
-//
-// Dimensions The width and height of a page.
-public struct Dimensions: Codable, Sendable {
-
-    /// the width of a page.
-    public var width: Double?
-
-    /// The height of a page.
-    public var height: Double?
-
-    /// The unit of length.
-    public var unit: DimensionsUnitEnum
-
-    private enum CodingKeys: String, CodingKey {
-        case width = "width"
-        case height = "height"
-        case unit = "unit"
-    }
-
-    public init(
-        width: Double?,
-        height: Double?,
-        unit: DimensionsUnitEnum
-    ) {
-        self.width = width
-        self.height = height
-        self.unit = unit
-    }
-}
-
-// ValidateEnumValue returns an error when providing an unsupported enum value
-// This function is being called during constructing API request process
-// Not recommended for calling this function directly
-// DimensionsUnitEnum Enum with underlying type: string
-// Set of constants representing the allowable values for DimensionsUnitEnum
-	"PIXEL": DimensionsUnitPixel,
-	"INCH":  DimensionsUnitInch,
-}
-	"pixel": DimensionsUnitPixel,
-	"inch":  DimensionsUnitInch,
-}
-// GetDimensionsUnitEnumValues Enumerates the set of values for DimensionsUnitEnum
-// GetDimensionsUnitEnumStringValues Enumerates the set of values in String for DimensionsUnitEnum
-// GetMappingDimensionsUnitEnum performs case Insensitive comparison on enum value and return the desired enum

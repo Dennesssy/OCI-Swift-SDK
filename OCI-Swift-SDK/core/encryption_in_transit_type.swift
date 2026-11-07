@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - EncryptionInTransitTypeEnum
 
-public enum EncryptionInTransitTypeEnum: String, Sendable {
+public enum EncryptionInTransitTypeEnum: String, Codable, Sendable {
     case none = "NONE"
     case bmEncryptionInTransit = "BM_ENCRYPTION_IN_TRANSIT"
 }

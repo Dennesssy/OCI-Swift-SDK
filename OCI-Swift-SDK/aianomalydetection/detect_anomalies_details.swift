@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - detectanomaliesdetails
 public struct detectanomaliesdetails: Codable, Sendable {
-    public var Sensitivity: float32?
+    public var Sensitivity: Float?
     public var ModelId: String?
     public var RequestType: String?
     enum CodingKeys: String, CodingKey {
@@ -23,7 +23,7 @@ extension detectanomaliesdetails: CustomStringConvertible {
 
 // DetectAnomaliesDetailsRequestTypeEnum Enum with underlying type: string
 // MARK: - DetectAnomaliesDetailsRequestTypeEnum
-public enum DetectAnomaliesDetailsRequestTypeEnum: String, Sendable {
+public enum DetectAnomaliesDetailsRequestTypeEnum: String, Codable, Sendable {
     case inline = "INLINE"
     case base64Encoded = "BASE64_ENCODED"
 }

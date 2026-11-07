@@ -38,7 +38,7 @@ public struct BatchDetectLanguageEntitiesResult: Codable, Sendable {
 
 extension BatchDetectLanguageEntitiesResult: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectLanguageEntitiesResult(\n            documents: \(documents ?? "nil"),\n            errors: \(errors ?? "nil")\n        )"
+        return "BatchDetectLanguageEntitiesResult(\n            documents: \(documents.count),\n            errors: \(errors?.count ?? 0)\n        )"
     }
 }
 

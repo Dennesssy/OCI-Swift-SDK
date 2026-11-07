@@ -7,10 +7,7 @@ public struct Resource: Codable {
     public var resourceId: String
     public var resourceType: String
     
-    public enum CodingKeys: String, CodingKey {
-        case resourceId = "resourceId"
-        case resourceType = "resourceType"
-    }
+    
     
     public init(resourceId: String, resourceType: String) {
         self.resourceId = resourceId

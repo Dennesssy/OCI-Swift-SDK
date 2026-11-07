@@ -27,11 +27,5 @@ public struct Plugin: Codable, Sendable {
         self.message = message
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case name
-        case version
-        case status
-        case lastUpdateTime
-        case message
-    }
+    
 }

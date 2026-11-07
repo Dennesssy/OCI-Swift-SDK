@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - TargetTypeEnum
 
-public enum TargetTypeEnum: String, Sendable {
+public enum TargetTypeEnum: String, Codable, Sendable {
     case compartment = "COMPARTMENT"
     case tag = "TAG"
 }

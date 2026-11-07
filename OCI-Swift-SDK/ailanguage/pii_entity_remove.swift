@@ -19,8 +19,6 @@ import Foundation
 
 // PiiEntityRemove Remove PII entities from output.
 public struct PiiEntityRemove: Codable, Sendable {
-    enum CodingKeys: String, CodingKey {
-    }
 }
 
 

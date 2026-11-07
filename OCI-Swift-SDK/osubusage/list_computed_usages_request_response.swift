@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListComputedUsagesSortOrderEnum
 
-public enum ListComputedUsagesSortOrderEnum: String, Sendable {
+public enum ListComputedUsagesSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }
@@ -19,7 +19,7 @@ public extension ListComputedUsagesSortOrderEnum {
 
 // MARK: - ListComputedUsagesSortByEnum
 
-public enum ListComputedUsagesSortByEnum: String, Sendable {
+public enum ListComputedUsagesSortByEnum: String, Codable, Sendable {
     case timeCreated = "timeCreated"
     case timeOfArrival = "timeOfArrival"
     case timeMeteredOn = "timeMeteredOn"

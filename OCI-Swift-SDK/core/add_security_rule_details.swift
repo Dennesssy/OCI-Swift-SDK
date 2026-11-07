@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - AddSecurityRuleDetailsDirectionEnum
 
-public enum AddSecurityRuleDetailsDirectionEnum: String, Sendable {
+public enum AddSecurityRuleDetailsDirectionEnum: String, Codable, Sendable {
     case egress = "EGRESS"
     case ingress = "INGRESS"
 }
@@ -19,7 +19,7 @@ public extension AddSecurityRuleDetailsDirectionEnum {
 
 // MARK: - AddSecurityRuleDetailsDestinationTypeEnum
 
-public enum AddSecurityRuleDetailsDestinationTypeEnum: String, Sendable {
+public enum AddSecurityRuleDetailsDestinationTypeEnum: String, Codable, Sendable {
     case cidrBlock = "CIDR_BLOCK"
     case serviceCidrBlock = "SERVICE_CIDR_BLOCK"
     case networkSecurityGroup = "NETWORK_SECURITY_GROUP"
@@ -33,7 +33,7 @@ public extension AddSecurityRuleDetailsDestinationTypeEnum {
 
 // MARK: - AddSecurityRuleDetailsSourceTypeEnum
 
-public enum AddSecurityRuleDetailsSourceTypeEnum: String, Sendable {
+public enum AddSecurityRuleDetailsSourceTypeEnum: String, Codable, Sendable {
     case cidrBlock = "CIDR_BLOCK"
     case serviceCidrBlock = "SERVICE_CIDR_BLOCK"
     case networkSecurityGroup = "NETWORK_SECURITY_GROUP"
@@ -49,8 +49,8 @@ public extension AddSecurityRuleDetailsSourceTypeEnum {
 
 public struct AddSecurityRuleDetails: Codable, Sendable {
     public var direction: AddSecurityRuleDetailsDirectionEnum
-    public var protocol: String
-    public var description: String?
+    public var `protocol`: String
+    public var descriptionText: String?
     public var destination: String?
     public var destinationType: AddSecurityRuleDetailsDestinationTypeEnum?
     public var icmpOptions: IcmpOptions?
@@ -61,18 +61,19 @@ public struct AddSecurityRuleDetails: Codable, Sendable {
     public var udpOptions: UdpOptions?
     
     private enum CodingKeys: String, CodingKey {
-        case direction, description, destination, destinationType, icmpOptions
+        case direction, destination, destinationType, icmpOptions
         case isStateless, source, sourceType, tcpOptions, udpOptions
         case `protocol` = "protocol"
+        case descriptionText = "description"
     }
     
-    public init(direction: AddSecurityRuleDetailsDirectionEnum, protocol: String,
+    public init(direction: AddSecurityRuleDetailsDirectionEnum, `protocol`: String,
                 description: String? = nil, destination: String? = nil,
                 destinationType: AddSecurityRuleDetailsDestinationTypeEnum? = nil,
                 icmpOptions: IcmpOptions? = nil, isStateless: Bool? = nil,
                 source: String? = nil, sourceType: AddSecurityRuleDetailsSourceTypeEnum? = nil,
                 tcpOptions: TcpOptions? = nil, udpOptions: UdpOptions? = nil) {
-        self.direction = direction; self.protocol = protocol; self.description = description
+        self.direction = direction; self.`protocol` = `protocol`; self.descriptionText = description
         self.destination = destination; self.destinationType = destinationType; self.icmpOptions = icmpOptions
         self.isStateless = isStateless; self.source = source; self.sourceType = sourceType
         self.tcpOptions = tcpOptions; self.udpOptions = udpOptions
@@ -98,5 +99,5 @@ public struct AddSecurityRuleDetails: Codable, Sendable {
 }
 
 extension AddSecurityRuleDetails: CustomStringConvertible {
-    public var description: String { "AddSecurityRuleDetails(direction: \(direction), protocol: \(protocol))" }
+    public var description: String { "AddSecurityRuleDetails(direction: \(direction), protocol: \(`protocol`))" }
 }

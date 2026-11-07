@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class uidentitydataplaneClient: ClientProtocol {
+public final class uidentitydataplaneClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

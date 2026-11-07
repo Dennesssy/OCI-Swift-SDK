@@ -10,9 +10,6 @@ public struct PatchRemoveInstruction: Codable, Sendable, PatchInstruction {
     // The set of values to which the operation applies
     public var selection: String
     
-    private enum CodingKeys: String, CodingKey {
-        case selection
-    }
     
     public init(selection: String) {
         self.selection = selection
@@ -22,6 +19,11 @@ public struct PatchRemoveInstruction: Codable, Sendable, PatchInstruction {
         // No enums to validate
     }
     
+        public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.selection = try container.decode(String.self, forKey: .selection)
+    }
+
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(selection, forKey: .selection)

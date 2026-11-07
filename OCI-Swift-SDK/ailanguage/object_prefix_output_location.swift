@@ -21,7 +21,7 @@ import Foundation
 public struct ObjectPrefixOutputLocation: Codable, Sendable {
     public var namespaceName: String?
     public var bucketName: String?
-    public var prefix: String??
+    public var prefix: String?
 
     enum CodingKeys: String, CodingKey {
         case namespaceName = "namespaceName"
@@ -32,7 +32,7 @@ public struct ObjectPrefixOutputLocation: Codable, Sendable {
     public init(
         namespaceName: String?,
         bucketName: String?,
-        prefix: String?? = nil
+        prefix: String? = nil
     ) {
         self.namespaceName = namespaceName
         self.bucketName = bucketName

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - SecretRotationStatusEnum
 
-public enum SecretRotationStatusEnum: String, Sendable {
+public enum SecretRotationStatusEnum: String, Codable, Sendable {
     case inProgress = "IN_PROGRESS"
     case scheduled = "SCHEDULED"
     case notEnabled = "NOT_ENABLED"

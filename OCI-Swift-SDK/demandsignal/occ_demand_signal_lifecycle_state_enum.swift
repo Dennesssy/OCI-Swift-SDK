@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - OccDemandSignalLifecycleStateEnum
 
-public enum OccDemandSignalLifecycleStateEnum: String, Sendable {
+public enum OccDemandSignalLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case updating = "UPDATING"
     case active = "ACTIVE"

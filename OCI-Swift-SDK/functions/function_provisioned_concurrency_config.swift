@@ -24,7 +24,7 @@ public struct FunctionProvisionedConcurrencyConfig: Codable, Sendable {
     }
 }
 
-public enum FunctionProvisionedConcurrencyStrategyEnum: String, Sendable {
+public enum FunctionProvisionedConcurrencyStrategyEnum: String, Codable, Sendable {
     case constant = "CONSTANT"
     case none = "NONE"
 }

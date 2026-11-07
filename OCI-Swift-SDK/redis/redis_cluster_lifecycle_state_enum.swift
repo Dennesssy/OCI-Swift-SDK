@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - RedisClusterLifecycleStateEnum
 
-public enum RedisClusterLifecycleStateEnum: String, Sendable {
+public enum RedisClusterLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case updating = "UPDATING"
     case active = "ACTIVE"

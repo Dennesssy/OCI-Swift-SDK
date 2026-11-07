@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum ReplicationPolicyStatusEnum: String, Sendable {
+public enum ReplicationPolicyStatusEnum: String, Codable, Sendable {
     case active = "ACTIVE"
     case deleting = "DELETING"
 }

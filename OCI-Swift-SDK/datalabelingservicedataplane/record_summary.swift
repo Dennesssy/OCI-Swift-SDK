@@ -13,16 +13,7 @@ public struct RecordSummary: Codable {
     public var isLabeled: Bool
     public var lifecycleState: RecordLifecycleStateEnum
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case timeCreated = "timeCreated"
-        case timeUpdated = "timeUpdated"
-        case datasetId = "datasetId"
-        case compartmentId = "compartmentId"
-        case isLabeled = "isLabeled"
-        case lifecycleState = "lifecycleState"
-    }
+    
     
     public init(id: String,
                 name: String,

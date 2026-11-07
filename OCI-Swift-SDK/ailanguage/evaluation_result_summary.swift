@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -20,14 +21,14 @@ import Foundation
 // EvaluationResultSummary model evaluation analysis of different models
 public protocol EvaluationResultSummary {
     func getFreeformTags() -> [String: String]
-    func getDefinedTags() -> [String: [String: Any]]
+    func getDefinedTags() -> [String: [String: JSONValue]]
 }
 
 
 public struct evaluationresultsummary: Codable, Sendable {
-    public var jsonData: [byte]?
+    public var jsonData: [UInt8]?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     public var modelType: String?
 
     enum CodingKeys: String, CodingKey {
@@ -38,9 +39,9 @@ public struct evaluationresultsummary: Codable, Sendable {
     }
 
     public init(
-        jsonData: [byte]? = nil,
+        jsonData: [UInt8]? = nil,
         freeformTags: [String: String]? = nil,
-        definedTags: [String: [String: Any]]? = nil,
+        definedTags: [String: [String: JSONValue]]? = nil,
         modelType: String? = nil
     ) {
         self.jsonData = jsonData
@@ -52,7 +53,7 @@ public struct evaluationresultsummary: Codable, Sendable {
 
 extension evaluationresultsummary: CustomStringConvertible {
     public var description: String {
-        return "evaluationresultsummary(\n            jsonData: \(jsonData ?? "nil"),\n            freeformTags: \(freeformTags ?? "nil"),\n            definedTags: \(definedTags ?? "nil"),\n            modelType: \(modelType ?? "nil")\n        )"
+        return "evaluationresultsummary(\n            jsonData: \(jsonData?.count ?? 0),\n            freeformTags: \(freeformTags?.count ?? 0),\n            definedTags: \(definedTags?.count ?? 0),\n            modelType: \(modelType ?? "nil")\n        )"
     }
 }
 

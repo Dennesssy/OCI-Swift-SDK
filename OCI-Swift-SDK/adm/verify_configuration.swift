@@ -53,3 +53,18 @@ public struct GitHubActionsConfiguration: VerifyConfiguration {
 public struct GitLabPipelineConfiguration: VerifyConfiguration {
     public var buildServiceType: String = "GITLAB_PIPELINE"
 }
+
+// MARK: - Type Erasure
+
+private struct VerifyConfigurationEncodeBox: Encodable {
+    let value: any VerifyConfiguration
+    func encode(to encoder: Encoder) throws { try value.encode(to: encoder) }
+}
+
+public extension VerifyConfiguration {
+    /// Type-erased base representation used for Codable synthesis
+    var verifyConfigurationBase: VerifyConfigurationBase {
+        VerifyConfigurationBase(buildServiceType: buildServiceType,
+                                jsonData: try? JSONEncoder().encode(VerifyConfigurationEncodeBox(value: self)))
+    }
+}

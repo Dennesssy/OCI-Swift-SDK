@@ -10,7 +10,7 @@ public struct CreateFaaSActionDetails: Codable, Sendable, ActionDetails {
     // Whether or not this action is currently enabled
     public var isEnabled: Bool
     // A string that describes the details of the action
-    public var description: String?
+    public var descriptionText: String?
     // The OCID of a Function
     public var functionId: String?
     
@@ -20,10 +20,24 @@ public struct CreateFaaSActionDetails: Codable, Sendable, ActionDetails {
     
     public init(isEnabled: Bool, description: String? = nil, functionId: String? = nil) {
         self.isEnabled = isEnabled
-        self.description = description
+        self.descriptionText = description
         self.functionId = functionId
     }
     
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.isEnabled = try container.decode(Bool.self, forKey: .isEnabled)
+        self.descriptionText = try container.decodeIfPresent(String.self, forKey: .description)
+        self.functionId = try container.decodeIfPresent(String.self, forKey: .functionId)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.isEnabled, forKey: .isEnabled)
+        try container.encodeIfPresent(self.descriptionText, forKey: .description)
+        try container.encodeIfPresent(self.functionId, forKey: .functionId)
+    }
+
     public func validateEnumValue() throws {
         // No enums to validate
     }

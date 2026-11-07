@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -17,9 +18,9 @@ import Foundation
 // Click https://docs.cloud.oracle.com/en-us/iaas/tools/go-sdk-examples/latest/ailanguage/DeleteModel.go.html to see an example of how to use DeleteModelRequest.
 public struct DeleteModelRequest: Codable, Sendable {
     public var modelId: String?
-    public var ifMatch: String??
-    public var opcRequestId: String??
-    public var requestMetadata: common.RequestMetadata?
+    public var ifMatch: String?
+    public var opcRequestId: String?
+    public var requestMetadata: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case modelId = "ModelId"
@@ -30,9 +31,9 @@ public struct DeleteModelRequest: Codable, Sendable {
 
     public init(
         modelId: String?,
-        ifMatch: String?? = nil,
-        opcRequestId: String?? = nil,
-        requestMetadata: common.RequestMetadata? = nil
+        ifMatch: String? = nil,
+        opcRequestId: String? = nil,
+        requestMetadata: [String: String]? = nil
     ) {
         self.modelId = modelId
         self.ifMatch = ifMatch
@@ -43,7 +44,7 @@ public struct DeleteModelRequest: Codable, Sendable {
 
 extension DeleteModelRequest: CustomStringConvertible {
     public var description: String {
-        return "DeleteModelRequest(\n            modelId: \(modelId ?? "nil"),\n            ifMatch: \(ifMatch ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "DeleteModelRequest(\n            modelId: \(modelId ?? "nil"),\n            ifMatch: \(ifMatch != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            requestMetadata: \(requestMetadata != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -61,9 +62,9 @@ extension DeleteModelRequest: CustomStringConvertible {
 
 // DeleteModelResponse wrapper for the DeleteModel operation
 public struct DeleteModelResponse: Codable, Sendable {
-    public var rawResponse: http.Response??
-    public var opcWorkRequestId: String??
-    public var opcRequestId: String??
+    public var rawResponse: JSONValue?
+    public var opcWorkRequestId: String?
+    public var opcRequestId: String?
 
     enum CodingKeys: String, CodingKey {
         case rawResponse = "RawResponse"
@@ -72,9 +73,9 @@ public struct DeleteModelResponse: Codable, Sendable {
     }
 
     public init(
-        rawResponse: http.Response?? = nil,
-        opcWorkRequestId: String?? = nil,
-        opcRequestId: String?? = nil
+        rawResponse: JSONValue? = nil,
+        opcWorkRequestId: String? = nil,
+        opcRequestId: String? = nil
     ) {
         self.rawResponse = rawResponse
         self.opcWorkRequestId = opcWorkRequestId
@@ -84,7 +85,7 @@ public struct DeleteModelResponse: Codable, Sendable {
 
 extension DeleteModelResponse: CustomStringConvertible {
     public var description: String {
-        return "DeleteModelResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcWorkRequestId: \(opcWorkRequestId ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "DeleteModelResponse(\n            rawResponse: \(rawResponse != nil ? "present" : "nil"),\n            opcWorkRequestId: \(opcWorkRequestId != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil")\n        )"
     }
 }
 

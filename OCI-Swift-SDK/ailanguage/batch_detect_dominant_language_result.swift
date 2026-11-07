@@ -38,7 +38,7 @@ public struct BatchDetectDominantLanguageResult: Codable, Sendable {
 
 extension BatchDetectDominantLanguageResult: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectDominantLanguageResult(\n            documents: \(documents ?? "nil"),\n            errors: \(errors ?? "nil")\n        )"
+        return "BatchDetectDominantLanguageResult(\n            documents: \(documents.count),\n            errors: \(errors?.count ?? 0)\n        )"
     }
 }
 

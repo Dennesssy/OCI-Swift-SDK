@@ -46,7 +46,7 @@ public struct MelConceptDetails: Codable, Sendable {
 
 extension MelConceptDetails: CustomStringConvertible {
     public var description: String {
-        return "MelConceptDetails(\n            id: \(id ?? "nil"),\n            name: \(name ?? "nil"),\n            score: \(score ?? "nil"),\n            attributes: \(attributes ?? "nil")\n        )"
+        return "MelConceptDetails(\n            id: \(id ?? "nil"),\n            name: \(name ?? "nil"),\n            score: \((score.map { String($0) } ?? "nil")),\n            attributes: \(attributes?.count ?? 0)\n        )"
     }
 }
 

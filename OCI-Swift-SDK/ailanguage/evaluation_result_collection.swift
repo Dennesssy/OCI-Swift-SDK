@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -19,14 +20,14 @@ import Foundation
 
 // EvaluationResultCollection Results of a model evaluation analysis search. Contains EvaluationResultSummary items.
 public struct EvaluationResultCollection: Codable, Sendable {
-    public var items: [EvaluationResultSummary]
+    public var items: [JSONValue]
 
     enum CodingKeys: String, CodingKey {
         case items = "items"
     }
 
     public init(
-        items: [EvaluationResultSummary]
+        items: [JSONValue]
     ) {
         self.items = items
     }
@@ -34,7 +35,7 @@ public struct EvaluationResultCollection: Codable, Sendable {
 
 extension EvaluationResultCollection: CustomStringConvertible {
     public var description: String {
-        return "EvaluationResultCollection(\n            items: \(items ?? "nil")\n        )"
+        return "EvaluationResultCollection(\n            items: \(items.count)\n        )"
     }
 }
 

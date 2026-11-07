@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -17,9 +18,9 @@ import Foundation
 // Click https://docs.cloud.oracle.com/en-us/iaas/tools/go-sdk-examples/latest/ailanguage/UpdateEndpoint.go.html to see an example of how to use UpdateEndpointRequest.
 public struct UpdateEndpointRequest: Codable, Sendable {
     public var endpointId: String?
-    public var ifMatch: String??
-    public var opcRequestId: String??
-    public var requestMetadata: common.RequestMetadata?
+    public var ifMatch: String?
+    public var opcRequestId: String?
+    public var requestMetadata: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case endpointId = "EndpointId"
@@ -30,9 +31,9 @@ public struct UpdateEndpointRequest: Codable, Sendable {
 
     public init(
         endpointId: String?,
-        ifMatch: String?? = nil,
-        opcRequestId: String?? = nil,
-        requestMetadata: common.RequestMetadata? = nil
+        ifMatch: String? = nil,
+        opcRequestId: String? = nil,
+        requestMetadata: [String: String]? = nil
     ) {
         self.endpointId = endpointId
         self.ifMatch = ifMatch
@@ -43,7 +44,7 @@ public struct UpdateEndpointRequest: Codable, Sendable {
 
 extension UpdateEndpointRequest: CustomStringConvertible {
     public var description: String {
-        return "UpdateEndpointRequest(\n            endpointId: \(endpointId ?? "nil"),\n            ifMatch: \(ifMatch ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "UpdateEndpointRequest(\n            endpointId: \(endpointId ?? "nil"),\n            ifMatch: \(ifMatch != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            requestMetadata: \(requestMetadata != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -61,9 +62,9 @@ extension UpdateEndpointRequest: CustomStringConvertible {
 
 // UpdateEndpointResponse wrapper for the UpdateEndpoint operation
 public struct UpdateEndpointResponse: Codable, Sendable {
-    public var rawResponse: http.Response??
-    public var opcRequestId: String??
-    public var opcWorkRequestId: String??
+    public var rawResponse: JSONValue?
+    public var opcRequestId: String?
+    public var opcWorkRequestId: String?
 
     enum CodingKeys: String, CodingKey {
         case rawResponse = "RawResponse"
@@ -72,9 +73,9 @@ public struct UpdateEndpointResponse: Codable, Sendable {
     }
 
     public init(
-        rawResponse: http.Response?? = nil,
-        opcRequestId: String?? = nil,
-        opcWorkRequestId: String?? = nil
+        rawResponse: JSONValue? = nil,
+        opcRequestId: String? = nil,
+        opcWorkRequestId: String? = nil
     ) {
         self.rawResponse = rawResponse
         self.opcRequestId = opcRequestId
@@ -84,7 +85,7 @@ public struct UpdateEndpointResponse: Codable, Sendable {
 
 extension UpdateEndpointResponse: CustomStringConvertible {
     public var description: String {
-        return "UpdateEndpointResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            opcWorkRequestId: \(opcWorkRequestId ?? "nil")\n        )"
+        return "UpdateEndpointResponse(\n            rawResponse: \(rawResponse != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            opcWorkRequestId: \(opcWorkRequestId != nil ? "present" : "nil")\n        )"
     }
 }
 

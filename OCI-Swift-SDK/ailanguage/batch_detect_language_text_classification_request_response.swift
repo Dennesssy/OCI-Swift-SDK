@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -16,8 +17,8 @@ import Foundation
 //
 // Click https://docs.cloud.oracle.com/en-us/iaas/tools/go-sdk-examples/latest/ailanguage/BatchDetectLanguageTextClassification.go.html to see an example of how to use BatchDetectLanguageTextClassificationRequest.
 public struct BatchDetectLanguageTextClassificationRequest: Codable, Sendable {
-    public var opcRequestId: String??
-    public var requestMetadata: common.RequestMetadata?
+    public var opcRequestId: String?
+    public var requestMetadata: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case opcRequestId = "OpcRequestId"
@@ -25,8 +26,8 @@ public struct BatchDetectLanguageTextClassificationRequest: Codable, Sendable {
     }
 
     public init(
-        opcRequestId: String?? = nil,
-        requestMetadata: common.RequestMetadata? = nil
+        opcRequestId: String? = nil,
+        requestMetadata: [String: String]? = nil
     ) {
         self.opcRequestId = opcRequestId
         self.requestMetadata = requestMetadata
@@ -35,7 +36,7 @@ public struct BatchDetectLanguageTextClassificationRequest: Codable, Sendable {
 
 extension BatchDetectLanguageTextClassificationRequest: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectLanguageTextClassificationRequest(\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "BatchDetectLanguageTextClassificationRequest(\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            requestMetadata: \(requestMetadata != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -53,8 +54,8 @@ extension BatchDetectLanguageTextClassificationRequest: CustomStringConvertible 
 
 // BatchDetectLanguageTextClassificationResponse wrapper for the BatchDetectLanguageTextClassification operation
 public struct BatchDetectLanguageTextClassificationResponse: Codable, Sendable {
-    public var rawResponse: http.Response??
-    public var opcRequestId: String??
+    public var rawResponse: JSONValue?
+    public var opcRequestId: String?
 
     enum CodingKeys: String, CodingKey {
         case rawResponse = "RawResponse"
@@ -62,8 +63,8 @@ public struct BatchDetectLanguageTextClassificationResponse: Codable, Sendable {
     }
 
     public init(
-        rawResponse: http.Response?? = nil,
-        opcRequestId: String?? = nil
+        rawResponse: JSONValue? = nil,
+        opcRequestId: String? = nil
     ) {
         self.rawResponse = rawResponse
         self.opcRequestId = opcRequestId
@@ -72,7 +73,7 @@ public struct BatchDetectLanguageTextClassificationResponse: Codable, Sendable {
 
 extension BatchDetectLanguageTextClassificationResponse: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectLanguageTextClassificationResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "BatchDetectLanguageTextClassificationResponse(\n            rawResponse: \(rawResponse != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil")\n        )"
     }
 }
 

@@ -9,12 +9,7 @@ public struct AffectedResource: Codable {
     public var type: String?
     public var region: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case type = "type"
-        case region = "region"
-    }
+    
     
     public init(id: String? = nil,
                 name: String? = nil,

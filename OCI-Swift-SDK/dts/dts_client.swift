@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class udtsClient: ClientProtocol {
+public final class udtsClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

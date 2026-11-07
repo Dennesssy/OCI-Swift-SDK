@@ -25,7 +25,7 @@ public struct PerSignalDetails: Codable, Sendable {
     // A boolean value to indicate if a signal is quantized or not.
     public var IsQuantized: Bool?
     // Accuracy metric for a signal.
-    public var Fap: float32?
+    public var Fap: Float?
     // detailed information for a signal.
     public var Details: String?
     enum CodingKeys: String, CodingKey {
@@ -48,7 +48,7 @@ extension PerSignalDetails: CustomStringConvertible {
 
 // PerSignalDetailsStatusEnum Enum with underlying type: string
 // MARK: - PerSignalDetailsStatusEnum
-public enum PerSignalDetailsStatusEnum: String, Sendable {
+public enum PerSignalDetailsStatusEnum: String, Codable, Sendable {
     case accepted = "ACCEPTED"
     case dropped = "DROPPED"
     case other = "OTHER"

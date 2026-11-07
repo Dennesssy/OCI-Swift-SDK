@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct Config: Codable {
     public var id: String?
@@ -11,20 +12,10 @@ public struct Config: Codable {
     public var updatedBy: String?
     public var etag: String?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     public var configType: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case timeCreated = "timeCreated"
-        case timeUpdated = "timeUpdated"
-        case createdBy = "createdBy"
-        case updatedBy = "updatedBy"
-        case etag = "etag"
-        case freeformTags = "freeformTags"
-        case definedTags = "definedTags"
-        case configType = "configType"
-    }
+    
     
     public init(id: String? = nil,
                 timeCreated: Date? = nil,
@@ -33,7 +24,7 @@ public struct Config: Codable {
                 updatedBy: String? = nil,
                 etag: String? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil,
+                definedTags: [String: [String: JSONValue]]? = nil,
                 configType: String? = nil) {
         self.id = id
         self.timeCreated = timeCreated

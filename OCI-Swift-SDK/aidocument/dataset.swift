@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum DatasetDatasetTypeEnum: String, Sendable {
+public enum DatasetDatasetTypeEnum: String, Codable, Sendable {
     case datasetdatasettypedatasciencelabeling = "DATA_SCIENCE_LABELING"
     case datasetdatasettypeobjectstorage = "OBJECT_STORAGE"
 }
@@ -14,49 +14,3 @@ public extension DatasetDatasetTypeEnum {
     static var allStringValues: [String] { ["DATA_SCIENCE_LABELING", "OBJECT_STORAGE"] }
     static func fromString(_ value: String) -> DatasetDatasetTypeEnum? { DatasetDatasetTypeEnum(rawValue: value) }
 }
-
-// Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
-// This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
-// Document Understanding API
-//
-// Document AI helps customers perform various analysis on their documents. If a customer has lots of documents, they can process them in batch using asynchronous API endpoints.
-//
-// Dataset The base entity which is the input for creating and training a model.
-// Protocol for polymorphic type
-public protocol Dataset: Codable, Sendable { }
-public struct dataset: Codable, Sendable {
-
-    public var jsondata: [UInt8]?
-
-    public var datasettype: String?
-
-    private enum CodingKeys: String, CodingKey {
-        case jsondata
-        case datasettype = "datasetType"
-    }
-
-    public init(
-        jsondata: [UInt8]? = nil,
-        datasettype: String? = nil
-    ) {
-        self.jsondata = jsondata
-        self.datasettype = datasettype
-    }
-}
-
-// UnmarshalJSON unmarshals json
-// UnmarshalPolymorphicJSON unmarshals polymorphic json
-// ValidateEnumValue returns an error when providing an unsupported enum value
-// This function is being called during constructing API request process
-// Not recommended for calling this function directly
-// DatasetDatasetTypeEnum Enum with underlying type: string
-// Set of constants representing the allowable values for DatasetDatasetTypeEnum
-	"DATA_SCIENCE_LABELING": DatasetDatasetTypeDataScienceLabeling,
-	"OBJECT_STORAGE":        DatasetDatasetTypeObjectStorage,
-}
-	"data_science_labeling": DatasetDatasetTypeDataScienceLabeling,
-	"object_storage":        DatasetDatasetTypeObjectStorage,
-}
-// GetDatasetDatasetTypeEnumValues Enumerates the set of values for DatasetDatasetTypeEnum
-// GetDatasetDatasetTypeEnumStringValues Enumerates the set of values in String for DatasetDatasetTypeEnum
-// GetMappingDatasetDatasetTypeEnum performs case Insensitive comparison on enum value and return the desired enum

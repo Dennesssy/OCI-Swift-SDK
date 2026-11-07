@@ -23,7 +23,7 @@ extension EmbeddedInputDetails: CustomStringConvertible {
 
 // EmbeddedInputDetailsContentTypeEnum Enum with underlying type: string
 // MARK: - EmbeddedInputDetailsContentTypeEnum
-public enum EmbeddedInputDetailsContentTypeEnum: String, Sendable {
+public enum EmbeddedInputDetailsContentTypeEnum: String, Codable, Sendable {
     case csv = "CSV"
     case json = "JSON"
 }

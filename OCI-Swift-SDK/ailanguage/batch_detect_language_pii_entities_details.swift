@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -20,10 +21,10 @@ import Foundation
 // BatchDetectLanguagePiiEntitiesDetails The documents details to detect personal identification information.
 public struct BatchDetectLanguagePiiEntitiesDetails: Codable, Sendable {
     public var documents: [TextDocument]
-    public var endpointId: String??
-    public var compartmentId: String??
-    public var masking: [String: PiiEntityMasking]?
-    public var profile: Profile??
+    public var endpointId: String?
+    public var compartmentId: String?
+    public var masking: [String: JSONValue]?
+    public var profile: JSONValue?
 
     enum CodingKeys: String, CodingKey {
         case documents = "documents"
@@ -35,10 +36,10 @@ public struct BatchDetectLanguagePiiEntitiesDetails: Codable, Sendable {
 
     public init(
         documents: [TextDocument],
-        endpointId: String?? = nil,
-        compartmentId: String?? = nil,
-        masking: [String: PiiEntityMasking]? = nil,
-        profile: Profile?? = nil
+        endpointId: String? = nil,
+        compartmentId: String? = nil,
+        masking: [String: JSONValue]? = nil,
+        profile: JSONValue? = nil
     ) {
         self.documents = documents
         self.endpointId = endpointId
@@ -50,7 +51,7 @@ public struct BatchDetectLanguagePiiEntitiesDetails: Codable, Sendable {
 
 extension BatchDetectLanguagePiiEntitiesDetails: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectLanguagePiiEntitiesDetails(\n            documents: \(documents ?? "nil"),\n            endpointId: \(endpointId ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            masking: \(masking ?? "nil"),\n            profile: \(profile ?? "nil")\n        )"
+        return "BatchDetectLanguagePiiEntitiesDetails(\n            documents: \(documents.count),\n            endpointId: \(endpointId ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            masking: \(masking?.count ?? 0),\n            profile: \(profile != nil ? "present" : "nil")\n        )"
     }
 }
 

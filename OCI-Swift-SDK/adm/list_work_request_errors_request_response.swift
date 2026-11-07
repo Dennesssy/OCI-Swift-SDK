@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListWorkRequestErrorsSortByEnum
 
-public enum ListWorkRequestErrorsSortByEnum: String, Sendable {
+public enum ListWorkRequestErrorsSortByEnum: String, Codable, Sendable {
     case timeAccepted = "timeAccepted"
 }
 
@@ -18,7 +18,7 @@ public extension ListWorkRequestErrorsSortByEnum {
 
 // MARK: - ListWorkRequestErrorsSortOrderEnum
 
-public enum ListWorkRequestErrorsSortOrderEnum: String, Sendable {
+public enum ListWorkRequestErrorsSortOrderEnum: String, Codable, Sendable {
     case asc = "ASC"
     case desc = "DESC"
 }

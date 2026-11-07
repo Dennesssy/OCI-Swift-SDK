@@ -4,6 +4,50 @@
 
 import Foundation
 
+// MARK: - ListApmDomainsLifecycleStateEnum
+
+public enum ListApmDomainsLifecycleStateEnum: String, Codable, Sendable {
+    case creating = "CREATING"
+    case updating = "UPDATING"
+    case active = "ACTIVE"
+    case deleting = "DELETING"
+    case deleted = "DELETED"
+    case failed = "FAILED"
+}
+
+public extension ListApmDomainsLifecycleStateEnum {
+    static var allValues: [ListApmDomainsLifecycleStateEnum] { [.creating, .updating, .active, .deleting, .deleted, .failed] }
+    static var allStringValues: [String] { ["CREATING", "UPDATING", "ACTIVE", "DELETING", "DELETED", "FAILED"] }
+    static func fromString(_ value: String) -> ListApmDomainsLifecycleStateEnum? { ListApmDomainsLifecycleStateEnum(rawValue: value) }
+}
+
+// MARK: - ListApmDomainsSortOrderEnum
+
+public enum ListApmDomainsSortOrderEnum: String, Codable, Sendable {
+    case asc = "ASC"
+    case desc = "DESC"
+}
+
+public extension ListApmDomainsSortOrderEnum {
+    static var allValues: [ListApmDomainsSortOrderEnum] { [.asc, .desc] }
+    static var allStringValues: [String] { ["ASC", "DESC"] }
+    static func fromString(_ value: String) -> ListApmDomainsSortOrderEnum? { ListApmDomainsSortOrderEnum(rawValue: value) }
+}
+
+// MARK: - ListApmDomainsSortByEnum
+
+public enum ListApmDomainsSortByEnum: String, Codable, Sendable {
+    case displayName = "DISPLAY_NAME"
+    case timeCreated = "TIME_CREATED"
+}
+
+public extension ListApmDomainsSortByEnum {
+    static var allValues: [ListApmDomainsSortByEnum] { [.displayName, .timeCreated] }
+    static var allStringValues: [String] { ["DISPLAY_NAME", "TIME_CREATED"] }
+    static func fromString(_ value: String) -> ListApmDomainsSortByEnum? { ListApmDomainsSortByEnum(rawValue: value) }
+}
+
+
 // MARK: - ListApmDomainsRequest
 
 public struct ListApmDomainsRequest: Codable, Sendable {

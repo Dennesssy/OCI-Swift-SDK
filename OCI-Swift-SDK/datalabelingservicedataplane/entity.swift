@@ -6,9 +6,7 @@ import Foundation
 public struct Entity: Codable {
     public var entityType: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case entityType = "entityType"
-    }
+    
     
     public init(entityType: String? = nil) {
         self.entityType = entityType

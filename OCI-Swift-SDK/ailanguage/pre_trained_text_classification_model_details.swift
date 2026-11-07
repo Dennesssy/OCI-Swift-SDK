@@ -19,8 +19,8 @@ import Foundation
 
 // PreTrainedTextClassificationModelDetails Possible pre trained TXT model information
 public struct PreTrainedTextClassificationModelDetails: Codable, Sendable {
-    public var languageCode: String??
-    public var version: String??
+    public var languageCode: String?
+    public var version: String?
 
     enum CodingKeys: String, CodingKey {
         case languageCode = "languageCode"
@@ -28,8 +28,8 @@ public struct PreTrainedTextClassificationModelDetails: Codable, Sendable {
     }
 
     public init(
-        languageCode: String?? = nil,
-        version: String?? = nil
+        languageCode: String? = nil,
+        version: String? = nil
     ) {
         self.languageCode = languageCode
         self.version = version

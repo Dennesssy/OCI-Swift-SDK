@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - FastConnectProviderServicePrivatePeeringBgpManagementEnum
 
-public enum FastConnectProviderServicePrivatePeeringBgpManagementEnum: String, Sendable {
+public enum FastConnectProviderServicePrivatePeeringBgpManagementEnum: String, Codable, Sendable {
     case providerManaged = "PROVIDER_MANAGED"
     case oracleManaged = "ORACLE_MANAGED"
     case customerManaged = "CUSTOMER_MANAGED"
@@ -20,7 +20,7 @@ public extension FastConnectProviderServicePrivatePeeringBgpManagementEnum {
 
 // MARK: - FastConnectProviderServicePublicPeeringBgpManagementEnum
 
-public enum FastConnectProviderServicePublicPeeringBgpManagementEnum: String, Sendable {
+public enum FastConnectProviderServicePublicPeeringBgpManagementEnum: String, Codable, Sendable {
     case providerManaged = "PROVIDER_MANAGED"
     case oracleManaged = "ORACLE_MANAGED"
 }
@@ -33,7 +33,7 @@ public extension FastConnectProviderServicePublicPeeringBgpManagementEnum {
 
 // MARK: - FastConnectProviderServiceTypeEnum
 
-public enum FastConnectProviderServiceTypeEnum: String, Sendable {
+public enum FastConnectProviderServiceTypeEnum: String, Codable, Sendable {
     case layer2 = "LAYER2"
     case layer3 = "LAYER3"
 }
@@ -54,11 +54,12 @@ public struct FastConnectProviderService: Codable, Sendable {
     public var publicPeeringBgpManagement: FastConnectProviderServicePublicPeeringBgpManagementEnum
     public var type: FastConnectProviderServiceTypeEnum
     public var requiredTotalCrossConnects: Int
-    public var description: String?
+    public var descriptionText: String?
     
     private enum CodingKeys: String, CodingKey {
         case id, privatePeeringBgpManagement, providerName, providerServiceName
-        case publicPeeringBgpManagement, type, requiredTotalCrossConnects, description
+        case publicPeeringBgpManagement, type, requiredTotalCrossConnects
+        case descriptionText = "description"
     }
     
     public init(id: String, privatePeeringBgpManagement: FastConnectProviderServicePrivatePeeringBgpManagementEnum,
@@ -67,7 +68,7 @@ public struct FastConnectProviderService: Codable, Sendable {
                 type: FastConnectProviderServiceTypeEnum, requiredTotalCrossConnects: Int, description: String? = nil) {
         self.id = id; self.privatePeeringBgpManagement = privatePeeringBgpManagement; self.providerName = providerName
         self.providerServiceName = providerServiceName; self.publicPeeringBgpManagement = publicPeeringBgpManagement
-        self.type = type; self.requiredTotalCrossConnects = requiredTotalCrossConnects; self.description = description
+        self.type = type; self.requiredTotalCrossConnects = requiredTotalCrossConnects; self.descriptionText = description
     }
     
     public func validateEnumValue() throws {

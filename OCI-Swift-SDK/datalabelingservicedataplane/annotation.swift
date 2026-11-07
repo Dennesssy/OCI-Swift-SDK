@@ -11,14 +11,7 @@ public struct Annotation: Codable {
     public var label: String?
     public var entity: Entity?
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case recordId = "recordId"
-        case compartmentId = "compartmentId"
-        case createdDate = "createdDate"
-        case label = "label"
-        case entity = "entity"
-    }
+    
     
     public init(id: String,
                 recordId: String,

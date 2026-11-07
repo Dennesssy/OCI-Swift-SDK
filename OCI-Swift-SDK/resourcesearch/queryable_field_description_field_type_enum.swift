@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - QueryableFieldDescriptionFieldTypeEnum
 
-public enum QueryableFieldDescriptionFieldTypeEnum: String, Sendable {
+public enum QueryableFieldDescriptionFieldTypeEnum: String, Codable, Sendable {
     case identifier = "IDENTIFIER"
     case string = "STRING"
     case integer = "INTEGER"

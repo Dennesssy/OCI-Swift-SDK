@@ -58,7 +58,7 @@ public struct ControlAccessUsingHttpMethodsRule: Codable, Sendable {
     }
 }
 
-public enum HttpMethodEnum: String, Sendable {
+public enum HttpMethodEnum: String, Codable, Sendable {
     case get = "GET"
     case put = "PUT"
     case post = "POST"
@@ -111,7 +111,7 @@ public struct RedirectRuleCondition: Codable, Sendable {
     }
 }
 
-public enum ConditionOperatorEnum: String, Sendable {
+public enum ConditionOperatorEnum: String, Codable, Sendable {
     case equals = "EQUALS"
     case contains = "CONTAINS"
     case startsWith = "STARTS_WITH"
@@ -131,5 +131,5 @@ public struct HttpHeaderRule: Codable, Sendable {
     public var value: String
     public var prefix: String?
     public var suffix: String?
-    public var optional: Bool?
+    public var `optional`: Bool?
 }

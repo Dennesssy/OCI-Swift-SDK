@@ -18,8 +18,5 @@ public struct RotationConfig: Codable, Sendable {
         self.rotationInterval = rotationInterval
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case rotationIntervalInSeconds
-        case rotationInterval
-    }
+    
 }

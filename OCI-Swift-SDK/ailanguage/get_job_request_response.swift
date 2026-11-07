@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -17,8 +18,8 @@ import Foundation
 // Click https://docs.cloud.oracle.com/en-us/iaas/tools/go-sdk-examples/latest/ailanguage/GetJob.go.html to see an example of how to use GetJobRequest.
 public struct GetJobRequest: Codable, Sendable {
     public var jobId: String?
-    public var opcRequestId: String??
-    public var requestMetadata: common.RequestMetadata?
+    public var opcRequestId: String?
+    public var requestMetadata: [String: String]?
 
     enum CodingKeys: String, CodingKey {
         case jobId = "JobId"
@@ -28,8 +29,8 @@ public struct GetJobRequest: Codable, Sendable {
 
     public init(
         jobId: String?,
-        opcRequestId: String?? = nil,
-        requestMetadata: common.RequestMetadata? = nil
+        opcRequestId: String? = nil,
+        requestMetadata: [String: String]? = nil
     ) {
         self.jobId = jobId
         self.opcRequestId = opcRequestId
@@ -39,7 +40,7 @@ public struct GetJobRequest: Codable, Sendable {
 
 extension GetJobRequest: CustomStringConvertible {
     public var description: String {
-        return "GetJobRequest(\n            jobId: \(jobId ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil"),\n            requestMetadata: \(requestMetadata ?? "nil")\n        )"
+        return "GetJobRequest(\n            jobId: \(jobId ?? "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil"),\n            requestMetadata: \(requestMetadata != nil ? "present" : "nil")\n        )"
     }
 }
 
@@ -57,9 +58,9 @@ extension GetJobRequest: CustomStringConvertible {
 
 // GetJobResponse wrapper for the GetJob operation
 public struct GetJobResponse: Codable, Sendable {
-    public var rawResponse: http.Response??
-    public var etag: String??
-    public var opcRequestId: String??
+    public var rawResponse: JSONValue?
+    public var etag: String?
+    public var opcRequestId: String?
 
     enum CodingKeys: String, CodingKey {
         case rawResponse = "RawResponse"
@@ -68,9 +69,9 @@ public struct GetJobResponse: Codable, Sendable {
     }
 
     public init(
-        rawResponse: http.Response?? = nil,
-        etag: String?? = nil,
-        opcRequestId: String?? = nil
+        rawResponse: JSONValue? = nil,
+        etag: String? = nil,
+        opcRequestId: String? = nil
     ) {
         self.rawResponse = rawResponse
         self.etag = etag
@@ -80,7 +81,7 @@ public struct GetJobResponse: Codable, Sendable {
 
 extension GetJobResponse: CustomStringConvertible {
     public var description: String {
-        return "GetJobResponse(\n            rawResponse: \(rawResponse ?? "nil"),\n            etag: \(etag ?? "nil"),\n            opcRequestId: \(opcRequestId ?? "nil")\n        )"
+        return "GetJobResponse(\n            rawResponse: \(rawResponse != nil ? "present" : "nil"),\n            etag: \(etag != nil ? "present" : "nil"),\n            opcRequestId: \(opcRequestId.map { $0 ?? "nil" } ?? "nil")\n        )"
     }
 }
 

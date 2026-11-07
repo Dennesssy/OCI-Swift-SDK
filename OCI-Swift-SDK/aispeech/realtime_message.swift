@@ -21,9 +21,6 @@ public struct RealtimeMessage: Codable, Sendable {
     }
 }
 
-// MARK: - Unmarshalerrealtimemessage
-
-public typealias Unmarshalerrealtimemessage = realtimemessage
 
 // MARK: - RealtimeMessageEventEnum
 
@@ -31,7 +28,7 @@ public typealias RealtimeMessageEventEnum = String
 
 // MARK: - RealtimeMessageEvent
 
-public enum RealtimeMessageEvent: String, Sendable {
+public enum RealtimeMessageEvent: String, Codable, Sendable {
     case result = "RESULT"
     case ackaudio = "ACKAUDIO"
     case error = "ERROR"

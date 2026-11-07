@@ -18,8 +18,5 @@ public struct DataAttribution: Codable, Sendable {
         self.threatFeed = threatFeed
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case region
-        case threatFeed
-    }
+    
 }

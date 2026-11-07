@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class ublockchainClient: ClientProtocol {
+public final class ublockchainClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

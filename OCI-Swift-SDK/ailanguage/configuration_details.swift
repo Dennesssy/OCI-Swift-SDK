@@ -34,7 +34,7 @@ public struct ConfigurationDetails: Codable, Sendable {
 
 extension ConfigurationDetails: CustomStringConvertible {
     public var description: String {
-        return "ConfigurationDetails(\n            configurationMap: \(configurationMap ?? "nil")\n        )"
+        return "ConfigurationDetails(\n            configurationMap: \(configurationMap?.count ?? 0)\n        )"
     }
 }
 

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - RemediationRunStageTypeEnum
 
-public enum RemediationRunStageTypeEnum: String, Sendable {
+public enum RemediationRunStageTypeEnum: String, Codable, Sendable {
     case detect = "DETECT"
     case recommend = "RECOMMEND"
     case verify = "VERIFY"

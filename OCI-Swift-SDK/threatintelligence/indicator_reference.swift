@@ -21,9 +21,5 @@ public struct IndicatorReference: Codable, Sendable {
         self.name = name
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case id
-        case type
-        case name
-    }
+    
 }

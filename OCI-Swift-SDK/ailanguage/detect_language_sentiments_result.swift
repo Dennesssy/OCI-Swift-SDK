@@ -34,7 +34,7 @@ public struct DetectLanguageSentimentsResult: Codable, Sendable {
 
 extension DetectLanguageSentimentsResult: CustomStringConvertible {
     public var description: String {
-        return "DetectLanguageSentimentsResult(\n            aspects: \(aspects ?? "nil")\n        )"
+        return "DetectLanguageSentimentsResult(\n            aspects: \(aspects.count)\n        )"
     }
 }
 

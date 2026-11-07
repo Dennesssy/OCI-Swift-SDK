@@ -20,8 +20,8 @@ import Foundation
 // BatchDetectLanguageKeyPhrasesDetails The documents details for keyPhrases call.
 public struct BatchDetectLanguageKeyPhrasesDetails: Codable, Sendable {
     public var documents: [TextDocument]
-    public var endpointId: String??
-    public var compartmentId: String??
+    public var endpointId: String?
+    public var compartmentId: String?
 
     enum CodingKeys: String, CodingKey {
         case documents = "documents"
@@ -31,8 +31,8 @@ public struct BatchDetectLanguageKeyPhrasesDetails: Codable, Sendable {
 
     public init(
         documents: [TextDocument],
-        endpointId: String?? = nil,
-        compartmentId: String?? = nil
+        endpointId: String? = nil,
+        compartmentId: String? = nil
     ) {
         self.documents = documents
         self.endpointId = endpointId
@@ -42,7 +42,7 @@ public struct BatchDetectLanguageKeyPhrasesDetails: Codable, Sendable {
 
 extension BatchDetectLanguageKeyPhrasesDetails: CustomStringConvertible {
     public var description: String {
-        return "BatchDetectLanguageKeyPhrasesDetails(\n            documents: \(documents ?? "nil"),\n            endpointId: \(endpointId ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil")\n        )"
+        return "BatchDetectLanguageKeyPhrasesDetails(\n            documents: \(documents.count),\n            endpointId: \(endpointId ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil")\n        )"
     }
 }
 

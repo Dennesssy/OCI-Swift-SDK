@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class uopensearchClient: ClientProtocol {
+public final class uopensearchClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

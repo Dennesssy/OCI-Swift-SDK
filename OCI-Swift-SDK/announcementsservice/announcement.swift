@@ -22,25 +22,7 @@ public struct Announcement: Codable {
     public var additionalInformation: String?
     public var affectedResources: [AffectedResource]?
     
-    public enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case referenceTicketNumber = "referenceTicketNumber"
-        case summary = "summary"
-        case services = "services"
-        case affectedRegions = "affectedRegions"
-        case isBanner = "isBanner"
-        case timeOneTitle = "timeOneTitle"
-        case timeOneValue = "timeOneValue"
-        case timeTwoTitle = "timeTwoTitle"
-        case timeTwoValue = "timeTwoValue"
-        case timeCreated = "timeCreated"
-        case timeUpdated = "timeUpdated"
-        case environmentName = "environmentName"
-        case chainId = "chainId"
-        case description = "description"
-        case additionalInformation = "additionalInformation"
-        case affectedResources = "affectedResources"
-    }
+    
     
     public init(id: String,
                 referenceTicketNumber: String,

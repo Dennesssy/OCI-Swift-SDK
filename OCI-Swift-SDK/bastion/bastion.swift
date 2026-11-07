@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct Bastion: Codable {
     public var bastionType: String
@@ -22,29 +23,9 @@ public struct Bastion: Codable {
     public var timeUpdated: Date?
     public var lifecycleDetails: String?
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
-    public enum CodingKeys: String, CodingKey {
-        case bastionType = "bastionType"
-        case id = "id"
-        case name = "name"
-        case compartmentId = "compartmentId"
-        case targetVcnId = "targetVcnId"
-        case targetSubnetId = "targetSubnetId"
-        case maxSessionTtlInSeconds = "maxSessionTtlInSeconds"
-        case timeCreated = "timeCreated"
-        case lifecycleState = "lifecycleState"
-        case phoneBookEntry = "phoneBookEntry"
-        case clientCidrBlockAllowList = "clientCidrBlockAllowList"
-        case staticJumpHostIpAddresses = "staticJumpHostIpAddresses"
-        case privateEndpointIpAddress = "privateEndpointIpAddress"
-        case maxSessionsAllowed = "maxSessionsAllowed"
-        case dnsProxyStatus = "dnsProxyStatus"
-        case timeUpdated = "timeUpdated"
-        case lifecycleDetails = "lifecycleDetails"
-        case freeformTags = "freeformTags"
-        case definedTags = "definedTags"
-    }
+    
     
     public init(bastionType: String,
                 id: String,
@@ -64,7 +45,7 @@ public struct Bastion: Codable {
                 timeUpdated: Date? = nil,
                 lifecycleDetails: String? = nil,
                 freeformTags: [String: String]? = nil,
-                definedTags: [String: [String: Any]]? = nil) {
+                definedTags: [String: [String: JSONValue]]? = nil) {
         self.bastionType = bastionType
         self.id = id
         self.name = name

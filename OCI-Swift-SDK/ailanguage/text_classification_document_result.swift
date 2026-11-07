@@ -42,7 +42,7 @@ public struct TextClassificationDocumentResult: Codable, Sendable {
 
 extension TextClassificationDocumentResult: CustomStringConvertible {
     public var description: String {
-        return "TextClassificationDocumentResult(\n            key: \(key ?? "nil"),\n            textClassification: \(textClassification ?? "nil"),\n            languageCode: \(languageCode ?? "nil")\n        )"
+        return "TextClassificationDocumentResult(\n            key: \(key ?? "nil"),\n            textClassification: \(textClassification.count),\n            languageCode: \(languageCode ?? "nil")\n        )"
     }
 }
 

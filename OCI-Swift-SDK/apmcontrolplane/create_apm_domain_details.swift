@@ -9,7 +9,7 @@ import Foundation
 public struct CreateApmDomainDetails: Codable, Sendable {
     public var displayName: String
     public var compartmentId: String
-    public var description: String?
+    public var descriptionText: String?
     public var freeformTags: [String: String]?
     public var definedTags: [String: [String: String]]?
     public var isFreeTier: Bool?
@@ -22,13 +22,35 @@ public struct CreateApmDomainDetails: Codable, Sendable {
                 freeformTags: [String: String]? = nil, definedTags: [String: [String: String]]? = nil,
                 isFreeTier: Bool? = nil) {
         self.displayName = displayName; self.compartmentId = compartmentId
-        self.description = description; self.freeformTags = freeformTags; self.definedTags = definedTags
+        self.descriptionText = description; self.freeformTags = freeformTags; self.definedTags = definedTags
         self.isFreeTier = isFreeTier
     }
     
     public func validateEnumValue() throws {
         // No enums to validate
     }
+    // MARK: - Codable
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.displayName = try container.decode(String.self, forKey: .displayName)
+        self.compartmentId = try container.decode(String.self, forKey: .compartmentId)
+        self.descriptionText = try container.decodeIfPresent(String.self, forKey: .description)
+        self.freeformTags = try container.decodeIfPresent([String: String].self, forKey: .freeformTags)
+        self.definedTags = try container.decodeIfPresent([String: [String: String]].self, forKey: .definedTags)
+        self.isFreeTier = try container.decodeIfPresent(Bool.self, forKey: .isFreeTier)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.displayName, forKey: .displayName)
+        try container.encode(self.compartmentId, forKey: .compartmentId)
+        try container.encodeIfPresent(self.descriptionText, forKey: .description)
+        try container.encodeIfPresent(self.freeformTags, forKey: .freeformTags)
+        try container.encodeIfPresent(self.definedTags, forKey: .definedTags)
+        try container.encodeIfPresent(self.isFreeTier, forKey: .isFreeTier)
+    }
+
 }
 
 extension CreateApmDomainDetails: CustomStringConvertible {

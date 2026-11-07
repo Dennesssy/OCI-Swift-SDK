@@ -23,7 +23,7 @@ public protocol LocationDetails {
 
 
 public struct locationdetails: Codable, Sendable {
-    public var jsonData: [byte]?
+    public var jsonData: [UInt8]?
     public var locationType: String?
 
     enum CodingKeys: String, CodingKey {
@@ -32,7 +32,7 @@ public struct locationdetails: Codable, Sendable {
     }
 
     public init(
-        jsonData: [byte]? = nil,
+        jsonData: [UInt8]? = nil,
         locationType: String? = nil
     ) {
         self.jsonData = jsonData
@@ -42,7 +42,7 @@ public struct locationdetails: Codable, Sendable {
 
 extension locationdetails: CustomStringConvertible {
     public var description: String {
-        return "locationdetails(\n            jsonData: \(jsonData ?? "nil"),\n            locationType: \(locationType ?? "nil")\n        )"
+        return "locationdetails(\n            jsonData: \(jsonData?.count ?? 0),\n            locationType: \(locationType ?? "nil")\n        )"
     }
 }
 
@@ -57,10 +57,9 @@ extension locationdetails: CustomStringConvertible {
 // Not recommended for calling this function directly
 
 // LocationDetailsLocationTypeEnum Enum with underlying type: string
-public typealias LocationDetailsLocationTypeEnum = String
 
 // Set of constants representing the allowable values for LocationDetailsLocationTypeEnum
-public enum LocationDetailsLocationTypeEnum: String, Sendable {
+public enum LocationDetailsLocationTypeEnum: String, Codable, Sendable {
     case objectList = "OBJECT_LIST"
 }
 public extension LocationDetailsLocationTypeEnum {

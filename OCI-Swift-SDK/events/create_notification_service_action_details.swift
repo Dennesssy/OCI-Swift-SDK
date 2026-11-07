@@ -10,7 +10,7 @@ public struct CreateNotificationServiceActionDetails: Codable, Sendable, ActionD
     // Whether or not this action is currently enabled
     public var isEnabled: Bool
     // A string that describes the details of the action
-    public var description: String?
+    public var descriptionText: String?
     // The OCID of the topic
     public var topicId: String?
     
@@ -20,10 +20,24 @@ public struct CreateNotificationServiceActionDetails: Codable, Sendable, ActionD
     
     public init(isEnabled: Bool, description: String? = nil, topicId: String? = nil) {
         self.isEnabled = isEnabled
-        self.description = description
+        self.descriptionText = description
         self.topicId = topicId
     }
     
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.isEnabled = try container.decode(Bool.self, forKey: .isEnabled)
+        self.descriptionText = try container.decodeIfPresent(String.self, forKey: .description)
+        self.topicId = try container.decodeIfPresent(String.self, forKey: .topicId)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.isEnabled, forKey: .isEnabled)
+        try container.encodeIfPresent(self.descriptionText, forKey: .description)
+        try container.encodeIfPresent(self.topicId, forKey: .topicId)
+    }
+
     public func validateEnumValue() throws {
         // No enums to validate
     }

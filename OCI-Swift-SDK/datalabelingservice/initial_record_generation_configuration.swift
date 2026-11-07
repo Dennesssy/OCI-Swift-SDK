@@ -6,9 +6,7 @@ import Foundation
 public struct InitialRecordGenerationConfiguration: Codable {
     public var generateRecords: Bool?
     
-    public enum CodingKeys: String, CodingKey {
-        case generateRecords = "generateRecords"
-    }
+    
     
     public init(generateRecords: Bool? = nil) {
         self.generateRecords = generateRecords

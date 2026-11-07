@@ -3,7 +3,7 @@
 
 import Foundation
 
-public enum ResourceSummaryUsageDataTypeEnum: String, Codable {
+public enum ResourceSummaryUsageDataTypeEnum: String, Codable, Sendable {
     case interval = "INTERVAL"
     case pointData = "POINT_DATA"
     

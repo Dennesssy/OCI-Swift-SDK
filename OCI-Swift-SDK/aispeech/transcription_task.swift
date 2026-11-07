@@ -73,7 +73,7 @@ public typealias TranscriptionTaskLifecycleStateEnum = String
 
 // MARK: - TranscriptionTaskLifecycleState
 
-public enum TranscriptionTaskLifecycleState: String, Sendable {
+public enum TranscriptionTaskLifecycleState: String, Codable, Sendable {
     case accepted = "ACCEPTED"
     case inProgress = "IN_PROGRESS"
     case succeeded = "SUCCEEDED"

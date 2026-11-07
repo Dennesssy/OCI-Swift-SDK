@@ -21,28 +21,28 @@ import Foundation
 public struct PreDeployedLanguageModels: Codable, Sendable {
     public var id: String?
     public var compartmentId: String?
-    public var description: String??
+    public var descriptionText: String?
 
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case compartmentId = "compartmentId"
-        case description = "description"
+        case descriptionText = "description"
     }
 
     public init(
         id: String?,
         compartmentId: String?,
-        description: String?? = nil
+        description: String? = nil
     ) {
         self.id = id
         self.compartmentId = compartmentId
-        self.description = description
+        self.descriptionText = description
     }
 }
 
 extension PreDeployedLanguageModels: CustomStringConvertible {
     public var description: String {
-        return "PreDeployedLanguageModels(\n            id: \(id ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            description: \(description ?? "nil")\n        )"
+        return "PreDeployedLanguageModels(\n            id: \(id ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            description: \(descriptionText ?? "nil")\n        )"
     }
 }
 

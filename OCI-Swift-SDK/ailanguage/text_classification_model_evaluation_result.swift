@@ -4,6 +4,7 @@
 
 
 import Foundation
+import OCICommon
 
 // Copyright (c) 2016, 2018, 2024, Oracle and/or its affiliates.  All rights reserved.
 // This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
@@ -22,7 +23,7 @@ public struct TextClassificationModelEvaluationResult: Codable, Sendable {
     public var location: String?
     public var trueLabels: [String]
     public var freeformTags: [String: String]?
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     public var predictedLabels: [String]?
 
     enum CodingKeys: String, CodingKey {
@@ -37,7 +38,7 @@ public struct TextClassificationModelEvaluationResult: Codable, Sendable {
         location: String?,
         trueLabels: [String],
         freeformTags: [String: String]? = nil,
-        definedTags: [String: [String: Any]]? = nil,
+        definedTags: [String: [String: JSONValue]]? = nil,
         predictedLabels: [String]? = nil
     ) {
         self.location = location
@@ -50,7 +51,7 @@ public struct TextClassificationModelEvaluationResult: Codable, Sendable {
 
 extension TextClassificationModelEvaluationResult: CustomStringConvertible {
     public var description: String {
-        return "TextClassificationModelEvaluationResult(\n            location: \(location ?? "nil"),\n            trueLabels: \(trueLabels ?? "nil"),\n            freeformTags: \(freeformTags ?? "nil"),\n            definedTags: \(definedTags ?? "nil"),\n            predictedLabels: \(predictedLabels ?? "nil")\n        )"
+        return "TextClassificationModelEvaluationResult(\n            location: \(location ?? "nil"),\n            trueLabels: \(trueLabels.count),\n            freeformTags: \(freeformTags?.count ?? 0),\n            definedTags: \(definedTags?.count ?? 0),\n            predictedLabels: \(predictedLabels?.count ?? 0)\n        )"
     }
 }
 

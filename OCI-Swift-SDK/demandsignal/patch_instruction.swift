@@ -11,7 +11,7 @@ public protocol PatchInstruction: Codable, Sendable {
 }
 
 // PatchInstructionOperationEnum
-public enum PatchInstructionOperationEnum: String, Sendable {
+public enum PatchInstructionOperationEnum: String, Codable, Sendable {
     case require = "REQUIRE"
     case prohibit = "PROHIBIT"
     case replace = "REPLACE"

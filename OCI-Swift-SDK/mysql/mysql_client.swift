@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class umysqlClient: ClientProtocol {
+public final class umysqlClient: ClientProtocol {
     private let httpClient: HTTPClient
     private let region: Region
     private let signer: Signer

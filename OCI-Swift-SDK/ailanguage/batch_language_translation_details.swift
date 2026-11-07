@@ -20,8 +20,8 @@ import Foundation
 // BatchLanguageTranslationDetails The documents details for translation call.
 public struct BatchLanguageTranslationDetails: Codable, Sendable {
     public var documents: [TextDocument]
-    public var compartmentId: String??
-    public var targetLanguageCode: String??
+    public var compartmentId: String?
+    public var targetLanguageCode: String?
 
     enum CodingKeys: String, CodingKey {
         case documents = "documents"
@@ -31,8 +31,8 @@ public struct BatchLanguageTranslationDetails: Codable, Sendable {
 
     public init(
         documents: [TextDocument],
-        compartmentId: String?? = nil,
-        targetLanguageCode: String?? = nil
+        compartmentId: String? = nil,
+        targetLanguageCode: String? = nil
     ) {
         self.documents = documents
         self.compartmentId = compartmentId
@@ -42,7 +42,7 @@ public struct BatchLanguageTranslationDetails: Codable, Sendable {
 
 extension BatchLanguageTranslationDetails: CustomStringConvertible {
     public var description: String {
-        return "BatchLanguageTranslationDetails(\n            documents: \(documents ?? "nil"),\n            compartmentId: \(compartmentId ?? "nil"),\n            targetLanguageCode: \(targetLanguageCode ?? "nil")\n        )"
+        return "BatchLanguageTranslationDetails(\n            documents: \(documents.count),\n            compartmentId: \(compartmentId ?? "nil"),\n            targetLanguageCode: \(targetLanguageCode ?? "nil")\n        )"
     }
 }
 

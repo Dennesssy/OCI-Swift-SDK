@@ -29,7 +29,7 @@ extension RowReductionDetails: CustomStringConvertible {
 
 // RowReductionDetailsReductionMethodEnum Enum with underlying type: string
 // MARK: - RowReductionDetailsReductionMethodEnum
-public enum RowReductionDetailsReductionMethodEnum: String, Sendable {
+public enum RowReductionDetailsReductionMethodEnum: String, Codable, Sendable {
     case deleteRow = "DELETE_ROW"
     case averageRow = "AVERAGE_ROW"
 }

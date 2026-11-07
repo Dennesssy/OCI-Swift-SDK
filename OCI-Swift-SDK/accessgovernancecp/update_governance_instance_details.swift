@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import OCICommon
 
 /// The details of a GovernanceInstance to be updated.
 public struct UpdateGovernanceInstanceDetails: Codable, Sendable {
@@ -18,14 +19,14 @@ public struct UpdateGovernanceInstanceDetails: Codable, Sendable {
     public var displayName: String?
     
     /// The description of the GovernanceInstance.
-    public var description: String?
+    public var descriptionText: String?
     
     /// The licenseType being used.
     public var licenseType: LicenseTypeEnum?
     
     /// Defined tags for this resource. Each key is predefined and scoped to a namespace.
     /// Example: `{"foo-namespace": {"bar-key": "value"}}`
-    public var definedTags: [String: [String: Any]]?
+    public var definedTags: [String: [String: JSONValue]]?
     
     /// Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
     /// Example: `{"bar-key": "value"}`
@@ -47,11 +48,11 @@ public struct UpdateGovernanceInstanceDetails: Codable, Sendable {
         displayName: String? = nil,
         description: String? = nil,
         licenseType: LicenseTypeEnum? = nil,
-        definedTags: [String: [String: Any]]? = nil,
+        definedTags: [String: [String: JSONValue]]? = nil,
         freeformTags: [String: String]? = nil
     ) {
         self.displayName = displayName
-        self.description = description
+        self.descriptionText = description
         self.licenseType = licenseType
         self.definedTags = definedTags
         self.freeformTags = freeformTags
@@ -74,6 +75,26 @@ public struct UpdateGovernanceInstanceDetails: Codable, Sendable {
             throw NSError(domain: "AccessGovernanceCP", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessages.joined(separator: "\n")])
         }
     }
+    // MARK: - Codable
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.displayName = try container.decodeIfPresent(String.self, forKey: .displayName)
+        self.descriptionText = try container.decodeIfPresent(String.self, forKey: .description)
+        self.licenseType = try container.decodeIfPresent(LicenseTypeEnum.self, forKey: .licenseType)
+        self.definedTags = try container.decodeIfPresent([String: [String: JSONValue]].self, forKey: .definedTags)
+        self.freeformTags = try container.decodeIfPresent([String: String].self, forKey: .freeformTags)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(self.displayName, forKey: .displayName)
+        try container.encodeIfPresent(self.descriptionText, forKey: .description)
+        try container.encodeIfPresent(self.licenseType, forKey: .licenseType)
+        try container.encodeIfPresent(self.definedTags, forKey: .definedTags)
+        try container.encodeIfPresent(self.freeformTags, forKey: .freeformTags)
+    }
+
 }
 
 // MARK: - CustomStringConvertible
@@ -83,7 +104,7 @@ extension UpdateGovernanceInstanceDetails: CustomStringConvertible {
         return """
         UpdateGovernanceInstanceDetails(
             displayName: \(displayName ?? "nil"),
-            description: \(description ?? "nil"),
+            description: \(descriptionText ?? "nil"),
             licenseType: \(licenseType?.rawValue ?? "nil"),
             definedTags: \(definedTags?.description ?? "nil"),
             freeformTags: \(freeformTags?.description ?? "nil")

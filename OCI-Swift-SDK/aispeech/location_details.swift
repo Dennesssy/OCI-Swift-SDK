@@ -18,9 +18,6 @@ public struct LocationDetails: Codable, Sendable {
     }
 }
 
-// MARK: - Unmarshalerlocationdetails
-
-public typealias Unmarshalerlocationdetails = locationdetails
 
 // MARK: - LocationDetailsLocationTypeEnum
 
@@ -28,12 +25,12 @@ public typealias LocationDetailsLocationTypeEnum = String
 
 // MARK: - LocationDetailsLocationTypeObjectList
 
-public enum LocationDetailsLocationTypeObjectList: String, Sendable {
-    case  = "OBJECT_LIST"
+public enum LocationDetailsLocationTypeObjectList: String, Codable, Sendable {
+    case objectList = "OBJECT_LIST"
 }
 
 public extension LocationDetailsLocationTypeObjectList {
-    static var allValues: [LocationDetailsLocationTypeObjectList] { [.] }
+    static var allValues: [LocationDetailsLocationTypeObjectList] { [.objectList] }
     static var allStringValues: [String] { ["OBJECT_LIST"] }
     static func fromString(_ value: String) -> LocationDetailsLocationTypeObjectList? {
         LocationDetailsLocationTypeObjectList(rawValue: value)

@@ -2,6 +2,7 @@
 // Licensed under the Universal Permissive License (UPL) 1.0 or Apache License 2.0.
 
 import Foundation
+import OCICommon
 
 public struct EmWarehouse: Codable {
     public var operationsInsightsWarehouseId: String
@@ -12,14 +13,14 @@ public struct EmWarehouse: Codable {
     public var timeCreated: Date
     public var lifecycleState: EmWarehouseLifecycleStateEnum
     public var freeformTags: [String: String]
-    public var definedTags: [String: [String: Any]]
+    public var definedTags: [String: [String: JSONValue]]
     public var latestEtlRunStatus: String?
     public var latestEtlRunMessage: String?
     public var latestEtlRunTime: String?
     public var emBridgeId: String?
     public var timeUpdated: Date?
     public var lifecycleDetails: String?
-    public var systemTags: [String: [String: Any]]?
+    public var systemTags: [String: [String: JSONValue]]?
     
     public enum CodingKeys: String, CodingKey {
         case operationsInsightsWarehouseId = "operationsInsightsWarehouseId"
@@ -48,14 +49,14 @@ public struct EmWarehouse: Codable {
                 timeCreated: Date,
                 lifecycleState: EmWarehouseLifecycleStateEnum,
                 freeformTags: [String: String],
-                definedTags: [String: [String: Any]],
+                definedTags: [String: [String: JSONValue]],
                 latestEtlRunStatus: String? = nil,
                 latestEtlRunMessage: String? = nil,
                 latestEtlRunTime: String? = nil,
                 emBridgeId: String? = nil,
                 timeUpdated: Date? = nil,
                 lifecycleDetails: String? = nil,
-                systemTags: [String: [String: Any]]? = nil) {
+                systemTags: [String: [String: JSONValue]]? = nil) {
         self.operationsInsightsWarehouseId = operationsInsightsWarehouseId
         self.id = id
         self.displayName = displayName

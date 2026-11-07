@@ -34,7 +34,7 @@ public struct WorkRequestErrorCollection: Codable, Sendable {
 
 extension WorkRequestErrorCollection: CustomStringConvertible {
     public var description: String {
-        return "WorkRequestErrorCollection(\n            items: \(items ?? "nil")\n        )"
+        return "WorkRequestErrorCollection(\n            items: \(items.count)\n        )"
     }
 }
 

@@ -6,7 +6,7 @@ import Foundation
 
 // MARK: - ListOceInstancesLifecycleStateEnum
 
-public enum ListOceInstancesLifecycleStateEnum: String, Sendable {
+public enum ListOceInstancesLifecycleStateEnum: String, Codable, Sendable {
     case creating = "CREATING"
     case updating = "UPDATING"
     case active = "ACTIVE"
