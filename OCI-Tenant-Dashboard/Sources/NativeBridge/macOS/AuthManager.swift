@@ -9,6 +9,7 @@ import CryptoKit
  * OCI Authentication Manager
  * Handles API key signing, token management, and secure credential storage
  */
+@MainActor
 class AuthManager {
     
     static let shared = AuthManager()
@@ -324,6 +325,7 @@ class AuthManager {
         case invalidPrivateKey
         case invalidPassphrase
         case invalidInput
+        case unknownOperation(String)
         case keychainError(status: OSStatus)
         case signingFailed
         
@@ -337,6 +339,8 @@ class AuthManager {
                 return "Incorrect private key passphrase."
             case .invalidInput:
                 return "Invalid input data."
+            case .unknownOperation(let operation):
+                return "Unknown auth operation: \(operation)"
             case .keychainError(let status):
                 return "Keychain error (code: \(status)). Unable to securely store credentials."
             case .signingFailed:

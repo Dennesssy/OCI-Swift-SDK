@@ -7,6 +7,7 @@ import WebKit
 /**
  * Bridge between JavaScript frontend and OCI Swift SDK
  */
+@MainActor
 class OCIJSBridge: NSObject {
     
     weak var webView: WKWebView?
@@ -253,6 +254,10 @@ extension OCIJSBridge: WKScriptMessageHandler {
                     throw AuthManager.AuthError.invalidInput
                 }
                 
+            case "clearConfig":
+                authManager.clearConfig()
+                result = ["success": true]
+
             default:
                 throw AuthManager.AuthError.unknownOperation(operation)
             }

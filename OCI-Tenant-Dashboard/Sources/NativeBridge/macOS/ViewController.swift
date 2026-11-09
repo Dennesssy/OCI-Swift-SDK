@@ -61,19 +61,22 @@ class ViewController: NSViewController {
     }
     
     func loadDashboard() {
-        // Load local HTML file from app bundle
-        if let htmlPath = Bundle.main.path(
-            forResource: "index",
-            ofType: "html",
-            inDirectory: "WebApp"
-        ) {
-            let url = URL(fileURLWithPath: htmlPath)
-            webView.loadFileURL(url, allowingReadAccessTo: url)
+        // WebApp lives next to this source file in development checkouts.
+        // #filePath -> .../Sources/NativeBridge/macOS/ViewController.swift
+        let sourceFile = URL(fileURLWithPath: #filePath)
+        let webAppDir = sourceFile
+            .deletingLastPathComponent()  // macOS
+            .deletingLastPathComponent()  // NativeBridge
+            .deletingLastPathComponent()  // Sources
+            .appendingPathComponent("WebApp")
+        let indexURL = webAppDir.appendingPathComponent("index.html")
+
+        if FileManager.default.fileExists(atPath: indexURL.path) {
+            webView.loadFileURL(indexURL, allowingReadAccessTo: webAppDir)
+        } else if let bundled = Bundle.main.url(forResource: "index", withExtension: "html") {
+            webView.loadFileURL(bundled, allowingReadAccessTo: bundled.deletingLastPathComponent())
         } else {
-            // Fallback: load from development path
-            let devPath = "/Users/denn/Desktop/OCIMain/Oracle-SDK/OCI-Tenant-Dashboard/WebApp/index.html"
-            let url = URL(fileURLWithPath: devPath)
-            webView.loadFileURL(url, allowingReadAccessTo: url.deletingLastPathComponent())
+            print("Dashboard HTML not found at \(indexURL.path)")
         }
     }
 }
