@@ -6,16 +6,15 @@ import Foundation
 /**
  * Service layer for OCI API calls using the Swift SDK
  */
+@MainActor
 class OCIAPIService {
     
     weak var bridge: OCIJSBridge?
     let authManager: AuthManager
     
-    // SDK Clients (initialized with auth config)
-    var computeClient: ComputeClient?
-    var objectStorageClient: ObjectStorageClient?
-    var budgetClient: BudgetClient?
-    var keyManagementClient: KeyManagementClient?
+    // SDK client wiring pending — all generated clients are stubs and the
+    // shared HTTPClient/Signer/Region runtime is not yet implemented.
+    // Handlers below return mock data until real transport lands.
     
     init(bridge: OCIJSBridge, authManager: AuthManager) {
         self.bridge = bridge
@@ -25,7 +24,7 @@ class OCIAPIService {
     
     func initializeClients() {
         // TODO: Load auth config from secure storage
-        // and initialize all SDK clients
+        // and initialize all SDK clients once the runtime transport exists
     }
     
     /**
@@ -64,9 +63,7 @@ class OCIAPIService {
         operation: String,
         params: [String: Any]
     ) async throws -> [String: Any] {
-        guard let client = computeClient else {
-            throw OCIError.clientNotInitialized("Compute")
-        }
+        // computeClient unavailable: SDK has no compute client yet; mock data
         
         switch operation {
         case "listInstances":
@@ -107,9 +104,7 @@ class OCIAPIService {
         operation: String,
         params: [String: Any]
     ) async throws -> [String: Any] {
-        guard let client = objectStorageClient else {
-            throw OCIError.clientNotInitialized("ObjectStorage")
-        }
+        // objectStorageClient pending real transport; mock data below
         
         switch operation {
         case "listBuckets":
