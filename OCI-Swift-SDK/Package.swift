@@ -1124,24 +1124,327 @@ let package = Package(
             ]
         ),
         .target(
+            name: "aidataplatform",
+            dependencies: ["OCICommon"],
+            path: "aidataplatform",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "apiaccesscontrol",
+            dependencies: ["OCICommon"],
+            path: "apiaccesscontrol",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "apigateway",
+            dependencies: ["OCICommon"],
+            path: "apigateway",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "apiplatform",
+            dependencies: ["OCICommon"],
+            path: "apiplatform",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "apmsynthetics",
+            dependencies: ["OCICommon"],
+            path: "apmsynthetics",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "apmtraces",
+            dependencies: ["OCICommon"],
+            path: "apmtraces",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "artifacts",
+            dependencies: ["OCICommon"],
+            path: "artifacts",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "batch",
+            dependencies: ["OCICommon"],
+            path: "batch",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "clusterhealth",
+            dependencies: ["OCICommon"],
+            path: "clusterhealth",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "containerregistry",
+            dependencies: ["OCICommon"],
+            path: "containerregistry",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "costad",
+            dependencies: ["OCICommon"],
+            path: "costad",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "databasetoolsruntime",
+            dependencies: ["OCICommon"],
+            path: "databasetoolsruntime",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "datacc",
+            dependencies: ["OCICommon"],
+            path: "datacc",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "dblm",
+            dependencies: ["OCICommon"],
+            path: "dblm",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "dbmulticloud",
+            dependencies: ["OCICommon"],
+            path: "dbmulticloud",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "ddfs",
+            dependencies: ["OCICommon"],
+            path: "ddfs",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "delegateaccesscontrol",
+            dependencies: ["OCICommon"],
+            path: "delegateaccesscontrol",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "devops",
+            dependencies: ["OCICommon"],
+            path: "devops",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "gdp",
+            dependencies: ["OCICommon"],
+            path: "gdp",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "generativeaiagent",
+            dependencies: ["OCICommon"],
+            path: "generativeaiagent",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "generativeaiagentruntime",
+            dependencies: ["OCICommon"],
+            path: "generativeaiagentruntime",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "generativeaidata",
+            dependencies: ["OCICommon"],
+            path: "generativeaidata",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "generativeaisandbox",
+            dependencies: ["OCICommon"],
+            path: "generativeaisandbox",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "identity",
+            dependencies: ["OCICommon"],
+            path: "identity",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "iot",
+            dependencies: ["OCICommon"],
+            path: "iot",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "jmsutils",
+            dependencies: ["OCICommon"],
+            path: "jmsutils",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "limitsincrease",
+            dependencies: ["OCICommon"],
+            path: "limitsincrease",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "lustrefilestorage",
+            dependencies: ["OCICommon"],
+            path: "lustrefilestorage",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "managedkafka",
+            dependencies: ["OCICommon"],
+            path: "managedkafka",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "modeldeployment",
+            dependencies: ["OCICommon"],
+            path: "modeldeployment",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "multicloud",
+            dependencies: ["OCICommon"],
+            path: "multicloud",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "psa",
+            dependencies: ["OCICommon"],
+            path: "psa",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "pss",
+            dependencies: ["OCICommon"],
+            path: "pss",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "resourceanalytics",
+            dependencies: ["OCICommon"],
+            path: "resourceanalytics",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "securityattribute",
+            dependencies: ["OCICommon"],
+            path: "securityattribute",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "wlms",
+            dependencies: ["OCICommon"],
+            path: "wlms",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
+            name: "zpr",
+            dependencies: ["OCICommon"],
+            path: "zpr",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
+        .target(
             name: "OCI-Swift-SDK",
-            dependencies: [
+            dependencies: [                "AccessGovernanceCP",
                 "OCICommon",
-                "AccessGovernanceCP",
                 "adm",
                 "aianomalydetection",
+                "aidataplatform",
                 "aidocument",
                 "ailanguage",
                 "aispeech",
                 "aivision",
                 "analytics",
                 "announcementsservice",
+                "apiaccesscontrol",
+                "apigateway",
+                "apiplatform",
                 "apmconfig",
                 "apmcontrolplane",
+                "apmsynthetics",
+                "apmtraces",
                 "appmgmtcontrol",
+                "artifacts",
                 "audit",
                 "autoscaling",
                 "bastion",
+                "batch",
                 "bds",
                 "blockchain",
                 "budget",
@@ -1152,26 +1455,36 @@ let package = Package(
                 "cloudbridge",
                 "cloudguard",
                 "cloudmigrations",
+                "clusterhealth",
                 "clusterplacementgroups",
                 "computecloudatcustomer",
                 "computeinstanceagent",
                 "containerengine",
                 "containerinstances",
+                "containerregistry",
                 "core",
+                "costad",
                 "dashboardservice",
                 "database",
                 "databasemanagement",
                 "databasemigration",
                 "databasetools",
+                "databasetoolsruntime",
                 "datacatalog",
+                "datacc",
                 "dataflow",
                 "dataintegration",
                 "datalabelingservice",
                 "datalabelingservicedataplane",
                 "datasafe",
                 "datascience",
+                "dblm",
+                "dbmulticloud",
+                "ddfs",
+                "delegateaccesscontrol",
                 "demandsignal",
                 "desktops",
+                "devops",
                 "disasterrecovery",
                 "dns",
                 "dts",
@@ -1184,34 +1497,47 @@ let package = Package(
                 "fleetsoftwareupdate",
                 "functions",
                 "fusionapps",
+                "gdp",
                 "generativeai",
+                "generativeaiagent",
+                "generativeaiagentruntime",
+                "generativeaidata",
                 "generativeaiinference",
+                "generativeaisandbox",
                 "genericartifactscontent",
                 "globallydistributeddatabase",
                 "goldengate",
                 "governancerulescontrolplane",
                 "healthchecks",
+                "identity",
                 "identitydataplane",
                 "identitydomains",
                 "integration",
+                "iot",
                 "jms",
                 "jmsjavadownloads",
+                "jmsutils",
                 "keymanagement",
                 "licensemanager",
                 "limits",
+                "limitsincrease",
                 "loadbalancer",
                 "lockbox",
                 "loganalytics",
                 "logging",
                 "loggingingestion",
                 "loggingsearch",
+                "lustrefilestorage",
+                "managedkafka",
                 "managementagent",
                 "managementdashboard",
                 "marketplace",
                 "marketplaceprivateoffer",
                 "marketplacepublisher",
                 "mediaservices",
+                "modeldeployment",
                 "monitoring",
+                "multicloud",
                 "mysql",
                 "networkfirewall",
                 "networkloadbalancer",
@@ -1235,16 +1561,20 @@ let package = Package(
                 "osuborganizationsubscription",
                 "osubsubscription",
                 "osubusage",
+                "psa",
                 "psql",
+                "pss",
                 "queue",
                 "recovery",
                 "redis",
+                "resourceanalytics",
                 "resourcemanager",
                 "resourcescheduler",
                 "resourcesearch",
                 "rover",
                 "sch",
                 "secrets",
+                "securityattribute",
                 "servicecatalog",
                 "servicemanagerproxy",
                 "servicemesh",
@@ -1262,8 +1592,9 @@ let package = Package(
                 "waa",
                 "waas",
                 "waf",
-                "workrequests"
-            ],
+                "wlms",
+                "workrequests",
+                "zpr",],
             path: "Sources",
             swiftSettings: [
                 .swiftLanguageMode(.v6)

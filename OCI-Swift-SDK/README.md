@@ -2,7 +2,7 @@
 
 A native Swift SDK for [Oracle Cloud Infrastructure][1], independently developed by a self-taught solo engineer.
 
-Oracle provides official SDKs for Go, Python, Java, Ruby, and TypeScript — but not Swift. This project fills that gap, covering 130+ OCI services with Swift 6 strict concurrency and Swift Package Manager support.
+Oracle provides official SDKs for Go, Python, Java, Ruby, and TypeScript — but not Swift. This project fills that gap, covering 170+ OCI services with Swift 6 strict concurrency and Swift Package Manager support.
 
 > **Note:** This is an independent, community-maintained SDK and is not affiliated with or endorsed by Oracle Corp.
 
@@ -97,7 +97,7 @@ OCI-Swift-SDK/
 ├── generativeai/
 ├── monitoring/
 ├── vault/
-└── ...              # 130+ service modules
+└── ...              # 170+ service modules
 ```
 
 Each service folder maps 1:1 to an OCI service and contains a `*_client.swift`, request/response structs, and model types.
@@ -107,20 +107,20 @@ Each service folder maps 1:1 to an OCI service and contains a `*_client.swift`, 
 ## Services
 
 <details>
-<summary>View all 130+ supported services</summary>
+<summary>View all 170+ supported services</summary>
 
 | Category | Services |
 |---|---|
-| AI / ML | `ailanguage` `aivision` `aispeech` `aianomalydetection` `aidocument` `generativeai` `generativeaiinference` |
-| Compute | `core` `computeinstanceagent` `computecloudatcustomer` `containerengine` `containerinstances` |
-| Networking | `core` `dns` `loadbalancer` `networkloadbalancer` `networkfirewall` `vnmonitoring` |
-| Storage | `objectstorage` `filestorage` `nosql` `streaming` |
-| Database | `database` `databasemanagement` `databasemigration` `mysql` `psql` `nosql` |
-| Identity & Security | `identitydomains` `vault` `keymanagement` `secrets` `datasafe` `cloudguard` `lockbox` |
-| Observability | `monitoring` `logging` `loggingingestion` `loggingsearch` `apmcontrolplane` |
-| Developer Services | `functions` `events` `resourcemanager` `visualbuilder` `integration` |
-| Billing & Cost | `budget` `limits` `usageapi` `usage` `osubsubscription` |
-| Other | `redis` `opensearch` `queue` `ons` `email` `threatintelligence` `marketplace` + more |
+| AI / ML | `ailanguage` `aivision` `aispeech` `aianomalydetection` `aidocument` `generativeai` `generativeaiinference` `generativeaiagent` `generativeaiagentruntime` `generativeaidata` |
+| Compute | `core` `computeinstanceagent` `computecloudatcustomer` `containerengine` `containerinstances` `batch` `modeldeployment` |
+| Networking | `core` `dns` `loadbalancer` `networkloadbalancer` `networkfirewall` `vnmonitoring` `apigateway` `zpr` `psa` |
+| Storage | `objectstorage` `filestorage` `nosql` `streaming` `lustrefilestorage` `managedkafka` |
+| Database | `database` `databasemanagement` `databasemigration` `mysql` `psql` `nosql` `dbmulticloud` `dblm` `distributeddatabase` |
+| Identity & Security | `identitydomains` `vault` `keymanagement` `secrets` `datasafe` `cloudguard` `lockbox` `identity` `securityattribute` `delegateaccesscontrol` |
+| Observability | `monitoring` `logging` `loggingingestion` `loggingsearch` `apmcontrolplane` `apmsynthetics` `apmtraces` |
+| Developer Services | `functions` `events` `resourcemanager` `visualbuilder` `integration` `devops` `artifacts` |
+| Billing & Cost | `budget` `limits` `usageapi` `usage` `osubsubscription` `costad` `limitsincrease` |
+| Other | `redis` `opensearch` `queue` `ons` `email` `threatintelligence` `marketplace` `iot` `wlms` `multicloud` `+ more` |
 
 </details>
 

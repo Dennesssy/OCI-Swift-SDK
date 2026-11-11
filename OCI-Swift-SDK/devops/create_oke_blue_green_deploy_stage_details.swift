@@ -1,0 +1,47 @@
+import Foundation
+import OCICommon
+
+// MARK: - CreateOkeBlueGreenDeployStageDetails
+
+public struct CreateOkeBlueGreenDeployStageDetails: Codable, Sendable {
+
+    public var deployPipelineId: String?
+    public var deployStagePredecessorCollection: DeployStagePredecessorCollection?
+    public var okeClusterDeployEnvironmentId: String?
+    public var kubernetesManifestDeployArtifactIds: [String]
+    public var blueGreenStrategy: JSONValue
+    public var description: String?
+    public var displayName: String?
+    public var freeformTags: [String: String]?
+    public var definedTags: [String: [String: JSONValue]]?
+
+    private enum CodingKeys: String, CodingKey {
+        case deployPipelineId, deployStagePredecessorCollection, okeClusterDeployEnvironmentId, kubernetesManifestDeployArtifactIds, blueGreenStrategy, description, displayName, freeformTags, definedTags
+    }
+
+    public init(
+                deployPipelineId: String? = nil,
+                deployStagePredecessorCollection: DeployStagePredecessorCollection? = nil,
+                okeClusterDeployEnvironmentId: String? = nil,
+                kubernetesManifestDeployArtifactIds: [String],
+                blueGreenStrategy: JSONValue,
+                description: String? = nil,
+                displayName: String? = nil,
+                freeformTags: [String: String]? = nil,
+                definedTags: [String: [String: JSONValue]]? = nil
+    ) {
+        self.deployPipelineId = deployPipelineId
+        self.deployStagePredecessorCollection = deployStagePredecessorCollection
+        self.okeClusterDeployEnvironmentId = okeClusterDeployEnvironmentId
+        self.kubernetesManifestDeployArtifactIds = kubernetesManifestDeployArtifactIds
+        self.blueGreenStrategy = blueGreenStrategy
+        self.description = description
+        self.displayName = displayName
+        self.freeformTags = freeformTags
+        self.definedTags = definedTags
+    }
+
+    public func validateEnumValue() throws {
+        // No enums to validate
+    }
+}

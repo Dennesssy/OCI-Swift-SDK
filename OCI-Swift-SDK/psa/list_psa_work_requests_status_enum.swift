@@ -1,0 +1,20 @@
+import Foundation
+
+// MARK: - ListPsaWorkRequestsStatusEnum
+
+public enum ListPsaWorkRequestsStatusEnum: String, Codable, Sendable {
+    case accepted = "ACCEPTED"
+    case inProgress = "IN_PROGRESS"
+    case waiting = "WAITING"
+    case needsAttention = "NEEDS_ATTENTION"
+    case failed = "FAILED"
+    case succeeded = "SUCCEEDED"
+    case cancelling = "CANCELLING"
+    case cancelled = "CANCELLED"
+}
+
+public extension ListPsaWorkRequestsStatusEnum {
+    static var allValues: [ListPsaWorkRequestsStatusEnum] { [.accepted, .inProgress, .waiting, .needsAttention, .failed, .succeeded, .cancelling, .cancelled] }
+    static var allStringValues: [String] { ["ACCEPTED", "IN_PROGRESS", "WAITING", "NEEDS_ATTENTION", "FAILED", "SUCCEEDED", "CANCELLING", "CANCELLED"] }
+    static func fromString(_ value: String) -> ListPsaWorkRequestsStatusEnum? { ListPsaWorkRequestsStatusEnum(rawValue: value) }
+}
