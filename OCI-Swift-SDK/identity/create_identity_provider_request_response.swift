@@ -6,17 +6,20 @@ import OCICommon
 public struct CreateIdentityProviderRequest: Codable, Sendable {
     public var opcRequestId: String?
     public var createIdentityProviderDetails: JSONValue?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case opcRequestId, createIdentityProviderDetails
+        case opcRequestId, createIdentityProviderDetails, opcRetryToken
     }
 
     public init(
                 opcRequestId: String? = nil,
-                createIdentityProviderDetails: JSONValue? = nil
+                createIdentityProviderDetails: JSONValue? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.opcRequestId = opcRequestId
         self.createIdentityProviderDetails = createIdentityProviderDetails
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {

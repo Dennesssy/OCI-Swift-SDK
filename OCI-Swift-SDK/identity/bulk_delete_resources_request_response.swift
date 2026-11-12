@@ -6,19 +6,22 @@ public struct BulkDeleteResourcesRequest: Codable, Sendable {
     public var compartmentId: String?
     public var opcRequestId: String?
     public var bulkDeleteResourcesDetails: BulkDeleteResourcesDetails?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case compartmentId, opcRequestId, bulkDeleteResourcesDetails
+        case compartmentId, opcRequestId, bulkDeleteResourcesDetails, opcRetryToken
     }
 
     public init(
                 compartmentId: String? = nil,
                 opcRequestId: String? = nil,
-                bulkDeleteResourcesDetails: BulkDeleteResourcesDetails? = nil
+                bulkDeleteResourcesDetails: BulkDeleteResourcesDetails? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.compartmentId = compartmentId
         self.opcRequestId = opcRequestId
         self.bulkDeleteResourcesDetails = bulkDeleteResourcesDetails
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {

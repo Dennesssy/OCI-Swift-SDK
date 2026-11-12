@@ -7,21 +7,24 @@ public struct ChangeTagNamespaceCompartmentRequest: Codable, Sendable {
     public var isLockOverride: Bool?
     public var opcRequestId: String?
     public var changeTagNamespaceCompartmentDetail: ChangeTagNamespaceCompartmentDetail?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case tagNamespaceId, isLockOverride, opcRequestId, changeTagNamespaceCompartmentDetail
+        case tagNamespaceId, isLockOverride, opcRequestId, changeTagNamespaceCompartmentDetail, opcRetryToken
     }
 
     public init(
                 tagNamespaceId: String? = nil,
                 isLockOverride: Bool? = nil,
                 opcRequestId: String? = nil,
-                changeTagNamespaceCompartmentDetail: ChangeTagNamespaceCompartmentDetail? = nil
+                changeTagNamespaceCompartmentDetail: ChangeTagNamespaceCompartmentDetail? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.tagNamespaceId = tagNamespaceId
         self.isLockOverride = isLockOverride
         self.opcRequestId = opcRequestId
         self.changeTagNamespaceCompartmentDetail = changeTagNamespaceCompartmentDetail
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {

@@ -5,17 +5,20 @@ import Foundation
 public struct BulkEditTagsRequest: Codable, Sendable {
     public var opcRequestId: String?
     public var bulkEditTagsDetails: BulkEditTagsDetails?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case opcRequestId, bulkEditTagsDetails
+        case opcRequestId, bulkEditTagsDetails, opcRetryToken
     }
 
     public init(
                 opcRequestId: String? = nil,
-                bulkEditTagsDetails: BulkEditTagsDetails? = nil
+                bulkEditTagsDetails: BulkEditTagsDetails? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.opcRequestId = opcRequestId
         self.bulkEditTagsDetails = bulkEditTagsDetails
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {

@@ -6,19 +6,22 @@ public struct UploadApiKeyRequest: Codable, Sendable {
     public var userId: String?
     public var opcRequestId: String?
     public var createApiKeyDetails: CreateApiKeyDetails?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case userId, opcRequestId, createApiKeyDetails
+        case userId, opcRequestId, createApiKeyDetails, opcRetryToken
     }
 
     public init(
                 userId: String? = nil,
                 opcRequestId: String? = nil,
-                createApiKeyDetails: CreateApiKeyDetails? = nil
+                createApiKeyDetails: CreateApiKeyDetails? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.userId = userId
         self.opcRequestId = opcRequestId
         self.createApiKeyDetails = createApiKeyDetails
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {

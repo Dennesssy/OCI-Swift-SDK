@@ -6,19 +6,22 @@ public struct CreateOAuthClientCredentialRequest: Codable, Sendable {
     public var userId: String?
     public var opcRequestId: String?
     public var createOAuth2ClientCredentialDetails: CreateOAuth2ClientCredentialDetails?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case userId, opcRequestId, createOAuth2ClientCredentialDetails
+        case userId, opcRequestId, createOAuth2ClientCredentialDetails, opcRetryToken
     }
 
     public init(
                 userId: String? = nil,
                 opcRequestId: String? = nil,
-                createOAuth2ClientCredentialDetails: CreateOAuth2ClientCredentialDetails? = nil
+                createOAuth2ClientCredentialDetails: CreateOAuth2ClientCredentialDetails? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.userId = userId
         self.opcRequestId = opcRequestId
         self.createOAuth2ClientCredentialDetails = createOAuth2ClientCredentialDetails
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {

@@ -7,21 +7,24 @@ public struct ChangeDomainLicenseTypeRequest: Codable, Sendable {
     public var opcRequestId: String?
     public var ifMatch: String?
     public var changeDomainLicenseTypeDetails: ChangeDomainLicenseTypeDetails?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case domainId, opcRequestId, ifMatch, changeDomainLicenseTypeDetails
+        case domainId, opcRequestId, ifMatch, changeDomainLicenseTypeDetails, opcRetryToken
     }
 
     public init(
                 domainId: String? = nil,
                 opcRequestId: String? = nil,
                 ifMatch: String? = nil,
-                changeDomainLicenseTypeDetails: ChangeDomainLicenseTypeDetails? = nil
+                changeDomainLicenseTypeDetails: ChangeDomainLicenseTypeDetails? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.domainId = domainId
         self.opcRequestId = opcRequestId
         self.ifMatch = ifMatch
         self.changeDomainLicenseTypeDetails = changeDomainLicenseTypeDetails
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {

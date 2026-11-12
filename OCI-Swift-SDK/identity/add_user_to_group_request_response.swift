@@ -5,17 +5,20 @@ import Foundation
 public struct AddUserToGroupRequest: Codable, Sendable {
     public var opcRequestId: String?
     public var addUserToGroupDetails: AddUserToGroupDetails?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case opcRequestId, addUserToGroupDetails
+        case opcRequestId, addUserToGroupDetails, opcRetryToken
     }
 
     public init(
                 opcRequestId: String? = nil,
-                addUserToGroupDetails: AddUserToGroupDetails? = nil
+                addUserToGroupDetails: AddUserToGroupDetails? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.opcRequestId = opcRequestId
         self.addUserToGroupDetails = addUserToGroupDetails
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {

@@ -6,19 +6,22 @@ public struct CreateSwiftPasswordRequest: Codable, Sendable {
     public var userId: String?
     public var opcRequestId: String?
     public var createSwiftPasswordDetails: CreateSwiftPasswordDetails?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case userId, opcRequestId, createSwiftPasswordDetails
+        case userId, opcRequestId, createSwiftPasswordDetails, opcRetryToken
     }
 
     public init(
                 userId: String? = nil,
                 opcRequestId: String? = nil,
-                createSwiftPasswordDetails: CreateSwiftPasswordDetails? = nil
+                createSwiftPasswordDetails: CreateSwiftPasswordDetails? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.userId = userId
         self.opcRequestId = opcRequestId
         self.createSwiftPasswordDetails = createSwiftPasswordDetails
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {

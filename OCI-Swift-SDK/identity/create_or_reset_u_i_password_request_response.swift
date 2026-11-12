@@ -5,17 +5,20 @@ import Foundation
 public struct CreateOrResetUIPasswordRequest: Codable, Sendable {
     public var userId: String?
     public var opcRequestId: String?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case userId, opcRequestId
+        case userId, opcRequestId, opcRetryToken
     }
 
     public init(
                 userId: String? = nil,
-                opcRequestId: String? = nil
+                opcRequestId: String? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.userId = userId
         self.opcRequestId = opcRequestId
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {

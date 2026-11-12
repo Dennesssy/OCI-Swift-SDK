@@ -8,9 +8,10 @@ public struct ActivateMfaTotpDeviceRequest: Codable, Sendable {
     public var ifMatch: String?
     public var opcRequestId: String?
     public var mfaTotpToken: MfaTotpToken?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case userId, mfaTotpDeviceId, ifMatch, opcRequestId, mfaTotpToken
+        case userId, mfaTotpDeviceId, ifMatch, opcRequestId, mfaTotpToken, opcRetryToken
     }
 
     public init(
@@ -18,13 +19,15 @@ public struct ActivateMfaTotpDeviceRequest: Codable, Sendable {
                 mfaTotpDeviceId: String? = nil,
                 ifMatch: String? = nil,
                 opcRequestId: String? = nil,
-                mfaTotpToken: MfaTotpToken? = nil
+                mfaTotpToken: MfaTotpToken? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.userId = userId
         self.mfaTotpDeviceId = mfaTotpDeviceId
         self.ifMatch = ifMatch
         self.opcRequestId = opcRequestId
         self.mfaTotpToken = mfaTotpToken
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {

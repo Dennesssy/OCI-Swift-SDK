@@ -7,21 +7,24 @@ public struct EnableReplicationToRegionRequest: Codable, Sendable {
     public var opcRequestId: String?
     public var ifMatch: String?
     public var enableReplicationToRegionDetails: EnableReplicationToRegionDetails?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case domainId, opcRequestId, ifMatch, enableReplicationToRegionDetails
+        case domainId, opcRequestId, ifMatch, enableReplicationToRegionDetails, opcRetryToken
     }
 
     public init(
                 domainId: String? = nil,
                 opcRequestId: String? = nil,
                 ifMatch: String? = nil,
-                enableReplicationToRegionDetails: EnableReplicationToRegionDetails? = nil
+                enableReplicationToRegionDetails: EnableReplicationToRegionDetails? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.domainId = domainId
         self.opcRequestId = opcRequestId
         self.ifMatch = ifMatch
         self.enableReplicationToRegionDetails = enableReplicationToRegionDetails
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {

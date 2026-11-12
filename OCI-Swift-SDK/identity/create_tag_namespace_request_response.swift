@@ -5,17 +5,20 @@ import Foundation
 public struct CreateTagNamespaceRequest: Codable, Sendable {
     public var opcRequestId: String?
     public var createTagNamespaceDetails: CreateTagNamespaceDetails?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case opcRequestId, createTagNamespaceDetails
+        case opcRequestId, createTagNamespaceDetails, opcRetryToken
     }
 
     public init(
                 opcRequestId: String? = nil,
-                createTagNamespaceDetails: CreateTagNamespaceDetails? = nil
+                createTagNamespaceDetails: CreateTagNamespaceDetails? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.opcRequestId = opcRequestId
         self.createTagNamespaceDetails = createTagNamespaceDetails
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {

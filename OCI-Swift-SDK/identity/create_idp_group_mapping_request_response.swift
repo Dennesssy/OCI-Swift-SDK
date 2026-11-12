@@ -6,19 +6,22 @@ public struct CreateIdpGroupMappingRequest: Codable, Sendable {
     public var identityProviderId: String?
     public var opcRequestId: String?
     public var createIdpGroupMappingDetails: CreateIdpGroupMappingDetails?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case identityProviderId, opcRequestId, createIdpGroupMappingDetails
+        case identityProviderId, opcRequestId, createIdpGroupMappingDetails, opcRetryToken
     }
 
     public init(
                 identityProviderId: String? = nil,
                 opcRequestId: String? = nil,
-                createIdpGroupMappingDetails: CreateIdpGroupMappingDetails? = nil
+                createIdpGroupMappingDetails: CreateIdpGroupMappingDetails? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.identityProviderId = identityProviderId
         self.opcRequestId = opcRequestId
         self.createIdpGroupMappingDetails = createIdpGroupMappingDetails
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {

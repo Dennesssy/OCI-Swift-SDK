@@ -7,21 +7,24 @@ public struct CascadeDeleteTagNamespaceRequest: Codable, Sendable {
     public var ifMatch: String?
     public var opcRequestId: String?
     public var isLockOverride: Bool?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case tagNamespaceId, ifMatch, opcRequestId, isLockOverride
+        case tagNamespaceId, ifMatch, opcRequestId, isLockOverride, opcRetryToken
     }
 
     public init(
                 tagNamespaceId: String? = nil,
                 ifMatch: String? = nil,
                 opcRequestId: String? = nil,
-                isLockOverride: Bool? = nil
+                isLockOverride: Bool? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.tagNamespaceId = tagNamespaceId
         self.ifMatch = ifMatch
         self.opcRequestId = opcRequestId
         self.isLockOverride = isLockOverride
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {

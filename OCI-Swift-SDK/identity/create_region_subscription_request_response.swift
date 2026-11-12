@@ -6,19 +6,22 @@ public struct CreateRegionSubscriptionRequest: Codable, Sendable {
     public var tenancyId: String?
     public var opcRequestId: String?
     public var createRegionSubscriptionDetails: CreateRegionSubscriptionDetails?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case tenancyId, opcRequestId, createRegionSubscriptionDetails
+        case tenancyId, opcRequestId, createRegionSubscriptionDetails, opcRetryToken
     }
 
     public init(
                 tenancyId: String? = nil,
                 opcRequestId: String? = nil,
-                createRegionSubscriptionDetails: CreateRegionSubscriptionDetails? = nil
+                createRegionSubscriptionDetails: CreateRegionSubscriptionDetails? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.tenancyId = tenancyId
         self.opcRequestId = opcRequestId
         self.createRegionSubscriptionDetails = createRegionSubscriptionDetails
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {

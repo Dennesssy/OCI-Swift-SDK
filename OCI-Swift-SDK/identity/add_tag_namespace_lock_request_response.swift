@@ -7,21 +7,24 @@ public struct AddTagNamespaceLockRequest: Codable, Sendable {
     public var ifMatch: String?
     public var opcRequestId: String?
     public var addLockDetails: AddLockDetails?
+    public var opcRetryToken: String?
 
     private enum CodingKeys: String, CodingKey {
-        case tagNamespaceId, ifMatch, opcRequestId, addLockDetails
+        case tagNamespaceId, ifMatch, opcRequestId, addLockDetails, opcRetryToken
     }
 
     public init(
                 tagNamespaceId: String? = nil,
                 ifMatch: String? = nil,
                 opcRequestId: String? = nil,
-                addLockDetails: AddLockDetails? = nil
+                addLockDetails: AddLockDetails? = nil,
+                opcRetryToken: String? = nil
     ) {
         self.tagNamespaceId = tagNamespaceId
         self.ifMatch = ifMatch
         self.opcRequestId = opcRequestId
         self.addLockDetails = addLockDetails
+        self.opcRetryToken = opcRetryToken
     }
 
     public func validateEnumValue() throws {
