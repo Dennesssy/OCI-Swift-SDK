@@ -3,11 +3,7 @@
 
 import Foundation
 
-public protocol HTTPClient {
-}
-
-public protocol Signer {
-}
+// HTTPClient and Signer are defined in oci_http.swift and oci_signer.swift.
 
 public protocol ClientProtocol {
 }

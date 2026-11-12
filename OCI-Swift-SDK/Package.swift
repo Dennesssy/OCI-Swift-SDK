@@ -1603,7 +1603,13 @@ let package = Package(
         .testTarget(
             name: "OCI-Swift-SDKTests",
             dependencies: ["OCI-Swift-SDK"],
-            path: "Tests"
+            path: "Tests",
+            exclude: ["CommonTests"]
+        ),
+        .testTarget(
+            name: "CommonTests",
+            dependencies: ["OCICommon"],
+            path: "Tests/CommonTests"
         )
     ]
 )
