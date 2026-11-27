@@ -71,6 +71,43 @@ final class ConfigTests: XCTestCase {
         try signer.sign(&r)
         XCTAssertNotNil(r.value(forHTTPHeaderField: "authorization"))
     }
+
+    func testEnvironmentOverridesDefaultConfigPath() throws {
+        let dir = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: dir) }
+        let cfg = dir.appendingPathComponent("config").path
+        let content = """
+        [DEFAULT]
+        user=ocid1.user.env
+        fingerprint=aa:bb:cc
+        tenancy=ocid1.tenancy.env
+        region=eu-madrid-1
+        key_file=/tmp/nonexistent-key.pem
+        """
+        try content.write(toFile: cfg, atomically: true, encoding: .utf8)
+        setenv("OCI_CONFIG_FILE", cfg, 1)
+        defer { unsetenv("OCI_CONFIG_FILE") }
+        let p = try ConfigFileProvider()
+        XCTAssertEqual(p.user, "ocid1.user.env")
+        XCTAssertEqual(p.region, "eu-madrid-1")
+    }
+
+    func testOrderedQueryPairsAndRepeatedKeys() {
+        var q: [URLQueryItem] = []
+        q.append(URLQueryItem(name: "fields", value: "a"))
+        q.append(URLQueryItem(name: "limit", value: "5"))
+        q.append(URLQueryItem(name: "fields", value: "b")) // repeated multi key
+        let req = OCIRequest(method: "GET", path: "/p", query: q)
+        XCTAssertEqual(req.encodedQuery, "fields=a&limit=5&fields=b")
+        XCTAssertEqual(req.query["fields"], "a")
+        XCTAssertEqual(req.query.values(named: "fields"), ["a", "b"])
+        XCTAssertNil(req.query["nope"])
+        // CSV-style array values still comma-join through the wire-string encoding.
+        let csv = OCIRequest(method: "GET", path: "/p",
+                             query: [URLQueryItem(name: "fields", value: "x,y")])
+        XCTAssertEqual(csv.encodedQuery, "fields=x%2Cy")
+    }
 }
 
 final class ErrorTests: XCTestCase {

@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - GetObjectRequest
 
-public struct GetObjectRequest: Sendable {
+public struct GetObjectRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var objectName: String
@@ -46,7 +46,7 @@ public struct GetObjectRequest: Sendable {
 
 // MARK: - GetObjectResponse
 
-public struct GetObjectResponse: Sendable {
+public struct GetObjectResponse: Sendable, Codable {
     public var content: Foundation.Data?
     public var opcClientRequestId: String?
     public var opcRequestId: String?

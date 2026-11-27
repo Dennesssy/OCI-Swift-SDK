@@ -29,7 +29,7 @@ public final class ObjectStorageClient: Sendable {
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
         path = path.replacingOccurrences(of: "{objectName}", with: try OCIGen.pathParam(request.objectName, "objectName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "uploadId", request.uploadId)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
@@ -47,7 +47,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/actions/batchDeleteObjects"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = try OCIGen.jsonBody(request.batchDeleteObjectsDetails)
@@ -65,7 +65,7 @@ public final class ObjectStorageClient: Sendable {
     public func cancelWorkRequest(_ request: CancelWorkRequestRequest) async throws -> CancelWorkRequestResponse {
         var path = "/workRequests/{workRequestId}"
         path = path.replacingOccurrences(of: "{workRequestId}", with: try OCIGen.pathParam(request.workRequestId, "workRequestId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = nil
@@ -83,7 +83,7 @@ public final class ObjectStorageClient: Sendable {
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
         path = path.replacingOccurrences(of: "{objectName}", with: try OCIGen.pathParam(request.objectName, "objectName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "uploadId", request.uploadId)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -113,7 +113,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/actions/copyObject"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         OCIGen.setHeader(&headers, "opc-sse-customer-algorithm", request.opcSseCustomerAlgorithm)
@@ -139,7 +139,7 @@ public final class ObjectStorageClient: Sendable {
     public func createBucket(_ request: CreateBucketRequest) async throws -> CreateBucketResponse {
         var path = "/n/{namespaceName}/b"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = try OCIGen.jsonBody(request.createBucketDetails)
@@ -162,7 +162,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/u"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "if-none-match", request.ifNoneMatch)
@@ -189,7 +189,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/p"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = try OCIGen.jsonBody(request.createPreauthenticatedRequestDetails)
@@ -207,7 +207,7 @@ public final class ObjectStorageClient: Sendable {
     public func createPrivateEndpoint(_ request: CreatePrivateEndpointRequest) async throws -> CreatePrivateEndpointResponse {
         var path = "/n/{namespaceName}/pe"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = try OCIGen.jsonBody(request.createPrivateEndpointDetails)
@@ -226,7 +226,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/replicationPolicies"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = try OCIGen.jsonBody(request.createReplicationPolicyDetails)
@@ -246,7 +246,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/retentionRules"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = try OCIGen.jsonBody(request.createRetentionRuleDetails)
@@ -269,7 +269,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
@@ -288,7 +288,7 @@ public final class ObjectStorageClient: Sendable {
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
         path = path.replacingOccurrences(of: "{objectName}", with: try OCIGen.pathParam(request.objectName, "objectName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "versionId", request.versionId)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -310,7 +310,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/l"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -329,7 +329,7 @@ public final class ObjectStorageClient: Sendable {
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
         path = path.replacingOccurrences(of: "{parId}", with: try OCIGen.pathParam(request.parId, "parId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = nil
@@ -346,7 +346,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/pe/{peName}"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{peName}", with: try OCIGen.pathParam(request.peName, "peName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
@@ -366,7 +366,7 @@ public final class ObjectStorageClient: Sendable {
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
         path = path.replacingOccurrences(of: "{replicationId}", with: try OCIGen.pathParam(request.replicationId, "replicationId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = nil
@@ -384,7 +384,7 @@ public final class ObjectStorageClient: Sendable {
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
         path = path.replacingOccurrences(of: "{retentionRuleId}", with: try OCIGen.pathParam(request.retentionRuleId, "retentionRuleId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
@@ -402,7 +402,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "fields", request.fields)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -427,7 +427,7 @@ public final class ObjectStorageClient: Sendable {
     /// tenancy, provided the user has access to it.
     public func getNamespace(_ request: GetNamespaceRequest) async throws -> GetNamespaceResponse {
         let path = "/n"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
@@ -448,7 +448,7 @@ public final class ObjectStorageClient: Sendable {
     public func getNamespaceMetadata(_ request: GetNamespaceMetadataRequest) async throws -> GetNamespaceMetadataResponse {
         var path = "/n/{namespaceName}"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = nil
@@ -467,7 +467,7 @@ public final class ObjectStorageClient: Sendable {
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
         path = path.replacingOccurrences(of: "{objectName}", with: try OCIGen.pathParam(request.objectName, "objectName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "versionId", request.versionId)
         OCIGen.setQuery(&query, "httpResponseContentDisposition", request.httpResponseContentDisposition)
         OCIGen.setQuery(&query, "httpResponseCacheControl", request.httpResponseCacheControl)
@@ -521,7 +521,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/l"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = nil
@@ -541,7 +541,7 @@ public final class ObjectStorageClient: Sendable {
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
         path = path.replacingOccurrences(of: "{parId}", with: try OCIGen.pathParam(request.parId, "parId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = nil
@@ -559,7 +559,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/pe/{peName}"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{peName}", with: try OCIGen.pathParam(request.peName, "peName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "if-none-match", request.ifNoneMatch)
@@ -581,7 +581,7 @@ public final class ObjectStorageClient: Sendable {
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
         path = path.replacingOccurrences(of: "{replicationId}", with: try OCIGen.pathParam(request.replicationId, "replicationId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = nil
@@ -600,7 +600,7 @@ public final class ObjectStorageClient: Sendable {
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
         path = path.replacingOccurrences(of: "{retentionRuleId}", with: try OCIGen.pathParam(request.retentionRuleId, "retentionRuleId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = nil
@@ -619,7 +619,7 @@ public final class ObjectStorageClient: Sendable {
     public func getWorkRequest(_ request: GetWorkRequestRequest) async throws -> GetWorkRequestResponse {
         var path = "/workRequests/{workRequestId}"
         path = path.replacingOccurrences(of: "{workRequestId}", with: try OCIGen.pathParam(request.workRequestId, "workRequestId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = nil
@@ -638,7 +638,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "if-none-match", request.ifNoneMatch)
@@ -659,7 +659,7 @@ public final class ObjectStorageClient: Sendable {
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
         path = path.replacingOccurrences(of: "{objectName}", with: try OCIGen.pathParam(request.objectName, "objectName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "versionId", request.versionId)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -707,7 +707,7 @@ public final class ObjectStorageClient: Sendable {
     public func listBuckets(_ request: ListBucketsRequest) async throws -> ListBucketsResponse {
         var path = "/n/{namespaceName}/b"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "limit", request.limit)
         OCIGen.setQuery(&query, "page", request.page)
@@ -731,7 +731,7 @@ public final class ObjectStorageClient: Sendable {
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
         path = path.replacingOccurrences(of: "{objectName}", with: try OCIGen.pathParam(request.objectName, "objectName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "uploadId", request.uploadId)
         OCIGen.setQuery(&query, "limit", request.limit)
         OCIGen.setQuery(&query, "page", request.page)
@@ -753,7 +753,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/u"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "limit", request.limit)
         OCIGen.setQuery(&query, "page", request.page)
         var headers: [String: String] = [:]
@@ -779,7 +779,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/objectversions"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "prefix", request.prefix)
         OCIGen.setQuery(&query, "start", request.start)
         OCIGen.setQuery(&query, "end", request.end)
@@ -811,7 +811,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/o"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "prefix", request.prefix)
         OCIGen.setQuery(&query, "start", request.start)
         OCIGen.setQuery(&query, "end", request.end)
@@ -836,7 +836,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/p"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "objectNamePrefix", request.objectNamePrefix)
         OCIGen.setQuery(&query, "limit", request.limit)
         OCIGen.setQuery(&query, "page", request.page)
@@ -860,7 +860,7 @@ public final class ObjectStorageClient: Sendable {
     public func listPrivateEndpoints(_ request: ListPrivateEndpointsRequest) async throws -> ListPrivateEndpointsResponse {
         var path = "/n/{namespaceName}/pe"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "limit", request.limit)
         OCIGen.setQuery(&query, "page", request.page)
@@ -884,7 +884,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/replicationPolicies"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
         var headers: [String: String] = [:]
@@ -905,7 +905,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/replicationSources"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
         var headers: [String: String] = [:]
@@ -927,7 +927,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/retentionRules"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "page", request.page)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -946,7 +946,7 @@ public final class ObjectStorageClient: Sendable {
     public func listWorkRequestErrors(_ request: ListWorkRequestErrorsRequest) async throws -> ListWorkRequestErrorsResponse {
         var path = "/workRequests/{workRequestId}/errors"
         path = path.replacingOccurrences(of: "{workRequestId}", with: try OCIGen.pathParam(request.workRequestId, "workRequestId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
         var headers: [String: String] = [:]
@@ -966,7 +966,7 @@ public final class ObjectStorageClient: Sendable {
     public func listWorkRequestLogs(_ request: ListWorkRequestLogsRequest) async throws -> ListWorkRequestLogsResponse {
         var path = "/workRequests/{workRequestId}/logs"
         path = path.replacingOccurrences(of: "{workRequestId}", with: try OCIGen.pathParam(request.workRequestId, "workRequestId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
         var headers: [String: String] = [:]
@@ -985,7 +985,7 @@ public final class ObjectStorageClient: Sendable {
     /// ListWorkRequests Lists the work requests in a compartment.
     public func listWorkRequests(_ request: ListWorkRequestsRequest) async throws -> ListWorkRequestsResponse {
         let path = "/workRequests"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "privateEndpointName", request.privateEndpointName)
         OCIGen.setQuery(&query, "page", request.page)
@@ -1011,7 +1011,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/actions/makeBucketWritable"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = nil
@@ -1034,7 +1034,7 @@ public final class ObjectStorageClient: Sendable {
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
         path = path.replacingOccurrences(of: "{objectName}", with: try OCIGen.pathParam(request.objectName, "objectName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "Content-Length", request.contentLength)
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -1079,7 +1079,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/l"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -1106,7 +1106,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/actions/reencrypt"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "isReencryptBucketKeyOnly", request.isReencryptBucketKeyOnly)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
@@ -1131,7 +1131,7 @@ public final class ObjectStorageClient: Sendable {
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
         path = path.replacingOccurrences(of: "{objectName}", with: try OCIGen.pathParam(request.objectName, "objectName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "versionId", request.versionId)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
@@ -1152,7 +1152,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/actions/renameObject"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = try OCIGen.jsonBody(request.renameObjectDetails)
@@ -1174,7 +1174,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/actions/restoreObjects"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = try OCIGen.jsonBody(request.restoreObjectsDetails)
@@ -1195,7 +1195,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
@@ -1220,7 +1220,7 @@ public final class ObjectStorageClient: Sendable {
     public func updateNamespaceMetadata(_ request: UpdateNamespaceMetadataRequest) async throws -> UpdateNamespaceMetadataResponse {
         var path = "/n/{namespaceName}"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = try OCIGen.jsonBody(request.updateNamespaceMetadataDetails)
@@ -1239,7 +1239,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/b/{bucketName}/actions/updateObjectStorageTier"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         let body: Foundation.Data? = try OCIGen.jsonBody(request.updateObjectStorageTierDetails)
@@ -1262,7 +1262,7 @@ public final class ObjectStorageClient: Sendable {
         var path = "/n/{namespaceName}/pe/{peName}"
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{peName}", with: try OCIGen.pathParam(request.peName, "peName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -1283,7 +1283,7 @@ public final class ObjectStorageClient: Sendable {
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
         path = path.replacingOccurrences(of: "{retentionRuleId}", with: try OCIGen.pathParam(request.retentionRuleId, "retentionRuleId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-client-request-id", request.opcClientRequestId)
@@ -1305,7 +1305,7 @@ public final class ObjectStorageClient: Sendable {
         path = path.replacingOccurrences(of: "{namespaceName}", with: try OCIGen.pathParam(request.namespaceName, "namespaceName"))
         path = path.replacingOccurrences(of: "{bucketName}", with: try OCIGen.pathParam(request.bucketName, "bucketName"))
         path = path.replacingOccurrences(of: "{objectName}", with: try OCIGen.pathParam(request.objectName, "objectName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "uploadId", request.uploadId)
         OCIGen.setQuery(&query, "uploadPartNum", request.uploadPartNum)
         var headers: [String: String] = [:]

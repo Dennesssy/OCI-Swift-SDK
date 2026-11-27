@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - DeleteObjectRequest
 
-public struct DeleteObjectRequest: Sendable {
+public struct DeleteObjectRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var objectName: String
@@ -24,7 +24,7 @@ public struct DeleteObjectRequest: Sendable {
 
 // MARK: - DeleteObjectResponse
 
-public struct DeleteObjectResponse: Sendable {
+public struct DeleteObjectResponse: Sendable, Codable {
     public var opcClientRequestId: String?
     public var opcRequestId: String?
     public var lastModified: Date?

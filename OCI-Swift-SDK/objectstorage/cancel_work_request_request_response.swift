@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - CancelWorkRequestRequest
 
-public struct CancelWorkRequestRequest: Sendable {
+public struct CancelWorkRequestRequest: Sendable, Codable {
     public var workRequestId: String
     public var opcClientRequestId: String?
 
@@ -16,7 +16,7 @@ public struct CancelWorkRequestRequest: Sendable {
 
 // MARK: - CancelWorkRequestResponse
 
-public struct CancelWorkRequestResponse: Sendable {
+public struct CancelWorkRequestResponse: Sendable, Codable {
     public var opcRequestId: String?
     public var opcClientRequestId: String?
 

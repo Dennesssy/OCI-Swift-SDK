@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - ReencryptObjectRequest
 
-public struct ReencryptObjectRequest: Sendable {
+public struct ReencryptObjectRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var objectName: String
@@ -24,7 +24,7 @@ public struct ReencryptObjectRequest: Sendable {
 
 // MARK: - ReencryptObjectResponse
 
-public struct ReencryptObjectResponse: Sendable {
+public struct ReencryptObjectResponse: Sendable, Codable {
     public var opcClientRequestId: String?
     public var opcRequestId: String?
 

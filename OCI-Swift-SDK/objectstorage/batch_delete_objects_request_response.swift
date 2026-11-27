@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - BatchDeleteObjectsRequest
 
-public struct BatchDeleteObjectsRequest: Sendable {
+public struct BatchDeleteObjectsRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var batchDeleteObjectsDetails: BatchDeleteObjectsDetails?
@@ -20,7 +20,7 @@ public struct BatchDeleteObjectsRequest: Sendable {
 
 // MARK: - BatchDeleteObjectsResponse
 
-public struct BatchDeleteObjectsResponse: Sendable {
+public struct BatchDeleteObjectsResponse: Sendable, Codable {
     public var batchDeleteObjectsResult: BatchDeleteObjectsResult?
     public var opcClientRequestId: String?
     public var opcRequestId: String?

@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - ListReplicationSourcesRequest
 
-public struct ListReplicationSourcesRequest: Sendable {
+public struct ListReplicationSourcesRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var opcClientRequestId: String?
@@ -22,7 +22,7 @@ public struct ListReplicationSourcesRequest: Sendable {
 
 // MARK: - ListReplicationSourcesResponse
 
-public struct ListReplicationSourcesResponse: Sendable {
+public struct ListReplicationSourcesResponse: Sendable, Codable {
     public var items: [ReplicationSource]?
     public var opcRequestId: String?
     public var opcClientRequestId: String?

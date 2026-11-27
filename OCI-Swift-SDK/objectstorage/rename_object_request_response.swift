@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - RenameObjectRequest
 
-public struct RenameObjectRequest: Sendable {
+public struct RenameObjectRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var renameObjectDetails: RenameObjectDetails?
@@ -20,7 +20,7 @@ public struct RenameObjectRequest: Sendable {
 
 // MARK: - RenameObjectResponse
 
-public struct RenameObjectResponse: Sendable {
+public struct RenameObjectResponse: Sendable, Codable {
     public var opcClientRequestId: String?
     public var opcRequestId: String?
     public var eTag: String?

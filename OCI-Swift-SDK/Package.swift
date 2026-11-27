@@ -1604,12 +1604,22 @@ let package = Package(
             name: "OCI-Swift-SDKTests",
             dependencies: ["OCI-Swift-SDK"],
             path: "Tests",
-            exclude: ["CommonTests"]
+            exclude: ["CommonTests", "IdentityTests", "ObjectStorageTests"]
         ),
         .testTarget(
             name: "CommonTests",
             dependencies: ["OCICommon"],
             path: "Tests/CommonTests"
+        ),
+        .testTarget(
+            name: "IdentityTests",
+            dependencies: ["identity", "OCICommon"],
+            path: "Tests/IdentityTests"
+        ),
+        .testTarget(
+            name: "ObjectStorageTests",
+            dependencies: ["objectstorage", "OCICommon"],
+            path: "Tests/ObjectStorageTests"
         )
     ]
 )

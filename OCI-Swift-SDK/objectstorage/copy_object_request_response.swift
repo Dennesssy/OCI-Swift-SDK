@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - CopyObjectRequest
 
-public struct CopyObjectRequest: Sendable {
+public struct CopyObjectRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var copyObjectDetails: CopyObjectDetails?
@@ -34,7 +34,7 @@ public struct CopyObjectRequest: Sendable {
 
 // MARK: - CopyObjectResponse
 
-public struct CopyObjectResponse: Sendable {
+public struct CopyObjectResponse: Sendable, Codable {
     public var opcWorkRequestId: String?
     public var opcRequestId: String?
     public var opcClientRequestId: String?

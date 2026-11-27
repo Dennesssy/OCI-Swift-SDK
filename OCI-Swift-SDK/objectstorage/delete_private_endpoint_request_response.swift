@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - DeletePrivateEndpointRequest
 
-public struct DeletePrivateEndpointRequest: Sendable {
+public struct DeletePrivateEndpointRequest: Sendable, Codable {
     public var namespaceName: String
     public var peName: String
     public var ifMatch: String?
@@ -20,7 +20,7 @@ public struct DeletePrivateEndpointRequest: Sendable {
 
 // MARK: - DeletePrivateEndpointResponse
 
-public struct DeletePrivateEndpointResponse: Sendable {
+public struct DeletePrivateEndpointResponse: Sendable, Codable {
     public var opcWorkRequestId: String?
     public var opcClientRequestId: String?
     public var opcRequestId: String?

@@ -57,6 +57,23 @@ You will need:
 
 See [SDK and Tool Configuration][3] in the OCI documentation for setup instructions.
 
+### Loading configuration
+
+The `ConfigFileProvider` reads the standard OCI config file and honors the
+`OCI_CONFIG_FILE` environment-variable override (falling back to `~/.oci/config`):
+
+```swift
+let config = try ConfigFileProvider()                  // ~/.oci/config (or $OCI_CONFIG_FILE)
+let prod = try ConfigFileProvider(profile: "PROD")     // named profile
+```
+
+> **Instance / resource principals:** `InstancePrincipalProvider` performs the live IMDS
+> identity-document fetch and `ResourcePrincipalProvider` reads the `OCI_RESOURCE_PRINCIPAL_*`
+> environment. Full instance-principal authentication additionally requires exchanging the
+> IMDS leaf certificate for a federation security token against the OCI auth service; that
+> exchange only runs inside an OCI compute instance (live IMDS) and is documented as
+> **out of scope** here — it is not verifiable without that environment.
+
 ---
 
 ## Usage
@@ -102,10 +119,13 @@ OCI-Swift-SDK/
 
 Each service folder maps 1:1 to an OCI service and contains a `*_client.swift`, request/response structs, and model types.
 
-> **Note:** `core/` currently contains model types only — the four upstream core clients
-> (`core_compute_client.go`, `core_virtualnetwork_client.go`, `core_blockstorage_client.go`,
-> `core_computemanagement_client.go`) are not yet generated. Generation requires the
-> `oci-go-sdk` source checkout and the [tools/gen](tools/gen/gen.py) generator.
+> **Known gap (core clients):** `core/` contains model types only — the four upstream
+> `oci-go-sdk` clients (`ComputeClient`, `VirtualNetworkClient`, `BlockstorageClient`,
+> `ComputeManagementClient`) are not generated. Running [tools/gen](tools/gen/gen.py)
+> against the upstream `oci-go-sdk` `core/` source yields 441 operations but references
+> ~388 model types that have no Swift equivalents yet (reported as `missing_types`), so
+> emitting these clients today would not compile. Closing the gap requires first
+> generating the full `core/` model catalog; this is a deliberate, documented limitation.
 
 ---
 

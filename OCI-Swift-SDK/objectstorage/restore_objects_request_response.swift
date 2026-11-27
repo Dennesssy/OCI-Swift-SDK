@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - RestoreObjectsRequest
 
-public struct RestoreObjectsRequest: Sendable {
+public struct RestoreObjectsRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var restoreObjectsDetails: RestoreObjectsDetails?
@@ -20,7 +20,7 @@ public struct RestoreObjectsRequest: Sendable {
 
 // MARK: - RestoreObjectsResponse
 
-public struct RestoreObjectsResponse: Sendable {
+public struct RestoreObjectsResponse: Sendable, Codable {
     public var opcClientRequestId: String?
     public var opcRequestId: String?
 

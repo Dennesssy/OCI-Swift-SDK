@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - DeleteBucketRequest
 
-public struct DeleteBucketRequest: Sendable {
+public struct DeleteBucketRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var ifMatch: String?
@@ -20,7 +20,7 @@ public struct DeleteBucketRequest: Sendable {
 
 // MARK: - DeleteBucketResponse
 
-public struct DeleteBucketResponse: Sendable {
+public struct DeleteBucketResponse: Sendable, Codable {
     public var opcClientRequestId: String?
     public var opcRequestId: String?
 

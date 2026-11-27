@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - UpdateBucketRequest
 
-public struct UpdateBucketRequest: Sendable {
+public struct UpdateBucketRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var updateBucketDetails: UpdateBucketDetails?
@@ -22,7 +22,7 @@ public struct UpdateBucketRequest: Sendable {
 
 // MARK: - UpdateBucketResponse
 
-public struct UpdateBucketResponse: Sendable {
+public struct UpdateBucketResponse: Sendable, Codable {
     public var bucket: Bucket?
     public var opcClientRequestId: String?
     public var opcRequestId: String?

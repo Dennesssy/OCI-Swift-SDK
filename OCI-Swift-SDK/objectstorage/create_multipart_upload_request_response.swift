@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - CreateMultipartUploadRequest
 
-public struct CreateMultipartUploadRequest: Sendable {
+public struct CreateMultipartUploadRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var createMultipartUploadDetails: CreateMultipartUploadDetails?
@@ -34,7 +34,7 @@ public struct CreateMultipartUploadRequest: Sendable {
 
 // MARK: - CreateMultipartUploadResponse
 
-public struct CreateMultipartUploadResponse: Sendable {
+public struct CreateMultipartUploadResponse: Sendable, Codable {
     public var multipartUpload: MultipartUpload?
     public var opcClientRequestId: String?
     public var opcRequestId: String?

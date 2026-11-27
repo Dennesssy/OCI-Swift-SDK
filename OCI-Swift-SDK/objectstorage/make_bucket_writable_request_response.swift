@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - MakeBucketWritableRequest
 
-public struct MakeBucketWritableRequest: Sendable {
+public struct MakeBucketWritableRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var opcClientRequestId: String?
@@ -18,7 +18,7 @@ public struct MakeBucketWritableRequest: Sendable {
 
 // MARK: - MakeBucketWritableResponse
 
-public struct MakeBucketWritableResponse: Sendable {
+public struct MakeBucketWritableResponse: Sendable, Codable {
     public var opcClientRequestId: String?
     public var opcRequestId: String?
 

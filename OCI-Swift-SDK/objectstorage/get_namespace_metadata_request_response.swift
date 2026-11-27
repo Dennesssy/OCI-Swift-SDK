@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - GetNamespaceMetadataRequest
 
-public struct GetNamespaceMetadataRequest: Sendable {
+public struct GetNamespaceMetadataRequest: Sendable, Codable {
     public var namespaceName: String
     public var opcClientRequestId: String?
 
@@ -16,7 +16,7 @@ public struct GetNamespaceMetadataRequest: Sendable {
 
 // MARK: - GetNamespaceMetadataResponse
 
-public struct GetNamespaceMetadataResponse: Sendable {
+public struct GetNamespaceMetadataResponse: Sendable, Codable {
     public var namespaceMetadata: NamespaceMetadata?
     public var opcClientRequestId: String?
     public var opcRequestId: String?

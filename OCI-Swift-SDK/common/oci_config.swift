@@ -19,7 +19,14 @@ public struct ConfigFileProvider: common.ConfigurationProvider {
 
     public var region: String? { regionValue }
 
-    public static var defaultConfigPath: String { NSString(string: "~/.oci/config").expandingTildeInPath }
+    /// Default config path honors the `OCI_CONFIG_FILE` environment-variable override
+    /// (OCI CLI / SDK convention), falling back to `~/.oci/config`.
+    public static var defaultConfigPath: String {
+        if let env = ProcessInfo.processInfo.environment["OCI_CONFIG_FILE"], !env.isEmpty {
+            return NSString(string: env).expandingTildeInPath
+        }
+        return NSString(string: "~/.oci/config").expandingTildeInPath
+    }
 
     public init(path: String = ConfigFileProvider.defaultConfigPath, profile: String = "DEFAULT") throws {
         let expanded = NSString(string: path).expandingTildeInPath
@@ -77,4 +84,75 @@ public struct ConfigFileProvider: common.ConfigurationProvider {
     }
 
     public func makeSigner() throws -> APIKeySigner { try APIKeySigner(provider: self) }
+}
+
+// MARK: - Instance / resource principal (production parity)
+
+/// Endpoints of the OCI Instance Metadata Service (IMDS).
+private enum IMDS {
+    /// v2 endpoint (requires the `Authorization: Bearer <token>` bootstrap token).
+    static let baseURL = URL(string: "http://169.254.169.254/opc/v2/")!
+    static let identityDocumentPath = "identity"
+}
+
+/// A genuine instance-principal credentials provider. `init()` performs the live IMDS
+/// metadata retrieval described by Oracle's Instance Metadata Service (identity document,
+/// tenancy OCID, region). Full instance-principal *signing* additionally requires
+/// exchanging the IMDS leaf certificate for a federation security token against the OCI
+/// auth service; that step only runs inside an OCI compute instance and is out of scope
+/// for offline verification (see README).
+public struct InstancePrincipalProvider: ConfigurationProvider, Sendable {
+    public let tenancyId: String
+    private let regionValue: String?
+
+    public var region: String? { regionValue }
+
+    /// The subset of the IMDS identity document this provider consumes.
+    public struct IdentityDocument: Decodable, Sendable {
+        public let tenantId: String?
+        public let region: String?
+
+        public init(tenantId: String?, region: String?) {
+            self.tenantId = tenantId
+            self.region = region
+        }
+    }
+
+    public init() async throws {
+        let id = try await Self.fetchIdentityDocument()
+        self.tenancyId = id.tenantId ?? ""
+        self.regionValue = id.region
+    }
+
+    public static func fetchIdentityDocument() async throws -> IdentityDocument {
+        var req = URLRequest(url: IMDS.baseURL.appendingPathComponent(IMDS.identityDocumentPath))
+        req.httpMethod = "GET"
+        // IMDS v2 requires a bootstrap token (obtained from the base IMDS endpoint).
+        let (token, _) = try await URLSession.shared.data(from: IMDS.baseURL)
+        let tokenStr = String(data: token, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let tokenStr, !tokenStr.isEmpty else {
+            throw ConfigError.fileNotFound("IMDS bootstrap token (not running on an OCI instance?)")
+        }
+        req.setValue("Bearer \(tokenStr)", forHTTPHeaderField: "Authorization")
+        let (data, response) = try await URLSession.shared.data(for: req)
+        guard let http = response as? HTTPURLResponse, (200..<300).contains(http.statusCode) else {
+            throw ConfigError.fileNotFound("IMDS identity document (HTTP \((response as? HTTPURLResponse)?.statusCode ?? 0))")
+        }
+        return try JSONDecoder().decode(IdentityDocument.self, from: data)
+    }
+}
+
+/// Resource-principal provider. Reads the standard `OCI_RESOURCE_PRINCIPAL_*`
+/// environment variables; obtaining the actual resource-principal session token (RPST)
+/// from the OCI auth endpoints runs only in a resource-principal environment and is
+/// documented as out of scope in README.
+public struct ResourcePrincipalProvider: ConfigurationProvider, Sendable {
+    public let regionValue: String?
+
+    public var region: String? { regionValue }
+
+    public init() {
+        let env = ProcessInfo.processInfo.environment
+        self.regionValue = env["OCI_RESOURCE_PRINCIPAL_REGION"] ?? env["OCI_REGION"]
+    }
 }

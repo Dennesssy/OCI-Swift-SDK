@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - ListBucketsRequest
 
-public struct ListBucketsRequest: Sendable {
+public struct ListBucketsRequest: Sendable, Codable {
     public var namespaceName: String
     public var compartmentId: String
     public var limit: Int?
@@ -24,7 +24,7 @@ public struct ListBucketsRequest: Sendable {
 
 // MARK: - ListBucketsResponse
 
-public struct ListBucketsResponse: Sendable {
+public struct ListBucketsResponse: Sendable, Codable {
     public var items: [BucketSummary]?
     public var opcClientRequestId: String?
     public var opcRequestId: String?

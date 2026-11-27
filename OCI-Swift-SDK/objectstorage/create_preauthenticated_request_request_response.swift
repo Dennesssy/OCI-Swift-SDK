@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - CreatePreauthenticatedRequestRequest
 
-public struct CreatePreauthenticatedRequestRequest: Sendable {
+public struct CreatePreauthenticatedRequestRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var createPreauthenticatedRequestDetails: CreatePreauthenticatedRequestDetails?
@@ -20,7 +20,7 @@ public struct CreatePreauthenticatedRequestRequest: Sendable {
 
 // MARK: - CreatePreauthenticatedRequestResponse
 
-public struct CreatePreauthenticatedRequestResponse: Sendable {
+public struct CreatePreauthenticatedRequestResponse: Sendable, Codable {
     public var preauthenticatedRequest: PreauthenticatedRequest?
     public var opcClientRequestId: String?
     public var opcRequestId: String?

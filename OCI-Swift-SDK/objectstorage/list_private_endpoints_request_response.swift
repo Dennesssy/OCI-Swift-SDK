@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - ListPrivateEndpointsRequest
 
-public struct ListPrivateEndpointsRequest: Sendable {
+public struct ListPrivateEndpointsRequest: Sendable, Codable {
     public var namespaceName: String
     public var compartmentId: String
     public var limit: Int?
@@ -26,7 +26,7 @@ public struct ListPrivateEndpointsRequest: Sendable {
 
 // MARK: - ListPrivateEndpointsResponse
 
-public struct ListPrivateEndpointsResponse: Sendable {
+public struct ListPrivateEndpointsResponse: Sendable, Codable {
     public var items: [PrivateEndpointSummary]?
     public var opcClientRequestId: String?
     public var opcRequestId: String?

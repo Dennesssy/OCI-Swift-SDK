@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - AbortMultipartUploadRequest
 
-public struct AbortMultipartUploadRequest: Sendable {
+public struct AbortMultipartUploadRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var objectName: String
@@ -22,7 +22,7 @@ public struct AbortMultipartUploadRequest: Sendable {
 
 // MARK: - AbortMultipartUploadResponse
 
-public struct AbortMultipartUploadResponse: Sendable {
+public struct AbortMultipartUploadResponse: Sendable, Codable {
     public var opcClientRequestId: String?
     public var opcRequestId: String?
 

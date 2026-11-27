@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - UpdateObjectStorageTierRequest
 
-public struct UpdateObjectStorageTierRequest: Sendable {
+public struct UpdateObjectStorageTierRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var updateObjectStorageTierDetails: UpdateObjectStorageTierDetails?
@@ -20,7 +20,7 @@ public struct UpdateObjectStorageTierRequest: Sendable {
 
 // MARK: - UpdateObjectStorageTierResponse
 
-public struct UpdateObjectStorageTierResponse: Sendable {
+public struct UpdateObjectStorageTierResponse: Sendable, Codable {
     public var opcClientRequestId: String?
     public var opcRequestId: String?
 

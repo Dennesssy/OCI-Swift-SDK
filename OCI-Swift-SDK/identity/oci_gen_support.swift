@@ -78,8 +78,23 @@ enum OCIGen {
         }
     }
 
-    static func setQuery(_ q: inout [String: String], _ name: String, _ value: Any?) {
-        if let s = string(value) { q[name] = s }
+    static func setQuery(_ q: inout [URLQueryItem], _ name: String, _ value: Any?) {
+        if let s = string(value) { q.append(URLQueryItem(name: name, value: s)) }
+    }
+
+    /// Appends one entry per element for `collectionFormat=multi` query parameters
+    /// (repeated keys), instead of comma-joining.
+    static func setQueryMulti(_ q: inout [URLQueryItem], _ name: String, _ value: Any?) {
+        guard var v = value else { return }
+        while Mirror(reflecting: v).displayStyle == .optional {
+            guard let inner = Mirror(reflecting: v).children.first?.value else { return }
+            v = inner
+        }
+        if let arr = v as? [Any] {
+            for item in arr { if let s = string(item) { q.append(URLQueryItem(name: name, value: s)) } }
+        } else if let s = string(v) {
+            q.append(URLQueryItem(name: name, value: s))
+        }
     }
 
     static func setHeader(_ h: inout [String: String], _ name: String, _ value: Any?) {
