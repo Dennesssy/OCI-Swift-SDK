@@ -30,3 +30,7 @@ dist/
 # Env / secrets
 .env
 .env.*
+
+# Python (tools/gen)
+__pycache__/
+*.pyc

@@ -90,7 +90,7 @@ OCI-Swift-SDK/
 ├── common/          # Auth, HTTP signing, shared types
 ├── Sources/         # Main library entry point
 ├── Tests/
-├── core/            # Compute, VCN, Block Storage
+├── core/            # Core model types (Compute/VCN/Block Storage clients not yet generated)
 ├── identity/        # IAM, Users, Groups, Policies
 ├── objectstorage/
 ├── database/
@@ -101,6 +101,11 @@ OCI-Swift-SDK/
 ```
 
 Each service folder maps 1:1 to an OCI service and contains a `*_client.swift`, request/response structs, and model types.
+
+> **Note:** `core/` currently contains model types only — the four upstream core clients
+> (`core_compute_client.go`, `core_virtualnetwork_client.go`, `core_blockstorage_client.go`,
+> `core_computemanagement_client.go`) are not yet generated. Generation requires the
+> `oci-go-sdk` source checkout and the [tools/gen](tools/gen/gen.py) generator.
 
 ---
 
@@ -129,6 +134,18 @@ Each service folder maps 1:1 to an OCI service and contains a `*_client.swift`, 
 ## Contributing
 
 Contributions are welcome. Open an [issue][4] for bugs or missing service coverage, or submit a pull request.
+
+---
+
+## Code Review & Maintenance
+
+- Generated service clients are produced by [tools/gen/gen.py](tools/gen/gen.py) from the
+  upstream `oci-go-sdk` sources. Do not hand-edit generated files unless the generator
+  cannot express the fix (see `HAND-EDIT` markers); generator bugs belong in `tools/gen/`.
+- The generator emits `_` for unused response bodies, so bodyless operations do not bind a
+  dead `data` value.
+- PR summaries and correctness review are provided by Macroscope (markers in
+  `.github/pull_request_template.md`) and CodeRabbit (CLI).
 
 ---
 
