@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - CreatePrivateEndpointRequest
 
-public struct CreatePrivateEndpointRequest: Sendable {
+public struct CreatePrivateEndpointRequest: Sendable, Codable {
     public var namespaceName: String
     public var createPrivateEndpointDetails: CreatePrivateEndpointDetails?
     public var opcClientRequestId: String?
@@ -18,7 +18,7 @@ public struct CreatePrivateEndpointRequest: Sendable {
 
 // MARK: - CreatePrivateEndpointResponse
 
-public struct CreatePrivateEndpointResponse: Sendable {
+public struct CreatePrivateEndpointResponse: Sendable, Codable {
     public var opcWorkRequestId: String?
     public var opcRequestId: String?
     public var opcClientRequestId: String?

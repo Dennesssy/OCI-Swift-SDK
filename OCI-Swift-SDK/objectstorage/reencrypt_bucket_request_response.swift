@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - ReencryptBucketRequest
 
-public struct ReencryptBucketRequest: Sendable {
+public struct ReencryptBucketRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var isReencryptBucketKeyOnly: Bool?
@@ -20,7 +20,7 @@ public struct ReencryptBucketRequest: Sendable {
 
 // MARK: - ReencryptBucketResponse
 
-public struct ReencryptBucketResponse: Sendable {
+public struct ReencryptBucketResponse: Sendable, Codable {
     public var opcWorkRequestId: String?
     public var opcClientRequestId: String?
     public var opcRequestId: String?

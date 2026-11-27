@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - DeleteRetentionRuleRequest
 
-public struct DeleteRetentionRuleRequest: Sendable {
+public struct DeleteRetentionRuleRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var retentionRuleId: String
@@ -22,7 +22,7 @@ public struct DeleteRetentionRuleRequest: Sendable {
 
 // MARK: - DeleteRetentionRuleResponse
 
-public struct DeleteRetentionRuleResponse: Sendable {
+public struct DeleteRetentionRuleResponse: Sendable, Codable {
     public var opcClientRequestId: String?
     public var opcRequestId: String?
 

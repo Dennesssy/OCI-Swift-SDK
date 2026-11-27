@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - UpdatePrivateEndpointRequest
 
-public struct UpdatePrivateEndpointRequest: Sendable {
+public struct UpdatePrivateEndpointRequest: Sendable, Codable {
     public var namespaceName: String
     public var peName: String
     public var updatePrivateEndpointDetails: UpdatePrivateEndpointDetails?
@@ -22,7 +22,7 @@ public struct UpdatePrivateEndpointRequest: Sendable {
 
 // MARK: - UpdatePrivateEndpointResponse
 
-public struct UpdatePrivateEndpointResponse: Sendable {
+public struct UpdatePrivateEndpointResponse: Sendable, Codable {
     public var opcWorkRequestId: String?
     public var opcClientRequestId: String?
     public var opcRequestId: String?

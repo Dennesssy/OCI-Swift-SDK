@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - ListObjectVersionsRequest
 
-public struct ListObjectVersionsRequest: Sendable {
+public struct ListObjectVersionsRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var prefix: String?
@@ -34,7 +34,7 @@ public struct ListObjectVersionsRequest: Sendable {
 
 // MARK: - ListObjectVersionsResponse
 
-public struct ListObjectVersionsResponse: Sendable {
+public struct ListObjectVersionsResponse: Sendable, Codable {
     public var objectVersionCollection: ObjectVersionCollection?
     public var opcClientRequestId: String?
     public var opcRequestId: String?

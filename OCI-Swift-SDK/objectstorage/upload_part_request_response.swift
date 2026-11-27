@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - UploadPartRequest
 
-public struct UploadPartRequest: Sendable {
+public struct UploadPartRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var objectName: String
@@ -52,7 +52,7 @@ public struct UploadPartRequest: Sendable {
 
 // MARK: - UploadPartResponse
 
-public struct UploadPartResponse: Sendable {
+public struct UploadPartResponse: Sendable, Codable {
     public var opcClientRequestId: String?
     public var opcRequestId: String?
     public var opcContentMd5: String?

@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - DeleteObjectLifecyclePolicyRequest
 
-public struct DeleteObjectLifecyclePolicyRequest: Sendable {
+public struct DeleteObjectLifecyclePolicyRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var opcClientRequestId: String?
@@ -20,7 +20,7 @@ public struct DeleteObjectLifecyclePolicyRequest: Sendable {
 
 // MARK: - DeleteObjectLifecyclePolicyResponse
 
-public struct DeleteObjectLifecyclePolicyResponse: Sendable {
+public struct DeleteObjectLifecyclePolicyResponse: Sendable, Codable {
     public var opcRequestId: String?
     public var opcClientRequestId: String?
 

@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - ListObjectsRequest
 
-public struct ListObjectsRequest: Sendable {
+public struct ListObjectsRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var prefix: String?
@@ -32,7 +32,7 @@ public struct ListObjectsRequest: Sendable {
 
 // MARK: - ListObjectsResponse
 
-public struct ListObjectsResponse: Sendable {
+public struct ListObjectsResponse: Sendable, Codable {
     public var listObjects: ListObjects?
     public var opcClientRequestId: String?
     public var opcRequestId: String?

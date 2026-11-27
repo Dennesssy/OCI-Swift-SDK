@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - GetNamespaceRequest
 
-public struct GetNamespaceRequest: Sendable {
+public struct GetNamespaceRequest: Sendable, Codable {
     public var opcClientRequestId: String?
     public var compartmentId: String?
 
@@ -16,7 +16,7 @@ public struct GetNamespaceRequest: Sendable {
 
 // MARK: - GetNamespaceResponse
 
-public struct GetNamespaceResponse: Sendable {
+public struct GetNamespaceResponse: Sendable, Codable {
     public var value: String?
 
     public init(value: String? = nil) {

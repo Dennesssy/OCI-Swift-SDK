@@ -30,7 +30,7 @@ public final class IdentityClient: Sendable {
     public func activateDomain(_ request: ActivateDomainRequest) async throws -> ActivateDomainResponse {
         var path = "/20160918/domains/{domainId}/actions/activate"
         path = path.replacingOccurrences(of: "{domainId}", with: try OCIGen.pathParam(request.domainId, "domainId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -50,7 +50,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/users/{userId}/mfaTotpDevices/{mfaTotpDeviceId}/actions/activate"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
         path = path.replacingOccurrences(of: "{mfaTotpDeviceId}", with: try OCIGen.pathParam(request.mfaTotpDeviceId, "mfaTotpDeviceId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -71,7 +71,7 @@ public final class IdentityClient: Sendable {
     public func addTagDefaultLock(_ request: AddTagDefaultLockRequest) async throws -> AddTagDefaultLockResponse {
         var path = "/20160918/tagDefaults/{tagDefaultId}/actions/addLock"
         path = path.replacingOccurrences(of: "{tagDefaultId}", with: try OCIGen.pathParam(request.tagDefaultId, "tagDefaultId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -92,7 +92,7 @@ public final class IdentityClient: Sendable {
     public func addTagNamespaceLock(_ request: AddTagNamespaceLockRequest) async throws -> AddTagNamespaceLockResponse {
         var path = "/20160918/tagNamespaces/{tagNamespaceId}/actions/addLock"
         path = path.replacingOccurrences(of: "{tagNamespaceId}", with: try OCIGen.pathParam(request.tagNamespaceId, "tagNamespaceId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -114,7 +114,7 @@ public final class IdentityClient: Sendable {
     /// object, first make sure its `lifecycleState` has changed to ACTIVE.
     public func addUserToGroup(_ request: AddUserToGroupRequest) async throws -> AddUserToGroupResponse {
         let path = "/20160918/userGroupMemberships"
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -136,7 +136,7 @@ public final class IdentityClient: Sendable {
     /// includes all tag defaults from the current compartment back to the root compartment.
     public func assembleEffectiveTagSet(_ request: AssembleEffectiveTagSetRequest) async throws -> AssembleEffectiveTagSetResponse {
         let path = "/20160918/tagDefaults/actions/assembleEffectiveTagSet"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "lifecycleState", request.lifecycleState)
         var headers: [String: String] = [:]
@@ -159,7 +159,7 @@ public final class IdentityClient: Sendable {
     public func bulkDeleteResources(_ request: BulkDeleteResourcesRequest) async throws -> BulkDeleteResourcesResponse {
         var path = "/20160918/compartments/{compartmentId}/actions/bulkDeleteResources"
         path = path.replacingOccurrences(of: "{compartmentId}", with: try OCIGen.pathParam(request.compartmentId, "compartmentId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -182,7 +182,7 @@ public final class IdentityClient: Sendable {
     /// - If the tag is used with dynamic groups, the rules that contain the tag are no longer
     public func bulkDeleteTags(_ request: BulkDeleteTagsRequest) async throws -> BulkDeleteTagsResponse {
         let path = "/20160918/tags/actions/bulkDelete"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "isLockOverride", request.isLockOverride)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -206,7 +206,7 @@ public final class IdentityClient: Sendable {
     /// - Remove a defined tag from a resource. The tag is removed from the resource regardless of the tag value.
     public func bulkEditTags(_ request: BulkEditTagsRequest) async throws -> BulkEditTagsResponse {
         let path = "/20160918/tags/actions/bulkEdit"
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -229,7 +229,7 @@ public final class IdentityClient: Sendable {
     public func bulkMoveResources(_ request: BulkMoveResourcesRequest) async throws -> BulkMoveResourcesResponse {
         var path = "/20160918/compartments/{compartmentId}/actions/bulkMoveResources"
         path = path.replacingOccurrences(of: "{compartmentId}", with: try OCIGen.pathParam(request.compartmentId, "compartmentId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -253,7 +253,7 @@ public final class IdentityClient: Sendable {
     public func cascadeDeleteTagNamespace(_ request: CascadeDeleteTagNamespaceRequest) async throws -> CascadeDeleteTagNamespaceResponse {
         var path = "/20160918/tagNamespaces/{tagNamespaceId}/actions/cascadeDelete"
         path = path.replacingOccurrences(of: "{tagNamespaceId}", with: try OCIGen.pathParam(request.tagNamespaceId, "tagNamespaceId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "isLockOverride", request.isLockOverride)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -275,7 +275,7 @@ public final class IdentityClient: Sendable {
     public func changeDomainCompartment(_ request: ChangeDomainCompartmentRequest) async throws -> ChangeDomainCompartmentResponse {
         var path = "/20160918/domains/{domainId}/actions/changeCompartment"
         path = path.replacingOccurrences(of: "{domainId}", with: try OCIGen.pathParam(request.domainId, "domainId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -300,7 +300,7 @@ public final class IdentityClient: Sendable {
     public func changeDomainLicenseType(_ request: ChangeDomainLicenseTypeRequest) async throws -> ChangeDomainLicenseTypeResponse {
         var path = "/20160918/domains/{domainId}/actions/changeLicenseType"
         path = path.replacingOccurrences(of: "{domainId}", with: try OCIGen.pathParam(request.domainId, "domainId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -323,7 +323,7 @@ public final class IdentityClient: Sendable {
     public func changeTagNamespaceCompartment(_ request: ChangeTagNamespaceCompartmentRequest) async throws -> ChangeTagNamespaceCompartmentResponse {
         var path = "/20160918/tagNamespaces/{tagNamespaceId}/actions/changeCompartment"
         path = path.replacingOccurrences(of: "{tagNamespaceId}", with: try OCIGen.pathParam(request.tagNamespaceId, "tagNamespaceId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "isLockOverride", request.isLockOverride)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -347,7 +347,7 @@ public final class IdentityClient: Sendable {
     public func createAuthToken(_ request: CreateAuthTokenRequest) async throws -> CreateAuthTokenResponse {
         var path = "/20160918/users/{userId}/authTokens"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -371,7 +371,7 @@ public final class IdentityClient: Sendable {
     /// your tenancy. You can use this name or the OCID when writing policies that apply
     public func createCompartment(_ request: CreateCompartmentRequest) async throws -> CreateCompartmentResponse {
         let path = "/20160918/compartments"
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -396,7 +396,7 @@ public final class IdentityClient: Sendable {
     public func createCustomerSecretKey(_ request: CreateCustomerSecretKeyRequest) async throws -> CreateCustomerSecretKeyResponse {
         var path = "/20160918/users/{userId}/customerSecretKeys"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -416,7 +416,7 @@ public final class IdentityClient: Sendable {
     public func createDbCredential(_ request: CreateDbCredentialRequest) async throws -> CreateDbCredentialResponse {
         var path = "/20160918/users/{userId}/dbCredentials"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -440,7 +440,7 @@ public final class IdentityClient: Sendable {
     /// After creating an `identity domain`, first make sure its `lifecycleState` changes from CREATING to ACTIVE before you use it.
     public func createDomain(_ request: CreateDomainRequest) async throws -> CreateDomainResponse {
         let path = "/20160918/domains"
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -463,7 +463,7 @@ public final class IdentityClient: Sendable {
     /// Resource Identifiers (https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
     public func createDynamicGroup(_ request: CreateDynamicGroupRequest) async throws -> CreateDynamicGroupResponse {
         let path = "/20160918/dynamicGroups"
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -487,7 +487,7 @@ public final class IdentityClient: Sendable {
     /// Resource Identifiers (https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
     public func createGroup(_ request: CreateGroupRequest) async throws -> CreateGroupResponse {
         let path = "/20160918/groups"
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -511,7 +511,7 @@ public final class IdentityClient: Sendable {
     /// OCIDs, see Resource Identifiers (https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
     public func createIdentityProvider(_ request: CreateIdentityProviderRequest) async throws -> CreateIdentityProviderResponse {
         let path = "/20160918/identityProviders"
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -533,7 +533,7 @@ public final class IdentityClient: Sendable {
     public func createIdpGroupMapping(_ request: CreateIdpGroupMappingRequest) async throws -> CreateIdpGroupMappingResponse {
         var path = "/20160918/identityProviders/{identityProviderId}/groupMappings"
         path = path.replacingOccurrences(of: "{identityProviderId}", with: try OCIGen.pathParam(request.identityProviderId, "identityProviderId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -553,7 +553,7 @@ public final class IdentityClient: Sendable {
     public func createMfaTotpDevice(_ request: CreateMfaTotpDeviceRequest) async throws -> CreateMfaTotpDeviceResponse {
         var path = "/20160918/users/{userId}/mfaTotpDevices"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -576,7 +576,7 @@ public final class IdentityClient: Sendable {
     /// Resource Identifiers (https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
     public func createNetworkSource(_ request: CreateNetworkSourceRequest) async throws -> CreateNetworkSourceResponse {
         let path = "/20160918/networkSources"
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -596,7 +596,7 @@ public final class IdentityClient: Sendable {
     public func createOAuthClientCredential(_ request: CreateOAuthClientCredentialRequest) async throws -> CreateOAuthClientCredentialResponse {
         var path = "/20160918/users/{userId}/oauth2ClientCredentials"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -621,7 +621,7 @@ public final class IdentityClient: Sendable {
     public func createOrResetUIPassword(_ request: CreateOrResetUIPasswordRequest) async throws -> CreateOrResetUIPasswordResponse {
         var path = "/20160918/users/{userId}/uiPassword"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -644,7 +644,7 @@ public final class IdentityClient: Sendable {
     /// have to be unique, and you can change it anytime with UpdatePolicy.
     public func createPolicy(_ request: CreatePolicyRequest) async throws -> CreatePolicyResponse {
         let path = "/20160918/policies"
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -664,7 +664,7 @@ public final class IdentityClient: Sendable {
     public func createRegionSubscription(_ request: CreateRegionSubscriptionRequest) async throws -> CreateRegionSubscriptionResponse {
         var path = "/20160918/tenancies/{tenancyId}/regionSubscriptions"
         path = path.replacingOccurrences(of: "{tenancyId}", with: try OCIGen.pathParam(request.tenancyId, "tenancyId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -686,7 +686,7 @@ public final class IdentityClient: Sendable {
     public func createSmtpCredential(_ request: CreateSmtpCredentialRequest) async throws -> CreateSmtpCredentialResponse {
         var path = "/20160918/users/{userId}/smtpCredentials"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -711,7 +711,7 @@ public final class IdentityClient: Sendable {
     public func createSwiftPassword(_ request: CreateSwiftPasswordRequest) async throws -> CreateSwiftPasswordResponse {
         var path = "/20160918/users/{userId}/swiftPasswords"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -736,7 +736,7 @@ public final class IdentityClient: Sendable {
     public func createTag(_ request: CreateTagRequest) async throws -> CreateTagResponse {
         var path = "/20160918/tagNamespaces/{tagNamespaceId}/tags"
         path = path.replacingOccurrences(of: "{tagNamespaceId}", with: try OCIGen.pathParam(request.tagNamespaceId, "tagNamespaceId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "isLockOverride", request.isLockOverride)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -761,7 +761,7 @@ public final class IdentityClient: Sendable {
     /// * If the `isRequired` flag is set to "false", the value you enter is set during resource creation.
     public func createTagDefault(_ request: CreateTagDefaultRequest) async throws -> CreateTagDefaultResponse {
         let path = "/20160918/tagDefaults"
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -785,7 +785,7 @@ public final class IdentityClient: Sendable {
     /// Names are case insensitive. That means, for example, "myNamespace" and "mynamespace" are not allowed
     public func createTagNamespace(_ request: CreateTagNamespaceRequest) async throws -> CreateTagNamespaceResponse {
         let path = "/20160918/tagNamespaces"
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -808,7 +808,7 @@ public final class IdentityClient: Sendable {
     /// which typically reside within compartments inside the tenancy. For information about OCIDs, see
     public func createUser(_ request: CreateUserRequest) async throws -> CreateUserResponse {
         let path = "/20160918/users"
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -833,7 +833,7 @@ public final class IdentityClient: Sendable {
     public func deactivateDomain(_ request: DeactivateDomainRequest) async throws -> DeactivateDomainResponse {
         var path = "/20160918/domains/{domainId}/actions/deactivate"
         path = path.replacingOccurrences(of: "{domainId}", with: try OCIGen.pathParam(request.domainId, "domainId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -857,7 +857,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/users/{userId}/apiKeys/{fingerprint}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
         path = path.replacingOccurrences(of: "{fingerprint}", with: try OCIGen.pathParam(request.fingerprint, "fingerprint"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -874,7 +874,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/users/{userId}/authTokens/{authTokenId}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
         path = path.replacingOccurrences(of: "{authTokenId}", with: try OCIGen.pathParam(request.authTokenId, "authTokenId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -890,7 +890,7 @@ public final class IdentityClient: Sendable {
     public func deleteCompartment(_ request: DeleteCompartmentRequest) async throws -> DeleteCompartmentResponse {
         var path = "/20160918/compartments/{compartmentId}"
         path = path.replacingOccurrences(of: "{compartmentId}", with: try OCIGen.pathParam(request.compartmentId, "compartmentId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -908,7 +908,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/users/{userId}/customerSecretKeys/{customerSecretKeyId}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
         path = path.replacingOccurrences(of: "{customerSecretKeyId}", with: try OCIGen.pathParam(request.customerSecretKeyId, "customerSecretKeyId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -925,7 +925,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/users/{userId}/dbCredentials/{dbCredentialId}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
         path = path.replacingOccurrences(of: "{dbCredentialId}", with: try OCIGen.pathParam(request.dbCredentialId, "dbCredentialId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -946,7 +946,7 @@ public final class IdentityClient: Sendable {
     public func deleteDomain(_ request: DeleteDomainRequest) async throws -> DeleteDomainResponse {
         var path = "/20160918/domains/{domainId}"
         path = path.replacingOccurrences(of: "{domainId}", with: try OCIGen.pathParam(request.domainId, "domainId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -963,7 +963,7 @@ public final class IdentityClient: Sendable {
     public func deleteDynamicGroup(_ request: DeleteDynamicGroupRequest) async throws -> DeleteDynamicGroupResponse {
         var path = "/20160918/dynamicGroups/{dynamicGroupId}"
         path = path.replacingOccurrences(of: "{dynamicGroupId}", with: try OCIGen.pathParam(request.dynamicGroupId, "dynamicGroupId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -979,7 +979,7 @@ public final class IdentityClient: Sendable {
     public func deleteGroup(_ request: DeleteGroupRequest) async throws -> DeleteGroupResponse {
         var path = "/20160918/groups/{groupId}"
         path = path.replacingOccurrences(of: "{groupId}", with: try OCIGen.pathParam(request.groupId, "groupId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -997,7 +997,7 @@ public final class IdentityClient: Sendable {
     public func deleteIdentityProvider(_ request: DeleteIdentityProviderRequest) async throws -> DeleteIdentityProviderResponse {
         var path = "/20160918/identityProviders/{identityProviderId}"
         path = path.replacingOccurrences(of: "{identityProviderId}", with: try OCIGen.pathParam(request.identityProviderId, "identityProviderId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -1015,7 +1015,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/identityProviders/{identityProviderId}/groupMappings/{mappingId}"
         path = path.replacingOccurrences(of: "{identityProviderId}", with: try OCIGen.pathParam(request.identityProviderId, "identityProviderId"))
         path = path.replacingOccurrences(of: "{mappingId}", with: try OCIGen.pathParam(request.mappingId, "mappingId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -1032,7 +1032,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/users/{userId}/mfaTotpDevices/{mfaTotpDeviceId}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
         path = path.replacingOccurrences(of: "{mfaTotpDeviceId}", with: try OCIGen.pathParam(request.mfaTotpDeviceId, "mfaTotpDeviceId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -1048,7 +1048,7 @@ public final class IdentityClient: Sendable {
     public func deleteNetworkSource(_ request: DeleteNetworkSourceRequest) async throws -> DeleteNetworkSourceResponse {
         var path = "/20160918/networkSources/{networkSourceId}"
         path = path.replacingOccurrences(of: "{networkSourceId}", with: try OCIGen.pathParam(request.networkSourceId, "networkSourceId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -1065,7 +1065,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/users/{userId}/oauth2ClientCredentials/{oauth2ClientCredentialId}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
         path = path.replacingOccurrences(of: "{oauth2ClientCredentialId}", with: try OCIGen.pathParam(request.oauth2ClientCredentialId, "oauth2ClientCredentialId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -1081,7 +1081,7 @@ public final class IdentityClient: Sendable {
     public func deletePolicy(_ request: DeletePolicyRequest) async throws -> DeletePolicyResponse {
         var path = "/20160918/policies/{policyId}"
         path = path.replacingOccurrences(of: "{policyId}", with: try OCIGen.pathParam(request.policyId, "policyId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -1098,7 +1098,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/users/{userId}/smtpCredentials/{smtpCredentialId}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
         path = path.replacingOccurrences(of: "{smtpCredentialId}", with: try OCIGen.pathParam(request.smtpCredentialId, "smtpCredentialId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -1116,7 +1116,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/users/{userId}/swiftPasswords/{swiftPasswordId}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
         path = path.replacingOccurrences(of: "{swiftPasswordId}", with: try OCIGen.pathParam(request.swiftPasswordId, "swiftPasswordId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -1138,7 +1138,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/tagNamespaces/{tagNamespaceId}/tags/{tagName}"
         path = path.replacingOccurrences(of: "{tagNamespaceId}", with: try OCIGen.pathParam(request.tagNamespaceId, "tagNamespaceId"))
         path = path.replacingOccurrences(of: "{tagName}", with: try OCIGen.pathParam(request.tagName, "tagName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "isLockOverride", request.isLockOverride)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -1156,7 +1156,7 @@ public final class IdentityClient: Sendable {
     public func deleteTagDefault(_ request: DeleteTagDefaultRequest) async throws -> DeleteTagDefaultResponse {
         var path = "/20160918/tagDefaults/{tagDefaultId}"
         path = path.replacingOccurrences(of: "{tagDefaultId}", with: try OCIGen.pathParam(request.tagDefaultId, "tagDefaultId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "isLockOverride", request.isLockOverride)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -1177,7 +1177,7 @@ public final class IdentityClient: Sendable {
     public func deleteTagNamespace(_ request: DeleteTagNamespaceRequest) async throws -> DeleteTagNamespaceResponse {
         var path = "/20160918/tagNamespaces/{tagNamespaceId}"
         path = path.replacingOccurrences(of: "{tagNamespaceId}", with: try OCIGen.pathParam(request.tagNamespaceId, "tagNamespaceId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "isLockOverride", request.isLockOverride)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -1194,7 +1194,7 @@ public final class IdentityClient: Sendable {
     public func deleteUser(_ request: DeleteUserRequest) async throws -> DeleteUserResponse {
         var path = "/20160918/users/{userId}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -1215,7 +1215,7 @@ public final class IdentityClient: Sendable {
     public func enableReplicationToRegion(_ request: EnableReplicationToRegionRequest) async throws -> EnableReplicationToRegionResponse {
         var path = "/20160918/domains/{domainId}/actions/enableReplicationToRegion"
         path = path.replacingOccurrences(of: "{domainId}", with: try OCIGen.pathParam(request.domainId, "domainId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -1236,7 +1236,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/users/{userId}/mfaTotpDevices/{mfaTotpDeviceId}/actions/generateSeed"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
         path = path.replacingOccurrences(of: "{mfaTotpDeviceId}", with: try OCIGen.pathParam(request.mfaTotpDeviceId, "mfaTotpDeviceId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -1255,7 +1255,7 @@ public final class IdentityClient: Sendable {
     public func getAuthenticationPolicy(_ request: GetAuthenticationPolicyRequest) async throws -> GetAuthenticationPolicyResponse {
         var path = "/20160918/authenticationPolicies/{compartmentId}"
         path = path.replacingOccurrences(of: "{compartmentId}", with: try OCIGen.pathParam(request.compartmentId, "compartmentId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1277,7 +1277,7 @@ public final class IdentityClient: Sendable {
     public func getCompartment(_ request: GetCompartmentRequest) async throws -> GetCompartmentResponse {
         var path = "/20160918/compartments/{compartmentId}"
         path = path.replacingOccurrences(of: "{compartmentId}", with: try OCIGen.pathParam(request.compartmentId, "compartmentId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1294,7 +1294,7 @@ public final class IdentityClient: Sendable {
     public func getDomain(_ request: GetDomainRequest) async throws -> GetDomainResponse {
         var path = "/20160918/domains/{domainId}"
         path = path.replacingOccurrences(of: "{domainId}", with: try OCIGen.pathParam(request.domainId, "domainId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1311,7 +1311,7 @@ public final class IdentityClient: Sendable {
     public func getDynamicGroup(_ request: GetDynamicGroupRequest) async throws -> GetDynamicGroupResponse {
         var path = "/20160918/dynamicGroups/{dynamicGroupId}"
         path = path.replacingOccurrences(of: "{dynamicGroupId}", with: try OCIGen.pathParam(request.dynamicGroupId, "dynamicGroupId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1331,7 +1331,7 @@ public final class IdentityClient: Sendable {
     public func getGroup(_ request: GetGroupRequest) async throws -> GetGroupResponse {
         var path = "/20160918/groups/{groupId}"
         path = path.replacingOccurrences(of: "{groupId}", with: try OCIGen.pathParam(request.groupId, "groupId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1348,7 +1348,7 @@ public final class IdentityClient: Sendable {
     public func getIamWorkRequest(_ request: GetIamWorkRequestRequest) async throws -> GetIamWorkRequestResponse {
         var path = "/20160918/iamWorkRequests/{iamWorkRequestId}"
         path = path.replacingOccurrences(of: "{iamWorkRequestId}", with: try OCIGen.pathParam(request.iamWorkRequestId, "iamWorkRequestId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1365,7 +1365,7 @@ public final class IdentityClient: Sendable {
     public func getIdentityProvider(_ request: GetIdentityProviderRequest) async throws -> GetIdentityProviderResponse {
         var path = "/20160918/identityProviders/{identityProviderId}"
         path = path.replacingOccurrences(of: "{identityProviderId}", with: try OCIGen.pathParam(request.identityProviderId, "identityProviderId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1384,7 +1384,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/identityProviders/{identityProviderId}/groupMappings/{mappingId}"
         path = path.replacingOccurrences(of: "{identityProviderId}", with: try OCIGen.pathParam(request.identityProviderId, "identityProviderId"))
         path = path.replacingOccurrences(of: "{mappingId}", with: try OCIGen.pathParam(request.mappingId, "mappingId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1402,7 +1402,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/users/{userId}/mfaTotpDevices/{mfaTotpDeviceId}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
         path = path.replacingOccurrences(of: "{mfaTotpDeviceId}", with: try OCIGen.pathParam(request.mfaTotpDeviceId, "mfaTotpDeviceId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1419,7 +1419,7 @@ public final class IdentityClient: Sendable {
     public func getNetworkSource(_ request: GetNetworkSourceRequest) async throws -> GetNetworkSourceResponse {
         var path = "/20160918/networkSources/{networkSourceId}"
         path = path.replacingOccurrences(of: "{networkSourceId}", with: try OCIGen.pathParam(request.networkSourceId, "networkSourceId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1436,7 +1436,7 @@ public final class IdentityClient: Sendable {
     public func getPolicy(_ request: GetPolicyRequest) async throws -> GetPolicyResponse {
         var path = "/20160918/policies/{policyId}"
         path = path.replacingOccurrences(of: "{policyId}", with: try OCIGen.pathParam(request.policyId, "policyId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1453,7 +1453,7 @@ public final class IdentityClient: Sendable {
     public func getStandardTagTemplate(_ request: GetStandardTagTemplateRequest) async throws -> GetStandardTagTemplateResponse {
         var path = "/20160918/tags/standardTagNamespaceTemplates/{standardTagNamespaceName}"
         path = path.replacingOccurrences(of: "{standardTagNamespaceName}", with: try OCIGen.pathParam(request.standardTagNamespaceName, "standardTagNamespaceName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -1471,7 +1471,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/tagNamespaces/{tagNamespaceId}/tags/{tagName}"
         path = path.replacingOccurrences(of: "{tagNamespaceId}", with: try OCIGen.pathParam(request.tagNamespaceId, "tagNamespaceId"))
         path = path.replacingOccurrences(of: "{tagName}", with: try OCIGen.pathParam(request.tagName, "tagName"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1488,7 +1488,7 @@ public final class IdentityClient: Sendable {
     public func getTagDefault(_ request: GetTagDefaultRequest) async throws -> GetTagDefaultResponse {
         var path = "/20160918/tagDefaults/{tagDefaultId}"
         path = path.replacingOccurrences(of: "{tagDefaultId}", with: try OCIGen.pathParam(request.tagDefaultId, "tagDefaultId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1505,7 +1505,7 @@ public final class IdentityClient: Sendable {
     public func getTagNamespace(_ request: GetTagNamespaceRequest) async throws -> GetTagNamespaceResponse {
         var path = "/20160918/tagNamespaces/{tagNamespaceId}"
         path = path.replacingOccurrences(of: "{tagNamespaceId}", with: try OCIGen.pathParam(request.tagNamespaceId, "tagNamespaceId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1522,7 +1522,7 @@ public final class IdentityClient: Sendable {
     public func getTaggingWorkRequest(_ request: GetTaggingWorkRequestRequest) async throws -> GetTaggingWorkRequestResponse {
         var path = "/20160918/taggingWorkRequests/{workRequestId}"
         path = path.replacingOccurrences(of: "{workRequestId}", with: try OCIGen.pathParam(request.workRequestId, "workRequestId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1539,7 +1539,7 @@ public final class IdentityClient: Sendable {
     public func getTenancy(_ request: GetTenancyRequest) async throws -> GetTenancyResponse {
         var path = "/20160918/tenancies/{tenancyId}"
         path = path.replacingOccurrences(of: "{tenancyId}", with: try OCIGen.pathParam(request.tenancyId, "tenancyId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1555,7 +1555,7 @@ public final class IdentityClient: Sendable {
     public func getUser(_ request: GetUserRequest) async throws -> GetUserResponse {
         var path = "/20160918/users/{userId}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1572,7 +1572,7 @@ public final class IdentityClient: Sendable {
     public func getUserGroupMembership(_ request: GetUserGroupMembershipRequest) async throws -> GetUserGroupMembershipResponse {
         var path = "/20160918/userGroupMemberships/{userGroupMembershipId}"
         path = path.replacingOccurrences(of: "{userGroupMembershipId}", with: try OCIGen.pathParam(request.userGroupMembershipId, "userGroupMembershipId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1590,7 +1590,7 @@ public final class IdentityClient: Sendable {
     public func getUserUIPasswordInformation(_ request: GetUserUIPasswordInformationRequest) async throws -> GetUserUIPasswordInformationResponse {
         var path = "/20160918/users/{userId}/uiPassword"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1608,7 +1608,7 @@ public final class IdentityClient: Sendable {
     public func getWorkRequest(_ request: GetWorkRequestRequest) async throws -> GetWorkRequestResponse {
         var path = "/20160918/workRequests/{workRequestId}"
         path = path.replacingOccurrences(of: "{workRequestId}", with: try OCIGen.pathParam(request.workRequestId, "workRequestId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1625,7 +1625,7 @@ public final class IdentityClient: Sendable {
     /// These Tag Namespaces will provide Tags for our customers and Partners to provide consistency and enable data reporting.
     public func importStandardTags(_ request: ImportStandardTagsRequest) async throws -> ImportStandardTagsResponse {
         let path = "/20160918/tags/actions/importStandardTags"
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)
@@ -1646,7 +1646,7 @@ public final class IdentityClient: Sendable {
     /// type name can change to. Otherwise, the request returns all valid license types currently supported.
     public func listAllowedDomainLicenseTypes(_ request: ListAllowedDomainLicenseTypesRequest) async throws -> ListAllowedDomainLicenseTypesResponse {
         let path = "/20160918/allowedDomainLicenseTypes"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "currentLicenseTypeName", request.currentLicenseTypeName)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -1666,7 +1666,7 @@ public final class IdentityClient: Sendable {
     public func listApiKeys(_ request: ListApiKeysRequest) async throws -> ListApiKeysResponse {
         var path = "/20160918/users/{userId}/apiKeys"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1684,7 +1684,7 @@ public final class IdentityClient: Sendable {
     public func listAuthTokens(_ request: ListAuthTokensRequest) async throws -> ListAuthTokensResponse {
         var path = "/20160918/users/{userId}/authTokens"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1704,7 +1704,7 @@ public final class IdentityClient: Sendable {
     /// create a dependency on the list order.
     public func listAvailabilityDomains(_ request: ListAvailabilityDomainsRequest) async throws -> ListAvailabilityDomainsResponse {
         let path = "/20160918/availabilityDomains"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -1726,7 +1726,7 @@ public final class IdentityClient: Sendable {
     /// require an OCID (https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) to identify a specific resource, but some resource-types,
     public func listBulkActionResourceTypes(_ request: ListBulkActionResourceTypesRequest) async throws -> ListBulkActionResourceTypesResponse {
         let path = "/20160918/compartments/bulkActionResourceTypes"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "bulkActionType", request.bulkActionType)
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
@@ -1745,7 +1745,7 @@ public final class IdentityClient: Sendable {
     /// ListBulkEditTagsResourceTypes Lists the resource types that support bulk tag editing.
     public func listBulkEditTagsResourceTypes(_ request: ListBulkEditTagsResourceTypesRequest) async throws -> ListBulkEditTagsResourceTypesResponse {
         let path = "/20160918/tags/bulkEditResourceTypes"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
         var headers: [String: String] = [:]
@@ -1768,7 +1768,7 @@ public final class IdentityClient: Sendable {
     /// compartments (grandchildren).
     public func listCompartments(_ request: ListCompartmentsRequest) async throws -> ListCompartmentsResponse {
         let path = "/20160918/compartments"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
@@ -1794,7 +1794,7 @@ public final class IdentityClient: Sendable {
     /// cost-tracking tags, see Using Cost-tracking Tags (https://docs.oracle.com/iaas/Content/Tagging/Tasks/usingcosttrackingtags.htm).
     public func listCostTrackingTags(_ request: ListCostTrackingTagsRequest) async throws -> ListCostTrackingTagsResponse {
         let path = "/20160918/tagNamespaces/actions/listCostTrackingTags"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
@@ -1815,7 +1815,7 @@ public final class IdentityClient: Sendable {
     public func listCustomerSecretKeys(_ request: ListCustomerSecretKeysRequest) async throws -> ListCustomerSecretKeysResponse {
         var path = "/20160918/users/{userId}/customerSecretKeys"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -1832,7 +1832,7 @@ public final class IdentityClient: Sendable {
     public func listDbCredentials(_ request: ListDbCredentialsRequest) async throws -> ListDbCredentialsResponse {
         var path = "/20160918/users/{userId}/dbCredentials"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
         OCIGen.setQuery(&query, "name", request.name)
@@ -1854,7 +1854,7 @@ public final class IdentityClient: Sendable {
     /// ListDomains (For tenancies that support identity domains) Lists all identity domains within a tenancy.
     public func listDomains(_ request: ListDomainsRequest) async throws -> ListDomainsResponse {
         let path = "/20160918/domains"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "displayName", request.displayName)
         OCIGen.setQuery(&query, "url", request.url)
@@ -1885,7 +1885,7 @@ public final class IdentityClient: Sendable {
     /// See Where to Get the Tenancy's OCID and User's OCID (https://docs.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#five).
     public func listDynamicGroups(_ request: ListDynamicGroupsRequest) async throws -> ListDynamicGroupsResponse {
         let path = "/20160918/dynamicGroups"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
@@ -1910,7 +1910,7 @@ public final class IdentityClient: Sendable {
     /// See Where to Get the Tenancy's OCID and User's OCID (https://docs.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#five).
     public func listFaultDomains(_ request: ListFaultDomainsRequest) async throws -> ListFaultDomainsResponse {
         let path = "/20160918/faultDomains"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "availabilityDomain", request.availabilityDomain)
         var headers: [String: String] = [:]
@@ -1929,7 +1929,7 @@ public final class IdentityClient: Sendable {
     /// See Where to Get the Tenancy's OCID and User's OCID (https://docs.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#five).
     public func listGroups(_ request: ListGroupsRequest) async throws -> ListGroupsResponse {
         let path = "/20160918/groups"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
@@ -1953,7 +1953,7 @@ public final class IdentityClient: Sendable {
     public func listIamWorkRequestErrors(_ request: ListIamWorkRequestErrorsRequest) async throws -> ListIamWorkRequestErrorsResponse {
         var path = "/20160918/iamWorkRequests/{iamWorkRequestId}/errors"
         path = path.replacingOccurrences(of: "{iamWorkRequestId}", with: try OCIGen.pathParam(request.iamWorkRequestId, "iamWorkRequestId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "limit", request.limit)
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "sortOrder", request.sortOrder)
@@ -1973,7 +1973,7 @@ public final class IdentityClient: Sendable {
     public func listIamWorkRequestLogs(_ request: ListIamWorkRequestLogsRequest) async throws -> ListIamWorkRequestLogsResponse {
         var path = "/20160918/iamWorkRequests/{iamWorkRequestId}/logs"
         path = path.replacingOccurrences(of: "{iamWorkRequestId}", with: try OCIGen.pathParam(request.iamWorkRequestId, "iamWorkRequestId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "limit", request.limit)
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "sortOrder", request.sortOrder)
@@ -1993,7 +1993,7 @@ public final class IdentityClient: Sendable {
     /// ListIamWorkRequests Lists the IAM work requests in compartment. The workRequestID is returned in the opc-workrequest-id header for any asynchronous operation in the Identity and Access Management service.
     public func listIamWorkRequests(_ request: ListIamWorkRequestsRequest) async throws -> ListIamWorkRequestsResponse {
         let path = "/20160918/iamWorkRequests"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
@@ -2015,7 +2015,7 @@ public final class IdentityClient: Sendable {
     public func listIdentityProviderGroups(_ request: ListIdentityProviderGroupsRequest) async throws -> ListIdentityProviderGroupsResponse {
         var path = "/20160918/identityProviders/{identityProviderId}/groups"
         path = path.replacingOccurrences(of: "{identityProviderId}", with: try OCIGen.pathParam(request.identityProviderId, "identityProviderId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
         OCIGen.setQuery(&query, "name", request.name)
@@ -2039,7 +2039,7 @@ public final class IdentityClient: Sendable {
     /// See Where to Get the Tenancy's OCID and User's OCID (https://docs.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#five).
     public func listIdentityProviders(_ request: ListIdentityProvidersRequest) async throws -> ListIdentityProvidersResponse {
         let path = "/20160918/identityProviders"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
@@ -2064,7 +2064,7 @@ public final class IdentityClient: Sendable {
     public func listIdpGroupMappings(_ request: ListIdpGroupMappingsRequest) async throws -> ListIdpGroupMappingsResponse {
         var path = "/20160918/identityProviders/{identityProviderId}/groupMappings"
         path = path.replacingOccurrences(of: "{identityProviderId}", with: try OCIGen.pathParam(request.identityProviderId, "identityProviderId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
         var headers: [String: String] = [:]
@@ -2084,7 +2084,7 @@ public final class IdentityClient: Sendable {
     public func listMfaTotpDevices(_ request: ListMfaTotpDevicesRequest) async throws -> ListMfaTotpDevicesResponse {
         var path = "/20160918/users/{userId}/mfaTotpDevices"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
         OCIGen.setQuery(&query, "sortBy", request.sortBy)
@@ -2106,7 +2106,7 @@ public final class IdentityClient: Sendable {
     /// See Where to Get the Tenancy's OCID and User's OCID (https://docs.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#five).
     public func listNetworkSources(_ request: ListNetworkSourcesRequest) async throws -> ListNetworkSourcesResponse {
         let path = "/20160918/networkSources"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
@@ -2130,7 +2130,7 @@ public final class IdentityClient: Sendable {
     public func listOAuthClientCredentials(_ request: ListOAuthClientCredentialsRequest) async throws -> ListOAuthClientCredentialsResponse {
         var path = "/20160918/users/{userId}/oauth2ClientCredentials"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
         OCIGen.setQuery(&query, "lifecycleState", request.lifecycleState)
@@ -2152,7 +2152,7 @@ public final class IdentityClient: Sendable {
     /// statements inside all your policies. There isn't a way to automatically obtain that information via the API.
     public func listPolicies(_ request: ListPoliciesRequest) async throws -> ListPoliciesResponse {
         let path = "/20160918/policies"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
@@ -2176,7 +2176,7 @@ public final class IdentityClient: Sendable {
     public func listRegionSubscriptions(_ request: ListRegionSubscriptionsRequest) async throws -> ListRegionSubscriptionsResponse {
         var path = "/20160918/tenancies/{tenancyId}/regionSubscriptions"
         path = path.replacingOccurrences(of: "{tenancyId}", with: try OCIGen.pathParam(request.tenancyId, "tenancyId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -2191,7 +2191,7 @@ public final class IdentityClient: Sendable {
     /// ListRegions Lists all the regions offered by Oracle Cloud Infrastructure.
     public func listRegions() async throws -> ListRegionsResponse {
         let path = "/20160918/regions"
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         let body: Foundation.Data? = nil
         let ociRequest = OCIRequest(method: "GET", path: path, query: query, headers: headers, body: body)
@@ -2207,7 +2207,7 @@ public final class IdentityClient: Sendable {
     public func listSmtpCredentials(_ request: ListSmtpCredentialsRequest) async throws -> ListSmtpCredentialsResponse {
         var path = "/20160918/users/{userId}/smtpCredentials"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -2223,7 +2223,7 @@ public final class IdentityClient: Sendable {
     /// ListStandardTagNamespaces Lists available standard tag namespaces that users can create.
     public func listStandardTagNamespaces(_ request: ListStandardTagNamespacesRequest) async throws -> ListStandardTagNamespacesResponse {
         let path = "/20160918/tags/standardTagNamespaceTemplates"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
@@ -2245,7 +2245,7 @@ public final class IdentityClient: Sendable {
     public func listSwiftPasswords(_ request: ListSwiftPasswordsRequest) async throws -> ListSwiftPasswordsResponse {
         var path = "/20160918/users/{userId}/swiftPasswords"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -2261,7 +2261,7 @@ public final class IdentityClient: Sendable {
     /// ListTagDefaults Lists the tag defaults for tag definitions in the specified compartment.
     public func listTagDefaults(_ request: ListTagDefaultsRequest) async throws -> ListTagDefaultsResponse {
         let path = "/20160918/tagDefaults"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
         OCIGen.setQuery(&query, "id", request.id)
@@ -2283,7 +2283,7 @@ public final class IdentityClient: Sendable {
     /// ListTagNamespaces Lists the tag namespaces in the specified compartment.
     public func listTagNamespaces(_ request: ListTagNamespacesRequest) async throws -> ListTagNamespacesResponse {
         let path = "/20160918/tagNamespaces"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
@@ -2305,7 +2305,7 @@ public final class IdentityClient: Sendable {
     public func listTaggingWorkRequestErrors(_ request: ListTaggingWorkRequestErrorsRequest) async throws -> ListTaggingWorkRequestErrorsResponse {
         var path = "/20160918/taggingWorkRequests/{workRequestId}/errors"
         path = path.replacingOccurrences(of: "{workRequestId}", with: try OCIGen.pathParam(request.workRequestId, "workRequestId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
         var headers: [String: String] = [:]
@@ -2325,7 +2325,7 @@ public final class IdentityClient: Sendable {
     public func listTaggingWorkRequestLogs(_ request: ListTaggingWorkRequestLogsRequest) async throws -> ListTaggingWorkRequestLogsResponse {
         var path = "/20160918/taggingWorkRequests/{workRequestId}/logs"
         path = path.replacingOccurrences(of: "{workRequestId}", with: try OCIGen.pathParam(request.workRequestId, "workRequestId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
         var headers: [String: String] = [:]
@@ -2344,7 +2344,7 @@ public final class IdentityClient: Sendable {
     /// ListTaggingWorkRequests Lists the tagging work requests in compartment.
     public func listTaggingWorkRequests(_ request: ListTaggingWorkRequestsRequest) async throws -> ListTaggingWorkRequestsResponse {
         let path = "/20160918/taggingWorkRequests"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
@@ -2365,7 +2365,7 @@ public final class IdentityClient: Sendable {
     public func listTags(_ request: ListTagsRequest) async throws -> ListTagsResponse {
         var path = "/20160918/tagNamespaces/{tagNamespaceId}/tags"
         path = path.replacingOccurrences(of: "{tagNamespaceId}", with: try OCIGen.pathParam(request.tagNamespaceId, "tagNamespaceId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
         OCIGen.setQuery(&query, "lifecycleState", request.lifecycleState)
@@ -2389,7 +2389,7 @@ public final class IdentityClient: Sendable {
     /// - Similarly, you can limit the results to just the memberships for a given group by specifying a `groupId`.
     public func listUserGroupMemberships(_ request: ListUserGroupMembershipsRequest) async throws -> ListUserGroupMembershipsResponse {
         let path = "/20160918/userGroupMemberships"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "userId", request.userId)
         OCIGen.setQuery(&query, "groupId", request.groupId)
@@ -2412,7 +2412,7 @@ public final class IdentityClient: Sendable {
     /// See Where to Get the Tenancy's OCID and User's OCID (https://docs.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#five).
     public func listUsers(_ request: ListUsersRequest) async throws -> ListUsersResponse {
         let path = "/20160918/users"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
@@ -2437,7 +2437,7 @@ public final class IdentityClient: Sendable {
     /// ListWorkRequests Lists the work requests in compartment.
     public func listWorkRequests(_ request: ListWorkRequestsRequest) async throws -> ListWorkRequestsResponse {
         let path = "/20160918/workRequests"
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "compartmentId", request.compartmentId)
         OCIGen.setQuery(&query, "page", request.page)
         OCIGen.setQuery(&query, "limit", request.limit)
@@ -2463,7 +2463,7 @@ public final class IdentityClient: Sendable {
     public func moveCompartment(_ request: MoveCompartmentRequest) async throws -> MoveCompartmentResponse {
         var path = "/20160918/compartments/{compartmentId}/actions/moveCompartment"
         path = path.replacingOccurrences(of: "{compartmentId}", with: try OCIGen.pathParam(request.compartmentId, "compartmentId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2472,7 +2472,7 @@ public final class IdentityClient: Sendable {
         let body: Foundation.Data? = try OCIGen.jsonBody(request.moveCompartmentDetails)
         if body != nil, headers["content-type"] == nil { headers["content-type"] = "application/json" }
         let ociRequest = OCIRequest(method: "POST", path: path, query: query, headers: headers, body: body)
-        let (data, http) = try await base.callRaw(ociRequest)
+        let (_, http) = try await base.callRaw(ociRequest)
         return MoveCompartmentResponse(
             opcRequestId: OCIGen.header(http, "opc-request-id"),
             opcWorkRequestId: OCIGen.header(http, "opc-work-request-id")
@@ -2483,7 +2483,7 @@ public final class IdentityClient: Sendable {
     public func recoverCompartment(_ request: RecoverCompartmentRequest) async throws -> RecoverCompartmentResponse {
         var path = "/20160918/compartments/{compartmentId}/actions/recoverCompartment"
         path = path.replacingOccurrences(of: "{compartmentId}", with: try OCIGen.pathParam(request.compartmentId, "compartmentId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2501,7 +2501,7 @@ public final class IdentityClient: Sendable {
     public func removeTagDefaultLock(_ request: RemoveTagDefaultLockRequest) async throws -> RemoveTagDefaultLockResponse {
         var path = "/20160918/tagDefaults/{tagDefaultId}/actions/removeLock"
         path = path.replacingOccurrences(of: "{tagDefaultId}", with: try OCIGen.pathParam(request.tagDefaultId, "tagDefaultId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2522,7 +2522,7 @@ public final class IdentityClient: Sendable {
     public func removeTagNamespaceLock(_ request: RemoveTagNamespaceLockRequest) async throws -> RemoveTagNamespaceLockResponse {
         var path = "/20160918/tagNamespaces/{tagNamespaceId}/actions/removeLock"
         path = path.replacingOccurrences(of: "{tagNamespaceId}", with: try OCIGen.pathParam(request.tagNamespaceId, "tagNamespaceId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2543,13 +2543,13 @@ public final class IdentityClient: Sendable {
     public func removeUserFromGroup(_ request: RemoveUserFromGroupRequest) async throws -> RemoveUserFromGroupResponse {
         var path = "/20160918/userGroupMemberships/{userGroupMembershipId}"
         path = path.replacingOccurrences(of: "{userGroupMembershipId}", with: try OCIGen.pathParam(request.userGroupMembershipId, "userGroupMembershipId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
         let ociRequest = OCIRequest(method: "DELETE", path: path, query: query, headers: headers, body: body)
-        let (data, http) = try await base.callRaw(ociRequest)
+        let (_, http) = try await base.callRaw(ociRequest)
         return RemoveUserFromGroupResponse(
             opcRequestId: OCIGen.header(http, "opc-request-id")
         )
@@ -2559,7 +2559,7 @@ public final class IdentityClient: Sendable {
     public func resetIdpScimClient(_ request: ResetIdpScimClientRequest) async throws -> ResetIdpScimClientResponse {
         var path = "/20160918/identityProviders/{identityProviderId}/actions/resetScimClient"
         path = path.replacingOccurrences(of: "{identityProviderId}", with: try OCIGen.pathParam(request.identityProviderId, "identityProviderId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
@@ -2576,7 +2576,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/users/{userId}/authTokens/{authTokenId}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
         path = path.replacingOccurrences(of: "{authTokenId}", with: try OCIGen.pathParam(request.authTokenId, "authTokenId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2595,7 +2595,7 @@ public final class IdentityClient: Sendable {
     public func updateAuthenticationPolicy(_ request: UpdateAuthenticationPolicyRequest) async throws -> UpdateAuthenticationPolicyResponse {
         var path = "/20160918/authenticationPolicies/{compartmentId}"
         path = path.replacingOccurrences(of: "{compartmentId}", with: try OCIGen.pathParam(request.compartmentId, "compartmentId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2614,7 +2614,7 @@ public final class IdentityClient: Sendable {
     public func updateCompartment(_ request: UpdateCompartmentRequest) async throws -> UpdateCompartmentResponse {
         var path = "/20160918/compartments/{compartmentId}"
         path = path.replacingOccurrences(of: "{compartmentId}", with: try OCIGen.pathParam(request.compartmentId, "compartmentId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2634,7 +2634,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/users/{userId}/customerSecretKeys/{customerSecretKeyId}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
         path = path.replacingOccurrences(of: "{customerSecretKeyId}", with: try OCIGen.pathParam(request.customerSecretKeyId, "customerSecretKeyId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2655,14 +2655,14 @@ public final class IdentityClient: Sendable {
     public func updateDomain(_ request: UpdateDomainRequest) async throws -> UpdateDomainResponse {
         var path = "/20160918/domains/{domainId}"
         path = path.replacingOccurrences(of: "{domainId}", with: try OCIGen.pathParam(request.domainId, "domainId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = try OCIGen.jsonBody(request.updateDomainDetails)
         if body != nil, headers["content-type"] == nil { headers["content-type"] = "application/json" }
         let ociRequest = OCIRequest(method: "PUT", path: path, query: query, headers: headers, body: body)
-        let (data, http) = try await base.callRaw(ociRequest)
+        let (_, http) = try await base.callRaw(ociRequest)
         return UpdateDomainResponse(
             opcRequestId: OCIGen.header(http, "opc-request-id"),
             opcWorkRequestId: OCIGen.header(http, "opc-work-request-id")
@@ -2673,7 +2673,7 @@ public final class IdentityClient: Sendable {
     public func updateDynamicGroup(_ request: UpdateDynamicGroupRequest) async throws -> UpdateDynamicGroupResponse {
         var path = "/20160918/dynamicGroups/{dynamicGroupId}"
         path = path.replacingOccurrences(of: "{dynamicGroupId}", with: try OCIGen.pathParam(request.dynamicGroupId, "dynamicGroupId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2692,7 +2692,7 @@ public final class IdentityClient: Sendable {
     public func updateGroup(_ request: UpdateGroupRequest) async throws -> UpdateGroupResponse {
         var path = "/20160918/groups/{groupId}"
         path = path.replacingOccurrences(of: "{groupId}", with: try OCIGen.pathParam(request.groupId, "groupId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2712,7 +2712,7 @@ public final class IdentityClient: Sendable {
     public func updateIdentityProvider(_ request: UpdateIdentityProviderRequest) async throws -> UpdateIdentityProviderResponse {
         var path = "/20160918/identityProviders/{identityProviderId}"
         path = path.replacingOccurrences(of: "{identityProviderId}", with: try OCIGen.pathParam(request.identityProviderId, "identityProviderId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2733,7 +2733,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/identityProviders/{identityProviderId}/groupMappings/{mappingId}"
         path = path.replacingOccurrences(of: "{identityProviderId}", with: try OCIGen.pathParam(request.identityProviderId, "identityProviderId"))
         path = path.replacingOccurrences(of: "{mappingId}", with: try OCIGen.pathParam(request.mappingId, "mappingId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2752,7 +2752,7 @@ public final class IdentityClient: Sendable {
     public func updateNetworkSource(_ request: UpdateNetworkSourceRequest) async throws -> UpdateNetworkSourceResponse {
         var path = "/20160918/networkSources/{networkSourceId}"
         path = path.replacingOccurrences(of: "{networkSourceId}", with: try OCIGen.pathParam(request.networkSourceId, "networkSourceId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2772,7 +2772,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/users/{userId}/oauth2ClientCredentials/{oauth2ClientCredentialId}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
         path = path.replacingOccurrences(of: "{oauth2ClientCredentialId}", with: try OCIGen.pathParam(request.oauth2ClientCredentialId, "oauth2ClientCredentialId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2792,7 +2792,7 @@ public final class IdentityClient: Sendable {
     public func updatePolicy(_ request: UpdatePolicyRequest) async throws -> UpdatePolicyResponse {
         var path = "/20160918/policies/{policyId}"
         path = path.replacingOccurrences(of: "{policyId}", with: try OCIGen.pathParam(request.policyId, "policyId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2812,7 +2812,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/users/{userId}/smtpCredentials/{smtpCredentialId}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
         path = path.replacingOccurrences(of: "{smtpCredentialId}", with: try OCIGen.pathParam(request.smtpCredentialId, "smtpCredentialId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2833,7 +2833,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/users/{userId}/swiftPasswords/{swiftPasswordId}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
         path = path.replacingOccurrences(of: "{swiftPasswordId}", with: try OCIGen.pathParam(request.swiftPasswordId, "swiftPasswordId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2858,7 +2858,7 @@ public final class IdentityClient: Sendable {
         var path = "/20160918/tagNamespaces/{tagNamespaceId}/tags/{tagName}"
         path = path.replacingOccurrences(of: "{tagNamespaceId}", with: try OCIGen.pathParam(request.tagNamespaceId, "tagNamespaceId"))
         path = path.replacingOccurrences(of: "{tagName}", with: try OCIGen.pathParam(request.tagName, "tagName"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "isLockOverride", request.isLockOverride)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -2882,7 +2882,7 @@ public final class IdentityClient: Sendable {
     public func updateTagDefault(_ request: UpdateTagDefaultRequest) async throws -> UpdateTagDefaultResponse {
         var path = "/20160918/tagDefaults/{tagDefaultId}"
         path = path.replacingOccurrences(of: "{tagDefaultId}", with: try OCIGen.pathParam(request.tagDefaultId, "tagDefaultId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "isLockOverride", request.isLockOverride)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
@@ -2907,7 +2907,7 @@ public final class IdentityClient: Sendable {
     public func updateTagNamespace(_ request: UpdateTagNamespaceRequest) async throws -> UpdateTagNamespaceResponse {
         var path = "/20160918/tagNamespaces/{tagNamespaceId}"
         path = path.replacingOccurrences(of: "{tagNamespaceId}", with: try OCIGen.pathParam(request.tagNamespaceId, "tagNamespaceId"))
-        var query: [String: String] = [:]
+        var query: [URLQueryItem] = []
         OCIGen.setQuery(&query, "isLockOverride", request.isLockOverride)
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2925,7 +2925,7 @@ public final class IdentityClient: Sendable {
     public func updateUser(_ request: UpdateUserRequest) async throws -> UpdateUserResponse {
         var path = "/20160918/users/{userId}"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2944,7 +2944,7 @@ public final class IdentityClient: Sendable {
     public func updateUserCapabilities(_ request: UpdateUserCapabilitiesRequest) async throws -> UpdateUserCapabilitiesResponse {
         var path = "/20160918/users/{userId}/capabilities"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2963,7 +2963,7 @@ public final class IdentityClient: Sendable {
     public func updateUserState(_ request: UpdateUserStateRequest) async throws -> UpdateUserStateResponse {
         var path = "/20160918/users/{userId}/state"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "if-match", request.ifMatch)
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
@@ -2987,7 +2987,7 @@ public final class IdentityClient: Sendable {
     public func uploadApiKey(_ request: UploadApiKeyRequest) async throws -> UploadApiKeyResponse {
         var path = "/20160918/users/{userId}/apiKeys"
         path = path.replacingOccurrences(of: "{userId}", with: try OCIGen.pathParam(request.userId, "userId"))
-        let query: [String: String] = [:]
+        let query: [URLQueryItem] = []
         var headers: [String: String] = [:]
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         OCIGen.setHeader(&headers, "opc-retry-token", request.opcRetryToken)

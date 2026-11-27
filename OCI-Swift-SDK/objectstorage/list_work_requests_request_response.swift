@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - ListWorkRequestsRequest
 
-public struct ListWorkRequestsRequest: Sendable {
+public struct ListWorkRequestsRequest: Sendable, Codable {
     public var compartmentId: String
     public var privateEndpointName: String?
     public var opcClientRequestId: String?
@@ -22,7 +22,7 @@ public struct ListWorkRequestsRequest: Sendable {
 
 // MARK: - ListWorkRequestsResponse
 
-public struct ListWorkRequestsResponse: Sendable {
+public struct ListWorkRequestsResponse: Sendable, Codable {
     public var items: [WorkRequestSummary]?
     public var opcRequestId: String?
     public var opcNextPage: String?

@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - GetReplicationPolicyRequest
 
-public struct GetReplicationPolicyRequest: Sendable {
+public struct GetReplicationPolicyRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var replicationId: String
@@ -20,7 +20,7 @@ public struct GetReplicationPolicyRequest: Sendable {
 
 // MARK: - GetReplicationPolicyResponse
 
-public struct GetReplicationPolicyResponse: Sendable {
+public struct GetReplicationPolicyResponse: Sendable, Codable {
     public var replicationPolicy: ReplicationPolicy?
     public var opcRequestId: String?
     public var opcClientRequestId: String?

@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - UpdateNamespaceMetadataRequest
 
-public struct UpdateNamespaceMetadataRequest: Sendable {
+public struct UpdateNamespaceMetadataRequest: Sendable, Codable {
     public var namespaceName: String
     public var updateNamespaceMetadataDetails: UpdateNamespaceMetadataDetails?
     public var opcClientRequestId: String?
@@ -18,7 +18,7 @@ public struct UpdateNamespaceMetadataRequest: Sendable {
 
 // MARK: - UpdateNamespaceMetadataResponse
 
-public struct UpdateNamespaceMetadataResponse: Sendable {
+public struct UpdateNamespaceMetadataResponse: Sendable, Codable {
     public var namespaceMetadata: NamespaceMetadata?
     public var opcClientRequestId: String?
     public var opcRequestId: String?

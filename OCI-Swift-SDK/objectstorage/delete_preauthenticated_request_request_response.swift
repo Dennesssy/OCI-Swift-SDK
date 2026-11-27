@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - DeletePreauthenticatedRequestRequest
 
-public struct DeletePreauthenticatedRequestRequest: Sendable {
+public struct DeletePreauthenticatedRequestRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var parId: String
@@ -20,7 +20,7 @@ public struct DeletePreauthenticatedRequestRequest: Sendable {
 
 // MARK: - DeletePreauthenticatedRequestResponse
 
-public struct DeletePreauthenticatedRequestResponse: Sendable {
+public struct DeletePreauthenticatedRequestResponse: Sendable, Codable {
     public var opcClientRequestId: String?
     public var opcRequestId: String?
 

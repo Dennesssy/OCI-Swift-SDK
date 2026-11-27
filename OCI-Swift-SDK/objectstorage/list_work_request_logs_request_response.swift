@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - ListWorkRequestLogsRequest
 
-public struct ListWorkRequestLogsRequest: Sendable {
+public struct ListWorkRequestLogsRequest: Sendable, Codable {
     public var workRequestId: String
     public var page: String?
     public var limit: Int?
@@ -20,7 +20,7 @@ public struct ListWorkRequestLogsRequest: Sendable {
 
 // MARK: - ListWorkRequestLogsResponse
 
-public struct ListWorkRequestLogsResponse: Sendable {
+public struct ListWorkRequestLogsResponse: Sendable, Codable {
     public var items: [WorkRequestLogEntry]?
     public var opcRequestId: String?
     public var opcClientRequestId: String?

@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - HeadBucketRequest
 
-public struct HeadBucketRequest: Sendable {
+public struct HeadBucketRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var ifMatch: String?
@@ -22,7 +22,7 @@ public struct HeadBucketRequest: Sendable {
 
 // MARK: - HeadBucketResponse
 
-public struct HeadBucketResponse: Sendable {
+public struct HeadBucketResponse: Sendable, Codable {
     public var opcClientRequestId: String?
     public var opcRequestId: String?
     public var eTag: String?

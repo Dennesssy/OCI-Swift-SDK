@@ -5,16 +5,25 @@ import Foundation
 public struct OCIRequest: Sendable {
     public var method: String
     public var path: String
-    public var query: [String: String]
+    public var query: [URLQueryItem]
     public var headers: [String: String]
     public var body: Data?
 
-    public init(method: String, path: String, query: [String: String] = [:], headers: [String: String] = [:], body: Data? = nil) {
+    public init(method: String, path: String, query: [URLQueryItem] = [], headers: [String: String] = [:], body: Data? = nil) {
         self.method = method
         self.path = path
         self.query = query
         self.headers = headers
         self.body = body
+    }
+
+    /// Convenience for callers that still use a dictionary: keys are sorted so the
+    /// wire encoding is deterministic (and matches the previous sorted behavior).
+    public init(method: String, path: String, query: [String: String], headers: [String: String] = [:], body: Data? = nil) {
+        self.init(method: method, path: path,
+                  query: query.map { URLQueryItem(name: $0.key, value: $0.value) }
+                      .sorted { $0.name < $1.name },
+                  headers: headers, body: body)
     }
 
     /// RFC 3986 unreserved characters only; everything else is percent-encoded (space becomes %20).
@@ -24,10 +33,11 @@ public struct OCIRequest: Sendable {
         return s.addingPercentEncoding(withAllowedCharacters: allowed) ?? s
     }
 
-    /// Query string with keys sorted, so signing and sending use identical bytes.
+    /// Query string in insertion order (ordered pairs), so repeated `collectionFormat=multi`
+    /// keys are preserved and signing/sending use identical bytes.
     public var encodedQuery: String {
-        query.keys.sorted().map { k in
-            "\(Self.encodeQueryComponent(k))=\(Self.encodeQueryComponent(query[k] ?? ""))"
+        query.map {
+            "\(Self.encodeQueryComponent($0.name))=\(Self.encodeQueryComponent($0.value ?? ""))"
         }.joined(separator: "&")
     }
 
@@ -40,6 +50,17 @@ public struct OCIRequest: Sendable {
         let q = encodedQuery
         if !q.isEmpty { c.percentEncodedQuery = q }
         return c.url
+    }
+}
+extension Array where Element == URLQueryItem {
+    /// First value for a given query name (or nil if absent).
+    public subscript(_ name: String) -> String? {
+        first(where: { $0.name == name })?.value
+    }
+
+    /// All values for a query name, in order (supports repeated `multi` keys).
+    public func values(named name: String) -> [String] {
+        filter { $0.name == name }.compactMap(\.value)
     }
 }
 

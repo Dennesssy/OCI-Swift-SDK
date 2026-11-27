@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - GetPrivateEndpointRequest
 
-public struct GetPrivateEndpointRequest: Sendable {
+public struct GetPrivateEndpointRequest: Sendable, Codable {
     public var namespaceName: String
     public var peName: String
     public var ifMatch: String?
@@ -22,7 +22,7 @@ public struct GetPrivateEndpointRequest: Sendable {
 
 // MARK: - GetPrivateEndpointResponse
 
-public struct GetPrivateEndpointResponse: Sendable {
+public struct GetPrivateEndpointResponse: Sendable, Codable {
     public var privateEndpoint: PrivateEndpoint?
     public var opcClientRequestId: String?
     public var opcRequestId: String?

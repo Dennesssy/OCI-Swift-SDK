@@ -4,7 +4,7 @@ import Foundation
 
 // MARK: - PutObjectLifecyclePolicyRequest
 
-public struct PutObjectLifecyclePolicyRequest: Sendable {
+public struct PutObjectLifecyclePolicyRequest: Sendable, Codable {
     public var namespaceName: String
     public var bucketName: String
     public var putObjectLifecyclePolicyDetails: PutObjectLifecyclePolicyDetails?
@@ -24,7 +24,7 @@ public struct PutObjectLifecyclePolicyRequest: Sendable {
 
 // MARK: - PutObjectLifecyclePolicyResponse
 
-public struct PutObjectLifecyclePolicyResponse: Sendable {
+public struct PutObjectLifecyclePolicyResponse: Sendable, Codable {
     public var objectLifecyclePolicy: ObjectLifecyclePolicy?
     public var opcRequestId: String?
     public var opcClientRequestId: String?

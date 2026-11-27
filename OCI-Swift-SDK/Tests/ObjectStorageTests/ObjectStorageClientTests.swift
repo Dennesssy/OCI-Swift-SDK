@@ -1,7 +1,7 @@
 import XCTest
 import Foundation
 import OCICommon
-@testable import ObjectStorage
+@testable import objectstorage
 
 struct StubSigner: Signer {
     func sign(_ req: inout URLRequest) throws { req.setValue("Signature stub", forHTTPHeaderField: "authorization") }
@@ -51,7 +51,7 @@ final class ObjectStorageClientTests: XCTestCase {
         XCTAssertEqual(req.query["limit"], "5")
         XCTAssertEqual(req.query["page"], "p1")
         XCTAssertEqual(req.query["fields"], "tags")
-        XCTAssertEqual(req.encodedQuery, "compartmentId=ocid1.compartment.oc1..x&fields=tags&limit=5&page=p1")
+        XCTAssertEqual(req.encodedQuery, "compartmentId=ocid1.compartment.oc1..x&limit=5&page=p1&fields=tags")
         XCTAssertEqual(req.headers["opc-client-request-id"], "cli-1")
         XCTAssertEqual(req.headers["authorization"], "Signature stub")
         XCTAssertNil(req.body)
@@ -85,7 +85,7 @@ final class ObjectStorageClientTests: XCTestCase {
         let (req, _) = try XCTUnwrap(http.sent.first)
         XCTAssertEqual(req.method, "GET")
         XCTAssertEqual(req.path, "/n/ns/b/bkt/o/dir/sub/file%20name.bin")
-        XCTAssertEqual(req.query, ["versionId": "v1"])
+        XCTAssertEqual(req.query.values(named: "versionId"), ["v1"])
         XCTAssertEqual(req.headers["if-match"], "\"abc\"")
         XCTAssertEqual(req.headers["range"], "bytes=0-6")
         XCTAssertEqual(resp.content, bytes)

@@ -57,6 +57,23 @@ You will need:
 
 See [SDK and Tool Configuration][3] in the OCI documentation for setup instructions.
 
+### Loading configuration
+
+The `ConfigFileProvider` reads the standard OCI config file and honors the
+`OCI_CONFIG_FILE` environment-variable override (falling back to `~/.oci/config`):
+
+```swift
+let config = try ConfigFileProvider()                  // ~/.oci/config (or $OCI_CONFIG_FILE)
+let prod = try ConfigFileProvider(profile: "PROD")     // named profile
+```
+
+> **Instance / resource principals:** `InstancePrincipalProvider` performs the live IMDS
+> identity-document fetch and `ResourcePrincipalProvider` reads the `OCI_RESOURCE_PRINCIPAL_*`
+> environment. Full instance-principal authentication additionally requires exchanging the
+> IMDS leaf certificate for a federation security token against the OCI auth service; that
+> exchange only runs inside an OCI compute instance (live IMDS) and is documented as
+> **out of scope** here — it is not verifiable without that environment.
+
 ---
 
 ## Usage
@@ -90,7 +107,7 @@ OCI-Swift-SDK/
 ├── common/          # Auth, HTTP signing, shared types
 ├── Sources/         # Main library entry point
 ├── Tests/
-├── core/            # Compute, VCN, Block Storage
+├── core/            # Core model types (Compute/VCN/Block Storage clients not yet generated)
 ├── identity/        # IAM, Users, Groups, Policies
 ├── objectstorage/
 ├── database/
@@ -101,6 +118,14 @@ OCI-Swift-SDK/
 ```
 
 Each service folder maps 1:1 to an OCI service and contains a `*_client.swift`, request/response structs, and model types.
+
+> **Known gap (core clients):** `core/` contains model types only — the four upstream
+> `oci-go-sdk` clients (`ComputeClient`, `VirtualNetworkClient`, `BlockstorageClient`,
+> `ComputeManagementClient`) are not generated. Running [tools/gen](tools/gen/gen.py)
+> against the upstream `oci-go-sdk` `core/` source yields 441 operations but references
+> ~388 model types that have no Swift equivalents yet (reported as `missing_types`), so
+> emitting these clients today would not compile. Closing the gap requires first
+> generating the full `core/` model catalog; this is a deliberate, documented limitation.
 
 ---
 
@@ -129,6 +154,18 @@ Each service folder maps 1:1 to an OCI service and contains a `*_client.swift`, 
 ## Contributing
 
 Contributions are welcome. Open an [issue][4] for bugs or missing service coverage, or submit a pull request.
+
+---
+
+## Code Review & Maintenance
+
+- Generated service clients are produced by [tools/gen/gen.py](tools/gen/gen.py) from the
+  upstream `oci-go-sdk` sources. Do not hand-edit generated files unless the generator
+  cannot express the fix (see `HAND-EDIT` markers); generator bugs belong in `tools/gen/`.
+- The generator emits `_` for unused response bodies, so bodyless operations do not bind a
+  dead `data` value.
+- PR summaries and correctness review are provided by Macroscope (markers in
+  `.github/pull_request_template.md`) and CodeRabbit (CLI).
 
 ---
 
