@@ -627,7 +627,6 @@ def gen_op(op, ci, structs, sw_structs, declared, report, odir, referenced, emit
     else:
         L.append("        let body: Foundation.Data? = nil")
     L.append("        let ociRequest = OCIRequest(method: %s, path: path, query: query, headers: headers, body: body)" % swift_string(op["method"]))
-    L.append("        let (data, http) = try await base.callRaw(ociRequest)")
     # response
     lbl = None
     if resptype in sw_structs and sw_structs[resptype][1]:
@@ -661,13 +660,19 @@ def gen_op(op, ci, structs, sw_structs, declared, report, odir, referenced, emit
             used_http = True
         else:
             continue
-        args.append("%s: %s" % (esc(p.name), expr))
+    if used_data and used_http:
+        L.append("        let (data, http) = try await base.callRaw(ociRequest)")
+    elif used_data:
+        L.append("        let (data, _) = try await base.callRaw(ociRequest)")
+    elif used_http:
+        L.append("        let (_, http) = try await base.callRaw(ociRequest)")
+    else:
+        L.append("        _ = try await base.callRaw(ociRequest)")
     if args:
         L.append("        return %s(" % resptype)
         L.append(",\n".join("            " + a for a in args))
         L.append("        )")
     else:
-        L.append("        _ = (data, http)")
         L.append("        return %s()" % resptype)
     L.append("    }")
     report["emitted"] += 1

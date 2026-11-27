@@ -2472,7 +2472,7 @@ public final class IdentityClient: Sendable {
         let body: Foundation.Data? = try OCIGen.jsonBody(request.moveCompartmentDetails)
         if body != nil, headers["content-type"] == nil { headers["content-type"] = "application/json" }
         let ociRequest = OCIRequest(method: "POST", path: path, query: query, headers: headers, body: body)
-        let (data, http) = try await base.callRaw(ociRequest)
+        let (_, http) = try await base.callRaw(ociRequest)
         return MoveCompartmentResponse(
             opcRequestId: OCIGen.header(http, "opc-request-id"),
             opcWorkRequestId: OCIGen.header(http, "opc-work-request-id")
@@ -2549,7 +2549,7 @@ public final class IdentityClient: Sendable {
         OCIGen.setHeader(&headers, "opc-request-id", request.opcRequestId)
         let body: Foundation.Data? = nil
         let ociRequest = OCIRequest(method: "DELETE", path: path, query: query, headers: headers, body: body)
-        let (data, http) = try await base.callRaw(ociRequest)
+        let (_, http) = try await base.callRaw(ociRequest)
         return RemoveUserFromGroupResponse(
             opcRequestId: OCIGen.header(http, "opc-request-id")
         )
@@ -2662,7 +2662,7 @@ public final class IdentityClient: Sendable {
         let body: Foundation.Data? = try OCIGen.jsonBody(request.updateDomainDetails)
         if body != nil, headers["content-type"] == nil { headers["content-type"] = "application/json" }
         let ociRequest = OCIRequest(method: "PUT", path: path, query: query, headers: headers, body: body)
-        let (data, http) = try await base.callRaw(ociRequest)
+        let (_, http) = try await base.callRaw(ociRequest)
         return UpdateDomainResponse(
             opcRequestId: OCIGen.header(http, "opc-request-id"),
             opcWorkRequestId: OCIGen.header(http, "opc-work-request-id")
